@@ -1,0 +1,847 @@
+/* =========================================================
+   PROJETO 1 — ÁGUIAS DE CONCÓRDIA
+   CSS BASE — VERSÃO 02
+========================================================= */
+
+/* =========================================================
+   1. RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #17213d;
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =========================================================
+   2. VARIÁVEIS
+========================================================= */
+
+:root {
+  --azul: #071b49;
+  --azul-claro: #163b78;
+
+  --vermelho: #e52420;
+  --vermelho-escuro: #b91c1c;
+
+  --branco: #ffffff;
+
+  --cinza-claro: #f5f6f8;
+  --cinza: #6b7280;
+  --cinza-escuro: #374151;
+
+  --borda: #e5e7eb;
+
+  --largura-container: 1200px;
+
+  --transicao: 0.25s ease;
+}
+
+/* =========================================================
+   3. CONTAINER
+========================================================= */
+
+.container {
+  width: min(calc(100% - 40px), var(--largura-container));
+
+  margin-inline: auto;
+}
+
+/* =========================================================
+   4. ACESSIBILIDADE — SKIP LINK
+========================================================= */
+
+.skip-link {
+  position: absolute;
+
+  top: -100px;
+  left: 20px;
+
+  z-index: 9999;
+
+  padding: 12px 18px;
+
+  background: var(--azul);
+  color: var(--branco);
+
+  border-radius: 0 0 6px 6px;
+
+  font-weight: 700;
+
+  transition: top var(--transicao);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* =========================================================
+   5. BARRA DE ACESSIBILIDADE
+========================================================= */
+
+.barra-acessibilidade {
+  width: 100%;
+
+  background: var(--azul);
+
+  color: var(--branco);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.barra-acessibilidade .container {
+  min-height: 46px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 6px;
+}
+
+.acessibilidade-titulo {
+  margin-right: 8px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.barra-acessibilidade button {
+  min-height: 34px;
+
+  padding: 5px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  border-radius: 4px;
+
+  background: transparent;
+
+  color: var(--branco);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition:
+    background-color var(--transicao),
+    color var(--transicao);
+}
+
+.barra-acessibilidade button:hover,
+.barra-acessibilidade button:focus-visible {
+  background: var(--branco);
+
+  color: var(--azul);
+}
+
+/* =========================================================
+   6. PAINEL DE ACESSIBILIDADE
+========================================================= */
+
+.painel-acessibilidade {
+  padding: 20px;
+
+  background: var(--cinza-claro);
+
+  border-bottom: 1px solid var(--borda);
+}
+
+.painel-acessibilidade h2 {
+  margin-bottom: 12px;
+
+  color: var(--azul);
+
+  font-size: 20px;
+}
+
+.painel-acessibilidade button {
+  padding: 8px 14px;
+
+  border: 1px solid var(--azul);
+
+  border-radius: 5px;
+
+  background: var(--branco);
+
+  color: var(--azul);
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   7. CABEÇALHO
+========================================================= */
+
+.cabecalho {
+  position: relative;
+
+  background: var(--branco);
+
+  border-bottom: 1px solid var(--borda);
+}
+
+/* Área interna */
+
+.cabecalho .container {
+  min-height: 175px;
+
+  padding: 12px 0 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+}
+
+/* =========================================================
+   8. LOGO
+========================================================= */
+
+.logo-link {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.logo {
+  width: 95px;
+
+  height: 95px;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   9. MENU PRINCIPAL
+========================================================= */
+
+.menu-principal {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+.menu-principal > ul {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 2px;
+}
+
+/* Links e botões */
+
+.menu-principal a,
+.menu-principal button {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 7px 13px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--azul);
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    color var(--transicao),
+    background-color var(--transicao);
+}
+
+/* Hover */
+
+.menu-principal a:hover,
+.menu-principal button:hover {
+  color: var(--vermelho);
+}
+
+/* Foco teclado */
+
+.menu-principal a:focus-visible,
+.menu-principal button:focus-visible {
+  outline: 3px solid var(--vermelho);
+
+  outline-offset: 2px;
+
+  color: var(--vermelho);
+}
+
+/* Linha vermelha */
+
+.menu-principal a::after,
+.menu-principal button::after {
+  content: "";
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+
+  bottom: 2px;
+
+  height: 3px;
+
+  background: var(--vermelho);
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition: transform var(--transicao);
+}
+
+.menu-principal a:hover::after,
+.menu-principal button:hover::after,
+.menu-principal a:focus-visible::after,
+.menu-principal button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   10. SUBMENUS
+========================================================= */
+
+.item-submenu {
+  position: relative;
+}
+
+/* IMPORTANTE:
+   os submenus começam fechados */
+
+.submenu {
+  display: none;
+
+  position: absolute;
+
+  top: calc(100% + 4px);
+
+  left: 50%;
+
+  min-width: 230px;
+
+  padding: 8px;
+
+  background: var(--branco);
+
+  border: 1px solid var(--borda);
+
+  border-radius: 4px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  transform: translateX(-50%);
+
+  z-index: 1000;
+}
+
+/* Submenu aberto pelo JavaScript */
+
+.item-submenu.aberto > .submenu {
+  display: block;
+}
+
+/* Itens */
+
+.submenu li {
+  width: 100%;
+}
+
+.submenu a {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: flex-start;
+
+  padding: 10px 12px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   11. BOTÃO MENU MOBILE
+========================================================= */
+
+.botao-menu {
+  display: none;
+
+  width: 46px;
+
+  height: 46px;
+
+  padding: 8px;
+
+  border: 2px solid var(--azul);
+
+  border-radius: 5px;
+
+  background: var(--branco);
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+}
+
+.botao-menu span {
+  display: block;
+
+  width: 23px;
+
+  height: 3px;
+
+  background: var(--azul);
+
+  border-radius: 3px;
+}
+
+/* =========================================================
+   12. FOCO GLOBAL
+========================================================= */
+
+:focus-visible {
+  outline: 3px solid var(--vermelho);
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   13. TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+  .cabecalho .container {
+    gap: 8px;
+  }
+
+  .menu-principal a,
+  .menu-principal button {
+    padding-inline: 9px;
+
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   14. CELULAR
+========================================================= */
+
+@media (max-width: 800px) {
+  /* -------------------------
+       ACESSIBILIDADE
+    ------------------------- */
+
+  .barra-acessibilidade .container {
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    padding-block: 8px;
+  }
+
+  .acessibilidade-titulo {
+    width: 100%;
+
+    margin-right: 0;
+
+    text-align: center;
+  }
+
+  /* -------------------------
+       CABEÇALHO
+    ------------------------- */
+
+  .cabecalho .container {
+    min-height: 95px;
+
+    padding: 10px 0;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+  }
+
+  /* Logo */
+
+  .logo {
+    width: 72px;
+
+    height: 72px;
+  }
+
+  /* -------------------------
+       BOTÃO MOBILE
+    ------------------------- */
+
+  .botao-menu {
+    display: flex;
+  }
+
+  /* -------------------------
+       MENU MOBILE
+    ------------------------- */
+
+  .menu-principal {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    background: var(--branco);
+
+    border-top: 1px solid var(--borda);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+    z-index: 999;
+  }
+
+  /* Menu aberto */
+
+  .menu-principal.aberto {
+    display: block;
+  }
+
+  .menu-principal > ul {
+    display: block;
+  }
+
+  .menu-principal li {
+    width: 100%;
+  }
+
+  .menu-principal a,
+  .menu-principal button {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    padding: 14px 20px;
+
+    border-bottom: 1px solid var(--borda);
+
+    font-size: 16px;
+  }
+
+  /* -------------------------
+       SUBMENU MOBILE
+    ------------------------- */
+
+  .submenu {
+    position: static;
+
+    width: 100%;
+
+    min-width: 100%;
+
+    padding: 0;
+
+    border: 0;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    background: var(--cinza-claro);
+
+    transform: none;
+  }
+
+  .submenu a {
+    padding-left: 40px;
+  }
+}
+
+/* =========================================================
+   15. REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* =========================================================
+   16. HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 520px;
+
+  overflow: hidden;
+
+  background-color: var(--azul);
+}
+
+/* Imagem */
+
+.hero-imagem {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+.hero-imagem img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+/* Camada sobre a imagem */
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(7, 27, 73, 0.88) 0%,
+    rgba(7, 27, 73, 0.68) 40%,
+    rgba(7, 27, 73, 0.15) 75%,
+    rgba(7, 27, 73, 0.05) 100%
+  );
+
+  z-index: 1;
+}
+
+/* Conteúdo */
+
+.hero-conteudo {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 520px;
+
+  width: min(calc(100% - 40px), var(--largura-container));
+
+  margin-inline: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  padding: 60px 0;
+}
+
+/* Pequeno título */
+
+.hero-subtitulo {
+  margin-bottom: 8px;
+
+  color: var(--branco);
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+/* Título principal */
+
+.hero h1 {
+  max-width: 650px;
+
+  margin-bottom: 15px;
+
+  color: var(--branco);
+
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+  line-height: 1.05;
+
+  font-weight: 800;
+}
+
+/* Texto */
+
+.hero-texto {
+  max-width: 560px;
+
+  margin-bottom: 28px;
+
+  color: var(--branco);
+
+  font-size: 20px;
+
+  line-height: 1.5;
+}
+
+/* Botão */
+
+.hero .botao {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding: 12px 24px;
+
+  background-color: var(--vermelho);
+
+  color: var(--branco);
+
+  border: 2px solid var(--vermelho);
+
+  border-radius: 5px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  transition:
+    background-color var(--transicao),
+    border-color var(--transicao),
+    transform var(--transicao);
+}
+
+.hero .botao:hover {
+  background-color: var(--vermelho-escuro);
+
+  border-color: var(--vermelho-escuro);
+
+  transform: translateY(-2px);
+}
+
+.hero .botao:focus-visible {
+  outline: 3px solid var(--branco);
+
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   HERO — CELULAR
+========================================================= */
+
+@media (max-width: 800px) {
+  .hero {
+    min-height: 600px;
+  }
+
+  .hero-imagem img {
+    object-position: center;
+  }
+
+  .hero-conteudo {
+    min-height: 600px;
+
+    padding: 40px 0;
+
+    justify-content: flex-end;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .hero-texto {
+    font-size: 18px;
+  }
+}
