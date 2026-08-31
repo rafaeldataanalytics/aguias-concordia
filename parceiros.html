@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/jpeg" href="assets/logo_aguias.jpg">
+
+  <meta name="description" content="Parceiros e patrocinadores dos Águias de Concórdia — empresas e instituições que apoiam o esporte e o paradesporto.">
+
+  <title>Parceiros e Patrocinadores | Águias de Concórdia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/parceiros.css">
+</head>
+
+<body>
+
+  <!-- ACESSIBILIDADE -->
+  <a href="#conteudo" class="skip-link">Ir para o conteúdo principal</a>
+
+  <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+    <div class="container barra-acessibilidade__conteudo">
+
+      <span class="acessibilidade-titulo">Acessibilidade</span>
+
+      <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">A-</button>
+
+      <button type="button" id="aumentar-fonte" aria-label="Aumentar tamanho da fonte">A+</button>
+
+      <button type="button" id="alto-contraste" aria-label="Ativar alto contraste">Contraste</button>
+
+      <button type="button" id="destacar-links" aria-label="Destacar links da página">Destacar links</button>
+
+      <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">Mais opções</button>
+
+    </div>
+  </div>
+
+  <div id="painel-acessibilidade" class="painel-acessibilidade" hidden>
+    <div class="container painel-acessibilidade__conteudo">
+      <h2>Opções de acessibilidade</h2>
+
+      <button type="button" id="restaurar-acessibilidade">
+        Restaurar padrão
+      </button>
+    </div>
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="cabecalho">
+    <div class="container cabecalho__conteudo">
+
+      <a href="index.html" class="logo-link" aria-label="Águias de Concórdia - Página inicial">
+
+        <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo">
+
+      </a>
+
+      <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+      <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
+        <ul>
+
+          <li>
+            <a href="index.html">Início</a>
+          </li>
+
+          <li>
+            <a href="quem-somos.html">Quem Somos</a>
+          </li>
+
+          <li>
+            <a href="projetos.html">Projetos</a>
+          </li>
+
+          <li>
+            <a href="noticias.html">Notícias</a>
+          </li>
+
+          <li>
+            <a href="transparencia.html">Transparência</a>
+          </li>
+
+          <li>
+            <a href="parceiros.html" aria-current="page">Parceiros</a>
+
+          </li>
+
+          <li>
+            <a href="contato.html">Contato</a>
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- CONTEÚDO -->
+  <main id="conteudo">
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <section class="parceiros-hero" aria-labelledby="titulo-parceiros">
+
+      <div class="container parceiros-hero__conteudo">
+
+        <p class="eyebrow">Quem apoia os Águias</p>
+
+        <h1 id="titulo-parceiros">
+          Parceiros e Patrocinadores
+        </h1>
+
+        <p>
+          Empresas, instituições e apoiadores que acreditam
+          no esporte, na inclusão e no desenvolvimento através
+          do paradesporto.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- INTRODUÇÃO -->
+    <section class="secao parceiros-introducao">
+
+      <div class="container parceiros-introducao__conteudo">
+
+        <p class="eyebrow">Juntos fazemos a diferença</p>
+
+        <h2>
+          Nosso agradecimento a quem acredita nessa causa
+        </h2>
+
+        <p>
+          O apoio de empresas e instituições é fundamental para
+          fortalecer as atividades dos Águias de Concórdia,
+          ampliar oportunidades e contribuir para o desenvolvimento
+          do esporte e do paradesporto.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- PATROCINADORES -->
+    <section class="secao parceiros-listagem parceiros-listagem--patrocinadores" aria-labelledby="titulo-patrocinadores">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">Apoio direto</p>
+
+          <h2 id="titulo-patrocinadores">
+            Patrocinadores
+          </h2>
+
+          <p class="secao-introducao">
+            Empresas e instituições que contribuem diretamente
+            para o desenvolvimento das atividades da entidade.
+          </p>
+
+        </div>
+
+
+        <div class="parceiros-grade">
+
+          <!-- Substituir posteriormente pelos logos reais -->
+          <a class="parceiro-card" href="#" aria-label="Patrocinador 1">
+            <img src="assets/logo_aguias.jpg" alt="Logo do patrocinador 1">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Patrocinador 2">
+            <img src="assets/logo_aguias.jpg" alt="Logo do patrocinador 2">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Patrocinador 3">
+            <img src="assets/logo_aguias.jpg" alt="Logo do patrocinador 3">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Patrocinador 4">
+            <img src="assets/logo_aguias.jpg" alt="Logo do patrocinador 4">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Patrocinador 5">
+            <img src="assets/logo_aguias.jpg" alt="Logo do patrocinador 5">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Patrocinador 6">
+            <img src="assets/logo_aguias.jpg" alt="Logo do patrocinador 6">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Patrocinador 7">
+            <img src="assets/logo_aguias.jpg" alt="Logo do patrocinador 7">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Patrocinador 8">
+            <img src="assets/logo_aguias.jpg" alt="Logo do patrocinador 8">
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PARCEIROS -->
+    <section class="secao parceiros-listagem parceiros-listagem--parceiros" aria-labelledby="titulo-parceiros-empresas">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">Construindo juntos</p>
+
+          <h2 id="titulo-parceiros-empresas">
+            Empresas Parceiras
+          </h2>
+
+          <p class="secao-introducao">
+            Parceiros que apoiam, colaboram e ajudam a fortalecer
+            o trabalho desenvolvido pelos Águias de Concórdia.
+          </p>
+
+        </div>
+
+
+        <div class="parceiros-grade">
+
+          <a class="parceiro-card" href="#" aria-label="Empresa parceira 1">
+            <img src="assets/logo_aguias.jpg" alt="Logo da empresa parceira 1">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Empresa parceira 2">
+            <img src="assets/logo_aguias.jpg" alt="Logo da empresa parceira 2">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Empresa parceira 3">
+            <img src="assets/logo_aguias.jpg" alt="Logo da empresa parceira 3">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Empresa parceira 4">
+            <img src="assets/logo_aguias.jpg" alt="Logo da empresa parceira 4">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Empresa parceira 5">
+            <img src="assets/logo_aguias.jpg" alt="Logo da empresa parceira 5">
+          </a>
+
+          <a class="parceiro-card" href="#" aria-label="Empresa parceira 6">
+            <img src="assets/logo_aguias.jpg" alt="Logo da empresa parceira 6">
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="secao parceiros-cta" aria-labelledby="titulo-cta-parceiros">
+
+      <div class="container parceiros-cta__conteudo">
+
+        <p class="eyebrow eyebrow--claro">
+          Faça parte
+        </p>
+
+        <h2 id="titulo-cta-parceiros">
+          Quer apoiar os Águias?
+        </h2>
+
+        <p>
+          Entre em contato com a entidade e conheça as formas
+          de apoiar o esporte e o paradesporto.
+        </p>
+
+        <a href="contato.html" class="botao">
+          Seja um parceiro
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="rodape">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-col footer-col--marca">
+
+          <a href="index.html" aria-label="Voltar para o início">
+
+            <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo-footer">
+
+          </a>
+
+          <p>
+            Esporte, inclusão e transformação
+            através do paradesporto.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>Navegação</h2>
+
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="quem-somos.html">Quem Somos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+            <li><a href="parceiros.html">Parceiros</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>Transparência</h2>
+
+          <ul>
+            <li><a href="transparencia.html">Portal da Transparência</a></li>
+            <li><a href="transparencia.html">Atas</a></li>
+            <li><a href="transparencia.html">Financeiro</a></li>
+            <li><a href="transparencia.html">Prestação de Contas</a></li>
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>Redes sociais</h2>
+
+          <ul class="redes-sociais">
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp dos Águias de Concórdia">
+
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+
+                <span>WhatsApp</span>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram dos Águias de Concórdia">
+
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+
+                <span>Instagram</span>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          &copy; 2026 Águias de Concórdia.
+          Todos os direitos reservados.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>

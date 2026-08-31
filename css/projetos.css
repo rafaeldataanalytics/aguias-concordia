@@ -1,16 +1,25 @@
 /* =========================================================
    ÁGUIAS DE CONCÓRDIA
-   PROJETOS — CSS ESPECÍFICO
-   Complementa css/style.css
+   PÁGINA — PROJETOS
+   CSS específico
 ========================================================= */
 
-/* HERO */
+/* =========================================================
+   HERO
+========================================================= */
 
 .projetos-hero {
   padding: 95px 0;
+  background: var(--branco);
 }
 
-/* INTRODUÇÃO */
+.projetos-hero .secao-cabecalho {
+  max-width: 850px;
+}
+
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
 
 .projetos-introducao {
   background: var(--branco);
@@ -22,60 +31,124 @@
 
 .projetos-introducao h2 {
   margin-bottom: 20px;
+
   color: var(--azul);
+
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
 }
 
 .projetos-introducao p:not(.eyebrow):not(.texto-observacao) {
   max-width: 760px;
+
   margin-bottom: 18px;
+
   color: var(--cinza-escuro);
+
   font-size: 17px;
   line-height: 1.8;
 }
 
 .texto-observacao {
   max-width: 760px;
-  padding: 15px 18px;
+
+  padding: 16px 18px;
+
   border-left: 4px solid var(--vermelho);
+
   background: var(--cinza-claro);
+
   color: var(--cinza) !important;
+
   font-size: 14px !important;
   line-height: 1.65 !important;
 }
 
-/* LISTA DE PROJETOS */
+/* =========================================================
+   LISTA DE PROJETOS
+========================================================= */
 
 .projetos-lista {
   background: var(--cinza-claro);
 }
 
-.projetos__grid {
+/*
+   IMPORTANTE:
+
+   A página de projetos utiliza uma única coluna.
+
+   Cada projeto ocupa uma linha inteira.
+*/
+
+.projetos-lista .projetos__grid {
   display: grid;
-  gap: 30px;
+
+  grid-template-columns: 1fr;
+
+  gap: 32px;
 }
+
+/* =========================================================
+   CARD DO PROJETO
+========================================================= */
 
 .projeto-detalhe {
   display: grid;
+
   grid-template-columns: 0.85fr 1.15fr;
+
+  align-items: stretch;
+
+  min-height: 390px;
+
   overflow: hidden;
+
   background: var(--branco);
+
   border: 1px solid var(--borda);
+
   border-radius: var(--raio);
+
   box-shadow: var(--sombra-suave);
+
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao),
+    border-color var(--transicao);
 }
 
+.projeto-detalhe:hover {
+  transform: translateY(-4px);
+
+  box-shadow: var(--sombra-card);
+
+  border-color: rgba(7, 27, 73, 0.15);
+}
+
+/* =========================================================
+   IMAGEM DO PROJETO
+========================================================= */
+
 .projeto-detalhe__imagem {
+  width: 100%;
+  height: 100%;
+
   min-height: 390px;
+
   overflow: hidden;
+
   background: var(--cinza-claro);
 }
 
 .projeto-detalhe__imagem img {
+  display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+  object-position: center;
+
   transition: transform 0.4s ease;
 }
 
@@ -83,67 +156,205 @@
   transform: scale(1.03);
 }
 
+/* =========================================================
+   CONTEÚDO DO PROJETO
+========================================================= */
+
 .projeto-detalhe__conteudo {
+  min-width: 0;
+
   padding: 38px 40px;
+
+  display: flex;
+  flex-direction: column;
 }
+
+/* =========================================================
+   CATEGORIA
+========================================================= */
 
 .projeto-detalhe__categoria {
   display: inline-block;
+
   margin-bottom: 10px;
+
   color: var(--vermelho);
+
   font-size: 12px;
   font-weight: 800;
+
   text-transform: uppercase;
+
   letter-spacing: 0.8px;
 }
 
+/* =========================================================
+   TÍTULO
+========================================================= */
+
 .projeto-detalhe h3 {
   margin-bottom: 15px;
+
   color: var(--azul);
-  font-size: 27px;
+
+  font-size: clamp(1.6rem, 3vw, 2rem);
+
+  font-weight: 800;
+
+  line-height: 1.2;
 }
+
+/* =========================================================
+   DESCRIÇÃO
+========================================================= */
 
 .projeto-detalhe__conteudo > p {
   margin-bottom: 25px;
-  color: var(--cinza);
+
+  color: var(--cinza-escuro);
+
   font-size: 16px;
+
   line-height: 1.75;
 }
 
+/* =========================================================
+   INFORMAÇÕES DO PROJETO
+========================================================= */
+
 .projeto-detalhe__informacoes {
   display: grid;
-  gap: 14px;
-  margin-bottom: 20px;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-bottom: 25px;
 }
 
 .projeto-detalhe__informacoes div {
+  min-width: 0;
+
   padding: 13px 15px;
-  border-left: 3px solid var(--azul);
+
   background: var(--cinza-claro);
+
+  border-left: 3px solid var(--azul);
+
+  border-radius: 0 var(--raio-pequeno) var(--raio-pequeno) 0;
 }
 
 .projeto-detalhe__informacoes strong {
   display: block;
+
   margin-bottom: 3px;
+
   color: var(--azul);
-  font-size: 13px;
+
+  font-size: 12px;
+
   font-weight: 800;
+
+  text-transform: uppercase;
 }
 
 .projeto-detalhe__informacoes span {
+  display: block;
+
   color: var(--cinza-escuro);
+
   font-size: 14px;
+
   line-height: 1.5;
+
+  overflow-wrap: break-word;
 }
+
+/* =========================================================
+   DOCUMENTOS
+========================================================= */
+
+.projeto-documentos {
+  margin-top: auto;
+
+  padding-top: 22px;
+
+  border-top: 1px solid var(--borda);
+}
+
+.projeto-documentos h4 {
+  margin-bottom: 12px;
+
+  color: var(--azul);
+
+  font-size: 15px;
+
+  font-weight: 800;
+}
+
+.projeto-documentos ul {
+  display: grid;
+
+  gap: 8px;
+}
+
+.projeto-documentos a {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  color: var(--vermelho);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition:
+    color var(--transicao),
+    transform var(--transicao);
+}
+
+.projeto-documentos a:hover {
+  color: var(--vermelho-escuro);
+
+  transform: translateX(3px);
+}
+
+.projeto-documentos a::before {
+  content: "↗";
+
+  flex-shrink: 0;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   OBSERVAÇÃO
+========================================================= */
 
 .projeto-observacao {
+  margin-top: 18px !important;
+
   margin-bottom: 0 !important;
+
   color: var(--cinza) !important;
+
   font-size: 13px !important;
+
   font-style: italic;
+
+  line-height: 1.6 !important;
 }
 
-/* COMO FUNCIONA */
+/* =========================================================
+   COMO FUNCIONA
+========================================================= */
 
 .como-funciona {
   background: var(--branco);
@@ -151,17 +362,25 @@
 
 .etapas__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
   gap: 20px;
 }
 
 .etapa-card {
   min-height: 245px;
+
   padding: 28px 24px;
+
   background: var(--branco);
+
   border: 1px solid var(--borda);
+
   border-radius: var(--raio);
+
   box-shadow: var(--sombra-suave);
+
   transition:
     transform var(--transicao),
     box-shadow var(--transicao);
@@ -169,31 +388,43 @@
 
 .etapa-card:hover {
   transform: translateY(-5px);
+
   box-shadow: var(--sombra-card);
 }
 
 .etapa-card__numero {
   display: block;
+
   margin-bottom: 25px;
+
   color: var(--vermelho);
+
   font-family: var(--fonte-titulo);
+
   font-size: 28px;
+
   font-weight: 800;
 }
 
 .etapa-card h3 {
   margin-bottom: 10px;
+
   color: var(--azul);
+
   font-size: 19px;
 }
 
 .etapa-card p {
   color: var(--cinza);
+
   font-size: 14px;
+
   line-height: 1.7;
 }
 
-/* RESULTADOS */
+/* =========================================================
+   RESULTADOS
+========================================================= */
 
 .resultados {
   background: var(--azul);
@@ -209,82 +440,137 @@
 
 .resultados__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
   gap: 20px;
 }
 
 .resultado {
   padding: 30px 20px;
+
   text-align: center;
+
   background: rgba(255, 255, 255, 0.07);
+
   border: 1px solid rgba(255, 255, 255, 0.14);
+
   border-radius: var(--raio);
 }
 
 .resultado strong {
   display: block;
+
   margin-bottom: 7px;
+
   color: var(--branco);
+
   font-family: var(--fonte-titulo);
+
   font-size: clamp(2rem, 4vw, 3rem);
+
   font-weight: 800;
 }
 
 .resultado span {
   color: rgba(255, 255, 255, 0.75);
+
   font-size: 14px;
+
   font-weight: 700;
 }
 
-/* CHAMADA */
+/* =========================================================
+   CHAMADA FINAL
+========================================================= */
 
 .projetos-chamada {
   background: var(--branco);
+
   text-align: center;
 }
 
 .projetos-chamada__conteudo {
   max-width: 720px;
+
   margin-inline: auto;
 }
 
 .projetos-chamada h2 {
   margin-bottom: 15px;
+
   color: var(--azul);
+
   font-size: clamp(2rem, 4vw, 3rem);
+
   font-weight: 800;
 }
 
 .projetos-chamada p:not(.eyebrow) {
   margin-bottom: 28px;
+
   color: var(--cinza);
+
   font-size: 17px;
+
   line-height: 1.7;
 }
 
-/* TABLET */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1050px) {
   .projeto-detalhe {
-    grid-template-columns: 1fr;
+    grid-template-columns: 300px 1fr;
+
+    min-height: 390px;
   }
 
   .projeto-detalhe__imagem {
-    min-height: 300px;
-    max-height: 380px;
+    min-height: 390px;
+  }
+
+  .projeto-detalhe__conteudo {
+    padding: 32px;
   }
 
   .etapas__grid,
   .resultados__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* CELULAR */
+/* =========================================================
+   CELULAR
+========================================================= */
 
 @media (max-width: 800px) {
   .projetos-hero {
     padding: 70px 0;
+  }
+
+  .projeto-detalhe {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .projeto-detalhe__imagem {
+    width: 100%;
+
+    height: 280px;
+
+    min-height: 0;
+  }
+
+  .projeto-detalhe__imagem img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    object-fit: cover;
   }
 
   .projeto-detalhe__conteudo {
@@ -293,6 +579,14 @@
 
   .projeto-detalhe h3 {
     font-size: 23px;
+  }
+
+  .projeto-detalhe__informacoes {
+    grid-template-columns: 1fr;
+  }
+
+  .projeto-documentos {
+    margin-top: 10px;
   }
 
   .etapas__grid,
@@ -305,16 +599,49 @@
   }
 }
 
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
 @media (max-width: 480px) {
+  .projetos-hero {
+    padding: 55px 0;
+  }
+
   .projetos-hero h1 {
     font-size: 2.45rem;
   }
 
   .projeto-detalhe__imagem {
-    min-height: 240px;
+    height: 230px;
   }
 
   .projeto-detalhe__conteudo {
     padding: 24px 20px;
+  }
+
+  .projeto-detalhe h3 {
+    font-size: 21px;
+  }
+
+  .projeto-detalhe__conteudo > p {
+    font-size: 15px;
+  }
+
+  .projeto-documentos a {
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .projeto-detalhe,
+  .projeto-detalhe__imagem img,
+  .etapa-card,
+  .projeto-documentos a {
+    transition: none;
   }
 }
