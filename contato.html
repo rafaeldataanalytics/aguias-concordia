@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/jpeg" href="assets/logo_aguias.jpg">
+
+  <meta name="description" content="Entre em contato com os Águias de Concórdia. Fale conosco sobre esporte, paradesporto, projetos e parcerias.">
+
+  <title>Contato | Águias de Concórdia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contato.css">
+</head>
+
+<body>
+
+  <!-- ACESSIBILIDADE -->
+  <a href="#conteudo" class="skip-link">
+    Ir para o conteúdo principal
+  </a>
+
+  <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+
+    <div class="container barra-acessibilidade__conteudo">
+
+      <span class="acessibilidade-titulo">
+        Acessibilidade
+      </span>
+
+      <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">
+        A-
+      </button>
+
+      <button type="button" id="aumentar-fonte" aria-label="Aumentar tamanho da fonte">
+        A+
+      </button>
+
+      <button type="button" id="alto-contraste" aria-label="Ativar alto contraste">
+        Contraste
+      </button>
+
+      <button type="button" id="destacar-links" aria-label="Destacar links da página">
+        Destacar links
+      </button>
+
+      <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">
+        Mais opções
+      </button>
+
+    </div>
+  </div>
+
+  <div id="painel-acessibilidade" class="painel-acessibilidade" hidden>
+
+    <div class="container painel-acessibilidade__conteudo">
+
+      <h2>
+        Opções de acessibilidade
+      </h2>
+
+      <button type="button" id="restaurar-acessibilidade">
+        Restaurar padrão
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="cabecalho">
+
+    <div class="container cabecalho__conteudo">
+
+      <a href="index.html" class="logo-link" aria-label="Águias de Concórdia - Página inicial">
+
+        <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo">
+
+      </a>
+
+      <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+      <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Início
+            </a>
+          </li>
+
+          <li>
+            <a href="quem-somos.html">
+              Quem Somos
+            </a>
+          </li>
+
+          <li>
+            <a href="projetos.html">
+              Projetos
+            </a>
+          </li>
+
+          <li>
+            <a href="noticias.html">
+              Notícias
+            </a>
+          </li>
+
+          <li>
+            <a href="transparencia.html">
+              Transparência
+            </a>
+          </li>
+
+          <li>
+            <a href="contato.html" aria-current="page">
+              Contato
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- CONTEÚDO -->
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section class="pagina-hero contato-hero" aria-labelledby="titulo-pagina">
+
+      <div class="container pagina-hero__conteudo">
+
+        <p class="eyebrow eyebrow--claro">
+          Fale conosco
+        </p>
+
+        <h1 id="titulo-pagina">
+          Contato
+        </h1>
+
+        <p>
+          Entre em contato com os Águias de Concórdia.
+          Estamos à disposição para receber sua mensagem.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- INFORMAÇÕES + FORMULÁRIO -->
+    <section class="secao contato-principal" aria-labelledby="titulo-contato">
+
+      <div class="container">
+
+        <div class="secao-cabecalho">
+
+          <p class="eyebrow">
+            Estamos à disposição
+          </p>
+
+          <h2 id="titulo-contato">
+            Entre em contato
+          </h2>
+
+          <p>
+            Utilize os canais abaixo ou envie uma mensagem
+            pelo formulário.
+          </p>
+
+        </div>
+
+
+        <div class="contato__conteudo">
+
+          <!-- INFORMAÇÕES -->
+          <div class="contato__informacoes">
+
+            <article class="contato-info-card">
+
+              <div class="contato-info-card__icone" aria-hidden="true">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+
+              <div>
+                <h3>Endereço</h3>
+                <p>Endereço oficial da entidade</p>
+              </div>
+
+            </article>
+
+
+            <article class="contato-info-card">
+
+              <div class="contato-info-card__icone" aria-hidden="true">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+
+              <div>
+                <h3>Telefone</h3>
+                <p>Telefone oficial da entidade</p>
+              </div>
+
+            </article>
+
+
+            <article class="contato-info-card">
+
+              <div class="contato-info-card__icone" aria-hidden="true">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+
+              <div>
+                <h3>E-mail</h3>
+                <p>e-mail oficial da entidade</p>
+              </div>
+
+            </article>
+
+
+            <article class="contato-info-card">
+
+              <div class="contato-info-card__icone" aria-hidden="true">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+
+              <div>
+                <h3>WhatsApp</h3>
+                <p>WhatsApp oficial da entidade</p>
+              </div>
+
+            </article>
+
+
+            <article class="contato-info-card">
+
+              <div class="contato-info-card__icone" aria-hidden="true">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+
+              <div>
+                <h3>Instagram</h3>
+                <p>Perfil oficial dos Águias de Concórdia</p>
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <!-- FORMULÁRIO -->
+          <form class="formulario-contato" action="#" method="post">
+
+            <div class="campo">
+
+              <label for="nome">
+                Nome
+              </label>
+
+              <input type="text" id="nome" name="nome" autocomplete="name" required>
+
+            </div>
+
+
+            <div class="formulario-linha">
+
+              <div class="campo">
+
+                <label for="email">
+                  E-mail
+                </label>
+
+                <input type="email" id="email" name="email" autocomplete="email" required>
+
+              </div>
+
+
+              <div class="campo">
+
+                <label for="telefone">
+                  Telefone
+                </label>
+
+                <input type="tel" id="telefone" name="telefone" autocomplete="tel">
+
+              </div>
+
+            </div>
+
+
+            <div class="campo">
+
+              <label for="assunto">
+                Assunto
+              </label>
+
+              <select id="assunto" name="assunto">
+
+                <option value="">
+                  Selecione um assunto
+                </option>
+
+                <option value="informacoes">
+                  Informações
+                </option>
+
+                <option value="projetos">
+                  Projetos
+                </option>
+
+                <option value="parcerias">
+                  Parcerias
+                </option>
+
+                <option value="imprensa">
+                  Imprensa
+                </option>
+
+                <option value="outros">
+                  Outros
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="campo">
+
+              <label for="mensagem">
+                Mensagem
+              </label>
+
+              <textarea id="mensagem" name="mensagem" rows="7" required></textarea>
+
+            </div>
+
+
+            <button type="submit" class="botao">
+              Enviar mensagem
+            </button>
+
+            <p class="formulario-aviso">
+              O envio do formulário será conectado ao canal oficial
+              da entidade na etapa de implementação.
+            </p>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LOCALIZAÇÃO -->
+    <section class="secao localizacao" aria-labelledby="titulo-localizacao">
+
+      <div class="container">
+
+        <div class="localizacao__conteudo">
+
+          <div>
+
+            <p class="eyebrow">
+              Onde estamos
+            </p>
+
+            <h2 id="titulo-localizacao">
+              Nossa localização
+            </h2>
+
+            <p>
+              O endereço e o mapa oficial da entidade serão
+              inseridos nesta área após o recebimento dos dados.
+            </p>
+
+          </div>
+
+          <div class="mapa-placeholder" role="img" aria-label="Espaço reservado para o mapa da localização da entidade">
+
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+
+            <span>
+              Mapa da entidade
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- JUNTE-SE -->
+    <section class="secao contato-chamada" aria-labelledby="titulo-chamada">
+
+      <div class="container contato-chamada__conteudo">
+
+        <p class="eyebrow eyebrow--claro">
+          Faça parte
+        </p>
+
+        <h2 id="titulo-chamada">
+          Quer fazer parte dos Águias?
+        </h2>
+
+        <p>
+          Entre em contato para conhecer as possibilidades
+          de participação, apoio e parceria.
+        </p>
+
+        <a href="projetos.html" class="botao">
+          Conheça nossos projetos
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="rodape">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-col footer-col--marca">
+
+          <a href="index.html" aria-label="Voltar para o início">
+
+            <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo-footer">
+
+          </a>
+
+          <p>
+            Esporte, inclusão e transformação
+            através do paradesporto.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Navegação
+          </h2>
+
+          <ul>
+
+            <li><a href="index.html">Início</a></li>
+            <li><a href="quem-somos.html">Quem Somos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Transparência
+          </h2>
+
+          <ul>
+
+            <li><a href="transparencia.html">Portal da Transparência</a></li>
+            <li><a href="transparencia.html">Atas</a></li>
+            <li><a href="transparencia.html">Financeiro</a></li>
+            <li><a href="transparencia.html">Convênios</a></li>
+            <li><a href="transparencia.html">Contratos</a></li>
+            <li><a href="transparencia.html">Prestação de Contas</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Redes sociais
+          </h2>
+
+          <ul class="redes-sociais">
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp dos Águias de Concórdia">
+
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span>WhatsApp</span>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram dos Águias de Concórdia">
+
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                <span>Instagram</span>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          &copy; 2026 Águias de Concórdia.
+          Todos os direitos reservados.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

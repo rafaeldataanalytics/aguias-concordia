@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/jpeg" href="assets/logo_aguias.jpg">
+
+  <meta name="description" content="Acompanhe as notícias, competições, resultados e acontecimentos dos Águias de Concórdia.">
+
+  <title>Notícias | Águias de Concórdia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/noticias.css">
+</head>
+
+<body>
+
+  <!-- ACESSIBILIDADE -->
+  <a href="#conteudo" class="skip-link">
+    Ir para o conteúdo principal
+  </a>
+
+  <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+
+    <div class="container barra-acessibilidade__conteudo">
+
+      <span class="acessibilidade-titulo">
+        Acessibilidade
+      </span>
+
+      <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">
+        A-
+      </button>
+
+      <button type="button" id="aumentar-fonte" aria-label="Aumentar tamanho da fonte">
+        A+
+      </button>
+
+      <button type="button" id="alto-contraste" aria-label="Ativar alto contraste">
+        Contraste
+      </button>
+
+      <button type="button" id="destacar-links" aria-label="Destacar links da página">
+        Destacar links
+      </button>
+
+      <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">
+        Mais opções
+      </button>
+
+    </div>
+  </div>
+
+  <div id="painel-acessibilidade" class="painel-acessibilidade" hidden>
+
+    <div class="container painel-acessibilidade__conteudo">
+
+      <h2>
+        Opções de acessibilidade
+      </h2>
+
+      <button type="button" id="restaurar-acessibilidade">
+        Restaurar padrão
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="cabecalho">
+
+    <div class="container cabecalho__conteudo">
+
+      <a href="index.html" class="logo-link" aria-label="Águias de Concórdia - Página inicial">
+
+        <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo">
+
+      </a>
+
+      <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+      <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Início
+            </a>
+          </li>
+
+          <li>
+            <a href="quem-somos.html">
+              Quem Somos
+            </a>
+          </li>
+
+          <li>
+            <a href="projetos.html">
+              Projetos
+            </a>
+          </li>
+
+          <li>
+            <a href="noticias.html" aria-current="page">
+              Notícias
+            </a>
+          </li>
+
+          <li>
+            <a href="transparencia.html">
+              Transparência
+            </a>
+          </li>
+
+          <li>
+            <a href="contato.html">
+              Contato
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- CONTEÚDO -->
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section class="pagina-hero noticias-hero" aria-labelledby="titulo-pagina">
+
+      <div class="container pagina-hero__conteudo">
+
+        <p class="eyebrow eyebrow--claro">
+          Acompanhe os Águias
+        </p>
+
+        <h1 id="titulo-pagina">
+          Notícias
+        </h1>
+
+        <p>
+          Acompanhe competições, resultados, conquistas,
+          atividades e acontecimentos dos Águias de Concórdia.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- DESTAQUE -->
+    <section class="secao noticia-destaque" aria-labelledby="titulo-destaque">
+
+      <div class="container">
+
+        <div class="secao-cabecalho">
+
+          <p class="eyebrow">
+            Em destaque
+          </p>
+
+          <h2 id="titulo-destaque">
+            Acompanhe as principais notícias
+          </h2>
+
+        </div>
+
+        <article class="destaque-card">
+
+          <div class="destaque-card__imagem">
+
+            <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia em atividade esportiva">
+
+          </div>
+
+          <div class="destaque-card__conteudo">
+
+            <span class="noticia-card__categoria">
+              Competição
+            </span>
+
+            <time class="noticia-data" datetime="2026-01-01">
+              Data da publicação
+            </time>
+
+            <h3>
+              Águias de Concórdia participam de competição
+            </h3>
+
+            <p>
+              Espaço reservado para o resumo da notícia em
+              destaque. O conteúdo oficial será inserido
+              posteriormente.
+            </p>
+
+            <div class="conteudo-metricas" aria-label="Interações da notícia">
+
+              <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+
+                <span aria-hidden="true">♥</span>
+                <span class="metrica__valor">0</span>
+
+              </button>
+
+              <span class="metrica" aria-label="0 visualizações">
+
+                <span aria-hidden="true">👁</span>
+                <span class="metrica__valor">0</span>
+
+              </span>
+
+            </div>
+
+            <a href="#" class="botao botao--secundario">
+              Ler notícia
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- FILTROS -->
+    <section class="secao arquivo-noticias" aria-labelledby="titulo-arquivo">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Arquivo
+          </p>
+
+          <h2 id="titulo-arquivo">
+            Todas as notícias
+          </h2>
+
+          <p class="secao-introducao">
+            Consulte as publicações e acompanhe a trajetória
+            dos Águias de Concórdia.
+          </p>
+
+        </div>
+
+        <div class="filtros-noticias" aria-label="Filtros de notícias">
+
+          <button type="button" class="filtro ativo" aria-pressed="true">
+            Todas
+          </button>
+
+          <button type="button" class="filtro" aria-pressed="false">
+            Competições
+          </button>
+
+          <button type="button" class="filtro" aria-pressed="false">
+            Conquistas
+          </button>
+
+          <button type="button" class="filtro" aria-pressed="false">
+            Paradesporto
+          </button>
+
+          <button type="button" class="filtro" aria-pressed="false">
+            Institucional
+          </button>
+
+        </div>
+
+
+        <!-- GRADE DE NOTÍCIAS -->
+        <div class="noticias__grid">
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia em competição">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Competição
+              </span>
+
+              <time class="noticia-data" datetime="2026-01-01">
+                Data da publicação
+              </time>
+
+              <h3>
+                Águias participam de competição
+              </h3>
+
+              <p>
+                Resumo da notícia. O conteúdo oficial será
+                inserido posteriormente.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">0</span>
+
+                </button>
+
+                <span class="metrica" aria-label="0 visualizações">
+
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">0</span>
+
+                </span>
+
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Equipe dos Águias de Concórdia">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Conquistas
+              </span>
+
+              <time class="noticia-data" datetime="2026-01-01">
+                Data da publicação
+              </time>
+
+              <h3>
+                Águias conquistam destaque
+              </h3>
+
+              <p>
+                Resumo da notícia. O conteúdo oficial será
+                inserido posteriormente.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">0</span>
+
+                </button>
+
+                <span class="metrica" aria-label="0 visualizações">
+
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">0</span>
+
+                </span>
+
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Atletas dos Águias em atividade esportiva">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Paradesporto
+              </span>
+
+              <time class="noticia-data" datetime="2026-01-01">
+                Data da publicação
+              </time>
+
+              <h3>
+                Esporte, inclusão e transformação
+              </h3>
+
+              <p>
+                Resumo da notícia. O conteúdo oficial será
+                inserido posteriormente.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">0</span>
+
+                </button>
+
+                <span class="metrica" aria-label="0 visualizações">
+
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">0</span>
+
+                </span>
+
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Equipe dos Águias de Concórdia">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Institucional
+              </span>
+
+              <time class="noticia-data" datetime="2026-01-01">
+                Data da publicação
+              </time>
+
+              <h3>
+                Novidades dos Águias de Concórdia
+              </h3>
+
+              <p>
+                Resumo da notícia. O conteúdo oficial será
+                inserido posteriormente.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">0</span>
+
+                </button>
+
+                <span class="metrica" aria-label="0 visualizações">
+
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">0</span>
+
+                </span>
+
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Atletas em atividade esportiva">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Competição
+              </span>
+
+              <time class="noticia-data" datetime="2026-01-01">
+                Data da publicação
+              </time>
+
+              <h3>
+                Preparação para novos desafios
+              </h3>
+
+              <p>
+                Resumo da notícia. O conteúdo oficial será
+                inserido posteriormente.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">0</span>
+
+                </button>
+
+                <span class="metrica" aria-label="0 visualizações">
+
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">0</span>
+
+                </span>
+
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Paradesporto
+              </span>
+
+              <time class="noticia-data" datetime="2026-01-01">
+                Data da publicação
+              </time>
+
+              <h3>
+                Atividades e ações da entidade
+              </h3>
+
+              <p>
+                Resumo da notícia. O conteúdo oficial será
+                inserido posteriormente.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">0</span>
+
+                </button>
+
+                <span class="metrica" aria-label="0 visualizações">
+
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">0</span>
+
+                </span>
+
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- PAGINAÇÃO -->
+        <nav class="paginacao" aria-label="Paginação das notícias">
+
+          <button type="button" class="paginacao__botao" aria-label="Página anterior" disabled>
+            ←
+          </button>
+
+          <a href="#" class="paginacao__pagina ativa" aria-current="page">
+            1
+          </a>
+
+          <a href="#" class="paginacao__pagina">
+            2
+          </a>
+
+          <a href="#" class="paginacao__pagina">
+            3
+          </a>
+
+          <button type="button" class="paginacao__botao" aria-label="Próxima página">
+            →
+          </button>
+
+        </nav>
+
+      </div>
+
+    </section>
+
+
+    <!-- CHAMADA -->
+    <section class="secao noticias-chamada" aria-labelledby="titulo-chamada">
+
+      <div class="container noticias-chamada__conteudo">
+
+        <p class="eyebrow eyebrow--claro">
+          Faça parte
+        </p>
+
+        <h2 id="titulo-chamada">
+          Acompanhe os Águias
+        </h2>
+
+        <p>
+          Siga nossas redes sociais e acompanhe as novidades,
+          competições e atividades da entidade.
+        </p>
+
+        <a href="contato.html" class="botao">
+          Entre em contato
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="rodape">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-col footer-col--marca">
+
+          <a href="index.html" aria-label="Voltar para o início">
+
+            <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo-footer">
+
+          </a>
+
+          <p>
+            Esporte, inclusão e transformação
+            através do paradesporto.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Navegação
+          </h2>
+
+          <ul>
+
+            <li><a href="index.html">Início</a></li>
+            <li><a href="quem-somos.html">Quem Somos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+            <li><a href="contato.html">Contato</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Transparência
+          </h2>
+
+          <ul>
+
+            <li><a href="transparencia.html">Portal da Transparência</a></li>
+            <li><a href="transparencia.html">Atas</a></li>
+            <li><a href="transparencia.html">Financeiro</a></li>
+            <li><a href="transparencia.html">Convênios</a></li>
+            <li><a href="transparencia.html">Contratos</a></li>
+            <li><a href="transparencia.html">Prestação de Contas</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Redes sociais
+          </h2>
+
+          <ul class="redes-sociais">
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp dos Águias de Concórdia">
+
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span>WhatsApp</span>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram dos Águias de Concórdia">
+
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                <span>Instagram</span>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          &copy; 2026 Águias de Concórdia.
+          Todos os direitos reservados.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

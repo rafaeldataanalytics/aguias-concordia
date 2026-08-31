@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/jpeg" href="assets/logo_aguias.jpg">
+
+  <meta name="description" content="Portal da Transparência dos Águias de Concórdia. Consulte documentos e informações da entidade de forma simples, organizada e acessível.">
+
+  <title>Transparência | Águias de Concórdia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/transparencia.css">
+</head>
+
+<body>
+
+  <a href="#conteudo" class="skip-link">Ir para o conteúdo principal</a>
+
+  <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+    <div class="container barra-acessibilidade__conteudo">
+
+      <span class="acessibilidade-titulo">Acessibilidade</span>
+
+      <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">A-</button>
+      <button type="button" id="aumentar-fonte" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button type="button" id="alto-contraste" aria-label="Ativar alto contraste">Contraste</button>
+      <button type="button" id="destacar-links" aria-label="Destacar links da página">Destacar links</button>
+
+      <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">
+        Mais opções
+      </button>
+
+    </div>
+  </div>
+
+  <div id="painel-acessibilidade" class="painel-acessibilidade" hidden>
+    <div class="container painel-acessibilidade__conteudo">
+      <h2>Opções de acessibilidade</h2>
+
+      <button type="button" id="restaurar-acessibilidade">
+        Restaurar padrão
+      </button>
+    </div>
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="cabecalho">
+    <div class="container cabecalho__conteudo">
+
+      <a href="index.html" class="logo-link" aria-label="Águias de Concórdia - Página inicial">
+        <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo">
+      </a>
+
+      <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
+
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
+
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+
+          <li>
+            <a href="transparencia.html" aria-current="page">
+              Transparência
+            </a>
+          </li>
+
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+
+      </nav>
+    </div>
+  </header>
+
+
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section class="pagina-hero transparencia-hero" aria-labelledby="titulo-pagina">
+
+      <div class="container pagina-hero__conteudo">
+
+        <p class="eyebrow eyebrow--claro">
+          Informação pública
+        </p>
+
+        <h1 id="titulo-pagina">
+          Portal da Transparência
+        </h1>
+
+        <p>
+          Consulte documentos e informações da entidade
+          de forma simples, organizada e acessível.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- PORTAL -->
+    <section class="secao transparencia-principal" aria-labelledby="titulo-documentos">
+
+      <div class="container">
+
+        <div class="transparencia-introducao">
+
+          <p class="eyebrow">
+            Acesso à informação
+          </p>
+
+          <h2 id="titulo-documentos">
+            Documentos da entidade
+          </h2>
+
+          <p>
+            Selecione uma categoria para consultar os documentos
+            disponibilizados pelos Águias de Concórdia.
+          </p>
+
+        </div>
+
+
+        <!-- CATEGORIAS -->
+        <div class="transparencia-lista" aria-label="Categorias do Portal da Transparência">
+
+          <a href="#estatuto" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Estatuto</strong>
+              <small>Documentos institucionais e estatutários</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#atas" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-file-lines"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Atas</strong>
+              <small>Registros de reuniões e assembleias</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#conselho-fiscal" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-users"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Conselho Fiscal</strong>
+              <small>Informações e documentos do conselho</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#editais" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-bullhorn"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Editais</strong>
+              <small>Editais publicados pela entidade</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#resultados-editais" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-list-check"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Resultados dos Editais</strong>
+              <small>Resultados e informações dos processos</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#balanco-patrimonial" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-chart-column"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Balanço Patrimonial</strong>
+              <small>Documentos patrimoniais da entidade</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#calendario" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-calendar-days"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Calendário</strong>
+              <small>Calendários e programação oficial</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#dre" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-chart-line"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>DRE</strong>
+              <small>Demonstrações e informações econômicas</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#notas-fiscais" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-receipt"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Notas Fiscais</strong>
+              <small>Documentos fiscais disponibilizados</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#relatorios-gestao" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-file-contract"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Relatórios de Gestão</strong>
+              <small>Relatórios e informações da gestão</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#relatorios-financeiros" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-money-bill-transfer"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Relatórios Financeiros</strong>
+              <small>Receitas, despesas e relatórios financeiros</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#projetos" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-diagram-project"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Projetos</strong>
+              <small>Projetos e ações desenvolvidos pela entidade</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#calendario-atividades" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-calendar-check"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Calendário de Atividades</strong>
+              <small>Atividades e eventos da entidade</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+          <a href="#voluntarios" class="transparencia-item">
+            <span class="transparencia-item__icone" aria-hidden="true">
+              <i class="fa-solid fa-handshake-angle"></i>
+            </span>
+            <span class="transparencia-item__texto">
+              <strong>Voluntários</strong>
+              <small>Informações relacionadas ao voluntariado</small>
+            </span>
+            <span class="transparencia-item__seta" aria-hidden="true">
+              <i class="fa-solid fa-chevron-right"></i>
+            </span>
+          </a>
+
+        </div>
+
+
+        <!-- ÁREA DINÂMICA DE DOCUMENTOS -->
+        <div class="documentos-area" aria-labelledby="titulo-documentos-disponiveis">
+
+          <div class="documentos-area__cabecalho">
+
+            <div>
+              <p class="eyebrow">Consulta</p>
+
+              <h2 id="titulo-documentos-disponiveis">
+                Documentos disponíveis
+              </h2>
+            </div>
+
+            <label class="seletor-ano">
+              <span>Ano</span>
+
+              <select id="ano-transparencia" name="ano-transparencia">
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+              </select>
+            </label>
+
+          </div>
+
+
+          <div class="documentos-aviso" id="status-documentos" role="status" aria-live="polite">
+
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+
+            <p>
+              Carregando documentos da base da entidade...
+            </p>
+
+          </div>
+
+
+          <!-- O JavaScript preencherá este grupo -->
+          <div class="documento-grupo" id="grupo-documentos">
+
+            <div class="documento-grupo__cabecalho">
+              <h3 id="titulo-categoria-documentos">
+                Relatórios Financeiros
+              </h3>
+
+              <span id="ano-documentos">
+                2026
+              </span>
+            </div>
+
+            <div id="lista-documentos"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CHAMADA -->
+    <section class="secao transparencia-chamada" aria-labelledby="titulo-chamada">
+
+      <div class="container transparencia-chamada__conteudo">
+
+        <p class="eyebrow eyebrow--claro">
+          Transparência e compromisso
+        </p>
+
+        <h2 id="titulo-chamada">
+          Informação acessível para todos
+        </h2>
+
+        <p>
+          Os Águias de Concórdia trabalham para disponibilizar
+          informações da entidade de forma organizada, clara e acessível.
+        </p>
+
+        <a href="contato.html" class="botao">
+          Entre em contato
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="rodape">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-col footer-col--marca">
+
+          <a href="index.html" aria-label="Voltar para o início">
+            <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo-footer">
+          </a>
+
+          <p>
+            Esporte, inclusão e transformação
+            através do paradesporto.
+          </p>
+
+        </div>
+
+        <div class="footer-col">
+
+          <h2>Navegação</h2>
+
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="quem-somos.html">Quem Somos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+
+        </div>
+
+        <div class="footer-col">
+
+          <h2>Transparência</h2>
+
+          <ul>
+            <li><a href="transparencia.html#estatuto">Estatuto</a></li>
+            <li><a href="transparencia.html#atas">Atas</a></li>
+            <li><a href="transparencia.html#editais">Editais</a></li>
+            <li><a href="transparencia.html#relatorios-financeiros">Financeiro</a></li>
+            <li><a href="transparencia.html#projetos">Projetos</a></li>
+            <li><a href="transparencia.html#voluntarios">Voluntários</a></li>
+          </ul>
+
+        </div>
+
+        <div class="footer-col">
+
+          <h2>Redes sociais</h2>
+
+          <ul class="redes-sociais">
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp dos Águias de Concórdia">
+
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span>WhatsApp</span>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram dos Águias de Concórdia">
+
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                <span>Instagram</span>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Águias de Concórdia.
+          Todos os direitos reservados.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <script src="js/script.js"></script>
+  <script src="js/portal.js"></script>
+
+</body>
+
+</html>

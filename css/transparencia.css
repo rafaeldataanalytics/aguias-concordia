@@ -1,0 +1,579 @@
+/* =========================================================
+   ÁGUIAS DE CONCÓRDIA
+   TRANSPARÊNCIA — CSS ESPECÍFICO
+   Complementa css/style.css
+========================================================= */
+
+/* HERO */
+
+.transparencia-hero {
+  padding: 95px 0;
+}
+
+/* INTRODUÇÃO */
+
+.transparencia-principal {
+  background: var(--branco);
+}
+
+.transparencia-introducao {
+  max-width: 760px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.transparencia-introducao h2 {
+  color: var(--azul);
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 800;
+}
+
+.transparencia-introducao p:not(.eyebrow) {
+  margin-top: 16px;
+  color: var(--cinza);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* LISTA PRINCIPAL
+   Inspirada na organização do site de referência,
+   mas com visual próprio dos Águias. */
+
+.transparencia-lista {
+  width: min(100%, 820px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transparencia-item {
+  min-height: 72px;
+  padding: 12px 18px;
+  display: grid;
+  grid-template-columns: 48px 1fr 28px;
+  align-items: center;
+  gap: 15px;
+  background: var(--azul);
+  color: var(--branco);
+  border: 1px solid var(--azul);
+  border-radius: 8px;
+  transition:
+    background-color var(--transicao),
+    border-color var(--transicao),
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+.transparencia-item:hover {
+  background: var(--azul-claro);
+  border-color: var(--azul-claro);
+  transform: translateX(4px);
+  box-shadow: var(--sombra-suave);
+}
+
+.transparencia-item:focus-visible {
+  outline: 3px solid var(--vermelho);
+  outline-offset: 3px;
+}
+
+.transparencia-item__icone {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 18px;
+}
+
+.transparencia-item__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.transparencia-item__texto strong {
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.transparencia-item__texto small {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.transparencia-item__seta {
+  text-align: right;
+  font-size: 14px;
+  transition: transform var(--transicao);
+}
+
+.transparencia-item:hover .transparencia-item__seta {
+  transform: translateX(3px);
+}
+
+/* ÁREA DE DOCUMENTOS */
+
+.documentos-area {
+  width: min(100%, 1000px);
+  margin: 70px auto 0;
+  padding: 38px;
+  background: var(--cinza-claro);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.documentos-area__cabecalho {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.documentos-area__cabecalho h2 {
+  color: var(--azul);
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+
+.seletor-ano {
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.seletor-ano span {
+  color: var(--azul);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.seletor-ano select {
+  min-height: 46px;
+  padding: 9px 12px;
+  border: 1px solid #cfd4dc;
+  border-radius: var(--raio-pequeno);
+  background: var(--branco);
+  color: var(--azul);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.seletor-ano select:focus-visible {
+  outline: 3px solid var(--vermelho);
+  outline-offset: 2px;
+}
+
+.documentos-aviso {
+  margin-bottom: 22px;
+  padding: 15px 17px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--branco);
+  border-left: 4px solid var(--vermelho);
+  border-radius: 6px;
+}
+
+.documentos-aviso i {
+  margin-top: 3px;
+  color: var(--vermelho);
+}
+
+.documentos-aviso p {
+  color: var(--cinza-escuro);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* GRUPO DE DOCUMENTOS */
+
+.documento-grupo {
+  overflow: hidden;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.documento-grupo__cabecalho {
+  padding: 17px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--azul);
+  color: var(--branco);
+}
+
+.documento-grupo__cabecalho h3 {
+  font-size: 17px;
+}
+
+.documento-grupo__cabecalho span {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.documento-linha {
+  min-height: 78px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.documento-linha:last-child {
+  border-bottom: 0;
+}
+
+.documento-linha__info {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.documento-linha__info > i {
+  flex: 0 0 auto;
+  color: var(--vermelho);
+  font-size: 25px;
+}
+
+.documento-linha__info div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.documento-linha__info strong {
+  color: var(--azul);
+  font-size: 14px;
+}
+
+.documento-linha__info small {
+  color: var(--cinza);
+  font-size: 12px;
+}
+
+.botao-documento {
+  flex: 0 0 auto;
+  min-height: 42px;
+  padding: 9px 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--azul);
+  border-radius: var(--raio-pequeno);
+  background: var(--branco);
+  color: var(--azul);
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    background-color var(--transicao),
+    color var(--transicao),
+    transform var(--transicao);
+}
+
+.botao-documento:hover {
+  background: var(--azul);
+  color: var(--branco);
+  transform: translateY(-1px);
+}
+
+/* CHAMADA */
+
+.transparencia-chamada {
+  position: relative;
+  overflow: hidden;
+  background: var(--azul);
+  color: var(--branco);
+  text-align: center;
+}
+
+.transparencia-chamada::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  top: -220px;
+  right: -130px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.transparencia-chamada__conteudo {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.transparencia-chamada h2 {
+  margin-bottom: 15px;
+  color: var(--branco);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+}
+
+.transparencia-chamada p:not(.eyebrow) {
+  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* TABLET */
+
+@media (max-width: 800px) {
+  .transparencia-hero {
+    padding: 70px 0;
+  }
+
+  .transparencia-item {
+    grid-template-columns: 44px 1fr 22px;
+    padding: 11px 14px;
+    gap: 12px;
+  }
+
+  .transparencia-item__icone {
+    width: 40px;
+    height: 40px;
+  }
+
+  .transparencia-item__texto small {
+    font-size: 11px;
+  }
+
+  .documentos-area {
+    padding: 25px 20px;
+    margin-top: 50px;
+  }
+
+  .documentos-area__cabecalho {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .seletor-ano {
+    width: 100%;
+  }
+
+  .seletor-ano select {
+    width: 100%;
+  }
+
+  .documento-linha {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .botao-documento {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .transparencia-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .transparencia-item {
+    min-height: 68px;
+    grid-template-columns: 40px 1fr 18px;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .transparencia-item__icone {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .transparencia-item__texto strong {
+    font-size: 13px;
+  }
+
+  .transparencia-item__texto small {
+    display: none;
+  }
+
+  .documentos-area {
+    padding: 22px 15px;
+  }
+
+  .documento-linha {
+    padding: 15px;
+  }
+
+  .documento-linha__info {
+    align-items: flex-start;
+  }
+
+  .documento-grupo__cabecalho {
+    padding: 15px;
+  }
+}
+/* =========================================
+   STATUS DO PORTAL
+========================================= */
+
+.status-bola {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Carregando */
+.status-bola--carregando {
+  color: #f2c94c;
+}
+
+/* Sucesso */
+.status-bola--sucesso {
+  color: #2eaf5d;
+}
+
+/* Não encontrado */
+.status-bola--vazio {
+  color: #f2c94c;
+}
+
+/* Erro */
+.status-bola--erro {
+  color: #d62828;
+}
+
+/* Animação da bola durante carregamento */
+.status-bola--carregando {
+  animation: girar-bola 1s linear infinite;
+}
+
+@keyframes girar-bola {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* =========================================
+   STATUS DO PORTAL DA TRANSPARÊNCIA
+========================================= */
+
+.documentos-aviso {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Texto do status */
+
+.documentos-aviso p {
+  margin: 0;
+}
+
+/* =========================================
+   BOLA DE BASQUETE
+========================================= */
+
+.status-bola {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  flex-shrink: 0;
+
+  font-size: 1.25rem;
+}
+
+/* =========================================
+   CARREGANDO
+========================================= */
+
+.documentos-aviso.status-carregando {
+  border-left-color: #f2c94c;
+}
+
+.status-bola--carregando {
+  color: #f2c94c;
+
+  animation: girar-bola 1s linear infinite;
+}
+
+/* =========================================
+   SUCESSO
+========================================= */
+
+.documentos-aviso.status-sucesso {
+  border-left-color: #2eaf5d;
+}
+
+.status-bola--sucesso {
+  color: #2eaf5d;
+}
+
+/* =========================================
+   NÃO ENCONTRADO
+========================================= */
+
+.documentos-vazio {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 18px 16px;
+
+  min-height: 58px;
+}
+
+.documentos-vazio p {
+  margin: 0;
+}
+
+.status-bola--vazio {
+  color: #f2c94c;
+}
+
+/* =========================================
+   ERRO
+========================================= */
+
+.documentos-aviso.status-erro {
+  border-left-color: #d62828;
+}
+
+.status-bola--erro {
+  color: #d62828;
+}
+
+/* =========================================
+   ANIMAÇÃO
+========================================= */
+
+@keyframes girar-bola {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/jpeg" href="assets/logo_aguias.jpg">
+
+  <meta name="description" content="Conheça os projetos dos Águias de Concórdia e suas ações voltadas ao esporte, paradesporto e inclusão.">
+
+  <title>Projetos | Águias de Concórdia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/projetos.css">
+</head>
+
+<body>
+
+  <!-- ACESSIBILIDADE -->
+  <a href="#conteudo" class="skip-link">Ir para o conteúdo principal</a>
+
+  <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+    <div class="container barra-acessibilidade__conteudo">
+
+      <span class="acessibilidade-titulo">Acessibilidade</span>
+
+      <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">A-</button>
+
+      <button type="button" id="aumentar-fonte" aria-label="Aumentar tamanho da fonte">A+</button>
+
+      <button type="button" id="alto-contraste" aria-label="Ativar alto contraste">Contraste</button>
+
+      <button type="button" id="destacar-links" aria-label="Destacar links da página">Destacar links</button>
+
+      <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">Mais opções</button>
+
+    </div>
+  </div>
+
+  <div id="painel-acessibilidade" class="painel-acessibilidade" hidden>
+    <div class="container painel-acessibilidade__conteudo">
+      <h2>Opções de acessibilidade</h2>
+
+      <button type="button" id="restaurar-acessibilidade">
+        Restaurar padrão
+      </button>
+    </div>
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="cabecalho">
+    <div class="container cabecalho__conteudo">
+
+      <a href="index.html" class="logo-link" aria-label="Águias de Concórdia - Página inicial">
+        <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo">
+      </a>
+
+      <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="quem-somos.html">Quem Somos</a></li>
+          <li><a href="projetos.html" aria-current="page">Projetos</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="transparencia.html">Transparência</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- CONTEÚDO -->
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section class="pagina-hero projetos-hero" aria-labelledby="titulo-pagina">
+
+      <div class="container pagina-hero__conteudo">
+
+        <p class="eyebrow eyebrow--claro">
+          Transformação através do esporte
+        </p>
+
+        <h1 id="titulo-pagina">
+          Projetos
+        </h1>
+
+        <p>
+          Conheça as iniciativas desenvolvidas pelos Águias de
+          Concórdia para fortalecer o esporte, o paradesporto,
+          a inclusão e o desenvolvimento social.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- INTRODUÇÃO -->
+    <section class="secao projetos-introducao" aria-labelledby="titulo-introducao">
+
+      <div class="container projetos-introducao__conteudo">
+
+        <p class="eyebrow">
+          Nossas iniciativas
+        </p>
+
+        <h2 id="titulo-introducao">
+          Esporte que transforma
+        </h2>
+
+        <p>
+          Os projetos dos Águias de Concórdia representam ações
+          voltadas ao desenvolvimento esportivo, à participação
+          e à inclusão por meio do esporte.
+        </p>
+
+        <p class="texto-observacao">
+          Os textos e informações específicas de cada projeto
+          serão atualizados com o conteúdo oficial fornecido
+          pela entidade.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJETOS -->
+    <section class="secao projetos-lista" aria-labelledby="titulo-projetos">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Conheça nossas ações
+          </p>
+
+          <h2 id="titulo-projetos">
+            Nossos Projetos
+          </h2>
+
+          <p class="secao-introducao">
+            Cada projeto possui objetivos e características próprias,
+            contribuindo para o desenvolvimento das atividades da entidade.
+          </p>
+
+        </div>
+
+
+        <div class="projetos__grid">
+
+
+          <article class="projeto-detalhe">
+
+            <div class="projeto-detalhe__imagem">
+              <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia em atividade esportiva">
+            </div>
+
+            <div class="projeto-detalhe__conteudo">
+
+              <span class="projeto-detalhe__categoria">
+                Paradesporto
+              </span>
+
+              <h3>
+                Projeto Paradesporto
+              </h3>
+
+              <p>
+                Iniciativa voltada ao desenvolvimento esportivo,
+                à participação e à inclusão por meio do paradesporto.
+              </p>
+
+              <div class="projeto-detalhe__informacoes">
+
+                <div>
+                  <strong>Objetivo</strong>
+                  <span>Desenvolvimento esportivo e inclusão.</span>
+                </div>
+
+                <div>
+                  <strong>Público</strong>
+                  <span>Participantes e atletas da entidade.</span>
+                </div>
+
+                <div>
+                  <strong>Atividades</strong>
+                  <span>Treinamentos, atividades e participação esportiva.</span>
+                </div>
+
+              </div>
+
+              <p class="projeto-observacao">
+                Informações oficiais serão inseridas posteriormente.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="projeto-detalhe">
+
+            <div class="projeto-detalhe__imagem">
+              <img src="assets/atletas.jpg" alt="Equipe dos Águias de Concórdia em atividade">
+            </div>
+
+            <div class="projeto-detalhe__conteudo">
+
+              <span class="projeto-detalhe__categoria">
+                Inclusão
+              </span>
+
+              <h3>
+                Projetos Sociais
+              </h3>
+
+              <p>
+                Ações que utilizam o esporte como ferramenta
+                de integração, participação e desenvolvimento social.
+              </p>
+
+              <div class="projeto-detalhe__informacoes">
+
+                <div>
+                  <strong>Objetivo</strong>
+                  <span>Promover participação e inclusão.</span>
+                </div>
+
+                <div>
+                  <strong>Público</strong>
+                  <span>Comunidade e participantes dos projetos.</span>
+                </div>
+
+                <div>
+                  <strong>Atividades</strong>
+                  <span>Ações esportivas e sociais.</span>
+                </div>
+
+              </div>
+
+              <p class="projeto-observacao">
+                Informações oficiais serão inseridas posteriormente.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="projeto-detalhe">
+
+            <div class="projeto-detalhe__imagem">
+              <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia em treinamento">
+            </div>
+
+            <div class="projeto-detalhe__conteudo">
+
+              <span class="projeto-detalhe__categoria">
+                Desenvolvimento
+              </span>
+
+              <h3>
+                Desenvolvimento Esportivo
+              </h3>
+
+              <p>
+                Ações voltadas ao desenvolvimento dos atletas,
+                à formação esportiva e à participação em competições.
+              </p>
+
+              <div class="projeto-detalhe__informacoes">
+
+                <div>
+                  <strong>Objetivo</strong>
+                  <span>Fortalecer o desenvolvimento esportivo.</span>
+                </div>
+
+                <div>
+                  <strong>Público</strong>
+                  <span>Atletas e participantes.</span>
+                </div>
+
+                <div>
+                  <strong>Atividades</strong>
+                  <span>Treinamentos, preparação e competições.</span>
+                </div>
+
+              </div>
+
+              <p class="projeto-observacao">
+                Informações oficiais serão inseridas posteriormente.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- COMO FUNCIONA -->
+    <section class="secao como-funciona" aria-labelledby="titulo-como-funciona">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Nossos projetos
+          </p>
+
+          <h2 id="titulo-como-funciona">
+            Como as ações acontecem
+          </h2>
+
+          <p class="secao-introducao">
+            Uma estrutura simples para apresentar posteriormente
+            o funcionamento real de cada projeto.
+          </p>
+
+        </div>
+
+        <div class="etapas__grid">
+
+          <article class="etapa-card">
+            <span class="etapa-card__numero">01</span>
+            <h3>Participação</h3>
+            <p>
+              Espaço para explicar como atletas e participantes
+              ingressam ou participam das atividades.
+            </p>
+          </article>
+
+          <article class="etapa-card">
+            <span class="etapa-card__numero">02</span>
+            <h3>Desenvolvimento</h3>
+            <p>
+              Espaço para apresentar treinamentos, atividades
+              e acompanhamento realizados.
+            </p>
+          </article>
+
+          <article class="etapa-card">
+            <span class="etapa-card__numero">03</span>
+            <h3>Competições</h3>
+            <p>
+              Espaço para apresentar a participação em eventos
+              e competições esportivas.
+            </p>
+          </article>
+
+          <article class="etapa-card">
+            <span class="etapa-card__numero">04</span>
+            <h3>Impacto</h3>
+            <p>
+              Espaço para demonstrar os resultados e impactos
+              gerados pelos projetos.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESULTADOS -->
+    <section class="secao resultados" aria-labelledby="titulo-resultados">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow eyebrow--claro">
+            Resultados
+          </p>
+
+          <h2 id="titulo-resultados">
+            O impacto dos projetos
+          </h2>
+
+          <p class="secao-introducao">
+            Indicadores reais poderão ser apresentados aqui
+            conforme os dados oficiais da entidade.
+          </p>
+
+        </div>
+
+        <div class="resultados__grid">
+
+          <div class="resultado">
+            <strong>XX</strong>
+            <span>Participantes</span>
+          </div>
+
+          <div class="resultado">
+            <strong>XX</strong>
+            <span>Projetos ativos</span>
+          </div>
+
+          <div class="resultado">
+            <strong>XX</strong>
+            <span>Competições</span>
+          </div>
+
+          <div class="resultado">
+            <strong>XX</strong>
+            <span>Atividades</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CHAMADA -->
+    <section class="secao projetos-chamada" aria-labelledby="titulo-chamada">
+
+      <div class="container projetos-chamada__conteudo">
+
+        <p class="eyebrow">
+          Faça parte
+        </p>
+
+        <h2 id="titulo-chamada">
+          Quer apoiar nossos projetos?
+        </h2>
+
+        <p>
+          Entre em contato com os Águias de Concórdia e conheça
+          as possibilidades de parceria e apoio.
+        </p>
+
+        <a href="contato.html" class="botao">
+          Entre em contato
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="rodape">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-col footer-col--marca">
+
+          <a href="index.html" aria-label="Voltar para o início">
+            <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo-footer">
+          </a>
+
+          <p>
+            Esporte, inclusão e transformação
+            através do paradesporto.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>Navegação</h2>
+
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="quem-somos.html">Quem Somos</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="transparencia.html">Transparência</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>Transparência</h2>
+
+          <ul>
+            <li><a href="transparencia.html">Portal da Transparência</a></li>
+            <li><a href="transparencia.html">Atas</a></li>
+            <li><a href="transparencia.html">Financeiro</a></li>
+            <li><a href="transparencia.html">Convênios</a></li>
+            <li><a href="transparencia.html">Contratos</a></li>
+            <li><a href="transparencia.html">Prestação de Contas</a></li>
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>Redes sociais</h2>
+
+          <ul class="redes-sociais">
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp dos Águias de Concórdia">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                <span>WhatsApp</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram dos Águias de Concórdia">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                <span>Instagram</span>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Águias de Concórdia.
+          Todos os direitos reservados.
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

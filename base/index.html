@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Águias de Concórdia — Basquetebol, paradesporto, projetos, competições e transparência.">
+
+  <title>Águias de Concórdia | Paradesporto</title>
+
+  <!-- Tipografia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       ACESSIBILIDADE
+  ====================================================== -->
+
+  <a href="#conteudo" class="skip-link">
+    Ir para o conteúdo principal
+  </a>
+
+  <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+
+    <div class="container barra-acessibilidade__conteudo">
+
+      <span class="acessibilidade-titulo">
+        Acessibilidade
+      </span>
+
+      <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">
+        A-
+      </button>
+
+      <button type="button" id="aumentar-fonte" aria-label="Aumentar tamanho da fonte">
+        A+
+      </button>
+
+      <button type="button" id="alto-contraste" aria-label="Ativar alto contraste">
+        Contraste
+      </button>
+
+      <button type="button" id="destacar-links" aria-label="Destacar links da página">
+        Destacar links
+      </button>
+
+      <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">
+        Mais opções
+      </button>
+
+    </div>
+  </div>
+
+  <div id="painel-acessibilidade" class="painel-acessibilidade" hidden>
+
+    <div class="container painel-acessibilidade__conteudo">
+
+      <h2>
+        Opções de acessibilidade
+      </h2>
+
+      <button type="button" id="restaurar-acessibilidade">
+        Restaurar padrão
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="cabecalho">
+
+    <div class="container cabecalho__conteudo">
+
+      <!-- Logo -->
+
+      <a href="index.html" class="logo-link" aria-label="Águias de Concórdia - Página inicial">
+
+        <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo">
+
+      </a>
+
+
+      <!-- Menu mobile -->
+
+      <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </button>
+
+
+      <!-- Menu principal -->
+
+      <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Início
+            </a>
+          </li>
+
+          <li class="item-submenu">
+
+            <button type="button" aria-expanded="false" aria-controls="submenu-entidade">
+
+              A Entidade
+
+            </button>
+
+            <ul id="submenu-entidade" class="submenu">
+
+              <li><a href="#quem-somos">Quem Somos</a></li>
+              <li><a href="#">Nossa História</a></li>
+              <li><a href="#">Diretoria</a></li>
+              <li><a href="#">Equipe</a></li>
+
+            </ul>
+
+          </li>
+
+          <li class="item-submenu">
+
+            <button type="button" aria-expanded="false" aria-controls="submenu-paradesporto">
+
+              Paradesporto
+
+            </button>
+
+            <ul id="submenu-paradesporto" class="submenu">
+
+              <li><a href="#">Basquetebol</a></li>
+              <li><a href="#">Atletas</a></li>
+              <li><a href="#noticias">Competições</a></li>
+              <li><a href="#">Conquistas</a></li>
+
+            </ul>
+
+          </li>
+
+          <li>
+            <a href="#projetos">
+              Projetos
+            </a>
+          </li>
+
+          <li>
+            <a href="#noticias">
+              Notícias
+            </a>
+          </li>
+
+          <li class="item-submenu">
+
+            <button type="button" aria-expanded="false" aria-controls="submenu-transparencia">
+
+              Transparência
+
+            </button>
+
+            <ul id="submenu-transparencia" class="submenu">
+
+              <li><a href="#transparencia">Portal da Transparência</a></li>
+              <li><a href="#">Atas</a></li>
+              <li><a href="#">Financeiro</a></li>
+              <li><a href="#">Convênios</a></li>
+              <li><a href="#">Contratos</a></li>
+              <li><a href="#">Prestação de Contas</a></li>
+
+            </ul>
+
+          </li>
+
+          <li>
+            <a href="#contato">
+              Contato
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       CONTEÚDO
+  ====================================================== -->
+
+  <main id="conteudo">
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero" aria-labelledby="titulo-hero">
+
+      <div class="hero-imagem">
+
+        <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia em atividade esportiva">
+
+      </div>
+
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-conteudo">
+
+        <p class="hero-subtitulo">
+          Basquetebol e paradesporto
+        </p>
+
+        <h1 id="titulo-hero">
+          Águias de Concórdia
+        </h1>
+
+        <p class="hero-texto">
+          Esporte, inclusão e transformação através
+          do paradesporto.
+        </p>
+
+        <a href="#quem-somos" class="botao">
+          Conheça os Águias
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         QUEM SOMOS
+    ================================================== -->
+
+    <section id="quem-somos" class="secao quem-somos" aria-labelledby="titulo-quem-somos">
+
+      <div class="container">
+
+        <div class="secao-cabecalho">
+
+          <p class="eyebrow">
+            A entidade
+          </p>
+
+          <h2 id="titulo-quem-somos">
+            Quem Somos
+          </h2>
+
+        </div>
+
+        <div class="quem-somos__conteudo">
+
+          <div class="quem-somos__texto">
+
+            <p>
+              Conteúdo institucional da entidade será inserido
+              após o recebimento das informações oficiais.
+            </p>
+
+            <p>
+              Nesta área apresentaremos a história, missão,
+              atuação e importância dos Águias de Concórdia.
+            </p>
+
+            <a href="#" class="botao botao--secundario">
+              Saiba mais
+            </a>
+
+          </div>
+
+          <div class="imagem-destaque">
+
+            <img src="assets/atletas.jpg" alt="Equipe dos Águias de Concórdia">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PORTAL DA TRANSPARÊNCIA
+    ================================================== -->
+
+    <section id="transparencia" class="secao transparencia" aria-labelledby="titulo-transparencia">
+
+      <div class="container">
+
+        <div class="transparencia__cabecalho">
+
+          <div>
+
+            <p class="eyebrow eyebrow--claro">
+              Informação pública
+            </p>
+
+            <h2 id="titulo-transparencia">
+              Portal da Transparência
+            </h2>
+
+          </div>
+
+          <p class="transparencia__intro">
+            Consulte documentos e informações da entidade
+            de forma simples, organizada e acessível.
+          </p>
+
+        </div>
+
+
+        <div class="transparencia__grid">
+
+
+          <article class="transparencia-card">
+
+            <div class="transparencia-card__icone" aria-hidden="true">
+              📋
+            </div>
+
+            <h3>
+              Atas
+            </h3>
+
+            <p>
+              Registro das reuniões, assembleias e decisões
+              da entidade.
+            </p>
+
+            <a href="#">
+              Consultar atas →
+            </a>
+
+          </article>
+
+
+          <article class="transparencia-card">
+
+            <div class="transparencia-card__icone" aria-hidden="true">
+              💰
+            </div>
+
+            <h3>
+              Financeiro
+            </h3>
+
+            <p>
+              Consulte receitas, despesas e informações
+              financeiras.
+            </p>
+
+            <a href="#">
+              Consultar financeiro →
+            </a>
+
+          </article>
+
+
+          <article class="transparencia-card">
+
+            <div class="transparencia-card__icone" aria-hidden="true">
+              📑
+            </div>
+
+            <h3>
+              Prestação de Contas
+            </h3>
+
+            <p>
+              Documentos e informações sobre a aplicação
+              dos recursos.
+            </p>
+
+            <a href="#">
+              Consultar documentos →
+            </a>
+
+          </article>
+
+
+          <article class="transparencia-card">
+
+            <div class="transparencia-card__icone" aria-hidden="true">
+              🤝
+            </div>
+
+            <h3>
+              Convênios e Contratos
+            </h3>
+
+            <p>
+              Informações sobre parcerias, convênios
+              e contratos.
+            </p>
+
+            <a href="#">
+              Consultar informações →
+            </a>
+
+          </article>
+
+        </div>
+
+        <div class="secao-botao">
+
+          <a href="#" class="botao">
+            Acessar Portal da Transparência
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         NOTÍCIAS E COMPETIÇÕES
+    ================================================== -->
+
+    <section id="noticias" class="secao noticias" aria-labelledby="titulo-noticias">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Acompanhe os Águias
+          </p>
+
+          <h2 id="titulo-noticias">
+            Notícias e Competições
+          </h2>
+
+          <p class="secao-introducao">
+            Acompanhe as participações, competições,
+            resultados, conquistas e acontecimentos
+            da entidade.
+          </p>
+
+        </div>
+
+
+        <div class="noticias__grid">
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia em competição">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Competição
+              </span>
+
+              <h3>
+                Águias de Concórdia participam de competição
+              </h3>
+
+              <p>
+                Confira a participação da equipe em mais
+                uma competição de paradesporto.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">128</span>
+                </button>
+
+                <span class="metrica" aria-label="1280 visualizações">
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">1.280</span>
+                </span>
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Equipe dos Águias de Concórdia">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Conquistas
+              </span>
+
+              <h3>
+                Águias conquistam destaque nas competições
+              </h3>
+
+              <p>
+                Veja os resultados e conquistas da equipe
+                ao longo da temporada.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">96</span>
+                </button>
+
+                <span class="metrica" aria-label="980 visualizações">
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">980</span>
+                </span>
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <article class="noticia-card">
+
+            <div class="noticia-card__imagem">
+
+              <img src="assets/atletas.jpg" alt="Atletas dos Águias em atividade esportiva">
+
+            </div>
+
+            <div class="noticia-card__conteudo">
+
+              <span class="noticia-card__categoria">
+                Paradesporto
+              </span>
+
+              <h3>
+                Esporte, inclusão e transformação
+              </h3>
+
+              <p>
+                Conheça as atividades e ações desenvolvidas
+                pelos Águias de Concórdia.
+              </p>
+
+              <div class="conteudo-metricas" aria-label="Interações da notícia">
+                <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
+                  <span aria-hidden="true">♥</span>
+                  <span class="metrica__valor">74</span>
+                </button>
+
+                <span class="metrica" aria-label="756 visualizações">
+                  <span aria-hidden="true">👁</span>
+                  <span class="metrica__valor">756</span>
+                </span>
+              </div>
+
+              <a href="#" class="noticia-card__link">
+                Ler notícia →
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <div class="secao-botao">
+
+          <a href="#" class="botao botao--secundario">
+            Ver todas as notícias
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PROJETOS
+    ================================================== -->
+
+    <section id="projetos" class="secao projetos" aria-labelledby="titulo-projetos">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Transformação através do esporte
+          </p>
+
+          <h2 id="titulo-projetos">
+            Projetos
+          </h2>
+
+          <p class="secao-introducao">
+            Conheça os projetos desenvolvidos para fortalecer
+            o esporte, a inclusão e o desenvolvimento social.
+          </p>
+
+        </div>
+
+
+        <div class="projetos__grid">
+
+
+          <article class="projeto-card">
+
+            <div class="projeto-card__icone" aria-hidden="true">
+              🏀
+            </div>
+
+            <h3>
+              Projeto Paradesporto
+            </h3>
+
+            <p>
+              Desenvolvimento esportivo e inclusão através
+              do basquetebol.
+            </p>
+
+            <a href="#">
+              Conheça o projeto →
+            </a>
+
+          </article>
+
+
+          <article class="projeto-card">
+
+            <div class="projeto-card__icone" aria-hidden="true">
+              🤝
+            </div>
+
+            <h3>
+              Projetos Sociais
+            </h3>
+
+            <p>
+              Ações voltadas ao desenvolvimento esportivo
+              e social.
+            </p>
+
+            <a href="#">
+              Conheça o projeto →
+            </a>
+
+          </article>
+
+
+          <article class="projeto-card">
+
+            <div class="projeto-card__icone" aria-hidden="true">
+              🏆
+            </div>
+
+            <h3>
+              Desenvolvimento Esportivo
+            </h3>
+
+            <p>
+              Incentivo à participação em competições
+              e formação esportiva.
+            </p>
+
+            <a href="#">
+              Conheça o projeto →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         GALERIA
+    ================================================== -->
+
+    <section id="galeria" class="secao galeria" aria-labelledby="titulo-galeria">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Memória dos Águias
+          </p>
+
+          <h2 id="titulo-galeria">
+            Competições
+          </h2>
+
+          <p class="secao-introducao">
+            Registros dos atletas, competições e momentos
+            marcantes da entidade.
+          </p>
+
+        </div>
+
+
+        <div class="galeria__grid">
+
+          <figure class="galeria__item galeria__item--grande">
+
+            <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia">
+
+            <figcaption class="galeria__metricas" aria-label="Interações da foto">
+              <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta foto">
+                <span aria-hidden="true">♥</span>
+                <span class="metrica__valor">214</span>
+              </button>
+
+              <span class="metrica" aria-label="2.340 visualizações">
+                <span aria-hidden="true">👁</span>
+                <span class="metrica__valor">2.340</span>
+              </span>
+            </figcaption>
+
+          </figure>
+
+          <figure class="galeria__item">
+
+            <img src="assets/atletas.jpg" alt="Equipe dos Águias de Concórdia">
+
+            <figcaption class="galeria__metricas" aria-label="Interações da foto">
+              <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta foto">
+                <span aria-hidden="true">♥</span>
+                <span class="metrica__valor">87</span>
+              </button>
+
+              <span class="metrica" aria-label="1.120 visualizações">
+                <span aria-hidden="true">👁</span>
+                <span class="metrica__valor">1.120</span>
+              </span>
+            </figcaption>
+
+          </figure>
+
+          <figure class="galeria__item">
+
+            <img src="assets/atletas.jpg" alt="Atletas em competição">
+
+            <figcaption class="galeria__metricas" aria-label="Interações da foto">
+              <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta foto">
+                <span aria-hidden="true">♥</span>
+                <span class="metrica__valor">63</span>
+              </button>
+
+              <span class="metrica" aria-label="842 visualizações">
+                <span aria-hidden="true">👁</span>
+                <span class="metrica__valor">842</span>
+              </span>
+            </figcaption>
+
+          </figure>
+
+          <figure class="galeria__item">
+
+            <img src="assets/atletas.jpg" alt="Equipe em atividade esportiva">
+
+            <figcaption class="galeria__metricas" aria-label="Interações da foto">
+              <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta foto">
+                <span aria-hidden="true">♥</span>
+                <span class="metrica__valor">51</span>
+              </button>
+
+              <span class="metrica" aria-label="690 visualizações">
+                <span aria-hidden="true">👁</span>
+                <span class="metrica__valor">690</span>
+              </span>
+            </figcaption>
+
+          </figure>
+
+          <figure class="galeria__item">
+
+            <img src="assets/atletas.jpg" alt="Momento de competição">
+
+            <figcaption class="galeria__metricas" aria-label="Interações da foto">
+              <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta foto">
+                <span aria-hidden="true">♥</span>
+                <span class="metrica__valor">39</span>
+              </button>
+
+              <span class="metrica" aria-label="514 visualizações">
+                <span aria-hidden="true">👁</span>
+                <span class="metrica__valor">514</span>
+              </span>
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+
+        <div class="secao-botao">
+
+          <a href="#" class="botao botao--secundario">
+            Ver galeria completa
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         APOIE
+    ================================================== -->
+
+    <section class="secao apoie" aria-labelledby="titulo-apoie">
+
+      <div class="container">
+
+        <div class="apoie__conteudo">
+
+          <p class="eyebrow eyebrow--claro">
+            Faça parte
+          </p>
+
+          <h2 id="titulo-apoie">
+            Junte-se aos Águias
+          </h2>
+
+          <p>
+            Fortaleça o esporte, o paradesporto e as ações
+            desenvolvidas pela entidade.
+          </p>
+
+          <a href="#contato" class="botao">
+            Seja um parceiro
+          </a>
+
+          <p class="apoie__orientacao">
+            Ao clicar, você será direcionado para a área de contato.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =================================================
+     EMPRESAS PARCEIRAS
+================================================== -->
+
+    <section class="parceiros" aria-labelledby="titulo-parceiros">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Quem apoia os Águias
+          </p>
+
+          <h2 id="titulo-parceiros">
+            Empresas Parceiras
+          </h2>
+
+          <p class="secao-introducao">
+            Agradecemos às empresas e instituições que apoiam
+            o esporte e o paradesporto.
+          </p>
+
+        </div>
+
+        <div class="parceiros__carrossel">
+
+          <div class="parceiros__lista">
+
+            <div class="parceiro-logo">
+              <img src="assets/logo_aguias.jpg" alt="Empresa parceira">
+            </div>
+
+            <div class="parceiro-logo">
+              <img src="assets/logo_aguias.jpg" alt="Empresa parceira">
+            </div>
+
+            <div class="parceiro-logo">
+              <img src="assets/logo_aguias.jpg" alt="Empresa parceira">
+            </div>
+
+            <div class="parceiro-logo">
+              <img src="assets/logo_aguias.jpg" alt="Empresa parceira">
+            </div>
+
+            <div class="parceiro-logo">
+              <img src="assets/logo_aguias.jpg" alt="Empresa parceira">
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="parceiros__indicadores">
+
+          <button type="button" class="indicador ativo" data-slide="0" aria-label="Mostrar grupo de parceiros 1">
+          </button>
+
+          <button type="button" class="indicador" data-slide="1" aria-label="Mostrar grupo de parceiros 2">
+          </button>
+
+          <button type="button" class="indicador" data-slide="2" aria-label="Mostrar grupo de parceiros 3">
+          </button>
+
+          <button type="button" class="indicador" data-slide="3" aria-label="Mostrar grupo de parceiros 4">
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CONTATO
+    ================================================== -->
+
+    <section id="contato" class="secao contato" aria-labelledby="titulo-contato">
+
+      <div class="container">
+
+        <div class="secao-cabecalho">
+
+          <p class="eyebrow">
+            Fale conosco
+          </p>
+
+          <h2 id="titulo-contato">
+            Contato
+          </h2>
+
+        </div>
+
+
+        <div class="contato__conteudo">
+
+
+          <div class="contato__informacoes">
+
+            <h3>
+              Entre em contato
+            </h3>
+
+            <address>
+
+              <p>
+                Endereço da entidade
+              </p>
+
+              <p>
+                Telefone
+              </p>
+
+              <p>
+                E-mail
+              </p>
+
+            </address>
+
+          </div>
+
+
+          <form class="formulario" action="#" method="post">
+
+            <div class="campo">
+
+              <label for="nome">
+                Nome
+              </label>
+
+              <input type="text" id="nome" name="nome" autocomplete="name" required>
+
+            </div>
+
+
+            <div class="campo">
+
+              <label for="email">
+                E-mail
+              </label>
+
+              <input type="email" id="email" name="email" autocomplete="email" required>
+
+            </div>
+
+
+            <div class="campo">
+
+              <label for="telefone">
+                Telefone
+              </label>
+
+              <input type="tel" id="telefone" name="telefone" autocomplete="tel">
+
+            </div>
+
+
+            <div class="campo">
+
+              <label for="mensagem">
+                Mensagem
+              </label>
+
+              <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+
+            </div>
+
+
+            <button type="submit" class="botao">
+              Enviar mensagem
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="rodape">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div class="footer-col footer-col--marca">
+
+          <a href="index.html" aria-label="Voltar para o início">
+
+            <img src="assets/logo_aguias.jpg" alt="Águias de Concórdia" class="logo-footer">
+
+          </a>
+
+          <p>
+            Esporte, inclusão e transformação
+            através do paradesporto.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Navegação
+          </h2>
+
+          <ul>
+
+            <li><a href="index.html">Início</a></li>
+            <li><a href="#quem-somos">A Entidade</a></li>
+            <li><a href="#noticias">Notícias</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Transparência
+          </h2>
+
+          <ul>
+
+            <li><a href="#transparencia">Portal da Transparência</a></li>
+            <li><a href="#">Atas</a></li>
+            <li><a href="#">Financeiro</a></li>
+            <li><a href="#">Convênios</a></li>
+            <li><a href="#">Contratos</a></li>
+            <li><a href="#">Prestação de Contas</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h2>
+            Redes sociais
+          </h2>
+
+          <ul class="redes-sociais">
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp dos Águias de Concórdia">
+
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+
+                <span>WhatsApp</span>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram dos Águias de Concórdia">
+
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+
+                <span>Instagram</span>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          &copy; 2026 Águias de Concórdia.
+          Todos os direitos reservados.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
