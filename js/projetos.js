@@ -7,6 +7,9 @@
    DADOS DOS PROJETOS
    -----------------------------------------
    Dados provisórios para teste.
+   
+   Os documentos NÃO ficam mais aqui.
+   Eles serão consultados no Portal da Transparência.
 ========================================================= */
 
 const projetos = [
@@ -27,29 +30,6 @@ const projetos = [
       publico: "Pessoas com deficiência",
       local: "Concórdia - SC",
     },
-
-    documentos: [
-      {
-        nome: "Projeto completo",
-        link: "#",
-      },
-      {
-        nome: "Plano de trabalho",
-        link: "#",
-      },
-      {
-        nome: "Termo de fomento",
-        link: "#",
-      },
-      {
-        nome: "Relatórios",
-        link: "#",
-      },
-      {
-        nome: "Prestação de contas",
-        link: "#",
-      },
-    ],
   },
 
   {
@@ -69,25 +49,6 @@ const projetos = [
       publico: "Atletas da entidade",
       local: "Concórdia - SC",
     },
-
-    documentos: [
-      {
-        nome: "Projeto completo",
-        link: "#",
-      },
-      {
-        nome: "Plano de trabalho",
-        link: "#",
-      },
-      {
-        nome: "Relatórios",
-        link: "#",
-      },
-      {
-        nome: "Prestação de contas",
-        link: "#",
-      },
-    ],
   },
 
   {
@@ -107,21 +68,6 @@ const projetos = [
       publico: "Pessoas com deficiência",
       local: "Concórdia - SC",
     },
-
-    documentos: [
-      {
-        nome: "Projeto",
-        link: "#",
-      },
-      {
-        nome: "Plano de trabalho",
-        link: "#",
-      },
-      {
-        nome: "Documentos",
-        link: "#",
-      },
-    ],
   },
 ];
 
@@ -160,7 +106,7 @@ function renderizarProjetos() {
     artigo.className = "projeto-detalhe";
 
     /* =====================================================
-       INFORMAÇÕES
+       INFORMAÇÕES DO PROJETO
     ===================================================== */
 
     const informacoesHTML = Object.entries(projeto.informacoes)
@@ -175,39 +121,6 @@ function renderizarProjetos() {
               ${valor}
             </span>
           </div>
-        `;
-      })
-      .join("");
-
-    /* =====================================================
-       DOCUMENTOS
-    ===================================================== */
-
-    const documentosHTML = projeto.documentos
-      .map((documento) => {
-        return `
-          <li>
-            <a
-              href="${documento.link}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-
-              <i
-                class="fa-regular fa-file-lines"
-                aria-hidden="true"
-              ></i>
-
-              <span>
-                ${documento.nome}
-              </span>
-
-              <span aria-hidden="true">
-                →
-              </span>
-
-            </a>
-          </li>
         `;
       })
       .join("");
@@ -265,15 +178,24 @@ function renderizarProjetos() {
         </div>
 
 
-        <div class="projeto-documentos">
+        <!-- DOCUMENTOS NA TRANSPARÊNCIA -->
 
-          <h4>
-            Documentos do projeto
-          </h4>
+        <div class="projeto-detalhe__acao">
 
-          <ul>
-            ${documentosHTML}
-          </ul>
+          <a
+            href="transparencia.html#projetos"
+            class="botao"
+            aria-label="Ver documentos e prestação de contas de ${projeto.titulo}"
+          >
+
+            <i
+              class="fa-solid fa-file-lines"
+              aria-hidden="true"
+            ></i>
+
+            Ver documentos e prestação de contas
+
+          </a>
 
         </div>
 

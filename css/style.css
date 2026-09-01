@@ -1,7 +1,30 @@
 /* =========================================================
    ÁGUIAS DE CONCÓRDIA
    CSS GLOBAL + HOME
-   Identidade visual baseada na BASE aprovada
+
+   Estrutura:
+   1. Variáveis
+   2. Reset
+   3. Acessibilidade
+   4. Header
+   5. Menu
+   6. Seções
+   7. Botões
+   8. Hero
+   9. Quem Somos
+   10. Projetos
+   11. Notícias
+   12. Apoie
+   13. Parceiros
+   14. Footer
+   15. Tablet
+   16. Mobile
+   17. Celular pequeno
+   18. Redução de movimento
+========================================================= */
+
+/* =========================================================
+   1. VARIÁVEIS
 ========================================================= */
 
 :root {
@@ -36,7 +59,9 @@
   --transicao: 0.25s ease;
 }
 
-/* RESET */
+/* =========================================================
+   2. RESET
+========================================================= */
 
 * {
   margin: 0;
@@ -50,10 +75,15 @@ html {
 
 body {
   min-height: 100vh;
+
   font-family: var(--fonte-texto);
   color: var(--texto);
+
   background: var(--branco);
+
+  font-size: 17px;
   line-height: 1.6;
+
   -webkit-font-smoothing: antialiased;
 }
 
@@ -98,18 +128,27 @@ p {
   margin-inline: auto;
 }
 
-/* ACESSIBILIDADE */
+/* =========================================================
+   3. ACESSIBILIDADE
+========================================================= */
 
 .skip-link {
   position: absolute;
+
   top: -100px;
   left: 20px;
+
   z-index: 9999;
+
   padding: 12px 18px;
+
   background: var(--azul);
   color: var(--branco);
+
   border-radius: 0 0 var(--raio-pequeno) var(--raio-pequeno);
+
   font-weight: 700;
+
   transition: top var(--transicao);
 }
 
@@ -117,35 +156,47 @@ p {
   top: 0;
 }
 
+/* Barra */
+
 .barra-acessibilidade {
   background: var(--azul);
   color: var(--branco);
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .barra-acessibilidade__conteudo {
   min-height: 46px;
+
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
   gap: 7px;
 }
 
 .acessibilidade-titulo {
   margin-right: 8px;
-  font-size: 13px;
+
+  font-size: 15px;
   font-weight: 700;
 }
 
 .barra-acessibilidade button {
   min-height: 34px;
+
   padding: 5px 11px;
+
   border: 1px solid rgba(255, 255, 255, 0.45);
+
   border-radius: var(--raio-pequeno);
+
   background: transparent;
   color: var(--branco);
-  font-size: 13px;
+
+  font-size: 14px;
   font-weight: 700;
+
   transition:
     background-color var(--transicao),
     color var(--transicao);
@@ -157,16 +208,21 @@ p {
   color: var(--azul);
 }
 
+/* Painel */
+
 .painel-acessibilidade {
   background: var(--cinza-claro);
+
   border-bottom: 1px solid var(--borda);
 }
 
 .painel-acessibilidade__conteudo {
   padding: 20px 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 20px;
 }
 
@@ -177,32 +233,51 @@ p {
 
 .painel-acessibilidade button {
   padding: 9px 15px;
+
   border: 1px solid var(--azul);
+
   border-radius: var(--raio-pequeno);
+
   background: var(--branco);
   color: var(--azul);
+
   font-weight: 700;
 }
 
-/* HEADER */
+/* Foco global */
+
+:focus-visible {
+  outline: 3px solid var(--vermelho);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   4. HEADER
+========================================================= */
 
 .cabecalho {
   position: relative;
+
   z-index: 1000;
+
   background: var(--branco);
+
   border-bottom: 1px solid var(--borda);
 }
 
 .cabecalho__conteudo {
   min-height: 120px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 35px;
 }
 
 .logo-link {
   flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -211,15 +286,21 @@ p {
 .logo {
   width: 94px;
   height: 94px;
+
   object-fit: cover;
+
   border-radius: 50%;
+
   box-shadow: 0 4px 15px rgba(7, 27, 73, 0.12);
 }
 
-/* MENU */
+/* =========================================================
+   5. MENU
+========================================================= */
 
 .menu-principal {
   flex: 1;
+
   display: flex;
   justify-content: flex-end;
 }
@@ -228,21 +309,30 @@ p {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
   flex-wrap: wrap;
+
   gap: 2px;
 }
 
 .menu-principal a {
   position: relative;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   min-height: 44px;
+
   padding: 8px 12px;
+
   color: var(--azul);
-  font-size: 14px;
+
+  font-size: 15px;
   font-weight: 700;
+
   white-space: nowrap;
+
   transition: color var(--transicao);
 }
 
@@ -252,14 +342,20 @@ p {
 
 .menu-principal a::after {
   content: "";
+
   position: absolute;
+
   left: 12px;
   right: 12px;
   bottom: 2px;
+
   height: 3px;
+
   background: var(--vermelho);
+
   transform: scaleX(0);
   transform-origin: center;
+
   transition: transform var(--transicao);
 }
 
@@ -276,38 +372,45 @@ p {
   transform: scaleX(1);
 }
 
-/* FOCO */
-
-:focus-visible {
-  outline: 3px solid var(--vermelho);
-  outline-offset: 3px;
-}
-
-/* MENU MOBILE */
+/* =========================================================
+   MENU MOBILE
+========================================================= */
 
 .botao-menu {
   display: none;
+
   width: 46px;
   height: 46px;
+
   padding: 8px;
+
   border: 2px solid var(--azul);
+
   border-radius: var(--raio-pequeno);
+
   background: var(--branco);
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   gap: 5px;
 }
 
 .botao-menu span {
   width: 23px;
   height: 3px;
+
   display: block;
+
   background: var(--azul);
+
   border-radius: 3px;
 }
 
-/* SEÇÕES */
+/* =========================================================
+   6. SEÇÕES
+========================================================= */
 
 .secao {
   padding: 90px 0;
@@ -315,6 +418,7 @@ p {
 
 .secao-cabecalho {
   max-width: 760px;
+
   margin-bottom: 45px;
 }
 
@@ -325,10 +429,14 @@ p {
 
 .eyebrow {
   margin-bottom: 10px;
+
   color: var(--vermelho);
+
   font-family: var(--fonte-titulo);
+
   font-size: 13px;
   font-weight: 800;
+
   text-transform: uppercase;
   letter-spacing: 1.2px;
 }
@@ -339,38 +447,54 @@ p {
 
 .secao-cabecalho h2 {
   color: var(--azul);
+
   font-size: clamp(2rem, 4vw, 3rem);
+
   font-weight: 800;
 }
 
 .secao-introducao {
   max-width: 700px;
+
   margin: 18px auto 0;
+
   color: var(--cinza);
+
   font-size: 17px;
+
   line-height: 1.7;
 }
 
 .secao-botao {
   margin-top: 35px;
+
   display: flex;
   justify-content: center;
 }
 
-/* BOTÕES */
+/* =========================================================
+   7. BOTÕES
+========================================================= */
 
 .botao {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   min-height: 48px;
+
   padding: 12px 23px;
+
   border: 2px solid var(--vermelho);
+
   border-radius: var(--raio-pequeno);
+
   background: var(--vermelho);
   color: var(--branco);
+
   font-size: 15px;
   font-weight: 700;
+
   transition:
     background-color var(--transicao),
     border-color var(--transicao),
@@ -381,7 +505,9 @@ p {
 .botao:hover {
   background: var(--vermelho-escuro);
   border-color: var(--vermelho-escuro);
+
   transform: translateY(-2px);
+
   box-shadow: 0 7px 18px rgba(185, 28, 28, 0.2);
 }
 
@@ -394,8 +520,9 @@ p {
   color: var(--branco);
 }
 
-/* HERO */
-
+/* =========================================================
+   8. HERO
+========================================================= */
 .hero {
   position: relative;
   min-height: 540px;
@@ -403,36 +530,78 @@ p {
   background: var(--azul);
 }
 
+/* =========================================================
+   ÁREA DAS IMAGENS DO HERO
+========================================================= */
+
 .hero-imagem {
   position: absolute;
+
   inset: 0;
+
   z-index: 0;
+
+  overflow: hidden;
+
+  background-color: var(--azul);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: none;
 }
 
+/* FOTO PRINCIPAL */
+
 .hero-imagem img {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
   height: 100%;
-  object-fit: cover;
+
+  object-fit: contain;
   object-position: center;
+
+  opacity: 0;
+
+  z-index: 1;
+
+  transition: opacity 1.2s ease-in-out;
 }
+
+.hero-imagem img.ativo {
+  opacity: 1;
+}
+
+/* Sobreposição */
 
 .hero-overlay {
   position: absolute;
+
   inset: 0;
-  z-index: 1;
+
+  z-index: 2;
+
   background: linear-gradient(
     90deg,
     rgba(7, 27, 73, 0.9) 0%,
-    rgba(7, 27, 73, 0.72) 38%,
-    rgba(7, 27, 73, 0.25) 72%,
-    rgba(7, 27, 73, 0.05) 100%
+    rgba(7, 27, 73, 0.7) 38%,
+    rgba(7, 27, 73, 0.3) 72%,
+    rgba(7, 27, 73, 0.12) 100%
   );
 }
 
+/* Conteúdo */
+
 .hero-conteudo {
   position: relative;
-  z-index: 2;
+
+  z-index: 3;
+
   min-height: 540px;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -441,32 +610,137 @@ p {
 
 .hero-subtitulo {
   margin-bottom: 12px;
+
   color: var(--branco);
+
   font-family: var(--fonte-titulo);
+
   font-size: 15px;
   font-weight: 700;
+
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .hero h1 {
   max-width: 720px;
+
   margin-bottom: 18px;
+
   color: var(--branco);
+
   font-size: clamp(2.8rem, 5vw, 4.7rem);
+
   font-weight: 800;
+
   line-height: 1.04;
 }
 
 .hero-texto {
   max-width: 580px;
+
   margin-bottom: 30px;
+
   color: rgba(255, 255, 255, 0.92);
+
   font-size: 19px;
+
   line-height: 1.6;
 }
 
-/* QUEM SOMOS */
+/* =========================================================
+   CONTROLES DO HERO
+========================================================= */
+
+.hero-controles {
+  position: absolute;
+
+  right: 40px;
+  bottom: 24px;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.hero-controles button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  border-radius: 50%;
+
+  background: rgba(7, 27, 73, 0.7);
+
+  color: var(--branco);
+
+  font-size: 15px;
+
+  transition:
+    background-color var(--transicao),
+    transform var(--transicao);
+}
+
+.hero-controles button:hover,
+.hero-controles button:focus-visible {
+  background: var(--vermelho);
+
+  transform: scale(1.06);
+}
+
+.hero-indicadores {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.hero-indicador {
+  width: 7px;
+  height: 7px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.hero-indicador.ativo {
+  width: 17px;
+
+  border-radius: 10px;
+
+  background: var(--branco);
+}
+
+.hero-indicador:focus-visible {
+  outline: 2px solid var(--branco);
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   9. QUEM SOMOS
+========================================================= */
 
 .quem-somos {
   background: var(--branco);
@@ -474,8 +748,11 @@ p {
 
 .quem-somos__conteudo {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 60px;
+
   align-items: center;
 }
 
@@ -485,8 +762,11 @@ p {
 
 .quem-somos__texto p {
   margin-bottom: 18px;
+
   color: var(--cinza-escuro);
-  font-size: 17px;
+
+  font-size: 18px;
+
   line-height: 1.8;
 }
 
@@ -496,14 +776,18 @@ p {
 
 .imagem-destaque {
   overflow: hidden;
+
   border-radius: var(--raio);
+
   box-shadow: var(--sombra-card);
 }
 
 .imagem-destaque img {
   width: 100%;
   height: 360px;
+
   object-fit: cover;
+
   transition: transform 0.4s ease;
 }
 
@@ -511,7 +795,9 @@ p {
   transform: scale(1.03);
 }
 
-/* PROJETOS */
+/* =========================================================
+   10. PROJETOS
+========================================================= */
 
 .projetos {
   background: var(--cinza-claro);
@@ -519,17 +805,25 @@ p {
 
 .projetos__grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 25px;
 }
 
 .projeto-card {
   min-height: 280px;
+
   padding: 32px;
+
   background: var(--branco);
+
   border: 1px solid var(--borda);
+
   border-radius: var(--raio);
+
   box-shadow: var(--sombra-suave);
+
   transition:
     transform var(--transicao),
     box-shadow var(--transicao);
@@ -537,36 +831,48 @@ p {
 
 .projeto-card:hover {
   transform: translateY(-5px);
+
   box-shadow: var(--sombra-card);
 }
 
 .projeto-card__icone {
   width: 58px;
   height: 58px;
+
   margin-bottom: 22px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 50%;
+
   background: var(--azul-suave);
+
   font-size: 27px;
 }
 
 .projeto-card h3 {
   margin-bottom: 12px;
+
   color: var(--azul);
+
   font-size: 20px;
 }
 
 .projeto-card p {
   margin-bottom: 20px;
+
   color: var(--cinza);
-  font-size: 15px;
+
+  font-size: 16px;
+
   line-height: 1.7;
 }
 
 .projeto-card a {
   color: var(--vermelho);
+
   font-size: 14px;
   font-weight: 800;
 }
@@ -575,7 +881,9 @@ p {
   text-decoration: underline;
 }
 
-/* NOTÍCIAS */
+/* =========================================================
+   11. NOTÍCIAS
+========================================================= */
 
 .noticias {
   background: var(--branco);
@@ -583,16 +891,23 @@ p {
 
 .noticias__grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 25px;
 }
 
 .noticia-card {
   overflow: hidden;
+
   background: var(--branco);
+
   border: 1px solid var(--borda);
+
   border-radius: var(--raio);
+
   box-shadow: var(--sombra-suave);
+
   transition:
     transform var(--transicao),
     box-shadow var(--transicao);
@@ -600,18 +915,22 @@ p {
 
 .noticia-card:hover {
   transform: translateY(-6px);
+
   box-shadow: var(--sombra-card);
 }
 
 .noticia-card__imagem {
   height: 225px;
+
   overflow: hidden;
 }
 
 .noticia-card__imagem img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   transition: transform 0.4s ease;
 }
 
@@ -625,29 +944,39 @@ p {
 
 .noticia-card__categoria {
   display: inline-block;
+
   margin-bottom: 10px;
+
   color: var(--vermelho);
+
   font-size: 12px;
   font-weight: 800;
+
   text-transform: uppercase;
   letter-spacing: 0.8px;
 }
 
 .noticia-card h3 {
   margin-bottom: 12px;
+
   color: var(--azul);
+
   font-size: 20px;
 }
 
 .noticia-card p {
   margin-bottom: 20px;
+
   color: var(--cinza);
-  font-size: 15px;
+
+  font-size: 16px;
+
   line-height: 1.7;
 }
 
 .noticia-card a {
   color: var(--vermelho);
+
   font-size: 14px;
   font-weight: 800;
 }
@@ -656,72 +985,105 @@ p {
   text-decoration: underline;
 }
 
-/* JUNTE-SE */
+/* =========================================================
+   12. JUNTE-SE / APOIE
+========================================================= */
 
 .apoie {
   position: relative;
+
   overflow: hidden;
+
   background: var(--azul);
+
   color: var(--branco);
 }
 
 .apoie::before {
   content: "";
+
   position: absolute;
+
   width: 420px;
   height: 420px;
+
   top: -220px;
   right: -130px;
+
   border-radius: 50%;
+
   background: rgba(255, 255, 255, 0.05);
 }
 
 .apoie__conteudo {
   position: relative;
+
   z-index: 1;
+
   max-width: 720px;
+
   margin-inline: auto;
+
   text-align: center;
 }
 
 .apoie h2 {
   margin-bottom: 15px;
+
   color: var(--branco);
+
   font-size: clamp(2rem, 4vw, 3.2rem);
+
   font-weight: 800;
 }
 
 .apoie p:not(.eyebrow) {
   margin-bottom: 28px;
+
   color: rgba(255, 255, 255, 0.86);
+
   font-size: 18px;
 }
 
-/* PARCEIROS — GRADE ESTÁTICA */
+/* =========================================================
+   13. PARCEIROS
+========================================================= */
 
 .parceiros {
   padding: 70px 0;
+
   background: var(--cinza-claro);
+
   border-top: 1px solid var(--borda);
 }
 
 .parceiros__lista {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 25px;
+
   margin-top: 35px;
 }
 
 .parceiro-logo {
   min-height: 105px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 18px;
+
   background: var(--branco);
+
   border: 1px solid var(--borda);
+
   border-radius: 8px;
+
   box-shadow: 0 4px 15px rgba(7, 27, 73, 0.06);
+
   transition:
     transform var(--transicao),
     box-shadow var(--transicao);
@@ -729,66 +1091,93 @@ p {
 
 .parceiro-logo:hover {
   transform: translateY(-3px);
+
   box-shadow: 0 8px 22px rgba(7, 27, 73, 0.12);
 }
 
 .parceiro-logo img {
   width: 100%;
   height: 80px;
+
   object-fit: contain;
 }
 
-/* FOOTER */
+/* =========================================================
+   14. FOOTER
+========================================================= */
 
 .rodape {
   padding: 60px 0 0;
+
   background: var(--azul);
+
   color: var(--branco);
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1.2fr 0.8fr;
+
+  grid-template-columns:
+    1.4fr
+    1fr
+    1.2fr
+    0.8fr;
+
   gap: 50px;
+
   padding-bottom: 50px;
 }
 
 .footer-col {
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
 }
 
 .logo-footer {
   width: 88px;
   height: 88px;
+
   margin-bottom: 18px;
+
   object-fit: cover;
+
   border-radius: 50%;
 }
 
 .footer-col--marca p {
   max-width: 260px;
+
   color: rgba(255, 255, 255, 0.72);
-  font-size: 15px;
+
+  font-size: 16px;
+
   line-height: 1.7;
 }
 
 .footer-col h2 {
   margin-bottom: 18px;
+
   color: var(--branco);
+
   font-size: 18px;
 }
 
 .footer-col ul {
   display: flex;
+
   flex-direction: column;
+
   gap: 9px;
 }
 
 .footer-col li a {
   color: rgba(255, 255, 255, 0.72);
-  font-size: 14px;
+
+  font-size: 15px;
+
   transition:
     color var(--transicao),
     padding-left var(--transicao);
@@ -796,22 +1185,32 @@ p {
 
 .footer-col li a:hover {
   color: var(--branco);
+
   padding-left: 4px;
 }
 
+/* Redes sociais */
+
 .redes-sociais {
   display: flex;
+
   flex-direction: column;
+
   gap: 12px;
 }
 
 .redes-sociais a {
   display: inline-flex;
+
   align-items: center;
+
   gap: 10px;
+
   color: rgba(255, 255, 255, 0.82);
+
   font-size: 15px;
   font-weight: 600;
+
   transition:
     color var(--transicao),
     transform var(--transicao);
@@ -819,12 +1218,15 @@ p {
 
 .redes-sociais i {
   width: 22px;
+
   font-size: 20px;
+
   text-align: center;
 }
 
 .redes-sociais a:hover {
   transform: translateX(4px);
+
   color: var(--branco);
 }
 
@@ -836,18 +1238,25 @@ p {
   color: #e1306c;
 }
 
+/* Rodapé inferior */
+
 .footer-bottom {
   padding: 22px 0;
+
   border-top: 1px solid rgba(255, 255, 255, 0.14);
+
   text-align: center;
 }
 
 .footer-bottom p {
   color: rgba(255, 255, 255, 0.6);
+
   font-size: 13px;
 }
 
-/* TABLET */
+/* =========================================================
+   15. TABLET
+========================================================= */
 
 @media (max-width: 1050px) {
   .cabecalho__conteudo {
@@ -856,40 +1265,59 @@ p {
 
   .menu-principal a {
     padding-inline: 8px;
-    font-size: 13px;
-  }
 
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    font-size: 14px;
   }
 
   .parceiros__lista {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 40px;
+  }
+
+  .hero-controles {
+    right: 25px;
+  }
 }
 
-/* CELULAR */
+/* =========================================================
+   16. CELULAR
+========================================================= */
 
 @media (max-width: 800px) {
+  /* Seções */
+
   .secao {
     padding: 65px 0;
   }
 
+  /* Acessibilidade */
+
   .barra-acessibilidade__conteudo {
     justify-content: center;
+
     flex-wrap: wrap;
+
     padding-block: 8px;
   }
 
   .acessibilidade-titulo {
     width: 100%;
+
     margin-right: 0;
+
     text-align: center;
   }
 
+  /* Header */
+
   .cabecalho__conteudo {
     min-height: 90px;
+
     padding-block: 9px;
   }
 
@@ -902,16 +1330,25 @@ p {
     display: flex;
   }
 
+  /* Menu */
+
   .menu-principal {
     position: absolute;
+
     top: 100%;
     left: 0;
     right: 0;
+
     width: 100%;
+
     display: none;
+
     background: var(--branco);
+
     border-top: 1px solid var(--borda);
+
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
     z-index: 1200;
   }
 
@@ -929,9 +1366,13 @@ p {
 
   .menu-principal a {
     width: 100%;
+
     justify-content: flex-start;
+
     padding: 14px 20px;
+
     border-bottom: 1px solid var(--borda);
+
     font-size: 16px;
   }
 
@@ -939,26 +1380,133 @@ p {
     display: none;
   }
 
+  /* =======================================================
+     HERO MOBILE
+  ======================================================= */
+
   .hero {
-    min-height: 600px;
+    min-height: 620px;
   }
 
   .hero-conteudo {
-    min-height: 600px;
-    padding-block: 40px;
+    min-height: 620px;
+
+    padding-top: 40px;
+    padding-bottom: 125px;
+
     justify-content: flex-end;
   }
 
+  .hero-imagem img {
+    object-fit: contain;
+  }
+
+  .hero-imagem::before {
+    filter: blur(14px);
+
+    opacity: 0.5;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 27, 73, 0.25) 0%,
+      rgba(7, 27, 73, 0.45) 40%,
+      rgba(7, 27, 73, 0.82) 72%,
+      rgba(7, 27, 73, 0.97) 100%
+    );
+  }
+
+  .hero-subtitulo {
+    margin-bottom: 9px;
+
+    font-size: 13px;
+  }
+
   .hero h1 {
-    font-size: 2.7rem;
+    margin-bottom: 14px;
+
+    font-size: 2.6rem;
+
+    line-height: 1.05;
   }
 
   .hero-texto {
-    font-size: 18px;
+    margin-bottom: 22px;
+
+    font-size: 20px;
+
+    line-height: 1.6;
   }
+
+  /* Botão do Hero */
+
+  .hero-conteudo .botao {
+    width: 100%;
+
+    min-height: 48px;
+  }
+
+  /* =======================================================
+   CONTROLES DO HERO — MOBILE
+======================================================= */
+
+  .hero-controles {
+    left: 50%;
+    right: auto;
+    bottom: 16px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    max-width: calc(100% - 24px);
+  }
+
+  /* SETAS */
+
+  .hero-controles button {
+    flex: 0 0 28px;
+
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+
+    font-size: 12px;
+  }
+
+  /* INDICADORES */
+
+  .hero-indicadores {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    flex-shrink: 1;
+  }
+
+  .hero-indicador {
+    flex: 0 0 6px;
+
+    width: 6px;
+    height: 6px;
+  }
+
+  .hero-indicador.ativo {
+    flex-basis: 13px;
+    width: 13px;
+  }
+
+  /* Quem somos */
 
   .quem-somos__conteudo {
     grid-template-columns: 1fr;
+
     gap: 35px;
   }
 
@@ -970,20 +1518,30 @@ p {
     height: 280px;
   }
 
+  /* Projetos e notícias */
+
   .projetos__grid,
   .noticias__grid {
     grid-template-columns: 1fr;
   }
 
+  /* Parceiros */
+
   .parceiros__lista {
     grid-template-columns: repeat(2, 1fr);
+
     gap: 15px;
   }
 
+  /* Footer */
+
   .footer-grid {
     grid-template-columns: 1fr;
+
     gap: 35px;
   }
+
+  /* Botões */
 
   .botao {
     width: 100%;
@@ -991,7 +1549,7 @@ p {
 }
 
 /* =========================================================
-   CELULAR PEQUENO — PATROCINADORES
+   17. CELULAR PEQUENO
 ========================================================= */
 
 @media (max-width: 480px) {
@@ -1003,45 +1561,75 @@ p {
     font-size: 2rem;
   }
 
-  .hero h1 {
-    font-size: 2.45rem;
+  /* Hero */
+
+  .hero {
+    min-height: 600px;
   }
 
-  /* GRADE DOS PATROCINADORES */
+  .hero-conteudo {
+    min-height: 600px;
+
+    padding-bottom: 110px;
+  }
+
+  .hero h1 {
+    font-size: 2.35rem;
+  }
+
+  .hero-texto {
+    font-size: 16px;
+  }
+
+  .hero-controles {
+    bottom: 16px;
+  }
+
+  /* Parceiros */
+
   .parceiros__lista {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 12px;
+
     margin-top: 25px;
   }
 
-  /* CARD */
   .parceiro-logo {
     min-height: 95px;
+
     padding: 12px;
+
     border-radius: 8px;
   }
 
-  /* LOGO */
   .parceiro-logo img {
     width: auto;
+
     max-width: 160px;
+
     height: 70px;
+
     object-fit: contain;
   }
+}
 
-  /* REDUÇÃO DE MOVIMENTO */
+/* =========================================================
+   18. REDUÇÃO DE MOVIMENTO
+========================================================= */
 
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-    *,
-    *::before,
-    *::after {
-      transition-duration: 0.01ms !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-    }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
   }
 }
