@@ -1,12 +1,16 @@
 /* =========================================================
    ÁGUIAS DE CONCÓRDIA
-   NOTÍCIAS — DADOS + FILTROS + PAGINAÇÃO
+   NOTÍCIAS — DADOS + DESTAQUE + FILTROS + PAGINAÇÃO
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
   /* =========================================================
      DADOS DAS NOTÍCIAS
-     FUTURAMENTE VIRÁ DO GOOGLE SHEETS
+     ---------------------------------------------------------
+     Dados provisórios para teste.
+
+     FUTURAMENTE:
+     Google Sheets → JavaScript
   ========================================================= */
 
   const noticias = [
@@ -17,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
       resumo:
         "Confira a participação da equipe em mais uma competição de paradesporto.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -26,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
       resumo:
         "Veja os resultados e conquistas da equipe ao longo da temporada.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -35,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
       resumo:
         "Conheça as atividades e ações desenvolvidas pelos Águias de Concórdia.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -43,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Novidades dos Águias de Concórdia",
       resumo: "Confira as novidades e informações institucionais da entidade.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -51,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Preparação para novos desafios",
       resumo: "A equipe se prepara para novos desafios e competições.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -59,6 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Atividades e ações da entidade",
       resumo: "Confira as atividades realizadas pelos Águias de Concórdia.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -68,6 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
       resumo:
         "A equipe inicia uma nova etapa de preparação e participação esportiva.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -76,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Equipe comemora novos resultados",
       resumo: "Confira os resultados alcançados pelos atletas dos Águias.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -84,6 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Paradesporto ganha novas oportunidades",
       resumo: "Novas ações fortalecem a participação esportiva.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -92,6 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Águias apresentam novidades",
       resumo: "Confira as novidades e projetos da entidade.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -100,6 +124,8 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Nova competição no calendário",
       resumo: "Veja os próximos desafios da equipe.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
 
     {
@@ -108,11 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Mais uma conquista dos Águias",
       resumo: "Confira mais um resultado importante da equipe.",
       imagem: "assets/atletas.jpg",
+      curtidas: 0,
+      visualizacoes: 0,
     },
   ];
 
   /* =========================================================
-     ELEMENTOS
+     ELEMENTOS DA PÁGINA
   ========================================================= */
 
   const listaNoticias = document.getElementById("lista-noticias");
@@ -129,6 +157,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ".paginacao__botao[aria-label='Próxima página']",
   );
 
+  /* =========================================================
+     VERIFICAÇÃO
+  ========================================================= */
+
   if (!listaNoticias) {
     return;
   }
@@ -144,6 +176,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let categoriaAtual = "todas";
 
   /* =========================================================
+     ORDENAR NOTÍCIAS
+     ---------------------------------------------------------
+     Mais recentes primeiro.
+  ========================================================= */
+
+  const noticiasOrdenadas = [...noticias].sort((a, b) => {
+    return new Date(b.data) - new Date(a.data);
+  });
+
+  /* =========================================================
      FORMATA DATA
   ========================================================= */
 
@@ -154,16 +196,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     FILTRAR
+     FILTRAR NOTÍCIAS
   ========================================================= */
 
   function obterNoticiasFiltradas() {
     if (categoriaAtual === "todas") {
-      return noticias;
+      return noticiasOrdenadas;
     }
 
-    return noticias.filter((noticia) => {
-      const categoria = noticia.categoria.toLowerCase();
+    return noticiasOrdenadas.filter((noticia) => {
+      const categoria = noticia.categoria.toLowerCase().trim();
 
       if (categoriaAtual === "competições" && categoria === "competição") {
         return true;
@@ -183,20 +225,24 @@ document.addEventListener("DOMContentLoaded", () => {
     artigo.className = "noticia-card";
 
     artigo.innerHTML = `
+
       <div class="noticia-card__imagem">
 
         <img
           src="${noticia.imagem}"
           alt="${noticia.titulo}"
+          loading="lazy"
         >
 
       </div>
+
 
       <div class="noticia-card__conteudo">
 
         <span class="noticia-card__categoria">
           ${noticia.categoria}
         </span>
+
 
         <time
           class="noticia-data"
@@ -205,13 +251,16 @@ document.addEventListener("DOMContentLoaded", () => {
           ${formatarData(noticia.data)}
         </time>
 
+
         <h3>
           ${noticia.titulo}
         </h3>
 
+
         <p>
           ${noticia.resumo}
         </p>
+
 
         <div
           class="conteudo-metricas"
@@ -223,19 +272,35 @@ document.addEventListener("DOMContentLoaded", () => {
             class="metrica metrica--curtida"
             aria-label="Curtir esta notícia"
           >
-            <span aria-hidden="true">♥</span>
-            <span class="metrica__valor">0</span>
+
+            <span aria-hidden="true">
+              ♥
+            </span>
+
+            <span class="metrica__valor">
+              ${noticia.curtidas}
+            </span>
+
           </button>
+
 
           <span
             class="metrica"
-            aria-label="0 visualizações"
+            aria-label="${noticia.visualizacoes} visualizações"
           >
-            <span aria-hidden="true">👁</span>
-            <span class="metrica__valor">0</span>
+
+            <span aria-hidden="true">
+              👁
+            </span>
+
+            <span class="metrica__valor">
+              ${noticia.visualizacoes}
+            </span>
+
           </span>
 
         </div>
+
 
         <a
           href="#"
@@ -245,9 +310,78 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
 
       </div>
+
     `;
 
     return artigo;
+  }
+
+  /* =========================================================
+     RENDERIZAR DESTAQUE
+     ---------------------------------------------------------
+     A notícia mais recente será o destaque.
+  ========================================================= */
+
+  function renderizarDestaque() {
+    const destaque = noticiasOrdenadas[0];
+
+    if (!destaque) {
+      return;
+    }
+
+    const imagem = document.querySelector(".destaque-card__imagem img");
+
+    const categoria = document.querySelector(
+      ".destaque-card__conteudo .noticia-card__categoria",
+    );
+
+    const data = document.querySelector(
+      ".destaque-card__conteudo .noticia-data",
+    );
+
+    const titulo = document.querySelector(".destaque-card__conteudo h3");
+
+    const resumo = document.querySelector(".destaque-card__conteudo > p");
+
+    const curtidas = document.querySelector(
+      ".destaque-card .metrica--curtida .metrica__valor",
+    );
+
+    const visualizacoes = document.querySelector(
+      ".destaque-card .metrica:not(.metrica--curtida) .metrica__valor",
+    );
+
+    if (imagem) {
+      imagem.src = destaque.imagem;
+
+      imagem.alt = destaque.titulo;
+    }
+
+    if (categoria) {
+      categoria.textContent = destaque.categoria;
+    }
+
+    if (data) {
+      data.textContent = formatarData(destaque.data);
+
+      data.setAttribute("datetime", destaque.data);
+    }
+
+    if (titulo) {
+      titulo.textContent = destaque.titulo;
+    }
+
+    if (resumo) {
+      resumo.textContent = destaque.resumo;
+    }
+
+    if (curtidas) {
+      curtidas.textContent = destaque.curtidas;
+    }
+
+    if (visualizacoes) {
+      visualizacoes.textContent = destaque.visualizacoes;
+    }
   }
 
   /* =========================================================
@@ -321,7 +455,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       filtro.setAttribute("aria-pressed", "true");
 
-      categoriaAtual = filtro.textContent.trim().toLowerCase();
+      const texto = filtro.textContent.trim().toLowerCase();
+
+      /* Todas */
+
+      if (texto === "todas") {
+        categoriaAtual = "todas";
+      } else {
+        categoriaAtual = texto;
+      }
 
       paginaAtual = 1;
 
@@ -348,7 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================================================
-     ANTERIOR
+     BOTÃO ANTERIOR
   ========================================================= */
 
   if (botaoAnterior) {
@@ -362,7 +504,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     PRÓXIMA
+     BOTÃO PRÓXIMA
   ========================================================= */
 
   if (botaoProxima) {
@@ -380,8 +522,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     INICIALIZA
+     INICIALIZAÇÃO
   ========================================================= */
+
+  renderizarDestaque();
 
   mostrarNoticias();
 });
