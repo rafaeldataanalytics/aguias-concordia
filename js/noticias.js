@@ -273,18 +273,24 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================================================= */
 
   function obterNoticiasFiltradas() {
+    let resultado;
+
     if (categoriaAtual === "todas") {
-      return noticias;
+      resultado = [...noticias];
+    } else {
+      resultado = noticias.filter((noticia) => {
+        const categoria = noticia.categoria.toLowerCase();
+
+        if (categoriaAtual === "competições" && categoria === "competição") {
+          return true;
+        }
+
+        return categoria === categoriaAtual;
+      });
     }
 
-    return noticias.filter((noticia) => {
-      const categoria = noticia.categoria.toLowerCase();
-
-      if (categoriaAtual === "competições" && categoria === "competição") {
-        return true;
-      }
-
-      return categoria === categoriaAtual;
+    return resultado.sort((a, b) => {
+      return new Date(b.data) - new Date(a.data);
     });
   }
 
