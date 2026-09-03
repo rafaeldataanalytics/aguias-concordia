@@ -3931,3 +3931,41 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
   color: #000 !important;
   border-color: #fff !important;
 }
+
+/* =========================================================
+   PAINEL DE ACESSIBILIDADE — ABERTO DURANTE A ROLAGEM
+========================================================= */
+
+.painel-acessibilidade {
+  background: var(--cinza-claro);
+  border-bottom: 1px solid var(--borda);
+}
+
+/* Conteúdo interno */
+
+.painel-acessibilidade__conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+}
+
+/* Quando o painel estiver aberto */
+
+.painel-acessibilidade:not([hidden]) {
+  position: fixed;
+  top: 46px;
+  left: 0;
+  width: 100%;
+  z-index: 1999;
+}
+/* =========================================================
+   PAINEL DE ACESSIBILIDADE — MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .painel-acessibilidade:not([hidden]) {
+    top: 185px;
+  }
+}
