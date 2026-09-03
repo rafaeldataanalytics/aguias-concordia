@@ -21,6 +21,7 @@
    16. Mobile
    17. Celular pequeno
    18. Redução de movimento
+   19. Recursos de acessibilidade
 ========================================================= */
 
 /* =========================================================
@@ -57,6 +58,9 @@
   --sombra-card: 0 14px 35px rgba(7, 27, 73, 0.12);
 
   --transicao: 0.25s ease;
+
+  /* Escala global usada pela acessibilidade */
+  --escala-fonte: 1;
 }
 
 /* =========================================================
@@ -71,6 +75,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: calc(100% * var(--escala-fonte));
 }
 
 body {
@@ -81,7 +86,8 @@ body {
 
   background: var(--branco);
 
-  font-size: 17px;
+  /* 1rem acompanha a escala global de acessibilidade */
+  font-size: 1rem;
   line-height: 1.6;
 
   -webkit-font-smoothing: antialiased;
@@ -159,6 +165,11 @@ p {
 /* Barra */
 
 .barra-acessibilidade {
+  position: sticky;
+  top: 0;
+
+  z-index: 2000;
+
   background: var(--azul);
   color: var(--branco);
 
@@ -204,8 +215,18 @@ p {
 
 .barra-acessibilidade button:hover,
 .barra-acessibilidade button:focus-visible {
-  background: var(--branco);
-  color: var(--azul);
+  background: var(--vermelho);
+  color: var(--branco);
+  border-color: var(--vermelho);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.barra-acessibilidade button:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* Painel */
@@ -229,6 +250,7 @@ p {
 .painel-acessibilidade h2 {
   color: var(--azul);
   font-size: 20px;
+  margin-bottom: 16px;
 }
 
 .painel-acessibilidade button {
@@ -328,7 +350,7 @@ p {
 
   color: var(--azul);
 
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
 
   white-space: nowrap;
@@ -573,26 +595,22 @@ p {
 
 .hero-imagem img.ativo {
   opacity: 1;
+  filter: saturate(1.15) contrast(1.05);
 }
 
 /* Sobreposição */
-
 .hero-overlay {
   position: absolute;
-
   inset: 0;
-
   z-index: 2;
-
   background: linear-gradient(
     90deg,
-    rgba(7, 27, 73, 0.9) 0%,
-    rgba(7, 27, 73, 0.7) 38%,
-    rgba(7, 27, 73, 0.3) 72%,
-    rgba(7, 27, 73, 0.12) 100%
+    rgba(7, 27, 73, 0.45) 0%,
+    rgba(7, 27, 73, 0.3) 38%,
+    rgba(7, 27, 73, 0.12) 72%,
+    rgba(7, 27, 73, 0.03) 100%
   );
 }
-
 /* Conteúdo */
 
 .hero-conteudo {
@@ -1632,4 +1650,2284 @@ p {
 
     animation-iteration-count: 1 !important;
   }
+}
+
+/* =========================================================
+   ACESSIBILIDADE — AJUSTE MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  /* =======================================================
+     BARRA DE ACESSIBILIDADE
+  ======================================================= */
+
+  .barra-acessibilidade {
+    padding: 8px 0;
+  }
+
+  .barra-acessibilidade__conteudo {
+    width: min(100% - 24px, var(--largura-container));
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 7px;
+
+    padding: 0;
+  }
+
+  .acessibilidade-titulo {
+    grid-column: 1 / -1;
+
+    width: auto;
+
+    margin: 0 0 2px;
+
+    text-align: center;
+
+    font-size: 15px;
+  }
+
+  .barra-acessibilidade button {
+    width: 100%;
+
+    min-height: 40px;
+
+    padding: 7px 8px;
+
+    font-size: 14px;
+  }
+
+  #abrir-acessibilidade {
+    grid-column: 1 / -1;
+  }
+
+  /* =======================================================
+     PAINEL DE ACESSIBILIDADE
+  ======================================================= */
+
+  .painel-acessibilidade {
+    width: 100%;
+  }
+
+  .painel-acessibilidade__conteudo {
+    width: min(100% - 24px, var(--largura-container));
+
+    padding: 18px 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 16px;
+  }
+
+  .acessibilidade-opcoes {
+    width: 100%;
+  }
+
+  .painel-acessibilidade h2 {
+    margin-bottom: 14px;
+
+    font-size: 19px;
+
+    text-align: center;
+  }
+
+  .acessibilidade-botoes {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+  .acessibilidade-botoes button,
+  #restaurar-acessibilidade {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 9px 12px;
+
+    font-size: 15px;
+  }
+
+  #restaurar-acessibilidade {
+    margin-top: 2px;
+  }
+}
+/* =========================================================
+   ESCALA GLOBAL DE FONTE - ACESSIBILIDADE
+   Elementos de texto acompanham a escala definida em <html>.
+========================================================= */
+
+/* Elementos de texto */
+p,
+li,
+a,
+button,
+input,
+textarea,
+select,
+label {
+  font-size: 1em;
+}
+
+/* Títulos */
+h1 {
+  font-size: clamp(2.8rem, 5vw, 4.7rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — ACESSIBILIDADE
+========================================================= */
+
+body.alto-contraste-ativo {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Textos */
+
+body.alto-contraste-ativo p,
+body.alto-contraste-ativo li,
+body.alto-contraste-ativo span {
+  color: #ffffff;
+}
+
+/* Links */
+
+body.alto-contraste-ativo a {
+  color: #ffff00;
+}
+
+body.alto-contraste-ativo a:hover,
+body.alto-contraste-ativo a:focus-visible {
+  color: #00ffff;
+}
+
+/* Header */
+
+body.alto-contraste-ativo .cabecalho {
+  background: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.alto-contraste-ativo .logo {
+  box-shadow: none;
+}
+
+/* Menu */
+
+body.alto-contraste-ativo .menu-principal a {
+  color: #ffffff;
+}
+
+body.alto-contraste-ativo .menu-principal a:hover,
+body.alto-contraste-ativo .menu-principal a:focus-visible {
+  color: #ffff00;
+}
+
+/* Botão menu mobile */
+
+body.alto-contraste-ativo .botao-menu {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+body.alto-contraste-ativo .botao-menu span {
+  background: #ffffff;
+}
+
+/* Seções */
+
+body.alto-contraste-ativo .secao,
+body.alto-contraste-ativo .quem-somos,
+body.alto-contraste-ativo .noticias {
+  background: #000000;
+}
+
+/* Títulos */
+
+body.alto-contraste-ativo h1,
+body.alto-contraste-ativo h2,
+body.alto-contraste-ativo h3,
+body.alto-contraste-ativo h4 {
+  color: #ffffff;
+}
+
+/* Textos secundários */
+
+body.alto-contraste-ativo .secao-introducao,
+body.alto-contraste-ativo .quem-somos__texto p,
+body.alto-contraste-ativo .noticia-card p,
+body.alto-contraste-ativo .projeto-card p {
+  color: #ffffff;
+}
+
+/* Eyebrow */
+
+body.alto-contraste-ativo .eyebrow {
+  color: #ffff00;
+}
+
+/* Cards */
+
+body.alto-contraste-ativo .projeto-card,
+body.alto-contraste-ativo .noticia-card,
+body.alto-contraste-ativo .parceiro-logo {
+  background: #000000;
+  border-color: #ffffff;
+  box-shadow: none;
+}
+
+/* Links dos cards */
+
+body.alto-contraste-ativo .projeto-card a,
+body.alto-contraste-ativo .noticia-card a {
+  color: #ffff00;
+}
+
+/* Parceiros */
+
+body.alto-contraste-ativo .parceiros {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+/* Painel de acessibilidade */
+
+body.alto-contraste-ativo .painel-acessibilidade {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+body.alto-contraste-ativo .painel-acessibilidade h2 {
+  color: #ffffff;
+}
+
+body.alto-contraste-ativo .painel-acessibilidade button {
+  background: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Botões */
+
+body.alto-contraste-ativo .botao {
+  background: #ffff00;
+  color: #000000;
+  border-color: #ffff00;
+}
+
+body.alto-contraste-ativo .botao:hover,
+body.alto-contraste-ativo .botao:focus-visible {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Footer */
+
+body.alto-contraste-ativo .rodape {
+  background: #000000;
+  color: #ffffff;
+}
+
+body.alto-contraste-ativo .footer-col h2,
+body.alto-contraste-ativo .footer-col p,
+body.alto-contraste-ativo .footer-col a,
+body.alto-contraste-ativo .footer-bottom p {
+  color: #ffffff;
+}
+
+/* Bordas */
+
+body.alto-contraste-ativo .footer-bottom {
+  border-color: #ffffff;
+}
+
+/* Foco */
+
+body.alto-contraste-ativo :focus-visible {
+  outline: 3px solid #ffff00;
+  outline-offset: 4px;
+}
+/* =========================================================
+   ALTO CONTRASTE — BARRA DE ACESSIBILIDADE
+========================================================= */
+
+body.alto-contraste-ativo .barra-acessibilidade {
+  background: #000000;
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+body.alto-contraste-ativo .acessibilidade-titulo {
+  color: #ffffff;
+}
+
+body.alto-contraste-ativo .barra-acessibilidade button {
+  background: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+body.alto-contraste-ativo .barra-acessibilidade button:hover,
+body.alto-contraste-ativo .barra-acessibilidade button:focus-visible {
+  background: #ffff00;
+  color: #000000;
+  border-color: #ffff00;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — HOME
+   LINK "LER NOTÍCIA"
+========================================================= */
+
+body.alto-contraste-ativo .noticia-card a {
+  color: #000000;
+}
+
+body.alto-contraste-ativo .noticia-card a:hover,
+body.alto-contraste-ativo .noticia-card a:focus-visible {
+  color: #e52420;
+}
+/* =========================================================
+   ALTO CONTRASTE — CONTATO
+========================================================= */
+
+/* Área principal */
+body.alto-contraste-ativo .contato-principal {
+  background: #000;
+}
+
+/* Cabeçalho da seção */
+body.alto-contraste-ativo .contato-principal .secao-cabecalho h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo
+  .contato-principal
+  .secao-cabecalho
+  > p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — QUEM SOMOS
+========================================================= */
+
+/* ---------------------------------------------------------
+   ENTIDADE
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .entidade {
+  background: #000;
+}
+
+body.alto-contraste-ativo .entidade__texto h2,
+body.alto-contraste-ativo .entidade__texto p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .entidade__texto .texto-observacao {
+  background: #fff;
+  color: #000 !important;
+  border-left-color: #000;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — QUEM SOMOS
+   AJUSTE DO HERO
+========================================================= */
+
+body.alto-contraste-ativo .pagina-hero {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .pagina-hero h1 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .pagina-hero p:not(.eyebrow) {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .pagina-hero::after {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------------------------------------------------------
+   HISTÓRIA
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .historia {
+  background: #000;
+}
+
+body.alto-contraste-ativo .historia .secao-cabecalho h2,
+body.alto-contraste-ativo .historia .secao-introducao {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .linha-do-tempo::before {
+  background: #fff;
+}
+
+body.alto-contraste-ativo .historia-item__conteudo {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .historia-item__conteudo h3,
+body.alto-contraste-ativo .historia-item__conteudo p {
+  color: #000;
+}
+
+body.alto-contraste-ativo .historia-item__ano {
+  color: #000;
+}
+
+body.alto-contraste-ativo .historia-item__marcador {
+  border-color: #000;
+  background: #fff;
+  color: #000;
+}
+
+/* ---------------------------------------------------------
+   MISSÃO, VISÃO E VALORES
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .principios {
+  background: #000;
+}
+
+body.alto-contraste-ativo .principios .secao-cabecalho h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .principio-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .principio-card h3,
+body.alto-contraste-ativo .principio-card p {
+  color: #000;
+}
+
+body.alto-contraste-ativo .principio-card__icone {
+  background: #000;
+}
+
+/* ---------------------------------------------------------
+   PARADESPORTO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .paradesporto {
+  background: #000;
+}
+
+body.alto-contraste-ativo .paradesporto__texto h2,
+body.alto-contraste-ativo .paradesporto__texto p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .paradesporto__texto .texto-observacao {
+  background: #fff;
+  color: #000 !important;
+  border-left-color: #000;
+}
+
+/* ---------------------------------------------------------
+   DIRETORIA
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .diretoria {
+  background: #000;
+}
+
+body.alto-contraste-ativo .diretoria .secao-cabecalho h2,
+body.alto-contraste-ativo .diretoria .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   EQUIPE
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .equipe {
+  background: #000;
+}
+
+body.alto-contraste-ativo .equipe .secao-cabecalho h2,
+body.alto-contraste-ativo .equipe .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DE PESSOAS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .pessoa-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .pessoa-card h3 {
+  color: #000;
+}
+
+body.alto-contraste-ativo .pessoa-card__cargo {
+  color: #000;
+}
+
+body.alto-contraste-ativo .pessoa-card__avatar {
+  background: #000;
+}
+
+/* ---------------------------------------------------------
+   NÚMEROS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .numeros {
+  background: #000;
+}
+
+body.alto-contraste-ativo .numeros .secao-cabecalho h2,
+body.alto-contraste-ativo .numeros .secao-introducao {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .numero {
+  background: #000;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .numero strong,
+body.alto-contraste-ativo .numero span {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CHAMADA FINAL
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .chamada {
+  background: #000;
+}
+
+body.alto-contraste-ativo .chamada h2,
+body.alto-contraste-ativo .chamada p:not(.eyebrow) {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .chamada .botao {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .chamada .botao:hover,
+body.alto-contraste-ativo .chamada .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* =========================================================
+   CARDS DE INFORMAÇÃO
+========================================================= */
+
+body.alto-contraste-ativo .contato-info-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .contato-info-card h3,
+body.alto-contraste-ativo .contato-info-card p {
+  color: #000;
+}
+
+body.alto-contraste-ativo .contato-info-card__icone {
+  background: #000;
+  color: #fff;
+}
+
+/* =========================================================
+   FORMULÁRIO
+========================================================= */
+
+body.alto-contraste-ativo .formulario-contato {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .formulario-contato .campo label {
+  color: #000;
+}
+
+body.alto-contraste-ativo .formulario-contato .campo input,
+body.alto-contraste-ativo .formulario-contato .campo select,
+body.alto-contraste-ativo .formulario-contato .campo textarea {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .formulario-contato .campo input::placeholder,
+body.alto-contraste-ativo .formulario-contato .campo textarea::placeholder {
+  color: #333;
+}
+
+/* Texto de aviso */
+body.alto-contraste-ativo .formulario-aviso {
+  color: #000;
+}
+
+/* Botão */
+body.alto-contraste-ativo .formulario-contato .botao {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .formulario-contato .botao:hover,
+body.alto-contraste-ativo .formulario-contato .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* =========================================================
+   LOCALIZAÇÃO
+========================================================= */
+
+body.alto-contraste-ativo .localizacao {
+  background: #000;
+}
+
+body.alto-contraste-ativo .localizacao h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo
+  .localizacao__conteudo
+  > div:first-child
+  > p:not(.eyebrow) {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .mapa-placeholder {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .mapa-placeholder i,
+body.alto-contraste-ativo .mapa-placeholder span {
+  color: #000;
+}
+
+/* =========================================================
+   CHAMADA FINAL
+========================================================= */
+
+body.alto-contraste-ativo .contato-chamada {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .contato-chamada h2,
+body.alto-contraste-ativo .contato-chamada p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* =========================================================
+   DESTACAR LINKS — ACESSIBILIDADE
+========================================================= */
+
+body.links-destacados a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+/* Links em geral ao passar o mouse ou receber foco */
+
+body.links-destacados a:hover,
+body.links-destacados a:focus-visible {
+  text-decoration-thickness: 4px;
+  text-underline-offset: 5px;
+}
+
+/* Menu principal */
+
+body.links-destacados .menu-principal a {
+  background: #fff200;
+  color: #000000 !important;
+
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px;
+}
+
+/* Links dos cards */
+
+body.links-destacados .noticia-card a,
+body.links-destacados .projeto-card a {
+  background: #fff200;
+  color: #000000 !important;
+
+  padding: 3px 6px;
+
+  border-radius: 3px;
+
+  text-decoration: underline !important;
+}
+
+/* Links do rodapé */
+
+body.links-destacados .rodape a {
+  color: #ffff00 !important;
+
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px;
+}
+
+/* Botões que são links */
+
+body.links-destacados .botao {
+  text-decoration: underline !important;
+  text-decoration-thickness: 3px;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — PROJETOS
+========================================================= */
+
+/* ---------------------------------------------------------
+   HERO DA PÁGINA
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-hero {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-hero h1 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-hero p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   INTRODUÇÃO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-introducao {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projetos-introducao h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-introducao p {
+  color: #fff;
+}
+
+/* Caixa de observação */
+
+body.alto-contraste-ativo .projetos-introducao .texto-observacao {
+  background: #fff;
+  color: #000 !important;
+  border-left-color: #000;
+}
+
+/* ---------------------------------------------------------
+   LISTA DE PROJETOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projetos-lista h2 {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DOS PROJETOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista .projeto-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .projetos-lista .projeto-card h3 {
+  color: #000;
+}
+
+body.alto-contraste-ativo .projetos-lista .projeto-card p {
+  color: #000;
+}
+
+body.alto-contraste-ativo .projetos-lista .projeto-card a {
+  color: #000;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+body.alto-contraste-ativo .projetos-lista .projeto-card a:hover,
+body.alto-contraste-ativo .projetos-lista .projeto-card a:focus-visible {
+  color: #000;
+  background: #ffff00;
+}
+
+/* Ícone do projeto */
+
+body.alto-contraste-ativo .projetos-lista .projeto-card__icone {
+  background: #000;
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   PAGINAÇÃO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista .paginacao {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-lista .paginacao button {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-lista .paginacao button:hover,
+body.alto-contraste-ativo .projetos-lista .paginacao button:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   COMO FUNCIONA
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .como-funciona {
+  background: #000;
+}
+
+body.alto-contraste-ativo .como-funciona .secao-cabecalho h2,
+body.alto-contraste-ativo .como-funciona .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DAS ETAPAS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .etapa-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .etapa-card h3,
+body.alto-contraste-ativo .etapa-card p {
+  color: #000;
+}
+
+body.alto-contraste-ativo .etapa-card__numero {
+  display: block;
+  background: #000;
+  color: #fff !important;
+  border: 1px solid #000;
+  border-radius: 6px;
+}
+
+/* ---------------------------------------------------------
+   RESULTADOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .resultados {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .resultados .secao-cabecalho h2,
+body.alto-contraste-ativo .resultados .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DOS RESULTADOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .resultado {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .resultado strong,
+body.alto-contraste-ativo .resultado span,
+body.alto-contraste-ativo .resultado p {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CHAMADA FINAL
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-chamada {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada h2,
+body.alto-contraste-ativo .projetos-chamada p:not(.eyebrow) {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada .botao {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada .botao:hover,
+body.alto-contraste-ativo .projetos-chamada .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   FOCO — PROJETOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista a:focus-visible,
+body.alto-contraste-ativo .projetos-lista button:focus-visible,
+body.alto-contraste-ativo .projetos-chamada a:focus-visible {
+  outline: 3px solid #ffff00;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — PROJETOS
+   Padrão: fundo preto / cards brancos
+========================================================= */
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-hero {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projetos-hero h1 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-hero .secao-cabecalho > p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   INTRODUÇÃO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-introducao {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projetos-introducao h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo
+  .projetos-introducao
+  p:not(.eyebrow):not(.texto-observacao) {
+  color: #fff;
+}
+
+/* Caixa de observação */
+
+body.alto-contraste-ativo .projetos-introducao .texto-observacao {
+  background: #fff;
+  color: #000 !important;
+  border-left-color: #000;
+}
+
+/* ---------------------------------------------------------
+   LISTA DE PROJETOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projetos-lista .secao-cabecalho h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-lista .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARD PRINCIPAL DO PROJETO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projeto-detalhe {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   IMAGEM
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projeto-detalhe__imagem {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projeto-detalhe__imagem img {
+  filter: none;
+}
+
+/* ---------------------------------------------------------
+   CONTEÚDO DO PROJETO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projeto-detalhe__conteudo {
+  background: #fff;
+  color: #000;
+}
+
+/* Categoria */
+
+body.alto-contraste-ativo .projeto-detalhe__categoria {
+  color: #000;
+  font-weight: 800;
+}
+
+/* Título */
+
+body.alto-contraste-ativo .projeto-detalhe h3 {
+  color: #000;
+}
+
+/* Descrição */
+
+body.alto-contraste-ativo .projeto-detalhe__conteudo > p {
+  color: #000;
+}
+
+/* ---------------------------------------------------------
+   INFORMAÇÕES DO PROJETO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projeto-detalhe__informacoes div {
+  background: #fff;
+  border-left-color: #000;
+}
+
+body.alto-contraste-ativo .projeto-detalhe__informacoes strong {
+  color: #000;
+}
+
+body.alto-contraste-ativo .projeto-detalhe__informacoes span {
+  color: #000;
+}
+
+/* ---------------------------------------------------------
+   DOCUMENTOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projeto-documentos {
+  border-top-color: #000;
+}
+
+body.alto-contraste-ativo .projeto-documentos h4 {
+  color: #000;
+}
+
+body.alto-contraste-ativo .projeto-documentos a {
+  color: #000;
+  text-decoration: underline;
+}
+
+body.alto-contraste-ativo .projeto-documentos a:hover,
+body.alto-contraste-ativo .projeto-documentos a:focus-visible {
+  color: #000;
+  background: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   OBSERVAÇÃO DO PROJETO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projeto-observacao {
+  color: #000 !important;
+}
+
+/* ---------------------------------------------------------
+   PAGINAÇÃO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .paginacao-projetos {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .paginacao-projetos button {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .paginacao-projetos button:hover,
+body.alto-contraste-ativo .paginacao-projetos button:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   COMO FUNCIONA
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .como-funciona {
+  background: #000;
+}
+
+body.alto-contraste-ativo .como-funciona .secao-cabecalho h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .como-funciona .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DAS ETAPAS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .etapa-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .etapa-card h3 {
+  color: #000;
+}
+
+body.alto-contraste-ativo .etapa-card p {
+  color: #000;
+}
+
+body.alto-contraste-ativo .etapa-card__numero {
+  color: #000;
+}
+
+/* ---------------------------------------------------------
+   RESULTADOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .resultados {
+  background: #000;
+}
+
+body.alto-contraste-ativo .resultados .secao-cabecalho h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .resultados .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DE RESULTADOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .resultado {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .resultado strong {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .resultado span {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CHAMADA FINAL
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-chamada {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projetos-chamada h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada p:not(.eyebrow) {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada .botao {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada .botao:hover,
+body.alto-contraste-ativo .projetos-chamada .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — NOTÍCIAS
+   Padrão: fundo preto / cards brancos
+========================================================= */
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .noticias-hero {
+  background: #000;
+}
+
+body.alto-contraste-ativo .noticias-hero h1 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .noticias-hero p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   DESTAQUE
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .noticia-destaque {
+  background: #000;
+}
+
+body.alto-contraste-ativo .noticia-destaque .secao-cabecalho h2 {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARD DESTAQUE
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .destaque-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+/* Imagem */
+
+body.alto-contraste-ativo .destaque-card__imagem {
+  background: #000;
+}
+
+body.alto-contraste-ativo .destaque-card__imagem img {
+  filter: none;
+}
+
+/* Conteúdo */
+
+body.alto-contraste-ativo .destaque-card__conteudo {
+  background: #fff;
+  color: #000;
+}
+
+/* Categoria */
+
+body.alto-contraste-ativo .destaque-card .noticia-card__categoria {
+  color: #000;
+}
+
+/* Data */
+
+body.alto-contraste-ativo .destaque-card .noticia-data {
+  color: #000;
+}
+
+/* Título */
+
+body.alto-contraste-ativo .destaque-card h3 {
+  color: #000;
+}
+
+/* Resumo */
+
+body.alto-contraste-ativo .destaque-card__conteudo > p {
+  color: #000;
+}
+
+/* ---------------------------------------------------------
+   MÉTRICAS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .destaque-card .conteudo-metricas {
+  color: #000;
+}
+
+body.alto-contraste-ativo .destaque-card .metrica {
+  color: #000;
+}
+
+body.alto-contraste-ativo .destaque-card .metrica__valor {
+  color: #000;
+}
+
+/* Botão do destaque */
+
+body.alto-contraste-ativo .destaque-card .botao {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .destaque-card .botao:hover,
+body.alto-contraste-ativo .destaque-card .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   ARQUIVO DE NOTÍCIAS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .arquivo-noticias {
+  background: #000;
+}
+
+body.alto-contraste-ativo .arquivo-noticias .secao-cabecalho h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .arquivo-noticias .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   FILTROS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .filtro {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .filtro:hover,
+body.alto-contraste-ativo .filtro:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+body.alto-contraste-ativo .filtro.ativo {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   GRADE DE NOTÍCIAS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .noticias__grid {
+  color: #000;
+}
+
+/* ---------------------------------------------------------
+   CARDS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .noticia-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+/* Imagem */
+
+body.alto-contraste-ativo .noticia-card__imagem {
+  background: #000;
+}
+
+body.alto-contraste-ativo .noticia-card__imagem img {
+  filter: none;
+}
+
+/* Conteúdo */
+
+body.alto-contraste-ativo .noticia-card__conteudo {
+  background: #fff;
+  color: #000;
+}
+
+/* Categoria */
+
+body.alto-contraste-ativo .noticia-card__categoria {
+  color: #000;
+}
+
+/* Data */
+
+body.alto-contraste-ativo .noticia-card .noticia-data {
+  color: #000;
+}
+
+/* Título */
+
+body.alto-contraste-ativo .noticia-card h3 {
+  color: #000;
+}
+
+/* Texto */
+
+body.alto-contraste-ativo .noticia-card p {
+  color: #000;
+}
+
+/* Link */
+
+body.alto-contraste-ativo .noticia-card__link {
+  color: #000;
+  text-decoration: underline;
+}
+
+body.alto-contraste-ativo .noticia-card__link:hover,
+body.alto-contraste-ativo .noticia-card__link:focus-visible {
+  color: #000;
+  background: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   MÉTRICAS DOS CARDS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .noticia-card .conteudo-metricas {
+  color: #000;
+}
+
+body.alto-contraste-ativo .noticia-card .metrica {
+  color: #000;
+}
+
+body.alto-contraste-ativo .noticia-card .metrica__valor {
+  color: #000;
+}
+
+/* ---------------------------------------------------------
+   PAGINAÇÃO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .paginacao {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .paginacao__pagina,
+body.alto-contraste-ativo .paginacao__botao {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .paginacao__pagina:hover,
+body.alto-contraste-ativo .paginacao__botao:hover:not(:disabled),
+body.alto-contraste-ativo .paginacao__pagina:focus-visible,
+body.alto-contraste-ativo .paginacao__botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+body.alto-contraste-ativo .paginacao__pagina.ativa {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   CHAMADA FINAL
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .noticias-chamada {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .noticias-chamada h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .noticias-chamada p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* Botão */
+
+body.alto-contraste-ativo .noticias-chamada .botao {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .noticias-chamada .botao:hover,
+body.alto-contraste-ativo .noticias-chamada .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   FOCO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .noticias-chamada :focus-visible,
+body.alto-contraste-ativo .arquivo-noticias :focus-visible,
+body.alto-contraste-ativo .noticia-destaque :focus-visible {
+  outline: 3px solid #ffff00;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — TRANSPARÊNCIA
+   Padrão: fundo branco = texto preto
+========================================================= */
+
+/* ÁREA PRINCIPAL */
+body.alto-contraste-ativo .transparencia-principal {
+  background: #000;
+}
+
+/* INTRODUÇÃO */
+body.alto-contraste-ativo .transparencia-introducao h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-introducao p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* CATEGORIAS
+   Mantém azul + texto branco */
+body.alto-contraste-ativo .transparencia-item {
+  background: #071b49;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-item:hover,
+body.alto-contraste-ativo .transparencia-item:focus-visible {
+  background: #163b78;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-item__texto strong {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-item__texto small {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-item__icone {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-item__seta {
+  color: #fff;
+}
+
+/* =========================================================
+   DOCUMENTOS DISPONÍVEIS
+========================================================= */
+
+body.alto-contraste-ativo .documentos-area {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+/* Título "Documentos disponíveis" */
+body.alto-contraste-ativo .documentos-area__cabecalho h2 {
+  color: #000;
+}
+
+/* Texto "Consulta" */
+body.alto-contraste-ativo .documentos-area__cabecalho .eyebrow {
+  color: #000;
+}
+
+/* Seletor de ano */
+body.alto-contraste-ativo .seletor-ano span {
+  color: #000;
+}
+
+body.alto-contraste-ativo .seletor-ano select {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .seletor-ano select:focus-visible {
+  outline-color: #000;
+}
+
+/* AVISO */
+body.alto-contraste-ativo .documentos-aviso {
+  background: #fff;
+  color: #000;
+  border-left-color: #e52420;
+}
+
+body.alto-contraste-ativo .documentos-aviso i {
+  color: #e52420;
+}
+
+body.alto-contraste-ativo .documentos-aviso p {
+  color: #000;
+}
+
+/* =========================================================
+   GRUPO DE DOCUMENTOS
+========================================================= */
+
+body.alto-contraste-ativo .documento-grupo {
+  background: #fff;
+  border-color: #000;
+}
+
+/* Cabeçalho azul */
+body.alto-contraste-ativo .documento-grupo__cabecalho {
+  background: #071b49;
+  color: #fff;
+  border-color: #071b49;
+}
+
+body.alto-contraste-ativo .documento-grupo__cabecalho h3 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .documento-grupo__cabecalho span {
+  background: #fff;
+  color: #000;
+}
+
+/* LINHAS DOS DOCUMENTOS */
+body.alto-contraste-ativo .documento-linha {
+  background: #fff;
+  color: #000;
+  border-bottom-color: #000;
+}
+
+body.alto-contraste-ativo .documento-linha__info > i {
+  color: #e52420;
+}
+
+body.alto-contraste-ativo .documento-linha__info strong {
+  color: #000;
+}
+
+body.alto-contraste-ativo .documento-linha__info small {
+  color: #000;
+}
+
+/* BOTÃO DO DOCUMENTO */
+body.alto-contraste-ativo .botao-documento {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+body.alto-contraste-ativo .botao-documento:hover,
+body.alto-contraste-ativo .botao-documento:focus-visible {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* =========================================================
+   CHAMADA FINAL
+========================================================= */
+
+body.alto-contraste-ativo .transparencia-chamada {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-chamada h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-chamada p:not(.eyebrow) {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-chamada .botao {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .transparencia-chamada .botao:hover,
+body.alto-contraste-ativo .transparencia-chamada .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — PARCEIROS
+   Padrão: fundo preto / cards brancos
+========================================================= */
+
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .parceiros-hero {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-hero h1 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-hero p:last-child {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   INTRODUÇÃO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .parceiros-introducao {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-introducao h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-introducao__conteudo p:last-child {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   PATROCINADORES
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .parceiros-listagem--patrocinadores {
+  background: #000;
+}
+
+body.alto-contraste-ativo
+  .parceiros-listagem--patrocinadores
+  .secao-cabecalho
+  h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo
+  .parceiros-listagem--patrocinadores
+  .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   EMPRESAS PARCEIRAS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .parceiros-listagem--parceiros {
+  background: #000;
+}
+
+body.alto-contraste-ativo .parceiros-listagem--parceiros .secao-cabecalho h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-listagem--parceiros .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DOS PARCEIROS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .parceiro-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .parceiro-card:hover,
+body.alto-contraste-ativo .parceiro-card:focus-visible {
+  background: #fff;
+  border-color: #000;
+  box-shadow: none;
+  transform: translateY(-4px);
+}
+
+/* Imagens preservadas */
+
+body.alto-contraste-ativo .parceiro-card img {
+  filter: none;
+}
+
+/* ---------------------------------------------------------
+   CTA
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .parceiros-cta {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-cta h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-cta__conteudo p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* Botão */
+
+body.alto-contraste-ativo .parceiros-cta .botao {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-cta .botao:hover,
+body.alto-contraste-ativo .parceiros-cta .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   FOCO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .parceiros-listagem .parceiro-card:focus-visible,
+body.alto-contraste-ativo .parceiros-cta :focus-visible {
+  outline: 3px solid #ffff00;
+  outline-offset: 4px;
+}
+
+/* ---------------------------------------------------------
+   FOCO - lembrar
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista :focus-visible,
+body.alto-contraste-ativo .como-funciona :focus-visible,
+body.alto-contraste-ativo .projetos-chamada :focus-visible {
+  outline: 3px solid #ffff00;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   DESTACAR LINKS — TARJA INFERIOR
+========================================================= */
+
+body.links-destacados .menu-principal a::after {
+  height: 7px;
+  bottom: 0;
+  background: #ffff00;
+  transform: scaleX(1);
+}
+/* =========================================================
+   REDUZIR ANIMAÇÕES — ACESSIBILIDADE
+========================================================= */
+
+body.reduzir-animacoes *,
+body.reduzir-animacoes *::before,
+body.reduzir-animacoes *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+
+  transition-duration: 0.01ms !important;
+  transition-delay: 0ms !important;
+
+  scroll-behavior: auto !important;
+}
+
+/* Remove efeitos de movimento */
+
+body.reduzir-animacoes .projeto-card:hover,
+body.reduzir-animacoes .noticia-card:hover,
+body.reduzir-animacoes .parceiro-logo:hover,
+body.reduzir-animacoes .botao:hover {
+  transform: none !important;
+}
+
+/* Imagens */
+
+body.reduzir-animacoes .imagem-destaque:hover img,
+body.reduzir-animacoes .noticia-card:hover .noticia-card__imagem img {
+  transform: none !important;
+}
+
+/* Hero */
+
+body.reduzir-animacoes .hero-imagem img {
+  transition: none !important;
+}
+
+/* Indicadores do Hero */
+
+body.reduzir-animacoes .hero-indicador {
+  transition: none !important;
+}
+
+/* =========================================================
+   HOVER — MAIS OPÇÕES
+========================================================= */
+
+.barra-acessibilidade #abrir-acessibilidade:hover,
+.barra-acessibilidade #abrir-acessibilidade:focus-visible {
+  background: var(--vermelho);
+  color: var(--branco);
+  border-color: var(--vermelho);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.barra-acessibilidade #abrir-acessibilidade:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+/* =========================================================
+   HOVER — BOTÕES DO PAINEL DE ACESSIBILIDADE
+========================================================= */
+
+.painel-acessibilidade button:hover,
+.painel-acessibilidade button:focus-visible {
+  background: var(--vermelho);
+  color: var(--branco);
+  border-color: var(--vermelho);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.painel-acessibilidade button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+/* =========================================================
+   HOVER — PAINEL NO ALTO CONTRASTE
+========================================================= */
+
+body.alto-contraste-ativo .painel-acessibilidade button:hover,
+body.alto-contraste-ativo .painel-acessibilidade button:focus-visible {
+  background: #ffff00;
+  color: #000000;
+  border-color: #ffff00;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.35);
+}
+
+/* =========================================================
+   AUMENTAR ESPAÇAMENTO — ACESSIBILIDADE
+========================================================= */
+
+body.espacamento-aumentado {
+  line-height: 1.9;
+}
+
+body.espacamento-aumentado p,
+body.espacamento-aumentado li {
+  line-height: 2;
+  margin-bottom: 10px;
+  word-spacing: 0.08em;
+}
+
+body.espacamento-aumentado h1,
+body.espacamento-aumentado h2,
+body.espacamento-aumentado h3,
+body.espacamento-aumentado h4 {
+  line-height: 1.35;
+  margin-bottom: 18px;
+}
+
+/* Espaçamento entre letras */
+
+body.espacamento-aumentado p,
+body.espacamento-aumentado li,
+body.espacamento-aumentado a,
+body.espacamento-aumentado button {
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   CURSOR MAIOR — ACESSIBILIDADE
+========================================================= */
+
+body.cursor-maior,
+body.cursor-maior * {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52' viewBox='0 0 52 52'%3E%3Cpath d='M5 3L43 29L27 32L36 47L25 51L16 35L7 43Z' fill='%23ffff00' stroke='%23e52420' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E")
+      5 3,
+    auto;
+}
+
+body.cursor-maior button,
+body.cursor-maior a,
+body.cursor-maior input,
+body.cursor-maior textarea,
+body.cursor-maior select {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52' viewBox='0 0 52 52'%3E%3Cpath d='M5 3L43 29L27 32L36 47L25 51L16 35L7 43Z' fill='%23ffff00' stroke='%23e52420' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E")
+      5 3,
+    pointer;
+}
+/* =========================================================
+   INTERAÇÃO AMPLIADA — MOBILE
+   Recurso "Cursor maior"
+========================================================= */
+
+@media (max-width: 800px) {
+  #aumentar-cursor {
+    display: none;
+  }
+}
+
+/* =========================================================
+   ESPAÇAMENTO — PAINEL DE ACESSIBILIDADE
+========================================================= */
+
+/* =========================================================
+   HOVER — LINKS DO FOOTER NO ALTO CONTRASTE
+========================================================= */
+
+body.alto-contraste-ativo .rodape a:hover,
+body.alto-contraste-ativo .rodape a:focus-visible {
+  background: #ffff00;
+  color: #000000 !important;
+  font-weight: 700;
+
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+
+  padding-left: 6px;
+  padding-right: 6px;
+
+  border-radius: 3px;
+}
+/* =========================================================
+   HOVER — FOOTER
+========================================================= */
+
+.footer-col li a:hover,
+.footer-col li a:focus-visible {
+  color: var(--branco);
+
+  font-weight: 700;
+
+  padding-left: 8px;
+
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+
+  transform: translateX(3px);
+}
+/* =========================================================
+   ALTO CONTRASTE — BOTÕES PADRONIZADOS
+   Todos os botões de ação ficam amarelos
+========================================================= */
+
+body.alto-contraste-ativo .botao {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+body.alto-contraste-ativo .botao:hover,
+body.alto-contraste-ativo .botao:focus-visible {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — PADRÃO FINAL DOS BOTÕES
+   PADRÃO DA HOME
+========================================================= */
+
+/* BOTÃO EM ESTADO NORMAL */
+body.alto-contraste-ativo .botao {
+  background: #ffff00 !important;
+  color: #000 !important;
+  border-color: #ffff00 !important;
+}
+
+/* BOTÃO EM HOVER / FOCO */
+body.alto-contraste-ativo .botao:hover,
+body.alto-contraste-ativo .botao:focus-visible {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* =========================================================
+   BOTÕES ESPECÍFICOS DAS PÁGINAS
+   Garante o mesmo padrão mesmo com regras anteriores
+========================================================= */
+
+/* CONTATO */
+body.alto-contraste-ativo .formulario-contato .botao {
+  background: #ffff00 !important;
+  color: #000 !important;
+  border-color: #ffff00 !important;
+}
+
+body.alto-contraste-ativo .formulario-contato .botao:hover,
+body.alto-contraste-ativo .formulario-contato .botao:focus-visible {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* PROJETOS */
+body.alto-contraste-ativo .projetos-chamada .botao {
+  background: #ffff00 !important;
+  color: #000 !important;
+  border-color: #ffff00 !important;
+}
+
+body.alto-contraste-ativo .projetos-chamada .botao:hover,
+body.alto-contraste-ativo .projetos-chamada .botao:focus-visible {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* NOTÍCIAS */
+body.alto-contraste-ativo .destaque-card .botao,
+body.alto-contraste-ativo .noticias-chamada .botao {
+  background: #ffff00 !important;
+  color: #000 !important;
+  border-color: #ffff00 !important;
+}
+
+body.alto-contraste-ativo .destaque-card .botao:hover,
+body.alto-contraste-ativo .destaque-card .botao:focus-visible,
+body.alto-contraste-ativo .noticias-chamada .botao:hover,
+body.alto-contraste-ativo .noticias-chamada .botao:focus-visible {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* TRANSPARÊNCIA */
+body.alto-contraste-ativo .transparencia-chamada .botao {
+  background: #ffff00 !important;
+  color: #000 !important;
+  border-color: #ffff00 !important;
+}
+
+body.alto-contraste-ativo .transparencia-chamada .botao:hover,
+body.alto-contraste-ativo .transparencia-chamada .botao:focus-visible {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* PARCEIROS */
+body.alto-contraste-ativo .parceiros-cta .botao {
+  background: #ffff00 !important;
+  color: #000 !important;
+  border-color: #ffff00 !important;
+}
+
+body.alto-contraste-ativo .parceiros-cta .botao:hover,
+body.alto-contraste-ativo .parceiros-cta .botao:focus-visible {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* QUEM SOMOS */
+body.alto-contraste-ativo .chamada .botao {
+  background: #ffff00 !important;
+  color: #000 !important;
+  border-color: #ffff00 !important;
+}
+
+body.alto-contraste-ativo .chamada .botao:hover,
+body.alto-contraste-ativo .chamada .botao:focus-visible {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
 }
