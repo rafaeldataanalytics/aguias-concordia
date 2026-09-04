@@ -156,10 +156,6 @@ p {
   gap: 10px;
 }
 
-.acessibilidade-titulo i {
-  font-size: 28px;
-}
-
 .skip-link {
   position: absolute;
 
@@ -3916,7 +3912,7 @@ body {
 
 /* =========================================================
    ÍCONE DE ACESSIBILIDADE
-
+========================================================= */
 
 .acessibilidade-titulo {
   display: inline-flex;
@@ -3939,4 +3935,13 @@ body {
 
   flex-shrink: 0;
 }
+
+/* =========================================================
+   ESPAÇO ENTRE ACESSIBILIDADE E NAVEGAÇÃO — MOBILE
 ========================================================= */
+
+@media (max-width: 800px) {
+  .cabecalho {
+    padding-top: 12px;
+  }
+}
