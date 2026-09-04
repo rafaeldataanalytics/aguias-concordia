@@ -196,6 +196,8 @@ p {
   color: var(--branco);
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  margin-bottom: 12px;
 }
 
 .barra-acessibilidade__conteudo {
@@ -3914,7 +3916,7 @@ body {
 
 /* =========================================================
    ÍCONE DE ACESSIBILIDADE
-========================================================= */
+
 
 .acessibilidade-titulo {
   display: inline-flex;
@@ -3937,3 +3939,4 @@ body {
 
   flex-shrink: 0;
 }
+========================================================= */
