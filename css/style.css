@@ -3749,7 +3749,7 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
   top: 46px;
   left: 0;
   width: 100%;
-  z-index: 1999;
+  z-index: 2000;
 }
 
 /* =========================================================
@@ -3767,10 +3767,10 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
 
   .painel-acessibilidade:not([hidden]) {
     position: fixed;
-    top: 155px;
+    top: 175px;
     left: 0;
     width: 100%;
-    z-index: 1999;
+    z-index: 2150;
   }
 }
 
@@ -3780,7 +3780,7 @@ body {
 
 @media (max-width: 800px) {
   body {
-    padding-top: 150px;
+    padding-top: 155px;
   }
 }
 
@@ -3942,6 +3942,6 @@ body {
 
 @media (max-width: 800px) {
   .cabecalho {
-    padding-top: 20px;
+    padding-top: 24px;
   }
 }
