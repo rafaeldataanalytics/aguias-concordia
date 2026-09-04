@@ -3946,3 +3946,19 @@ body {
     padding-top: 24px;
   }
 }
+/* =========================================================
+   CORREÇÃO — ALTURA DO HEADER NO MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .cabecalho {
+    height: 90px;
+    min-height: 90px;
+  }
+
+  .cabecalho__conteudo {
+    height: 90px;
+    min-height: 90px;
+    padding-block: 9px;
+  }
+}
