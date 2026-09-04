@@ -79,15 +79,17 @@
             Cursor maior
           </button>
 
+          <button type="button" id="restaurar-acessibilidade">
+            Restaurar padrão
+          </button>
+
 
 
         </div>
 
       </div>
 
-      <button type="button" id="restaurar-acessibilidade">
-        Restaurar padrão
-      </button>
+
 
     </div>
   </div>
@@ -226,14 +228,18 @@
               <button type="button" class="metrica metrica--curtida" aria-label="Curtir esta notícia">
 
                 <span aria-hidden="true">♥</span>
-                <span class="metrica__valor">0</span>
+                <span class="metrica__valor">
+                  ${interacoes.curtidas}
+                </span>
 
               </button>
 
-              <span class="metrica" aria-label="0 visualizações">
+              <span class="metrica" aria-label="${interacoes.visualizacoes} visualizações">
 
                 <span aria-hidden="true">👁</span>
-                <span class="metrica__valor">0</span>
+                <span class="metrica__valor">
+                  ${interacoes.visualizacoes}
+                </span>
 
               </span>
 
@@ -474,6 +480,7 @@
 
   <script src="js/script.js"></script>
   <script src="js/noticias.js"></script>
+  <script src="js/iteracoes.js"></script>
 </body>
 
 </html>

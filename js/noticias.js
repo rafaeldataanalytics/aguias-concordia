@@ -254,6 +254,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
+     OBTER INTERAÇÕES DA NOTÍCIA
+  ========================================================= */
+
+  function obterInteracoes(noticia) {
+    const interacao = window.interacoesPorNoticia?.[noticia.id];
+
+    return {
+      curtidas: interacao?.curtidas ?? 0,
+      visualizacoes: interacao?.visualizacoes ?? 0,
+    };
+  }
+
+  /* =========================================================
      CRIAR CARD DE NOTÍCIA
   ========================================================= */
 
@@ -261,6 +274,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const artigo = document.createElement("article");
 
     artigo.className = "noticia-card";
+
+    const id = escaparHTML(noticia.id);
+
+    artigo.dataset.noticiaId = id;
+
+    const interacoes = obterInteracoes(noticia);
 
     const categoria = escaparHTML(noticia.categoria);
 
@@ -320,14 +339,14 @@ document.addEventListener("DOMContentLoaded", () => {
             </span>
 
             <span class="metrica__valor">
-              0
+              ${interacoes.curtidas}
             </span>
 
           </button>
 
           <span
             class="metrica"
-            aria-label="0 visualizações"
+            aria-label="${interacoes.visualizacoes} visualizações"
           >
 
             <span aria-hidden="true">
@@ -335,7 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </span>
 
             <span class="metrica__valor">
-              0
+              ${interacoes.visualizacoes}
             </span>
 
           </span>
@@ -356,15 +375,210 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
+   CURTIDAS — PERSISTÊNCIA LOCAL
+========================================================= */
+
+  function ativarCurtidas() {
+    const CHAVE_CURTIDAS = "aguiasCurtidas";
+
+    let curtidasSalvas = JSON.parse(
+      localStorage.getItem(CHAVE_CURTIDAS) || "[]",
+    );
+
+    /*
+    Aplica as curtidas já registradas no navegador
+  */
+    document.querySelectorAll(".metrica--curtida").forEach((botao) => {
+      const elemento = botao.closest("[data-noticia-id]");
+
+      if (!elemento) {
+        return;
+      }
+
+      const idNoticia = elemento.dataset.noticiaId;
+
+      if (!idNoticia) {
+        return;
+      }
+
+      if (curtidasSalvas.includes(idNoticia)) {
+        const valor = botao.querySelector(".metrica__valor");
+
+        if (valor) {
+          const interacao = window.interacoesPorNoticia?.[idNoticia];
+
+          const curtidasBase = interacao?.curtidas ?? 0;
+
+          valor.textContent = curtidasBase + 1;
+        }
+
+        botao.classList.add("curtida-ativa");
+
+        botao.setAttribute("aria-label", "Notícia curtida");
+      }
+
+      /*
+      Evita adicionar o evento duas vezes
+    */
+      if (botao.dataset.curtidaAtivada === "true") {
+        return;
+      }
+
+      botao.dataset.curtidaAtivada = "true";
+
+      botao.addEventListener("click", () => {
+        if (curtidasSalvas.includes(idNoticia)) {
+          return;
+        }
+
+        curtidasSalvas.push(idNoticia);
+
+        localStorage.setItem(CHAVE_CURTIDAS, JSON.stringify(curtidasSalvas));
+
+        /*
+        Atualiza todos os elementos dessa mesma notícia
+      */
+        document
+          .querySelectorAll(
+            `[data-noticia-id="${idNoticia}"] .metrica--curtida`,
+          )
+          .forEach((outroBotao) => {
+            const valor = outroBotao.querySelector(".metrica__valor");
+
+            if (!valor) {
+              return;
+            }
+
+            const interacao = window.interacoesPorNoticia?.[idNoticia];
+
+            const curtidasBase = interacao?.curtidas ?? 0;
+
+            valor.textContent = curtidasBase + 1;
+
+            outroBotao.classList.add("curtida-ativa");
+
+            outroBotao.setAttribute("aria-label", "Notícia curtida");
+          });
+      });
+    });
+  }
+
+  /* =========================================================
+   VISUALIZAÇÕES — PERSISTÊNCIA LOCAL
+========================================================= */
+
+  function ativarVisualizacoes() {
+    const CHAVE_VISUALIZACOES = "aguiasVisualizacoes";
+
+    let visualizacoesSalvas = JSON.parse(
+      localStorage.getItem(CHAVE_VISUALIZACOES) || "{}",
+    );
+
+    /*
+    RESTAURAR VISUALIZAÇÕES
+  */
+
+    document.querySelectorAll("[data-noticia-id]").forEach((elemento) => {
+      const idNoticia = elemento.dataset.noticiaId;
+
+      if (!idNoticia) {
+        return;
+      }
+
+      const interacao = window.interacoesPorNoticia?.[idNoticia];
+
+      const visualizacoesBase = interacao?.visualizacoes ?? 0;
+
+      const visualizacoesLocais = visualizacoesSalvas[idNoticia] ?? 0;
+
+      const valor = elemento.querySelector(
+        ".metrica:not(.metrica--curtida) .metrica__valor",
+      );
+
+      if (valor) {
+        valor.textContent = visualizacoesBase + visualizacoesLocais;
+      }
+    });
+
+    /*
+    EVITAR DUPLICAR O EVENTO
+  */
+
+    if (document.body.dataset.visualizacoesAtivadas === "true") {
+      return;
+    }
+
+    document.body.dataset.visualizacoesAtivadas = "true";
+
+    /*
+    REGISTRAR VISUALIZAÇÃO
+  */
+
+    document.addEventListener("click", (evento) => {
+      const link = evento.target.closest("[data-noticia-id] a");
+
+      if (!link) {
+        return;
+      }
+
+      const elemento = link.closest("[data-noticia-id]");
+
+      if (!elemento) {
+        return;
+      }
+
+      const idNoticia = elemento.dataset.noticiaId;
+
+      if (!idNoticia) {
+        return;
+      }
+
+      const interacao = window.interacoesPorNoticia?.[idNoticia];
+
+      const visualizacoesBase = interacao?.visualizacoes ?? 0;
+
+      const visualizacoesLocais = visualizacoesSalvas[idNoticia] ?? 0;
+
+      const novasVisualizacoes = visualizacoesLocais + 1;
+
+      visualizacoesSalvas[idNoticia] = novasVisualizacoes;
+
+      localStorage.setItem(
+        CHAVE_VISUALIZACOES,
+        JSON.stringify(visualizacoesSalvas),
+      );
+
+      /*
+      ATUALIZAR TODOS OS CARDS DA MESMA NOTÍCIA
+    */
+
+      document
+        .querySelectorAll(`[data-noticia-id="${idNoticia}"]`)
+        .forEach((outroElemento) => {
+          const outroValor = outroElemento.querySelector(
+            ".metrica:not(.metrica--curtida) .metrica__valor",
+          );
+
+          if (outroValor) {
+            outroValor.textContent = visualizacoesBase + novasVisualizacoes;
+          }
+        });
+    });
+  }
+
+  /* =========================================================
      DESTAQUE — NOTÍCIA MAIS RECENTE
   ========================================================= */
-
   function mostrarDestaque() {
     if (!destaqueCard || noticias.length === 0) {
       return;
     }
 
     const noticiaDestaque = noticias[0];
+
+    const id = escaparHTML(noticiaDestaque.id);
+
+    const interacoes = obterInteracoes(noticiaDestaque);
 
     const categoria = escaparHTML(noticiaDestaque.categoria);
 
@@ -376,84 +590,86 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const link = escaparHTML(noticiaDestaque.link);
 
+    destaqueCard.dataset.noticiaId = id;
+
     destaqueCard.innerHTML = `
-      <div class="destaque-card__imagem">
+    <div class="destaque-card__imagem">
 
-        <img
-          src="${imagem}"
-          alt="${titulo}"
+      <img
+        src="${imagem}"
+        alt="${titulo}"
+      >
+
+    </div>
+
+    <div class="destaque-card__conteudo">
+
+      <span class="noticia-card__categoria">
+        ${categoria}
+      </span>
+
+      <time
+        class="noticia-data"
+        datetime="${noticiaDestaque.data}"
+      >
+        ${formatarData(noticiaDestaque.data)}
+      </time>
+
+      <h3>
+        ${titulo}
+      </h3>
+
+      <p>
+        ${resumo}
+      </p>
+
+      <div
+        class="conteudo-metricas"
+        aria-label="Interações da notícia"
+      >
+
+        <button
+          type="button"
+          class="metrica metrica--curtida"
+          aria-label="Curtir esta notícia"
         >
 
-      </div>
-
-      <div class="destaque-card__conteudo">
-
-        <span class="noticia-card__categoria">
-          ${categoria}
-        </span>
-
-        <time
-          class="noticia-data"
-          datetime="${noticiaDestaque.data}"
-        >
-          ${formatarData(noticiaDestaque.data)}
-        </time>
-
-        <h3>
-          ${titulo}
-        </h3>
-
-        <p>
-          ${resumo}
-        </p>
-
-        <div
-          class="conteudo-metricas"
-          aria-label="Interações da notícia"
-        >
-
-          <button
-            type="button"
-            class="metrica metrica--curtida"
-            aria-label="Curtir esta notícia"
-          >
-
-            <span aria-hidden="true">
-              ♥
-            </span>
-
-            <span class="metrica__valor">
-              0
-            </span>
-
-          </button>
-
-          <span
-            class="metrica"
-            aria-label="0 visualizações"
-          >
-
-            <span aria-hidden="true">
-              👁
-            </span>
-
-            <span class="metrica__valor">
-              0
-            </span>
-
+          <span aria-hidden="true">
+            ♥
           </span>
 
-        </div>
+          <span class="metrica__valor">
+            ${interacoes.curtidas}
+          </span>
 
-        <a
-          href="${link}"
-          class="botao botao--secundario"
+        </button>
+
+        <span
+          class="metrica"
+          aria-label="${interacoes.visualizacoes} visualizações"
         >
-          Ler notícia
-        </a>
+
+          <span aria-hidden="true">
+            👁
+          </span>
+
+          <span class="metrica__valor">
+            ${interacoes.visualizacoes}
+          </span>
+
+        </span>
 
       </div>
-    `;
+
+      <a
+        href="${link}"
+        class="botao botao--secundario"
+      >
+        Ler notícia
+      </a>
+
+    </div>
+  `;
   }
 
   /* =========================================================
@@ -505,8 +721,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     MOSTRAR NOTÍCIAS
-  ========================================================= */
+   MOSTRAR NOTÍCIAS
+========================================================= */
 
   function mostrarNoticias() {
     if (!listaNoticias) {
@@ -527,9 +743,12 @@ document.addEventListener("DOMContentLoaded", () => {
       listaNoticias.appendChild(criarCard(noticia));
     });
 
+    ativarCurtidas();
+
+    ativarVisualizacoes();
+
     atualizarPaginacao(filtradas.length);
   }
-
   /* =========================================================
      PAGINAÇÃO
   ========================================================= */
@@ -671,6 +890,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .map((noticia) => {
           return {
+            id: noticia.id || "",
+
             categoria: noticia.categoria || "Paradesporto",
 
             data: normalizarData(noticia.data),
@@ -707,6 +928,10 @@ document.addEventListener("DOMContentLoaded", () => {
       mostrarNoticias();
 
       mostrarNoticiasHome();
+
+      ativarCurtidas();
+
+      ativarVisualizacoes();
     } catch (erro) {
       console.error("Erro ao carregar notícias:", erro);
 
@@ -752,8 +977,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
+     ATUALIZAR QUANDO AS INTERAÇÕES FOREM CARREGADAS
+  ========================================================= */
+
+  document.addEventListener("interacoesCarregadas", () => {
+    mostrarDestaque();
+    mostrarNoticias();
+    mostrarNoticiasHome();
+
+    if (window.interacoesPorNoticia) {
+      mostrarDestaque();
+      mostrarNoticias();
+      mostrarNoticiasHome();
+      ativarCurtidas();
+
+      ativarVisualizacoes();
+    }
+  });
+
+  /* =========================================================
      INICIALIZAÇÃO
   ========================================================= */
 
   carregarNoticias();
+
+  ativarVisualizacoes();
 });

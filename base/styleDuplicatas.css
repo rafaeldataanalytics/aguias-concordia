@@ -39,7 +39,6 @@
   --verde-suave: #d2f7d4;
   --verde-suave-mais: #a2f8a7;
   --borda-verde: #1f5022;
-  --amarelo-destaque: #ffff00;
 
   --branco: #ffffff;
 
@@ -110,15 +109,6 @@ textarea {
 
 button {
   cursor: pointer;
-}
-
-button:hover,
-.btn:hover,
-.botao:hover,
-.filtro:hover {
-  background-color: #ffffff !important;
-  color: var(--azul) !important;
-  border-color: var(--azul) !important;
 }
 
 a {
@@ -381,7 +371,7 @@ p {
 }
 
 .menu-principal a:hover {
-  color: var(--azul-claro);
+  color: var(--vermelho);
 }
 
 .menu-principal a::after {
@@ -393,9 +383,9 @@ p {
   right: 12px;
   bottom: 2px;
 
-  height: 3.5px;
+  height: 3px;
 
-  background: var(--vermelho-escuro);
+  background: var(--vermelho);
 
   transform: scaleX(0);
   transform-origin: center;
@@ -409,7 +399,7 @@ p {
 }
 
 .menu-principal a[aria-current="page"] {
-  color: var(--azul);
+  color: var(--vermelho);
 }
 
 .menu-principal a[aria-current="page"]::after {
@@ -1335,6 +1325,24 @@ p {
     padding: 65px 0;
   }
 
+  /* Acessibilidade */
+
+  .barra-acessibilidade__conteudo {
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    padding-block: 8px;
+  }
+
+  .acessibilidade-titulo {
+    width: 100%;
+
+    margin-right: 0;
+
+    text-align: center;
+  }
+
   /* Header */
 
   .cabecalho__conteudo {
@@ -1838,7 +1846,7 @@ body.alto-contraste-ativo span {
 /* Links */
 
 body.alto-contraste-ativo a {
-  color: var(--amarelo-destaque);
+  color: #ffff00;
 }
 
 body.alto-contraste-ativo a:hover,
@@ -1866,7 +1874,7 @@ body.alto-contraste-ativo .menu-principal a {
 
 body.alto-contraste-ativo .menu-principal a:hover,
 body.alto-contraste-ativo .menu-principal a:focus-visible {
-  color: var(--amarelo-destaque);
+  color: #ffff00;
 }
 
 /* Botão menu mobile */
@@ -1909,7 +1917,7 @@ body.alto-contraste-ativo .projeto-card p {
 /* Eyebrow */
 
 body.alto-contraste-ativo .eyebrow {
-  color: var(--amarelo-destaque);
+  color: #ffff00;
 }
 
 /* Cards */
@@ -1926,7 +1934,7 @@ body.alto-contraste-ativo .parceiro-logo {
 
 body.alto-contraste-ativo .projeto-card a,
 body.alto-contraste-ativo .noticia-card a {
-  color: var(--amarelo-destaque);
+  color: #ffff00;
 }
 
 /* Parceiros */
@@ -1950,6 +1958,21 @@ body.alto-contraste-ativo .painel-acessibilidade h2 {
 body.alto-contraste-ativo .painel-acessibilidade button {
   background: #000000;
   color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Botões */
+
+body.alto-contraste-ativo .botao {
+  background: #ffff00;
+  color: #000000;
+  border-color: #ffff00;
+}
+
+body.alto-contraste-ativo .botao:hover,
+body.alto-contraste-ativo .botao:focus-visible {
+  background: #ffffff;
+  color: #000000;
   border-color: #ffffff;
 }
 
@@ -2432,6 +2455,228 @@ body.links-destacados .rodape a {
 body.links-destacados .botao {
   text-decoration: underline !important;
   text-decoration-thickness: 3px;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — PROJETOS
+========================================================= */
+
+/* ---------------------------------------------------------
+   HERO DA PÁGINA
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-hero {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-hero h1 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-hero p:not(.eyebrow) {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   INTRODUÇÃO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-introducao {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projetos-introducao h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-introducao p {
+  color: #fff;
+}
+
+/* Caixa de observação */
+
+body.alto-contraste-ativo .projetos-introducao .texto-observacao {
+  background: #fff;
+  color: #000 !important;
+  border-left-color: #000;
+}
+
+/* ---------------------------------------------------------
+   LISTA DE PROJETOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista {
+  background: #000;
+}
+
+body.alto-contraste-ativo .projetos-lista h2 {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DOS PROJETOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista .projeto-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .projetos-lista .projeto-card h3 {
+  color: #000;
+}
+
+body.alto-contraste-ativo .projetos-lista .projeto-card p {
+  color: #000;
+}
+
+body.alto-contraste-ativo .projetos-lista .projeto-card a {
+  color: #000;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+body.alto-contraste-ativo .projetos-lista .projeto-card a:hover,
+body.alto-contraste-ativo .projetos-lista .projeto-card a:focus-visible {
+  color: #000;
+  background: #ffff00;
+}
+
+/* Ícone do projeto */
+
+body.alto-contraste-ativo .projetos-lista .projeto-card__icone {
+  background: #000;
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   PAGINAÇÃO
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista .paginacao {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-lista .paginacao button {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-lista .paginacao button:hover,
+body.alto-contraste-ativo .projetos-lista .paginacao button:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   COMO FUNCIONA
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .como-funciona {
+  background: #000;
+}
+
+body.alto-contraste-ativo .como-funciona .secao-cabecalho h2,
+body.alto-contraste-ativo .como-funciona .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DAS ETAPAS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .etapa-card {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .etapa-card h3,
+body.alto-contraste-ativo .etapa-card p {
+  color: #000;
+}
+
+body.alto-contraste-ativo .etapa-card__numero {
+  display: block;
+  background: #000;
+  color: #fff !important;
+  border: 1px solid #000;
+  border-radius: 6px;
+}
+
+/* ---------------------------------------------------------
+   RESULTADOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .resultados {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .resultados .secao-cabecalho h2,
+body.alto-contraste-ativo .resultados .secao-introducao {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CARDS DOS RESULTADOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .resultado {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .resultado strong,
+body.alto-contraste-ativo .resultado span,
+body.alto-contraste-ativo .resultado p {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------
+   CHAMADA FINAL
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-chamada {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada h2,
+body.alto-contraste-ativo .projetos-chamada p:not(.eyebrow) {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada .botao {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .projetos-chamada .botao:hover,
+body.alto-contraste-ativo .projetos-chamada .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* ---------------------------------------------------------
+   FOCO — PROJETOS
+--------------------------------------------------------- */
+
+body.alto-contraste-ativo .projetos-lista a:focus-visible,
+body.alto-contraste-ativo .projetos-lista button:focus-visible,
+body.alto-contraste-ativo .projetos-chamada a:focus-visible {
+  outline: 3px solid #ffff00;
+  outline-offset: 4px;
 }
 
 /* =========================================================
@@ -3552,6 +3797,10 @@ body.cursor-maior select {
 }
 
 /* =========================================================
+   ESPAÇAMENTO — PAINEL DE ACESSIBILIDADE
+========================================================= */
+
+/* =========================================================
    HOVER — LINKS DO FOOTER NO ALTO CONTRASTE
 ========================================================= */
 
@@ -3587,6 +3836,24 @@ body.alto-contraste-ativo .rodape a:focus-visible {
 
   transform: translateX(3px);
 }
+/* =========================================================
+   ALTO CONTRASTE — BOTÕES PADRONIZADOS
+   Todos os botões de ação ficam amarelos
+========================================================= */
+
+body.alto-contraste-ativo .botao {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+body.alto-contraste-ativo .botao:hover,
+body.alto-contraste-ativo .botao:focus-visible {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
 /* =========================================================
    ALTO CONTRASTE — PADRÃO FINAL DOS BOTÕES
    PADRÃO DA HOME
@@ -3700,6 +3967,34 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
 }
 
 /* =========================================================
+   PAINEL DE ACESSIBILIDADE — ABERTO DURANTE A ROLAGEM
+========================================================= */
+
+.painel-acessibilidade {
+  background: var(--cinza-claro);
+  border-bottom: 1px solid var(--borda);
+}
+
+/* Conteúdo interno */
+
+.painel-acessibilidade__conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+}
+
+/* Quando o painel estiver aberto */
+
+.painel-acessibilidade:not([hidden]) {
+  position: fixed;
+  top: 46px;
+  left: 0;
+  width: 100%;
+  z-index: 1999;
+}
+/* =========================================================
    PAINEL DE ACESSIBILIDADE — MOBILE
 ========================================================= */
 
@@ -3730,210 +4025,4 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
 .acessibilidade-opcoes #restaurar-acessibilidade:hover {
   background-color: var(--azul);
   color: var(--verde-suave);
-}
-
-/* =========================================================
-   ACESSIBILIDADE — BARRA E SUBMENU FIXOS
-========================================================= */
-
-/* Barra principal */
-.barra-acessibilidade {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2000;
-}
-
-/* Submenu quando aberto */
-.painel-acessibilidade:not([hidden]) {
-  position: fixed;
-  top: 46px;
-  left: 0;
-  width: 100%;
-  z-index: 1999;
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 800px) {
-  .barra-acessibilidade {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2000;
-  }
-
-  .painel-acessibilidade:not([hidden]) {
-    position: fixed;
-    top: 155px;
-    left: 0;
-    width: 100%;
-    z-index: 1999;
-  }
-}
-
-body {
-  padding-top: 46px;
-}
-
-@media (max-width: 800px) {
-  body {
-    padding-top: 155px;
-  }
-}
-
-/* =========================================================
-   MÉTRICAS DAS NOTÍCIAS
-   Curtidas + Visualizações
-========================================================= */
-
-.conteudo-metricas {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 18px;
-}
-
-/* Base das métricas */
-
-.metrica {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-
-  min-height: 38px;
-  padding: 6px 12px;
-
-  border: 0;
-  border-radius: 12px;
-
-  font-size: 15px;
-  font-weight: 700;
-
-  line-height: 1;
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
-}
-
-/* =========================================================
-   CURTIDAS
-========================================================= */
-
-.metrica--curtida {
-  background: #ffe4ea;
-  color: #e52420;
-}
-
-.metrica--curtida:hover {
-  background: #ffd1dc;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(229, 36, 32, 0.15);
-}
-
-.metrica--curtida:focus-visible {
-  outline: 3px solid #e52420;
-  outline-offset: 3px;
-}
-
-.metrica--curtida span:first-child {
-  font-size: 20px;
-  line-height: 1;
-}
-
-/* Curtida já realizada */
-
-.metrica--curtida.curtida-ativa {
-  background: #ffd1dc;
-}
-
-/* =========================================================
-   VISUALIZAÇÕES
-========================================================= */
-
-.conteudo-metricas .metrica:not(.metrica--curtida) {
-  background: #e2efff;
-  color: #1473d4;
-}
-
-.conteudo-metricas .metrica:not(.metrica--curtida) span:first-child {
-  font-size: 19px;
-  line-height: 1;
-}
-
-/* =========================================================
-   NÚMEROS
-========================================================= */
-
-.metrica__valor {
-  min-width: 12px;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-}
-
-/* =========================================================
-   DESTAQUE
-========================================================= */
-
-.destaque-card .conteudo-metricas {
-  margin-top: 20px;
-}
-
-/* =========================================================
-   CELULAR
-========================================================= */
-
-@media (max-width: 600px) {
-  .conteudo-metricas {
-    gap: 8px;
-    margin-top: 15px;
-  }
-
-  .metrica {
-    min-height: 36px;
-    padding: 6px 10px;
-    border-radius: 10px;
-    font-size: 14px;
-  }
-
-  .metrica--curtida span:first-child {
-    font-size: 18px;
-  }
-
-  .conteudo-metricas .metrica:not(.metrica--curtida) span:first-child {
-    font-size: 17px;
-  }
-}
-
-/* =========================================================
-   ÍCONE DE ACESSIBILIDADE
-========================================================= */
-
-.acessibilidade-titulo {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.acessibilidade-titulo::before {
-  content: "";
-
-  width: 42px;
-  height: 42px;
-
-  display: inline-block;
-
-  background-image: url("../assets/icone_acssbldd.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-
-  flex-shrink: 0;
 }

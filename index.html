@@ -27,7 +27,10 @@
   <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
     <div class="container barra-acessibilidade__conteudo">
 
-      <span class="acessibilidade-titulo">Acessibilidade</span>
+      <span class="acessibilidade-titulo">
+        <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+        Acessibilidade
+      </span>
 
       <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">A-</button>
 
@@ -38,6 +41,8 @@
       <button type="button" id="destacar-links" aria-label="Destacar links da página">Destacar links</button>
 
       <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">Mais opções</button>
+
+
 
     </div>
   </div>
@@ -63,16 +68,12 @@
             Cursor maior
           </button>
 
-
+          <button type="button" id="restaurar-acessibilidade">
+            Restaurar padrão
+          </button>
 
         </div>
-
       </div>
-
-      <button type="button" id="restaurar-acessibilidade">
-        Restaurar padrão
-      </button>
-
     </div>
   </div>
 
@@ -408,6 +409,7 @@
   <script src="js/script.js"></script>
   <script src="js/noticias.js"></script>
   <script src="js/parceiros.js"></script>
+  <script src="js/iteracoes.js"></script>
 </body>
 
 </html>
