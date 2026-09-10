@@ -100,6 +100,173 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
+     FORMATAR RESUMO DAS NOTÍCIAS - 10-09-2026
+
+     - Notícia comum: mantém parágrafos
+     - Notícia com "JOGOS:": cria destaque automático
+  ========================================================= */
+
+  /* =========================================================
+     FORMATAR RESUMO DAS NOTÍCIAS
+
+     - Notícia comum: mantém o comportamento atual
+     - Notícia com "JOGOS:": cria destaque automático
+  ========================================================= */
+
+  function formatarResumo(texto) {
+    const conteudo = String(texto || "")
+      .replace(/\r\n/g, "\n")
+      .replace(/\r/g, "\n");
+
+    const linhas = conteudo
+      .split("\n")
+      .map((linha) => linha.trim())
+      .filter(Boolean);
+
+    const indiceJogos = linhas.findIndex(
+      (linha) => normalizar(linha) === "jogos:",
+    );
+
+    // =========================================================
+    // NOTÍCIA NORMAL
+    // =========================================================
+
+    if (indiceJogos === -1) {
+      return linhas.map((linha) => `<p>${escaparHTML(linha)}</p>`).join("");
+    }
+
+    // =========================================================
+    // INTRODUÇÃO
+    // =========================================================
+
+    const introducao = linhas
+      .slice(0, indiceJogos)
+      .map((linha) => `<p>${escaparHTML(linha)}</p>`)
+      .join("");
+
+    // =========================================================
+    // JOGOS
+    // =========================================================
+
+    const linhasJogos = linhas.slice(indiceJogos + 1);
+
+    const jogos = [];
+
+    for (let i = 0; i < linhasJogos.length; i++) {
+      const linha = linhasJogos[i];
+
+      /*
+      Formato ideal:
+
+      12/09/2026 | 15:00 | Joinville - SC
+      CEPE Raposas do Sul Joinville × Águias Sesport Concórdia
+    */
+
+      const partes = linha.split("|").map((parte) => parte.trim());
+
+      if (partes.length === 3) {
+        const data = partes[0];
+        const hora = partes[1];
+        let local = partes[2];
+        let confronto = "";
+
+        const proximaLinha = linhasJogos[i + 1];
+
+        /*
+        Caso o confronto esteja na próxima linha.
+      */
+        if (proximaLinha && !proximaLinha.includes("|")) {
+          confronto = proximaLinha;
+          i++;
+        }
+
+        /*
+        Caso o Google Sheets tenha juntado
+        local + confronto na mesma linha.
+      */
+        if (!confronto) {
+          const matchLocal = local.match(/^(.+?\s-\s[A-Z]{2})\s+(.+)$/);
+
+          if (matchLocal) {
+            local = matchLocal[1].trim();
+            confronto = matchLocal[2].trim();
+          }
+        }
+
+        if (confronto) {
+          jogos.push({
+            data,
+            hora,
+            local,
+            confronto,
+          });
+        }
+      }
+    }
+
+    // =========================================================
+    // SEGURANÇA
+    // =========================================================
+
+    if (jogos.length === 0) {
+      return linhas.map((linha) => `<p>${escaparHTML(linha)}</p>`).join("");
+    }
+
+    // =========================================================
+    // MONTAR BLOCOS
+    // =========================================================
+
+    const blocosJogos = jogos
+      .map(
+        (jogo) => `
+        <div class="noticia-jogo">
+
+          <div class="noticia-jogo__cabecalho">
+            <strong>JOGO</strong>
+          </div>
+
+          <div class="noticia-jogo__informacoes">
+
+            <span>
+              <span aria-hidden="true">📅</span>
+              <strong>${escaparHTML(jogo.data)}</strong>
+            </span>
+
+            <span>
+              <span aria-hidden="true">🕒</span>
+              <strong>${escaparHTML(jogo.hora)}</strong>
+            </span>
+
+            <span>
+              <span aria-hidden="true">📍</span>
+              ${escaparHTML(jogo.local)}
+            </span>
+
+          </div>
+
+          <div class="noticia-jogo__confronto">
+            ${escaparHTML(jogo.confronto)}
+          </div>
+
+        </div>
+      `,
+      )
+      .join("");
+
+    return `
+    ${introducao}
+
+    <div class="noticia-jogos">
+
+      <h4>JOGOS</h4>
+
+      ${blocosJogos}
+
+    </div>
+  `;
+  }
+
+  /* =========================================================
      LER CSV
 
      Suporta vírgulas dentro de textos entre aspas.
@@ -270,7 +437,7 @@ document.addEventListener("DOMContentLoaded", () => {
      CRIAR CARD DE NOTÍCIA
   ========================================================= */
 
-  function criarCard(noticia) {
+  function criarCard(noticia, usarFormatoJogos = true) {
     const artigo = document.createElement("article");
 
     artigo.className = "noticia-card";
@@ -285,11 +452,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const titulo = escaparHTML(noticia.titulo);
 
-    const resumo = escaparHTML(noticia.resumo);
+    /* const resumo = escaparHTML(noticia.resumo);*/
+    /*const resumo = formatarResumo(noticia.resumo);*/
+    const resumo = usarFormatoJogos
+      ? formatarResumo(noticia.resumo)
+      : `<p>${escaparHTML(noticia.resumo.split(/\r?\n/)[0])}</p>`;
 
     const imagem = escaparHTML(converterImagemDrive(noticia.imagem));
 
-    const link = escaparHTML(noticia.link);
+    /*const link = escaparHTML(noticia.link);*/
+    const linkBase = noticia.link || "noticias.html";
+    const separador = linkBase.includes("?") ? "&" : "?";
+    const link = escaparHTML(
+      `${linkBase}${separador}id=${encodeURIComponent(noticia.id)}`,
+    );
 
     artigo.innerHTML = `
       <div class="noticia-card__imagem">
@@ -319,9 +495,9 @@ document.addEventListener("DOMContentLoaded", () => {
           ${titulo}
         </h3>
 
-        <p>
-          ${resumo}
-        </p>
+      <div class="noticia-resumo">
+        ${resumo}
+      </div>
 
         <div
           class="conteudo-metricas"
@@ -574,7 +750,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const noticiaDestaque = noticias[0];
+    /*const noticiaDestaque = noticias[0];*/
+
+    const parametros = new URLSearchParams(window.location.search);
+    const idSelecionado = parametros.get("id");
+
+    const noticiaDestaque =
+      noticias.find((noticia) => noticia.id === idSelecionado) || noticias[0];
 
     const id = escaparHTML(noticiaDestaque.id);
 
@@ -584,11 +766,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const titulo = escaparHTML(noticiaDestaque.titulo);
 
-    const resumo = escaparHTML(noticiaDestaque.resumo);
+    /*const resumo = escaparHTML(noticiaDestaque.resumo);*/
+    /*const resumo = formatarResumo(noticia.resumo);*/
+    const resumo = formatarResumo(noticiaDestaque.resumo);
 
     const imagem = escaparHTML(converterImagemDrive(noticiaDestaque.imagem));
 
-    const link = escaparHTML(noticiaDestaque.link);
+    /*const link = escaparHTML(noticiaDestaque.link);*/
+    const linkBase = noticiaDestaque.link || "noticias.html";
+    const separador = linkBase.includes("?") ? "&" : "?";
+    const link = escaparHTML(
+      `${linkBase}${separador}id=${encodeURIComponent(noticiaDestaque.id)}`,
+    );
 
     destaqueCard.dataset.noticiaId = id;
 
@@ -619,9 +808,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ${titulo}
       </h3>
 
-      <p>
-        ${resumo}
-      </p>
+     <div class="noticia-resumo">
+      ${resumo}
+      </div>
 
       <div
         class="conteudo-metricas"
@@ -690,7 +879,7 @@ document.addEventListener("DOMContentLoaded", () => {
     listaNoticiasHome.innerHTML = "";
 
     noticiasRecentes.forEach((noticia) => {
-      listaNoticiasHome.appendChild(criarCard(noticia));
+      listaNoticiasHome.appendChild(criarCard(noticia, false));
     });
   }
 

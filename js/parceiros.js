@@ -175,7 +175,7 @@ function renderizarParceiros() {
       .slice(0, 4)
       .map((parceiro) => {
         const nome = escaparHTML(parceiro.nome);
-        const imagem = escaparHTML(parceiro.imagem);
+        const imagem = escaparHTML(converterImagemDrive(parceiro.imagem));
 
         return `
           <div class="parceiro-logo">
