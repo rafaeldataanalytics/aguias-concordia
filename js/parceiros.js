@@ -125,13 +125,10 @@ function criarCardParceiro(parceiro) {
       ${link === "#" ? 'onclick="return false;"' : ""}
       aria-label="${tipo}: ${nome}"
     >
-
       <img
         src="${imagem}"
         alt="Logo ${nome}"
-        loading="lazy"
       >
-
     </a>
   `;
 }
@@ -167,29 +164,30 @@ function renderizarParceiros() {
   }
 
   // ===============================
-  // HOME — 4 PARCEIROS
+  // HOME — CARROSSEL
   // ===============================
 
   if (listaParceirosHome) {
-    listaParceirosHome.innerHTML = parceiros
-      .slice(0, 4)
+    const htmlParceiros = parceiros
       .map((parceiro) => {
         const nome = escaparHTML(parceiro.nome);
+
         const imagem = escaparHTML(converterImagemDrive(parceiro.imagem));
 
         return `
           <div class="parceiro-logo">
-
             <img
               src="${imagem}"
               alt="Empresa parceira ${nome}"
-              loading="lazy"
             >
-
           </div>
         `;
       })
       .join("");
+
+    // Duplica a sequência para permitir
+    // movimento contínuo do carrossel
+    listaParceirosHome.innerHTML = htmlParceiros + htmlParceiros;
   }
 }
 
@@ -217,11 +215,8 @@ async function carregarParceiros() {
       .filter((parceiro) => normalizar(parceiro.ativo) === "sim")
       .map((parceiro) => ({
         nome: parceiro.nome || "",
-
         imagem: parceiro.imagem || "",
-
         tipo: parceiro.tipo || "Parceiro",
-
         link: parceiro.link || "",
       }));
 

@@ -298,12 +298,10 @@ p {
 ========================================================= */
 
 .cabecalho {
-  position: relative;
-
+  position: sticky;
+  top: 46px;
   z-index: 1000;
-
   background: var(--branco);
-
   border-bottom: 1px solid var(--borda);
 }
 
@@ -1089,42 +1087,80 @@ p {
 
 .parceiros {
   padding: 70px 0;
-
   background: var(--cinza-claro);
-
   border-top: 1px solid var(--borda);
 }
 
 .parceiros__lista {
-  display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
+  display: flex;
   gap: 25px;
-
+  width: max-content;
+  margin-top: 0;
+  animation: parceiros-rodando 120s linear infinite;
+}
+/* =========================================================
+   PARCEIROS — CARROSSEL
+========================================================= */
+.parceiros-carrossel {
+  width: 100%;
+  overflow: hidden;
   margin-top: 35px;
 }
 
-.parceiro-logo {
-  min-height: 105px;
+.parceiros-carrossel__viewport {
+  width: 100%;
+  overflow: hidden;
+}
 
+.parceiros-carrossel__botao {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  padding: 18px;
-
-  background: var(--branco);
-
   border: 1px solid var(--borda);
-
-  border-radius: 8px;
-
-  box-shadow: 0 4px 15px rgba(7, 27, 73, 0.06);
-
+  border-radius: 50%;
+  background: var(--branco);
+  color: var(--azul);
+  cursor: pointer;
   transition:
-    transform var(--transicao),
-    box-shadow var(--transicao);
+    background-color var(--transicao),
+    color var(--transicao),
+    border-color var(--transicao),
+    transform var(--transicao);
+}
+
+.parceiros-carrossel__botao:hover,
+.parceiros-carrossel__botao:focus-visible {
+  background: var(--azul);
+
+  color: var(--branco);
+
+  border-color: var(--azul);
+
+  transform: scale(1.05);
+}
+
+.parceiros-carrossel__botao:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+.parceiro-logo {
+  flex: 0 0 220px;
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(7, 27, 73, 0.06);
 }
 
 .parceiro-logo:hover {
@@ -1136,8 +1172,60 @@ p {
 .parceiro-logo img {
   width: 100%;
   height: 80px;
-
   object-fit: contain;
+}
+
+@keyframes parceiros-rodando {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   PARCEIROS — CARROSSEL MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .parceiros-carrossel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .parceiros-carrossel__viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .parceiros__lista {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    margin-top: 0;
+
+    animation: parceiros-rodando 60s linear infinite;
+  }
+
+  .parceiro-logo {
+    flex: 0 0 180px;
+    width: 180px;
+    min-height: 105px;
+  }
+
+  .parceiro-logo img {
+    width: 100%;
+    height: 75px;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 480px) {
+  .parceiro-logo {
+    flex: 0 0 160px;
+    width: 160px;
+  }
 }
 
 /* =========================================================
@@ -1414,6 +1502,14 @@ body.alto-contraste-ativo .parceiro-logo img {
     display: none;
   }
 
+  @keyframes parceiros-rodando {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
   /* =======================================================
      HERO MOBILE
   ======================================================= */
@@ -3771,7 +3867,7 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
    ACESSIBILIDADE — BARRA E SUBMENU FIXOS
 ========================================================= */
 
-/* Barra principal 
+/* Barra principal */
 .barra-acessibilidade {
   position: fixed;
   top: 0;
@@ -3779,10 +3875,10 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
   width: 100%;
   z-index: 2000;
 }
-*/
+
 /* =========================================================
    MOBILE
-========================================================= 
+========================================================= */
 
 @media (max-width: 800px) {
   .barra-acessibilidade {
@@ -3794,7 +3890,7 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
   }
 
   .painel-acessibilidade:not([hidden]) {
-    position: fixed;
+    position: absolute;
     top: 175px;
     left: 0;
     width: 100%;
@@ -3810,7 +3906,7 @@ body {
   body {
     padding-top: 155px;
   }
-}*/
+}
 
 /* =========================================================
    MÉTRICAS DAS NOTÍCIAS
@@ -3973,5 +4069,146 @@ body {
 @media (max-width: 800px) {
   .cabecalho {
     padding-top: 24px;
+  }
+}
+
+@media (max-width: 800px) {
+  .parceiros-carrossel {
+    gap: 10px;
+  }
+
+  .parceiros-carrossel__botao {
+    width: 38px;
+
+    height: 38px;
+  }
+
+  .parceiro-logo {
+    flex: 0 0 calc((100% - 25px) / 2);
+  }
+}
+
+@media (max-width: 480px) {
+  .parceiro-logo {
+    flex: 0 0 100%;
+  }
+}
+/* =========================================================
+   PARCEIROS — CARROSSEL RESPONSIVO
+========================================================= */
+
+.parceiros-carrossel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.parceiros-carrossel__viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.parceiros__lista {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  gap: 25px;
+  margin-top: 0;
+
+  animation: parceiros-rodando 120s linear infinite;
+}
+
+.parceiro-logo {
+  flex: 0 0 220px !important;
+  width: 220px;
+  min-width: 220px;
+  min-height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 18px;
+
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+
+  box-shadow: 0 4px 15px rgba(7, 27, 73, 0.06);
+}
+
+.parceiro-logo img {
+  display: block;
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .parceiros-carrossel {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .parceiros-carrossel__viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .parceiros__lista {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+
+    gap: 20px;
+
+    animation: parceiros-rodando 120s linear infinite;
+  }
+
+  .parceiro-logo {
+    flex: 0 0 180px !important;
+    width: 180px;
+    min-width: 180px;
+    min-height: 105px;
+  }
+
+  .parceiro-logo img {
+    width: 100%;
+    height: 75px;
+    object-fit: contain;
+  }
+}
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 480px) {
+  .parceiro-logo {
+    flex: 0 0 170px !important;
+    width: 170px;
+    min-width: 170px;
+  }
+}
+/* =========================================================
+   HEADER FIXO — ABAIXO DA BARRA DE ACESSIBILIDADE
+========================================================= */
+
+.cabecalho {
+  position: sticky;
+  top: 46px;
+  z-index: 1000;
+}
+
+@media (max-width: 800px) {
+  .cabecalho {
+    position: sticky;
+    top: 155px;
+    z-index: 1000;
   }
 }
