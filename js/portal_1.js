@@ -32,64 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let categoriaAtual = null;
 
-  let documentosCarregados = [];
-
-  /* =========================================
-   ATUALIZAR FILTRO DE ANO
-   SOMENTE ANOS DA CATEGORIA ATUAL
-========================================= */
-
-  function atualizarFiltroAnos(documentos) {
-    if (!seletorAno) {
-      return;
-    }
-
-    const anos = [
-      ...new Set(
-        documentos
-          .filter((documento) => {
-            const mesmaCategoria =
-              normalizar(documento.categoria) === normalizar(categoriaAtual);
-
-            return mesmaCategoria && documentoAtivo(documento);
-          })
-          .map((documento) => String(documento.ano || "").trim())
-          .filter(Boolean),
-      ),
-    ].sort((a, b) => Number(b) - Number(a));
-
-    const anoAnterior = seletorAno.value;
-
-    seletorAno.innerHTML = "";
-
-    if (anos.length === 0) {
-      const opcao = document.createElement("option");
-
-      opcao.value = "";
-
-      opcao.textContent = "Nenhum ano disponível";
-
-      seletorAno.appendChild(opcao);
-
-      return;
-    }
-
-    anos.forEach((ano) => {
-      const opcao = document.createElement("option");
-
-      opcao.value = ano;
-
-      opcao.textContent = ano;
-
-      seletorAno.appendChild(opcao);
-    });
-
-    if (anos.includes(anoAnterior)) {
-      seletorAno.value = anoAnterior;
-    } else {
-      seletorAno.value = anos[0];
-    }
-  }
   /* =========================================
      CATEGORIAS
   ========================================= */
@@ -137,22 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-     ESCAPAR HTML
-  ========================================= */
-
-  function escaparHTML(texto) {
-    return String(texto || "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
-
-  /* =========================================
      STATUS — CARREGANDO
   ========================================= */
-
   function mostrarCarregando() {
     if (!statusDocumentos) {
       return;
@@ -161,15 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
     statusDocumentos.className = "documentos-aviso status-carregando";
 
     statusDocumentos.innerHTML = `
-      <i
-        class="fa-solid fa-basketball status-bola status-bola--carregando"
-        aria-hidden="true">
-      </i>
 
-      <p>
-        Carregando documentos...
-      </p>
-    `;
+    <i
+      class="fa-solid fa-basketball status-bola status-bola--carregando"
+      aria-hidden="true">
+    </i>
+
+    <p>
+      Carregando documentos...
+    </p>
+
+  `;
   }
 
   /* =========================================
@@ -184,15 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
     statusDocumentos.className = "documentos-aviso status-sucesso";
 
     statusDocumentos.innerHTML = `
-      <i
-        class="fa-solid fa-basketball status-bola status-bola--sucesso"
-        aria-hidden="true">
-      </i>
 
-      <p>
-        Documentos atualizados com sucesso.
-      </p>
-    `;
+    <i
+      class="fa-solid fa-basketball status-bola status-bola--sucesso"
+      aria-hidden="true">
+    </i>
+
+    <p>
+      Documentos atualizados com sucesso.
+    </p>
+
+  `;
   }
 
   /* =========================================
@@ -205,20 +137,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     lista.innerHTML = `
-      <div class="documentos-vazio">
 
-        <i
-          class="fa-solid fa-basketball status-bola status-bola--vazio"
-          aria-hidden="true">
-        </i>
+    <div class="documentos-vazio">
 
-        <p>
-          Nenhum documento encontrado
-          para esta categoria e ano.
-        </p>
+      <i
+        class="fa-solid fa-basketball status-bola status-bola--vazio"
+        aria-hidden="true">
+      </i>
 
-      </div>
-    `;
+      <p>
+        Nenhum documento encontrado
+        para esta categoria e ano.
+      </p>
+
+    </div>
+
+  `;
   }
 
   /* =========================================
@@ -230,23 +164,24 @@ document.addEventListener("DOMContentLoaded", () => {
       statusDocumentos.className = "documentos-aviso status-erro";
 
       statusDocumentos.innerHTML = `
-        <i
-          class="fa-solid fa-basketball status-bola status-bola--erro"
-          aria-hidden="true">
-        </i>
 
-        <p>
-          Não foi possível carregar
-          os documentos.
-        </p>
-      `;
+      <i
+        class="fa-solid fa-basketball status-bola status-bola--erro"
+        aria-hidden="true">
+      </i>
+
+      <p>
+        Não foi possível carregar
+        os documentos.
+      </p>
+
+    `;
     }
 
     if (lista) {
       lista.innerHTML = "";
     }
   }
-
   /* =========================================
      ESTADO INICIAL — SEM CATEGORIA
   ========================================= */
@@ -260,18 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
       anoDocumentos.textContent = "";
     }
 
-    if (seletorAno) {
-      seletorAno.innerHTML = `
-    <option value="" selected disabled>
-      Selecione uma categoria
-    </option>
-  `;
-    }
-
     if (statusDocumentos) {
-      statusDocumentos.className = "documentos-aviso";
-
       statusDocumentos.innerHTML = `
+
         <i
           class="fa-solid fa-circle-info"
           aria-hidden="true">
@@ -281,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Selecione uma categoria acima
           para consultar os documentos.
         </p>
+
       `;
     }
 
@@ -298,32 +225,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     linha.className = "documento-linha";
 
-    const nome = escaparHTML(documento.documento || "Documento");
+    const nome = documento.documento || "Documento";
 
-    const descricao = escaparHTML(
-      documento.descricao || documento["descrição"] || "",
-    );
+    const mes = documento.mes || documento["mês"] || "";
 
-    const mes = escaparHTML(documento.mes || documento["mês"] || "");
+    const ano = documento.ano || "";
 
-    const ano = escaparHTML(documento.ano || "");
-
-    const link = String(documento.link || "#").trim();
-
-    /*
-     * Descrição é opcional.
-     * Se estiver preenchida, aparece abaixo do nome.
-     */
-
-    const descricaoHTML = descricao
-      ? `
-          <span class="documento-descricao">
-            ${descricao}
-          </span>
-        `
-      : "";
+    const link = documento.link || "#";
 
     linha.innerHTML = `
+
       <div class="documento-linha__info">
 
         <i
@@ -337,8 +248,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ${nome}
           </strong>
 
-          ${descricaoHTML}
-
           <small>
             ${mes}${mes && ano ? " — " : ""}${ano}
           </small>
@@ -347,9 +256,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       </div>
 
+
       <a
         class="botao-documento"
-        href="${escaparHTML(link)}"
+        href="${link}"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Abrir ${nome}">
@@ -362,6 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
         Abrir documento
 
       </a>
+
     `;
 
     return linha;
@@ -380,6 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (documentos.length === 0) {
       mostrarNaoEncontrado();
+
       return;
     }
 
@@ -390,130 +302,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================================
      LER CSV
-     Parser compatível com campos entre aspas
   ========================================= */
 
   function lerCSV(texto) {
-    const linhas = [];
-
-    let linhaAtual = [];
-
-    let campoAtual = "";
-
-    let dentroDeAspas = false;
-
-    for (let i = 0; i < texto.length; i++) {
-      const caractere = texto[i];
-
-      const proximo = texto[i + 1];
-
-      /* Aspas */
-
-      if (caractere === '"') {
-        if (dentroDeAspas && proximo === '"') {
-          campoAtual += '"';
-
-          i++;
-
-          continue;
-        }
-
-        dentroDeAspas = !dentroDeAspas;
-
-        continue;
-      }
-
-      /* Vírgula */
-
-      if (caractere === "," && !dentroDeAspas) {
-        linhaAtual.push(campoAtual);
-
-        campoAtual = "";
-
-        continue;
-      }
-
-      /* Quebra de linha */
-
-      if ((caractere === "\n" || caractere === "\r") && !dentroDeAspas) {
-        if (caractere === "\r" && proximo === "\n") {
-          i++;
-        }
-
-        linhaAtual.push(campoAtual);
-
-        linhas.push(linhaAtual);
-
-        linhaAtual = [];
-
-        campoAtual = "";
-
-        continue;
-      }
-
-      campoAtual += caractere;
-    }
-
-    /*
-     * Último campo / última linha
-     */
-
-    if (campoAtual !== "" || linhaAtual.length > 0) {
-      linhaAtual.push(campoAtual);
-
-      linhas.push(linhaAtual);
-    }
+    const linhas = texto.trim().split(/\r?\n/);
 
     if (linhas.length < 2) {
       return [];
     }
 
-    /* =========================================
-       CABEÇALHOS
-    ========================================= */
+    const cabecalhos = linhas[0].split(",").map((coluna) => normalizar(coluna));
 
-    const cabecalhos = linhas[0].map((coluna) => normalizar(coluna));
+    return linhas.slice(1).map((linha) => {
+      const valores = linha.split(",");
 
-    /* =========================================
-       REGISTROS
-    ========================================= */
+      const registro = {};
 
-    return linhas
-      .slice(1)
-      .filter((valores) => valores.some((valor) => String(valor).trim() !== ""))
-      .map((valores) => {
-        const registro = {};
-
-        cabecalhos.forEach((cabecalho, indice) => {
-          registro[cabecalho] = String(valores[indice] || "").trim();
-        });
-
-        return registro;
+      cabecalhos.forEach((cabecalho, indice) => {
+        registro[cabecalho] = (valores[indice] || "").trim();
       });
-  }
 
-  /* =========================================
-     VERIFICAR DOCUMENTO ATIVO
-  ========================================= */
-
-  function documentoAtivo(documento) {
-    /*
-     * Se a coluna Ativo estiver vazia,
-     * consideramos o documento ativo.
-     *
-     * Isso evita quebrar os registros
-     * antigos durante a implantação.
-     */
-
-    const ativo = normalizar(documento.ativo || "");
-
-    if (!ativo) {
-      return true;
-    }
-
-    return (
-      ativo === "sim" || ativo === "s" || ativo === "true" || ativo === "1"
-    );
+      return registro;
+    });
   }
 
   /* =========================================
@@ -527,9 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    atualizarFiltroAnos(documentos);
-
-    const anoSelecionado = seletorAno ? seletorAno.value : "";
+    const anoSelecionado = seletorAno ? seletorAno.value : "2026";
 
     const documentosFiltrados = documentos.filter((documento) => {
       const categoria = normalizar(documento.categoria);
@@ -539,9 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const mesmoAno =
         String(documento.ano || "").trim() === String(anoSelecionado).trim();
 
-      const ativo = documentoAtivo(documento);
-
-      return mesmaCategoria && mesmoAno && ativo;
+      return mesmaCategoria && mesmoAno;
     });
 
     if (tituloCategoria) {
@@ -585,13 +391,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const documentos = lerCSV(texto);
 
-      documentosCarregados = documentos;
-
       console.log("Documentos encontrados:", documentos);
 
-      renderizar(documentosCarregados);
-
       mostrarSucesso();
+
+      renderizar(documentos);
     } catch (erro) {
       console.error("Erro ao carregar Google Sheets:", erro);
 
@@ -613,9 +417,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       categoriaAtual = categorias[id] || null;
 
-      /* =================================
-             REMOVER SELEÇÃO ANTERIOR
-          ================================= */
+      /* Remover seleção anterior */
 
       document.querySelectorAll(".transparencia-item").forEach((categoria) => {
         categoria.classList.remove("selecionado");
@@ -623,27 +425,22 @@ document.addEventListener("DOMContentLoaded", () => {
         categoria.setAttribute("aria-current", "false");
       });
 
-      /* =================================
-             MARCAR CATEGORIA ESCOLHIDA
-          ================================= */
+      /* Marcar categoria escolhida */
 
       item.classList.add("selecionado");
 
       item.setAttribute("aria-current", "true");
 
-      /* =================================
-             CARREGAR DOCUMENTOS
-          ================================= */
+      /* Carregar documentos */
 
       carregarPlanilha();
 
-      /* =================================
-             IR PARA DOCUMENTOS
-          ================================= */
+      /* Ir para documentos */
 
       if (grupoDocumentos) {
         grupoDocumentos.scrollIntoView({
           behavior: "smooth",
+
           block: "start",
         });
       }
@@ -660,7 +457,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      renderizar(documentosCarregados);
+      carregarPlanilha();
     });
   }
 
