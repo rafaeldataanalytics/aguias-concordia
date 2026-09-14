@@ -4212,3 +4212,20 @@ body {
     z-index: 1000;
   }
 }
+
+.desenvolvido-por {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.desenvolvido-por a {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.desenvolvido-por a:hover {
+  color: #f4c430;
+}
