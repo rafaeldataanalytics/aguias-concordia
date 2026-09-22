@@ -1,51 +1,80 @@
 /* =========================================================
-   ÁGUIAS DE CONCÓRDIA
-   QUEM SOMOS — CSS ESPECÍFICO
-   Complementa css/style.css
+   PROJETO — ÁGUIAS DE CONCÓRDIA
+   CSS — QUEM SOMOS
+   ---------------------------------------------------------
+   Este arquivo controla somente o visual específico da
+   página quem-somos.html.
+
+   Acessibilidade global permanece no style.css.
 ========================================================= */
 
-/* CABEÇALHO INTERNO */
+/* =========================================================
+   1. HERO DA PÁGINA
+========================================================= */
 
 .pagina-hero {
   position: relative;
   overflow: hidden;
-  padding: 95px 0;
-  background: var(--azul);
+  min-height: 390px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 27, 73, 0.98),
+    rgba(22, 59, 120, 0.92)
+  );
   color: var(--branco);
+}
+
+.pagina-hero::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  right: -160px;
+  top: -180px;
+  background: rgba(229, 36, 32, 0.12);
+  pointer-events: none;
 }
 
 .pagina-hero::after {
   content: "";
   position: absolute;
-  width: 380px;
-  height: 380px;
-  right: -120px;
-  top: -180px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
+  left: -100px;
+  bottom: -130px;
   background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
 }
 
 .pagina-hero__conteudo {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  padding: 75px 0;
 }
 
-.pagina-hero h1 {
+.pagina-hero__conteudo h1 {
+  max-width: 800px;
   margin-bottom: 18px;
   color: var(--branco);
-  font-size: clamp(2.6rem, 5vw, 4.3rem);
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
   font-weight: 800;
+  line-height: 1.05;
 }
 
-.pagina-hero p:last-child {
-  max-width: 680px;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 18px;
+.pagina-hero__conteudo > p:last-child {
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
   line-height: 1.7;
 }
 
-/* ENTIDADE */
+/* =========================================================
+   2. A ENTIDADE
+========================================================= */
 
 .entidade {
   background: var(--branco);
@@ -53,41 +82,35 @@
 
 .entidade__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: 70px;
   align-items: center;
 }
 
 .entidade__texto {
-  max-width: 590px;
+  max-width: 650px;
 }
 
-.entidade__texto h2,
-.paradesporto__texto h2 {
-  margin-bottom: 22px;
+.entidade__texto h2 {
+  margin-bottom: 25px;
   color: var(--azul);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
 }
 
-.entidade__texto p,
-.paradesporto__texto p {
+.entidade__texto p:not(.eyebrow) {
   margin-bottom: 18px;
   color: var(--cinza-escuro);
   font-size: 17px;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
-.texto-observacao {
-  padding: 15px 18px;
-  border-left: 4px solid var(--vermelho);
-  background: var(--cinza-claro);
-  color: var(--cinza) !important;
-  font-size: 14px !important;
-  line-height: 1.65 !important;
+.entidade .imagem-destaque img {
+  height: 430px;
 }
 
-/* HISTÓRIA */
+/* =========================================================
+   3. HISTÓRIA / LINHA DO TEMPO
+========================================================= */
 
 .historia {
   background: var(--cinza-claro);
@@ -95,93 +118,56 @@
 
 .linha-do-tempo {
   position: relative;
-  max-width: 900px;
-  margin-inline: auto;
-  display: grid;
-  gap: 20px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .linha-do-tempo::before {
   content: "";
   position: absolute;
-  left: 29px;
-  top: 30px;
-  bottom: 30px;
-  width: 2px;
-  background: var(--borda);
+  top: 20px;
+  bottom: 20px;
+  left: 31px;
+  width: 3px;
+  background: var(--vermelho);
+  opacity: 0.25;
 }
 
 .historia-item {
   position: relative;
-  z-index: 1;
   display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 22px;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 25px;
   align-items: start;
 }
 
+.historia-item + .historia-item {
+  margin-top: 30px;
+}
+
 .historia-item__marcador {
-  width: 60px;
-  height: 60px;
+  position: relative;
+  z-index: 1;
+  width: 64px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 4px solid var(--cinza-claro);
   border-radius: 50%;
-  background: var(--vermelho);
+  background: var(--azul);
   color: var(--branco);
+  border: 5px solid var(--cinza-claro);
+  box-shadow: 0 0 0 2px rgba(7, 27, 73, 0.12);
   font-family: var(--fonte-titulo);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
 }
 
 .historia-item__conteudo {
-  padding: 24px 26px;
+  padding: 26px 30px;
   background: var(--branco);
   border: 1px solid var(--borda);
-  border-radius: var(--raio);
-  box-shadow: var(--sombra-suave);
-}
-
-.historia-item__ano {
-  display: inline-block;
-  margin-bottom: 8px;
-  color: var(--vermelho);
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.historia-item h3 {
-  margin-bottom: 9px;
-  color: var(--azul);
-  font-size: 20px;
-}
-
-.historia-item p {
-  color: var(--cinza);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* PRINCÍPIOS */
-
-.principios {
-  background: var(--branco);
-}
-
-.principios__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-
-.principio-card {
-  min-height: 280px;
-  padding: 32px;
-  background: var(--branco);
-  border: 1px solid var(--borda);
+  border-left: 4px solid var(--vermelho);
   border-radius: var(--raio);
   box-shadow: var(--sombra-suave);
   transition:
@@ -189,12 +175,71 @@
     box-shadow var(--transicao);
 }
 
-.principio-card:hover {
-  transform: translateY(-5px);
+.historia-item__conteudo:hover {
+  transform: translateY(-3px);
   box-shadow: var(--sombra-card);
 }
 
-.principio-card__icone {
+.historia-item__ano {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--vermelho);
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.historia-item__conteudo h3 {
+  margin-bottom: 10px;
+  color: var(--azul);
+  font-size: 1.35rem;
+}
+
+.historia-item__conteudo p {
+  color: var(--cinza-escuro);
+  line-height: 1.75;
+}
+
+/* =========================================================
+   4. ATUAÇÃO
+========================================================= */
+
+.atuacao {
+  background: var(--branco);
+}
+
+.atuacao__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.atuacao-card {
+  min-height: 285px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-top: 4px solid var(--vermelho);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-suave);
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao),
+    border-color var(--transicao);
+}
+
+.atuacao-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(229, 36, 32, 0.35);
+  box-shadow: var(--sombra-card);
+}
+
+.atuacao-card__icone {
   width: 58px;
   height: 58px;
   margin-bottom: 22px;
@@ -203,66 +248,165 @@
   justify-content: center;
   border-radius: 50%;
   background: var(--azul-suave);
-  font-size: 27px;
+  color: var(--azul);
+  font-size: 24px;
 }
 
-.principio-card h3 {
+.atuacao-card h3 {
   margin-bottom: 12px;
   color: var(--azul);
-  font-size: 21px;
+  font-size: 1.2rem;
 }
 
-.principio-card p {
-  color: var(--cinza);
+.atuacao-card p {
+  color: var(--cinza-escuro);
   font-size: 15px;
   line-height: 1.7;
 }
 
-/* PARADESPORTO */
-
-.paradesporto {
-  background: var(--cinza-claro);
+.atuacao-card h3:not(.eyebrow) {
+  color: #000;
+}
+.atuacao-card p:not(.eyebrow) {
+  color: #000;
 }
 
-.paradesporto__grid {
+/* =========================================================
+   5. DESENVOLVIMENTO
+========================================================= */
+
+.desenvolvimento {
+  background: var(--azul-suave);
+}
+
+.desenvolvimento__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 70px;
   align-items: center;
 }
 
-.paradesporto__imagem {
-  order: 1;
+.desenvolvimento__imagem img {
+  height: 430px;
 }
 
-.paradesporto__texto {
-  order: 2;
+.desenvolvimento__texto {
+  max-width: 620px;
 }
 
-/* PESSOAS */
+.desenvolvimento__texto h2 {
+  margin-bottom: 25px;
+  color: var(--azul);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
 
-.diretoria {
+.desenvolvimento__texto p:not(.eyebrow) {
+  margin-bottom: 18px;
+  color: var(--cinza);
+  font-size: 17px;
+  line-height: 1.8;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+/* =========================================================
+   6. ESCOLAS E NOVOS TALENTOS
+========================================================= */
+
+.escolas {
   background: var(--branco);
 }
 
-.equipe {
+.escolas__conteudo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 55px;
+  align-items: stretch;
+}
+
+.escolas__lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.escola-item {
+  min-height: 105px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--cinza-claro);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+.escola-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-suave);
+}
+
+.escola-item strong {
+  margin-bottom: 5px;
+  color: var(--azul);
+  font-family: var(--fonte-titulo);
+  font-size: 17px;
+}
+
+.escola-item span {
+  color: var(--cinza);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.escola-item span:not(.eyebrow) {
+  color: #000;
+}
+
+.escolas__texto {
+  padding: 34px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--azul);
+  border-radius: var(--raio);
+  color: var(--branco);
+  box-shadow: var(--sombra-card);
+}
+
+.escolas__texto h3 {
+  margin-bottom: 18px;
+  color: var(--branco);
+  font-size: 1.55rem;
+}
+
+.escolas__texto p {
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.75;
+}
+
+/* =========================================================
+   7. INCLUSÃO E COMUNIDADE
+========================================================= */
+
+.inclusao {
   background: var(--cinza-claro);
 }
 
-.pessoas__grid {
+.inclusao__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
-.pessoa-card {
-  min-height: 225px;
-  padding: 26px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.inclusao-card {
+  min-height: 250px;
+  padding: 28px 24px;
   background: var(--branco);
   border: 1px solid var(--borda);
   border-radius: var(--raio);
@@ -272,195 +416,514 @@
     box-shadow var(--transicao);
 }
 
-.pessoa-card:hover {
-  transform: translateY(-4px);
+.inclusao-card:hover {
+  transform: translateY(-5px);
   box-shadow: var(--sombra-card);
 }
 
-.pessoa-card__avatar {
-  width: 68px;
-  height: 68px;
+.inclusao-card h3 {
+  margin-bottom: 15px;
+  color: var(--azul);
+  font-size: 1.2rem;
+}
+
+.inclusao-card p {
+  color: var(--cinza-escuro);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.inclusao-card p:not(.eyebrow) {
+  color: #000;
+}
+.inclusao-card h3:not(.eyebrow) {
+  color: #000;
+}
+
+/* =========================================================
+   8. OPORTUNIDADES
+========================================================= */
+
+.oportunidades {
+  background: var(--branco);
+}
+
+.oportunidades__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.oportunidades__texto {
+  max-width: 700px;
+}
+
+.oportunidades__texto h2 {
+  margin-bottom: 25px;
+  color: var(--azul);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.oportunidades__texto p:not(.eyebrow) {
   margin-bottom: 18px;
+  color: var(--cinza);
+  font-size: 17px;
+  line-height: 1.8;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.oportunidades__destaque {
+  padding: 38px 32px;
+  background: var(--azul);
+  border-radius: var(--raio);
+  color: var(--branco);
+  box-shadow: var(--sombra-card);
+}
+
+.oportunidade-destaque__icone {
+  width: 62px;
+  height: 62px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--branco);
+  font-size: 25px;
+}
+
+.oportunidades__destaque h3 {
+  margin-bottom: 14px;
+  color: var(--branco);
+  font-size: 1.4rem;
+}
+
+.oportunidades__destaque p {
+  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.7;
+}
+
+.oportunidades__destaque .botao {
+  width: 100%;
+}
+
+/* =========================================================
+   9. TRAJETÓRIA ESPORTIVA / CONQUISTAS
+========================================================= */
+
+.conquistas-historicas {
+  position: relative;
+  overflow: hidden;
+  background: var(--azul);
+  color: var(--branco);
+}
+
+.conquistas-historicas::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -170px;
+  top: -170px;
+  border-radius: 50%;
+  background: rgba(229, 36, 32, 0.11);
+  pointer-events: none;
+}
+
+.conquistas-historicas .container {
+  position: relative;
+  z-index: 1;
+}
+
+.conquistas-historicas .secao-cabecalho h2 {
+  color: var(--branco);
+}
+
+.conquistas-historicas .secao-introducao {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.conquistas-historicas__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.conquista-historica {
+  min-height: 210px;
+  padding: 27px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--raio);
+  transition:
+    transform var(--transicao),
+    background-color var(--transicao);
+}
+
+.conquista-historica:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.conquista-historica strong {
+  margin-bottom: 16px;
+  color: var(--branco);
+  font-family: var(--fonte-titulo);
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.conquista-historica p {
+  margin-bottom: 9px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.conquista-historica--destaque {
+  border: 2px solid var(--vermelho);
+  background: rgba(229, 36, 32, 0.14);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+.conquista-historica--destaque strong {
+  color: #ffffff;
+}
+
+/* =========================================================
+   10. ATLETA EM DESTAQUE
+========================================================= */
+
+.atleta-historico {
+  background: var(--branco);
+}
+
+.atleta-historico__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 70px;
+  align-items: center;
+}
+
+.atleta-historico__imagem img {
+  height: 500px;
+  object-position: center top;
+}
+
+.atleta-historico__texto {
+  max-width: 680px;
+}
+
+.atleta-historico__texto h2 {
+  margin-bottom: 25px;
+  color: var(--azul);
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.atleta-historico__texto p:not(.eyebrow) {
+  margin-bottom: 17px;
+  color: var(--cinza);
+  font-size: 17px;
+  line-height: 1.8;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+/* =========================================================
+   11. RECONHECIMENTO
+========================================================= */
+
+.reconhecimento {
+  background: var(--cinza-claro);
+}
+
+.reconhecimento__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.reconhecimento-card {
+  min-height: 280px;
+  padding: 34px 30px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-top: 4px solid var(--vermelho);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-suave);
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+.reconhecimento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-card);
+}
+
+.reconhecimento-card__icone {
+  width: 62px;
+  height: 62px;
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background: var(--azul-suave);
-  font-size: 30px;
-}
-
-.pessoa-card__cargo {
-  margin-bottom: 7px;
-  color: var(--vermelho);
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
-}
-
-.pessoa-card h3 {
   color: var(--azul);
-  font-size: 17px;
+  font-size: 25px;
 }
 
-/* NÚMEROS */
-
-.numeros {
-  background: var(--azul);
-  color: var(--branco);
+.reconhecimento-card h3 {
+  margin-bottom: 13px;
+  color: var(--azul);
+  font-size: 1.35rem;
 }
 
-.numeros .secao-cabecalho h2 {
-  color: var(--branco);
+.reconhecimento-card p {
+  color: var(--cinza-escuro);
+  line-height: 1.75;
 }
 
-.numeros .secao-introducao {
-  color: rgba(255, 255, 255, 0.75);
+.reconhecimento-card p:not(.eyebrow) {
+  color: #000;
+}
+.reconhecimento-card h3:not(.eyebrow) {
+  color: #000;
 }
 
-.numeros__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.numero {
-  padding: 30px 20px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--raio);
-}
-
-.numero strong {
-  display: block;
-  margin-bottom: 7px;
-  color: var(--branco);
-  font-family: var(--fonte-titulo);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-}
-
-.numero span {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 14px;
-  font-weight: 700;
-}
-
-/* CHAMADA */
+/* =====================================================
+   12. CHAMADA FINAL / CTA
+===================================================== */
 
 .chamada {
-  background: var(--branco);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+  color: var(--branco);
   text-align: center;
+}
+
+.chamada::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  top: -180px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.chamada::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  bottom: -140px;
+  left: -80px;
+  pointer-events: none;
 }
 
 .chamada__conteudo {
-  max-width: 720px;
-  margin-inline: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.chamada .eyebrow {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .chamada h2 {
-  margin-bottom: 15px;
+  color: var(--branco);
+}
+
+.chamada p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.chamada .botao {
+  background: var(--branco);
+  border-color: var(--branco);
   color: var(--azul);
-  font-size: clamp(2rem, 4vw, 3rem);
 }
 
-.chamada p:not(.eyebrow) {
-  margin-bottom: 28px;
-  color: var(--cinza);
-  font-size: 17px;
-  line-height: 1.7;
+.chamada .botao:hover {
+  background: var(--azul-suave);
+  border-color: var(--azul-suave);
+  color: var(--azul);
 }
+/* =========================================================
+   13. RESPONSIVIDADE
+========================================================= */
 
-/* TABLET */
-
-@media (max-width: 1050px) {
-  .pessoas__grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 1100px) {
+  .atuacao__grid,
+  .inclusao__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .numeros__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* CELULAR */
-
-@media (max-width: 800px) {
-  .pagina-hero {
-    padding: 70px 0;
+  .conquistas-historicas__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .entidade__grid,
-  .paradesporto__grid {
-    grid-template-columns: 1fr;
+  .desenvolvimento__grid,
+  .atleta-historico__grid {
+    gap: 45px;
+  }
+
+  .escolas__conteudo,
+  .oportunidades__grid {
     gap: 35px;
-  }
-
-  .paradesporto__imagem,
-  .paradesporto__texto {
-    order: initial;
-  }
-
-  .imagem-destaque img {
-    height: 280px;
-  }
-
-  .principios__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .linha-do-tempo::before {
-    left: 24px;
-  }
-
-  .historia-item {
-    grid-template-columns: 50px 1fr;
-    gap: 15px;
-  }
-
-  .historia-item__marcador {
-    width: 50px;
-    height: 50px;
-    border-width: 3px;
-  }
-
-  .historia-item__conteudo {
-    padding: 20px;
-  }
-
-  .pessoas__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .numeros__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .chamada .botao {
-    width: 100%;
   }
 }
 
-@media (max-width: 480px) {
-  .pagina-hero h1 {
-    font-size: 2.45rem;
+@media (max-width: 850px) {
+  .pagina-hero {
+    min-height: 340px;
   }
 
-  .numeros__grid {
+  .pagina-hero__conteudo {
+    padding: 65px 0;
+  }
+
+  .entidade__grid,
+  .desenvolvimento__grid,
+  .escolas__conteudo,
+  .oportunidades__grid,
+  .atleta-historico__grid {
     grid-template-columns: 1fr;
   }
 
-  .historia-item {
+  .entidade__texto,
+  .desenvolvimento__texto,
+  .oportunidades__texto,
+  .atleta-historico__texto {
+    max-width: none;
+  }
+
+  .entidade .imagem-destaque img,
+  .desenvolvimento__imagem img,
+  .atleta-historico__imagem img {
+    height: 380px;
+  }
+
+  .escolas__texto {
+    min-height: auto;
+  }
+
+  .oportunidades__destaque {
+    max-width: 650px;
+  }
+
+  .reconhecimento__grid {
     grid-template-columns: 1fr;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 650px) {
+  .pagina-hero__conteudo {
+    padding: 55px 0;
+  }
+
+  .pagina-hero__conteudo h1 {
+    font-size: clamp(2.4rem, 11vw, 3.3rem);
+  }
+
+  .pagina-hero__conteudo > p:last-child {
+    font-size: 16px;
+  }
+
+  .atuacao__grid,
+  .inclusao__grid,
+  .conquistas-historicas__grid,
+  .escolas__lista {
+    grid-template-columns: 1fr;
+  }
+
+  .atuacao-card,
+  .inclusao-card {
+    min-height: auto;
   }
 
   .linha-do-tempo::before {
-    display: none;
+    left: 23px;
+  }
+
+  .historia-item {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 16px;
   }
 
   .historia-item__marcador {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
+    border-width: 4px;
+    font-size: 13px;
+  }
+
+  .historia-item__conteudo {
+    padding: 22px 20px;
+  }
+
+  .historia-item__conteudo h3 {
+    font-size: 1.15rem;
+  }
+
+  .entidade .imagem-destaque img,
+  .desenvolvimento__imagem img,
+  .atleta-historico__imagem img {
+    height: 300px;
+  }
+
+  .escolas__texto,
+  .oportunidades__destaque,
+  .reconhecimento-card {
+    padding: 28px 22px;
+  }
+
+  .conquista-historica {
+    min-height: auto;
+  }
+
+  .atleta-historico__texto p:not(.eyebrow),
+  .desenvolvimento__texto p:not(.eyebrow),
+  .entidade__texto p:not(.eyebrow),
+  .oportunidades__texto p:not(.eyebrow) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .historia-item__conteudo,
+  .atuacao-card,
+  .escola-item,
+  .inclusao-card,
+  .conquista-historica,
+  .reconhecimento-card {
+    transition: none;
+  }
+
+  .historia-item__conteudo:hover,
+  .atuacao-card:hover,
+  .escola-item:hover,
+  .inclusao-card:hover,
+  .conquista-historica:hover,
+  .reconhecimento-card:hover {
+    transform: none;
   }
 }

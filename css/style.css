@@ -4229,3 +4229,400 @@ body {
 .desenvolvido-por a:hover {
   color: #f4c430;
 }
+
+/* =====================================================
+   CONQUISTAS 2025
+===================================================== */
+
+.conquistas {
+  position: relative;
+  overflow: hidden;
+  background: var(--azul);
+  color: var(--branco);
+}
+
+/* Detalhe visual da seção */
+.conquistas::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(229, 36, 32, 0.1);
+  top: -150px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.conquistas::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  bottom: -100px;
+  left: -60px;
+  pointer-events: none;
+}
+
+.conquistas .container {
+  position: relative;
+  z-index: 1;
+}
+
+.conquistas__cabecalho {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.conquistas__cabecalho .eyebrow {
+  color: var(--vermelho);
+}
+
+.conquistas__cabecalho h2 {
+  color: var(--branco);
+}
+
+.conquistas__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.conquista-card {
+  min-height: 230px;
+  padding: 36px 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 4px solid var(--vermelho);
+
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.conquista-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: var(--sombra-hover);
+}
+
+.conquista-card__icone {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--branco);
+
+  font-size: 26px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.conquista-card strong {
+  display: block;
+
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1;
+
+  color: var(--branco);
+}
+
+.conquista-card > span {
+  display: block;
+
+  margin-top: 14px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* =====================================================
+   CONQUISTAS 2025 — MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+  .conquistas__grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  .conquista-card {
+    min-height: 210px;
+    padding: 32px 24px;
+  }
+}
+
+/* =====================================================
+   IMPACTO SOCIAL
+===================================================== */
+
+.impacto-social {
+  background: var(--cinza-claro);
+}
+
+.impacto-social__cabecalho {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 48px;
+}
+
+.impacto-social__cabecalho .eyebrow {
+  color: var(--vermelho);
+}
+
+.impacto-social__cabecalho h2 {
+  margin-bottom: 12px;
+}
+
+.impacto-social__cabecalho .secao-introducao {
+  margin: 0 auto;
+  color: var(--cinza);
+}
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.impacto-social__conteudo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 56px;
+  align-items: center;
+}
+
+/* =====================================================
+   IMAGEM
+===================================================== */
+
+.impacto-social__imagem {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.impacto-social__imagem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 27, 73, 0.08),
+    rgba(229, 36, 32, 0.08)
+  );
+  pointer-events: none;
+}
+
+.impacto-social__imagem img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.impacto-social__texto {
+  max-width: 560px;
+}
+
+.impacto-social__texto h3 {
+  margin-bottom: 20px;
+  color: var(--azul);
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.impacto-social__texto p {
+  margin-bottom: 18px;
+  color: var(--texto);
+  line-height: 1.8;
+}
+
+.impacto-social__texto .botao {
+  margin-top: 12px;
+}
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 800px) {
+  .impacto-social__cabecalho {
+    margin-bottom: 32px;
+  }
+
+  .impacto-social__conteudo {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .impacto-social__imagem img {
+    height: 320px;
+  }
+
+  .impacto-social__texto {
+    max-width: none;
+  }
+
+  .impacto-social__texto h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* =====================================================
+   DESTAQUE DO ATLETA
+===================================================== */
+
+.destaque-atleta {
+  background: var(--branco);
+}
+
+.destaque-atleta__cabecalho {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 48px;
+}
+
+.destaque-atleta__cabecalho .eyebrow {
+  color: var(--vermelho);
+}
+
+.destaque-atleta__cabecalho .secao-introducao {
+  margin: 0 auto;
+  color: var(--cinza);
+}
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.destaque-atleta__conteudo {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 56px;
+  align-items: center;
+}
+
+/* =====================================================
+   IMAGEM
+===================================================== */
+
+.destaque-atleta__imagem {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.destaque-atleta__imagem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 27, 73, 0.05),
+    rgba(229, 36, 32, 0.08)
+  );
+  pointer-events: none;
+}
+
+.destaque-atleta__imagem img {
+  display: block;
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+}
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.destaque-atleta__texto {
+  max-width: 560px;
+}
+
+.destaque-atleta__rotulo {
+  margin-bottom: 10px;
+  color: var(--vermelho);
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.destaque-atleta__texto h3 {
+  margin-bottom: 20px;
+  color: var(--azul);
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1.2;
+}
+
+.destaque-atleta__texto p:not(.destaque-atleta__rotulo) {
+  margin-bottom: 18px;
+  color: var(--texto);
+  line-height: 1.8;
+}
+
+.destaque-atleta__texto .botao {
+  margin-top: 12px;
+}
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 800px) {
+  .destaque-atleta__cabecalho {
+    margin-bottom: 32px;
+  }
+
+  .destaque-atleta__conteudo {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .destaque-atleta__imagem img {
+    height: 340px;
+  }
+
+  .destaque-atleta__texto {
+    max-width: none;
+  }
+
+  .destaque-atleta__texto h3 {
+    font-size: 1.7rem;
+  }
+}

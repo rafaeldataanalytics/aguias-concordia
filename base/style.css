@@ -637,60 +637,91 @@ p {
 
 .hero {
   position: relative;
-
   min-height: 540px;
-
   overflow: hidden;
-
   background: var(--azul);
 }
 
+/* Área das imagens */
 .hero-imagem {
   position: absolute;
-
   inset: 0;
-
   z-index: 0;
+  overflow: hidden;
+
+  background-color: var(--azul);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.hero-imagem img {
+/* Cada slide ocupa TODA a área */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
   height: 100%;
 
   object-fit: cover;
-
   object-position: center;
+
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(0);
+
+  transition:
+    opacity 0.8s ease-in-out,
+    filter 0.8s ease-in-out;
 }
 
+.hero-imagem::before {
+  content: "";
+  position: absolute;
+  inset: -25px;
+
+  background-image: inherit;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  filter: blur(18px);
+  transform: scale(1.08);
+
+  z-index: 0;
+}
+
+.hero-slide.ativo {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  filter: none;
+}
+
+/* Overlay */
 .hero-overlay {
   position: absolute;
-
   inset: 0;
-
-  z-index: 1;
+  z-index: 2;
 
   background: linear-gradient(
     90deg,
-    rgba(7, 27, 73, 0.9) 0%,
-    rgba(7, 27, 73, 0.72) 38%,
-    rgba(7, 27, 73, 0.25) 72%,
-    rgba(7, 27, 73, 0.05) 100%
+    rgba(7, 27, 73, 0.68) 0%,
+    rgba(7, 27, 73, 0.48) 38%,
+    rgba(7, 27, 73, 0.18) 72%,
+    rgba(7, 27, 73, 0.02) 100%
   );
 }
-
+/* Conteúdo */
 .hero-conteudo {
   position: relative;
-
-  z-index: 2;
+  z-index: 3;
 
   min-height: 540px;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-start;
-
   justify-content: center;
 }
 
@@ -700,45 +731,37 @@ p {
   color: var(--branco);
 
   font-family: var(--fonte-titulo);
-
   font-size: 15px;
-
   font-weight: 700;
 
   text-transform: uppercase;
-
   letter-spacing: 1px;
 }
 
 .hero h1 {
   max-width: 720px;
-
   margin-bottom: 18px;
 
   color: var(--branco);
 
   font-size: clamp(2.8rem, 5vw, 4.7rem);
-
   font-weight: 800;
-
   line-height: 1.04;
 }
 
 .hero-texto {
   max-width: 580px;
-
   margin-bottom: 30px;
 
   color: rgba(255, 255, 255, 0.92);
 
   font-size: 19px;
-
   line-height: 1.6;
 }
 
 /* =========================================================
    16. QUEM SOMOS
-========================================================= */
+========================================================= 
 
 .quem-somos {
   background: var(--branco);
@@ -791,6 +814,271 @@ p {
 
 .imagem-destaque:hover img {
   transform: scale(1.03);
+}
+  */
+
+/* =========================================================
+   ALTO CONTRASTE — NOVO QUEM SOMOS
+========================================================= */
+
+body.alto-contraste-ativo .pagina-hero {
+  background: #000;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+body.alto-contraste-ativo .pagina-hero h1,
+body.alto-contraste-ativo .pagina-hero p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .entidade,
+body.alto-contraste-ativo .historia,
+body.alto-contraste-ativo .atuacao,
+body.alto-contraste-ativo .desenvolvimento,
+body.alto-contraste-ativo .escolas,
+body.alto-contraste-ativo .inclusao,
+body.alto-contraste-ativo .oportunidades,
+body.alto-contraste-ativo .conquistas-historicas,
+body.alto-contraste-ativo .atleta-historico,
+body.alto-contraste-ativo .reconhecimento,
+body.alto-contraste-ativo .chamada {
+  background: #000;
+  color: #fff;
+}
+
+/* Títulos e textos */
+
+body.alto-contraste-ativo .entidade h2,
+body.alto-contraste-ativo .entidade h3,
+body.alto-contraste-ativo .historia h2,
+body.alto-contraste-ativo .historia h3,
+body.alto-contraste-ativo .atuacao h2,
+body.alto-contraste-ativo .atuacao h3,
+body.alto-contraste-ativo .desenvolvimento h2,
+body.alto-contraste-ativo .desenvolvimento h3,
+body.alto-contraste-ativo .escolas h2,
+body.alto-contraste-ativo .escolas h3,
+body.alto-contraste-ativo .inclusao h2,
+body.alto-contraste-ativo .inclusao h3,
+body.alto-contraste-ativo .oportunidades h2,
+body.alto-contraste-ativo .oportunidades h3,
+body.alto-contraste-ativo .conquistas-historicas h2,
+body.alto-contraste-ativo .conquistas-historicas h3,
+body.alto-contraste-ativo .atleta-historico h2,
+body.alto-contraste-ativo .atleta-historico h3,
+body.alto-contraste-ativo .reconhecimento h2,
+body.alto-contraste-ativo .reconhecimento h3,
+body.alto-contraste-ativo .chamada h2 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .entidade p,
+body.alto-contraste-ativo .historia p,
+body.alto-contraste-ativo .atuacao p,
+body.alto-contraste-ativo .desenvolvimento p,
+body.alto-contraste-ativo .escolas p,
+body.alto-contraste-ativo .inclusao p,
+body.alto-contraste-ativo .oportunidades p,
+body.alto-contraste-ativo .conquistas-historicas p,
+body.alto-contraste-ativo .atleta-historico p,
+body.alto-contraste-ativo .reconhecimento p,
+body.alto-contraste-ativo .chamada p {
+  color: #fff;
+}
+
+/* Eyebrows */
+
+body.alto-contraste-ativo .entidade .eyebrow,
+body.alto-contraste-ativo .historia .eyebrow,
+body.alto-contraste-ativo .atuacao .eyebrow,
+body.alto-contraste-ativo .desenvolvimento .eyebrow,
+body.alto-contraste-ativo .escolas .eyebrow,
+body.alto-contraste-ativo .inclusao .eyebrow,
+body.alto-contraste-ativo .oportunidades .eyebrow,
+body.alto-contraste-ativo .conquistas-historicas .eyebrow,
+body.alto-contraste-ativo .atleta-historico .eyebrow,
+body.alto-contraste-ativo .reconhecimento .eyebrow,
+body.alto-contraste-ativo .chamada .eyebrow {
+  color: #ffff00;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+body.alto-contraste-ativo .atuacao-card,
+body.alto-contraste-ativo .inclusao-card,
+body.alto-contraste-ativo .reconhecimento-card,
+body.alto-contraste-ativo .conquista-historica,
+body.alto-contraste-ativo .oportunidades__destaque {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+/* ATUAÇÃO — mantém os cards claros */
+
+body.alto-contraste-ativo .atuacao-card {
+  background: #fff;
+  color: #000;
+}
+
+body.alto-contraste-ativo .atuacao-card h3,
+body.alto-contraste-ativo .atuacao-card p {
+  color: #000;
+}
+
+/*-----*/
+
+body.alto-contraste-ativo .atuacao-card h3,
+body.alto-contraste-ativo .inclusao-card h3,
+body.alto-contraste-ativo .reconhecimento-card h3,
+body.alto-contraste-ativo .conquista-historica h3,
+body.alto-contraste-ativo .oportunidades__destaque h3 {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .atuacao-card p,
+body.alto-contraste-ativo .inclusao-card p,
+body.alto-contraste-ativo .reconhecimento-card p,
+body.alto-contraste-ativo .conquista-historica p,
+body.alto-contraste-ativo .oportunidades__destaque p {
+  color: #fff;
+}
+
+/* Ícones */
+
+body.alto-contraste-ativo .atuacao-card__icone,
+body.alto-contraste-ativo .oportunidade-destaque__icone,
+body.alto-contraste-ativo .reconhecimento-card__icone {
+  background: #000;
+  color: #ffff00;
+  border: 2px solid #fff;
+}
+
+/* =========================================================
+   HISTÓRIA / LINHA DO TEMPO
+========================================================= */
+
+body.alto-contraste-ativo .historia-item {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .historia-item__marcador {
+  background: #000;
+  color: #ffff00;
+  border: 2px solid #fff;
+}
+
+body.alto-contraste-ativo .historia-item__conteudo {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .historia-item__ano {
+  color: #ffff00;
+}
+
+body.alto-contraste-ativo .historia-item__conteudo h3,
+body.alto-contraste-ativo .historia-item__conteudo p {
+  color: #fff;
+}
+
+/* =========================================================
+   ESCOLAS
+========================================================= */
+
+body.alto-contraste-ativo .escola-item {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+body.alto-contraste-ativo .escola-item strong {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .escola-item span {
+  color: #fff;
+}
+
+/* =========================================================
+   IMAGENS
+========================================================= */
+
+body.alto-contraste-ativo .imagem-destaque img,
+body.alto-contraste-ativo .desenvolvimento__imagem img,
+body.alto-contraste-ativo .atleta-historico__imagem img {
+  border: 2px solid #fff;
+}
+
+/* =========================================================
+   CTA FINAL
+========================================================= */
+
+body.alto-contraste-ativo .chamada {
+  background: #000;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+body.alto-contraste-ativo .chamada h2,
+body.alto-contraste-ativo .chamada p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .chamada .eyebrow {
+  color: #ffff00;
+}
+
+body.alto-contraste-ativo .chamada .botao {
+  background: #000;
+  color: #ffff00;
+  border: 2px solid #ffff00;
+}
+
+body.alto-contraste-ativo .chamada .botao:hover,
+body.alto-contraste-ativo .chamada .botao:focus-visible {
+  background: #ffff00;
+  color: #000;
+  border-color: #ffff00;
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+body.alto-contraste-ativo .entidade a,
+body.alto-contraste-ativo .atuacao a,
+body.alto-contraste-ativo .desenvolvimento a,
+body.alto-contraste-ativo .escolas a,
+body.alto-contraste-ativo .inclusao a,
+body.alto-contraste-ativo .oportunidades a,
+body.alto-contraste-ativo .conquistas-historicas a,
+body.alto-contraste-ativo .atleta-historico a,
+body.alto-contraste-ativo .reconhecimento a,
+body.alto-contraste-ativo .chamada a {
+  color: #ffff00;
+}
+
+/* Foco */
+
+body.alto-contraste-ativo .entidade a:focus-visible,
+body.alto-contraste-ativo .atuacao a:focus-visible,
+body.alto-contraste-ativo .desenvolvimento a:focus-visible,
+body.alto-contraste-ativo .escolas a:focus-visible,
+body.alto-contraste-ativo .inclusao a:focus-visible,
+body.alto-contraste-ativo .oportunidades a:focus-visible,
+body.alto-contraste-ativo .conquistas-historicas a:focus-visible,
+body.alto-contraste-ativo .atleta-historico a:focus-visible,
+body.alto-contraste-ativo .reconhecimento a:focus-visible,
+body.alto-contraste-ativo .chamada a:focus-visible {
+  outline: 3px solid #00ffff;
+  outline-offset: 3px;
 }
 
 /* =========================================================
@@ -2042,5 +2330,46 @@ button.metrica {
     height: 90px;
 
     flex-basis: 155px;
+  }
+}
+
+/* =========================================================
+   HERO — MOBILE
+========================================================= */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 0;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background: var(--azul);
+  }
+
+  .hero-imagem {
+    position: relative;
+    inset: auto;
+
+    width: 100%;
+    height: 240px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+  }
+
+  .hero-conteudo {
+    position: relative;
+
+    min-height: 0;
+    margin: 0;
+
+    padding: 30px 20px 35px;
+
+    background: var(--azul);
+  }
+
+  .hero-overlay {
+    display: none;
   }
 }

@@ -7,13 +7,15 @@
 
   <link rel="icon" type="image/jpeg" href="assets/logo_aguias_concordia.png">
 
-  <meta name="description" content="Conheça os Águias de Concórdia, sua história, missão, valores e atuação no paradesporto.">
+  <meta name="description" content="Conheça a história, a atuação, os projetos, as conquistas e o impacto social dos Águias de Concórdia.">
 
   <title>Quem Somos | Águias de Concórdia</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <link rel="stylesheet" href="css/style.css">
@@ -22,35 +24,56 @@
 
 <body>
 
-  <!-- ACESSIBILIDADE -->
+  <!-- =====================================================
+       ACESSIBILIDADE
+  ====================================================== -->
+
   <a href="#conteudo" class="skip-link">
     Ir para o conteúdo principal
   </a>
 
   <div class="barra-acessibilidade" role="region" aria-label="Ferramentas de acessibilidade">
+
     <div class="container barra-acessibilidade__conteudo">
 
-      <span class="acessibilidade-titulo">Acessibilidade</span>
+      <span class="acessibilidade-titulo">
+        Acessibilidade
+      </span>
 
-      <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">A-</button>
+      <button type="button" id="diminuir-fonte" aria-label="Diminuir tamanho da fonte">
+        A-
+      </button>
 
-      <button type="button" id="aumentar-fonte" aria-label="Aumentar tamanho da fonte">A+</button>
+      <button type="button" id="aumentar-fonte" aria-label="Aumentar tamanho da fonte">
+        A+
+      </button>
 
-      <button type="button" id="alto-contraste" aria-label="Ativar alto contraste">Contraste</button>
+      <button type="button" id="alto-contraste" aria-label="Ativar alto contraste">
+        Contraste
+      </button>
 
-      <button type="button" id="destacar-links" aria-label="Destacar links da página">Destacar links</button>
+      <button type="button" id="destacar-links" aria-label="Destacar links da página">
+        Destacar links
+      </button>
 
-      <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">Mais opções</button>
+      <button type="button" id="abrir-acessibilidade" aria-expanded="false" aria-controls="painel-acessibilidade">
+        Mais opções
+      </button>
 
     </div>
+
   </div>
 
+
   <div id="painel-acessibilidade" class="painel-acessibilidade" hidden>
+
     <div class="container painel-acessibilidade__conteudo">
 
       <div class="acessibilidade-opcoes">
 
-        <h2>Opções de acessibilidade</h2>
+        <h2>
+          Opções de acessibilidade
+        </h2>
 
         <div class="acessibilidade-botoes">
 
@@ -70,24 +93,27 @@
             Restaurar padrão
           </button>
 
-
         </div>
 
       </div>
 
-
-
     </div>
+
   </div>
 
 
-  <!-- HEADER -->
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
   <header class="cabecalho">
+
     <div class="container cabecalho__conteudo">
 
       <a href="index.html" class="logo-link" aria-label="Águias de Concórdia - Página inicial">
         <img src="assets/logo_aguias_concordia.png" alt="Águias de Concórdia" class="logo">
       </a>
+
 
       <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
         <span></span>
@@ -95,54 +121,79 @@
         <span></span>
       </button>
 
+
       <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
+
         <ul>
 
           <li>
-            <a href="index.html">Início</a>
+            <a href="index.html">
+              Início
+            </a>
           </li>
 
           <li>
-            <a href="quem-somos.html" aria-current="page">Quem Somos</a>
+            <a href="quem-somos.html" aria-current="page">
+              Quem Somos
+            </a>
           </li>
 
           <li>
-            <a href="projetos.html">Projetos</a>
+            <a href="projetos.html">
+              Projetos
+            </a>
           </li>
 
           <li>
-            <a href="noticias.html">Notícias</a>
+            <a href="noticias.html">
+              Notícias
+            </a>
           </li>
 
           <li>
-            <a href="transparencia.html">Transparência</a>
+            <a href="transparencia.html">
+              Transparência
+            </a>
           </li>
 
           <li>
-            <a href="parceiros.html">Parceiros</a>
+            <a href="parceiros.html">
+              Parceiros
+            </a>
           </li>
 
           <li>
-            <a href="contato.html">Contato</a>
+            <a href="contato.html">
+              Contato
+            </a>
           </li>
 
         </ul>
+
       </nav>
 
     </div>
+
   </header>
 
 
-  <!-- CONTEÚDO -->
+  <!-- =====================================================
+       CONTEÚDO
+  ====================================================== -->
+
   <main id="conteudo">
 
-    <!-- CABEÇALHO DA PÁGINA -->
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
     <section class="pagina-hero" aria-labelledby="titulo-pagina">
 
       <div class="container pagina-hero__conteudo">
 
         <p class="eyebrow eyebrow--claro">
-          A entidade
+          Nossa história e atuação
         </p>
 
         <h1 id="titulo-pagina">
@@ -150,8 +201,9 @@
         </h1>
 
         <p>
-          Conheça a história, os valores e a atuação dos
-          Águias de Concórdia no esporte e no paradesporto.
+          Uma trajetória construída através do esporte,
+          da inclusão, do desenvolvimento humano e da
+          participação social.
         </p>
 
       </div>
@@ -159,7 +211,10 @@
     </section>
 
 
-    <!-- A ENTIDADE -->
+    <!-- =================================================
+         1. A ENTIDADE
+    ================================================== -->
+
     <section class="secao entidade" aria-labelledby="titulo-entidade">
 
       <div class="container entidade__grid">
@@ -171,30 +226,38 @@
           </p>
 
           <h2 id="titulo-entidade">
-            A Entidade
+            Associação Águias de Concórdia
           </h2>
 
           <p>
-            Os Águias de Concórdia atuam no esporte e no
-            paradesporto, promovendo inclusão, participação
-            esportiva e desenvolvimento por meio do esporte.
+            A Associação de Pessoas com Deficiência Física
+            Águias de Concórdia/SC foi fundada em 2006 com
+            o propósito de promover a prática esportiva
+            adaptada e criar oportunidades de inclusão social
+            para pessoas com deficiência física.
           </p>
 
           <p>
-            Nesta página apresentamos a identidade da entidade,
-            sua história, seus valores e as pessoas que fazem
-            parte dessa trajetória.
+            O que começou como um esforço coletivo entre
+            amigos transformou-se em uma instituição sólida,
+            que vem ampliando suas atividades, sua estrutura
+            e seu impacto social na comunidade.
           </p>
 
-          <p class="texto-observacao">
-            Conteúdo institucional oficial será complementado
-            após o recebimento das informações da entidade.
+          <p>
+            Atualmente, a associação atende 20 pessoas com
+            deficiência física, integrando as modalidades de
+            Basquetebol em Cadeira de Rodas e Canoagem
+            Adaptada.
           </p>
 
         </div>
 
+
         <div class="imagem-destaque">
-          <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia em atividade esportiva">
+
+          <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia durante atividade esportiva">
+
         </div>
 
       </div>
@@ -202,7 +265,10 @@
     </section>
 
 
-    <!-- HISTÓRIA -->
+    <!-- =================================================
+         2. NOSSA HISTÓRIA
+    ================================================== -->
+
     <section class="secao historia" aria-labelledby="titulo-historia">
 
       <div class="container">
@@ -214,15 +280,17 @@
           </p>
 
           <h2 id="titulo-historia">
-            Nossa História
+            Uma história construída pelo esporte
           </h2>
 
           <p class="secao-introducao">
-            A trajetória dos Águias de Concórdia será apresentada
-            nesta área com os principais momentos da entidade.
+            Ao longo de quase duas décadas, os Águias
+            ampliaram suas atividades e sua presença
+            na comunidade.
           </p>
 
         </div>
+
 
         <div class="linha-do-tempo">
 
@@ -235,16 +303,18 @@
             <div class="historia-item__conteudo">
 
               <span class="historia-item__ano">
-                Fundação
+                2006
               </span>
 
               <h3>
-                Início da trajetória
+                Fundação
               </h3>
 
               <p>
-                Aqui será apresentada a origem da entidade,
-                sua criação e os primeiros passos de sua história.
+                Nasce a Associação Águias de Concórdia,
+                com o propósito de promover esporte adaptado
+                e inclusão social para pessoas com deficiência
+                física.
               </p>
 
             </div>
@@ -265,12 +335,13 @@
               </span>
 
               <h3>
-                Crescimento das atividades
+                Crescimento esportivo e social
               </h3>
 
               <p>
-                Espaço destinado aos principais acontecimentos
-                relacionados ao desenvolvimento esportivo.
+                A associação amplia suas atividades,
+                competições, parcerias e ações de inclusão,
+                consolidando sua atuação regional.
               </p>
 
             </div>
@@ -287,16 +358,17 @@
             <div class="historia-item__conteudo">
 
               <span class="historia-item__ano">
-                Competições
+                Escolas e comunidade
               </span>
 
               <h3>
-                Participação esportiva
+                O esporte chegando a novos espaços
               </h3>
 
               <p>
-                Aqui serão registrados os momentos marcantes
-                das participações em competições.
+                A equipe passa a desenvolver visitas,
+                demonstrações e atividades com escolas
+                de Concórdia e municípios da região.
               </p>
 
             </div>
@@ -313,16 +385,17 @@
             <div class="historia-item__conteudo">
 
               <span class="historia-item__ano">
-                Atualidade
+                Hoje
               </span>
 
               <h3>
-                Os Águias hoje
+                Esporte, inclusão e oportunidades
               </h3>
 
               <p>
-                Espaço para apresentar a atuação atual e os
-                objetivos da entidade.
+                A associação mantém sua atuação esportiva
+                e amplia ações voltadas à inclusão,
+                acessibilidade, formação e participação social.
               </p>
 
             </div>
@@ -336,281 +409,258 @@
     </section>
 
 
-    <!-- MISSÃO VISÃO VALORES -->
-    <section class="secao principios" aria-labelledby="titulo-principios">
+    <!-- =================================================
+         3. O QUE FAZEMOS
+    ================================================== -->
+
+    <section class="secao atuacao" aria-labelledby="titulo-atuacao">
 
       <div class="container">
 
         <div class="secao-cabecalho secao-cabecalho--centralizado">
 
           <p class="eyebrow">
-            O que nos orienta
-          </p>
-
-          <h2 id="titulo-principios">
-            Missão, Visão e Valores
-          </h2>
-
-        </div>
-
-        <div class="principios__grid">
-
-          <article class="principio-card">
-
-            <div class="principio-card__icone" aria-hidden="true">
-              🎯
-            </div>
-
-            <h3>Missão</h3>
-
-            <p>
-              Promover o esporte e o paradesporto como
-              instrumentos de inclusão, desenvolvimento
-              e transformação social.
-            </p>
-
-          </article>
-
-
-          <article class="principio-card">
-
-            <div class="principio-card__icone" aria-hidden="true">
-              👁
-            </div>
-
-            <h3>Visão</h3>
-
-            <p>
-              Construir oportunidades esportivas acessíveis,
-              inclusivas e capazes de ampliar a participação
-              das pessoas no esporte.
-            </p>
-
-          </article>
-
-
-          <article class="principio-card">
-
-            <div class="principio-card__icone" aria-hidden="true">
-              ⭐
-            </div>
-
-            <h3>Valores</h3>
-
-            <p>
-              Inclusão, acessibilidade, respeito, superação,
-              compromisso e valorização das pessoas.
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PARADESPORTO -->
-    <section class="secao paradesporto" aria-labelledby="titulo-paradesporto">
-
-      <div class="container paradesporto__grid">
-
-        <div class="paradesporto__imagem imagem-destaque">
-          <img src="assets/atletas.jpg" alt="Atletas dos Águias de Concórdia durante atividade esportiva">
-        </div>
-
-        <div class="paradesporto__texto">
-
-          <p class="eyebrow">
-            Esporte e inclusão
-          </p>
-
-          <h2 id="titulo-paradesporto">
-            O Paradesporto
-          </h2>
-
-          <p>
-            O paradesporto proporciona oportunidades de
-            participação, desenvolvimento esportivo e integração
-            para pessoas com deficiência.
-          </p>
-
-          <p>
-            Para os Águias de Concórdia, o esporte também representa
-            uma ferramenta de inclusão, convivência, desenvolvimento
-            e transformação.
-          </p>
-
-          <p class="texto-observacao">
-            As modalidades e informações específicas da entidade
-            serão detalhadas após o recebimento do conteúdo oficial.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DIRETORIA -->
-    <section class="secao diretoria" aria-labelledby="titulo-diretoria">
-
-      <div class="container">
-
-        <div class="secao-cabecalho secao-cabecalho--centralizado">
-
-          <p class="eyebrow">
-            Gestão
-          </p>
-
-          <h2 id="titulo-diretoria">
-            Diretoria
-          </h2>
-
-          <p class="secao-introducao">
-            Conheça as pessoas responsáveis pela gestão da entidade.
-          </p>
-
-        </div>
-
-        <div class="pessoas__grid">
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Presidente</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Vice-Presidente</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Diretor Administrativo</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Diretor Financeiro</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Diretor de Esportes</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- EQUIPE -->
-    <section class="secao equipe" aria-labelledby="titulo-equipe">
-
-      <div class="container">
-
-        <div class="secao-cabecalho secao-cabecalho--centralizado">
-
-          <p class="eyebrow">
-            Quem faz acontecer
-          </p>
-
-          <h2 id="titulo-equipe">
-            Equipe
-          </h2>
-
-          <p class="secao-introducao">
-            Profissionais e colaboradores que participam
-            das atividades da entidade.
-          </p>
-
-        </div>
-
-        <div class="pessoas__grid">
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Técnico</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Preparador Físico</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Comissão Técnica</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-          <article class="pessoa-card">
-            <div class="pessoa-card__avatar" aria-hidden="true">👤</div>
-            <span class="pessoa-card__cargo">Profissional de Apoio</span>
-            <h3>Nome do responsável</h3>
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- NÚMEROS -->
-    <section class="secao numeros" aria-labelledby="titulo-numeros">
-
-      <div class="container">
-
-        <div class="secao-cabecalho secao-cabecalho--centralizado">
-
-          <p class="eyebrow eyebrow--claro">
             Nossa atuação
           </p>
 
-          <h2 id="titulo-numeros">
-            Os Águias em números
+          <h2 id="titulo-atuacao">
+            O esporte como ferramenta de transformação
           </h2>
 
           <p class="secao-introducao">
-            Indicadores que poderão apresentar a trajetória
-            e o alcance da entidade.
+            O trabalho dos Águias vai além das quadras
+            e envolve esporte, inclusão, convivência,
+            desenvolvimento e participação social.
           </p>
 
         </div>
 
-        <div class="numeros__grid">
 
-          <div class="numero">
-            <strong>XX</strong>
-            <span>Atletas</span>
+        <div class="atuacao__grid">
+
+          <article class="atuacao-card">
+
+            <div class="atuacao-card__icone" aria-hidden="true">
+              <i class="fa-solid fa-basketball"></i>
+            </div>
+
+            <h3>
+              Esporte adaptado
+            </h3>
+
+            <p>
+              Desenvolvimento da prática esportiva adaptada,
+              proporcionando condições para participação,
+              segurança, qualidade e desenvolvimento dos atletas.
+            </p>
+
+          </article>
+
+
+          <article class="atuacao-card">
+
+            <div class="atuacao-card__icone" aria-hidden="true">
+              <i class="fa-solid fa-wheelchair"></i>
+            </div>
+
+            <h3>
+              Inclusão
+            </h3>
+
+            <p>
+              Participação das pessoas com deficiência no
+              processo de inclusão social, promovendo
+              convivência, bem-estar e troca de experiências.
+            </p>
+
+          </article>
+
+
+          <article class="atuacao-card">
+
+            <div class="atuacao-card__icone" aria-hidden="true">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
+
+            <h3>
+              Comunidade
+            </h3>
+
+            <p>
+              Participação em eventos, ações municipais,
+              atividades com parceiros e iniciativas que
+              aproximam o esporte da comunidade.
+            </p>
+
+          </article>
+
+
+          <article class="atuacao-card">
+
+            <div class="atuacao-card__icone" aria-hidden="true">
+              <i class="fa-solid fa-person-chalkboard"></i>
+            </div>
+
+            <h3>
+              Formação
+            </h3>
+
+            <p>
+              Compartilhamento de experiências e conhecimentos
+              sobre o paradesporto com escolas, estudantes
+              e futuros profissionais.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         4. ESPORTE E DESENVOLVIMENTO
+    ================================================== -->
+
+    <section class="secao desenvolvimento" aria-labelledby="titulo-desenvolvimento">
+
+      <div class="container desenvolvimento__grid">
+
+        <div class="desenvolvimento__imagem imagem-destaque">
+
+          <img src="assets/27.jpg" alt="Atividades dos Águias de Concórdia voltadas ao esporte e inclusão">
+
+        </div>
+
+
+        <div class="desenvolvimento__texto">
+
+          <p class="eyebrow">
+            Desenvolvimento
+          </p>
+
+          <h2 id="titulo-desenvolvimento">
+            Esporte, saúde, bem-estar e desenvolvimento
+          </h2>
+
+          <p>
+            Os programas desenvolvidos pela associação
+            oferecem aos atletas condições para praticarem
+            esporte com segurança, qualidade e acompanhamento
+            adequado.
+          </p>
+
+          <p>
+            O trabalho busca promover saúde, bem-estar,
+            desenvolvimento integral, participação esportiva
+            e desenvolvimento de habilidades e potencialidades.
+          </p>
+
+          <p>
+            A experiência esportiva também contribui para
+            fortalecer autoestima, confiança e participação
+            das pessoas com deficiência.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         5. ESCOLAS E NOVOS TALENTOS
+    ================================================== -->
+
+    <section class="secao escolas" aria-labelledby="titulo-escolas">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Esporte que chega até as pessoas
+          </p>
+
+          <h2 id="titulo-escolas">
+            Escolas e novos talentos
+          </h2>
+
+          <p class="secao-introducao">
+            O trabalho desenvolvido com escolas aproxima
+            o paradesporto dos estudantes e cria oportunidades
+            para conhecer, experimentar e desenvolver novas
+            habilidades.
+          </p>
+
+        </div>
+
+
+        <div class="escolas__conteudo">
+
+          <div class="escolas__lista">
+
+            <div class="escola-item">
+              <strong>Concórdia</strong>
+              <span>Atividades com escolas do município</span>
+            </div>
+
+            <div class="escola-item">
+              <strong>Arabutã</strong>
+              <span>Visitas, conversas e demonstrações</span>
+            </div>
+
+            <div class="escola-item">
+              <strong>Ipumirim</strong>
+              <span>Atividades em parceria com instituições</span>
+            </div>
+
+            <div class="escola-item">
+              <strong>Lindóia do Sul</strong>
+              <span>Parcerias com escolas do município</span>
+            </div>
+
+            <div class="escola-item">
+              <strong>Irani</strong>
+              <span>Parcerias desenvolvidas em 2025</span>
+            </div>
+
+            <div class="escola-item">
+              <strong>Peritiba</strong>
+              <span>Parcerias desenvolvidas em 2025</span>
+            </div>
+
           </div>
 
-          <div class="numero">
-            <strong>XX</strong>
-            <span>Competições</span>
-          </div>
 
-          <div class="numero">
-            <strong>XX</strong>
-            <span>Projetos</span>
-          </div>
+          <div class="escolas__texto">
 
-          <div class="numero">
-            <strong>XX</strong>
-            <span>Conquistas</span>
+            <h3>
+              Uma visita pode abrir uma oportunidade
+            </h3>
+
+            <p>
+              Um dos exemplos apresentados pela associação
+              é o do atleta Henrique Heydt.
+            </p>
+
+            <p>
+              Durante uma visita à Escola Básica Municipal
+              das Nações, um aluno demonstrou interesse pelo
+              trabalho desenvolvido. Posteriormente, tornou-se
+              atleta dos Águias e passou a participar de
+              treinamentos e competições.
+            </p>
+
+            <p>
+              Sua trajetória chegou ao Campeonato Brasileiro
+              Sub-23 e posteriormente ao cenário nacional
+              de alto rendimento.
+            </p>
+
           </div>
 
         </div>
@@ -620,13 +670,517 @@
     </section>
 
 
-    <!-- CHAMADA -->
+    <!-- =================================================
+         6. INCLUSÃO E COMUNIDADE
+    ================================================== -->
+
+    <section class="secao inclusao" aria-labelledby="titulo-inclusao">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Impacto social
+          </p>
+
+          <h2 id="titulo-inclusao">
+            Inclusão e comunidade
+          </h2>
+
+          <p class="secao-introducao">
+            O trabalho dos Águias participa de diferentes
+            espaços de inclusão, acessibilidade e integração
+            com a comunidade.
+          </p>
+
+        </div>
+
+
+        <div class="inclusao__grid">
+
+          <article class="inclusao-card">
+
+            <h3>
+              Semana da Inclusão
+            </h3>
+
+            <p>
+              Realização do Jogo de Basquete sobre Rodas,
+              reunindo atletas, escolas, entidades parceiras
+              e comunidade em momentos de integração,
+              conscientização e valorização da diversidade.
+            </p>
+
+          </article>
+
+
+          <article class="inclusao-card">
+
+            <h3>
+              Dia da Inclusão
+            </h3>
+
+            <p>
+              Participação em ações e eventos voltados
+              à inclusão e à aproximação das pessoas
+              com deficiência com a sociedade.
+            </p>
+
+          </article>
+
+
+          <article class="inclusao-card">
+
+            <h3>
+              Acessibilidade
+            </h3>
+
+            <p>
+              Participação no Conselho Municipal dos Direitos
+              da Pessoa com Deficiência e na Comissão Permanente
+              de Acessibilidade.
+            </p>
+
+          </article>
+
+
+          <article class="inclusao-card">
+
+            <h3>
+              Cultura sem Barreiras
+            </h3>
+
+            <p>
+              Participação em projeto voltado à geração
+              de ações de inclusão e acesso a projetos
+              culturais na região da AMAUC.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         7. OPORTUNIDADES
+    ================================================== -->
+
+    <section class="secao oportunidades" aria-labelledby="titulo-oportunidades">
+
+      <div class="container oportunidades__grid">
+
+        <div class="oportunidades__texto">
+
+          <p class="eyebrow">
+            Além do esporte
+          </p>
+
+          <h2 id="titulo-oportunidades">
+            Criando oportunidades
+          </h2>
+
+          <p>
+            A associação busca desenvolver parcerias que
+            possam encaminhar atletas para oportunidades
+            de trabalho e capacitação, promovendo também
+            desenvolvimento esportivo e social.
+          </p>
+
+          <p>
+            A proposta aproxima empresas e atletas,
+            contribuindo para acesso a oportunidades de
+            emprego e carreira, desenvolvimento de
+            habilidades, liderança, gestão, diversidade
+            e inclusão.
+          </p>
+
+          <p>
+            Um dos exemplos apresentados é o atleta
+            Wellington, que buscou conhecimento através
+            do Programa A Inclusão Transforma, da Coperdia.
+          </p>
+
+        </div>
+
+
+        <div class="oportunidades__destaque">
+
+          <div class="oportunidade-destaque__icone">
+            <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+          </div>
+
+          <h3>
+            Parcerias que geram desenvolvimento
+          </h3>
+
+          <p>
+            Empresas e instituições podem contribuir
+            para ampliar oportunidades e fortalecer
+            o desenvolvimento dos atletas.
+          </p>
+
+          <a href="parceiros.html" class="botao">
+            Conheça nossos parceiros
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         8. TRAJETÓRIA ESPORTIVA
+    ================================================== -->
+
+    <section class="secao conquistas-historicas" aria-labelledby="titulo-conquistas-historicas">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Resultados
+          </p>
+
+          <h2 id="titulo-conquistas-historicas">
+            Uma trajetória de conquistas
+          </h2>
+
+          <p class="secao-introducao">
+            O histórico esportivo dos Águias registra
+            participações e resultados em competições
+            regionais, estaduais e nacionais.
+          </p>
+
+        </div>
+
+
+        <div class="conquistas-historicas__grid">
+
+          <article class="conquista-historica">
+
+            <strong>2007</strong>
+
+            <p>
+              2º lugar Parajasc
+            </p>
+
+            <p>
+              2º lugar Liga Oeste SC e Norte do RS
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2008</strong>
+
+            <p>
+              1º lugar Parajasc
+            </p>
+
+            <p>
+              1º lugar Copa Sesc
+            </p>
+
+            <p>
+              1º lugar Campeonato Catarinense
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2009</strong>
+
+            <p>
+              1º lugar Campeonato Catarinense
+            </p>
+
+            <p>
+              1º lugar Parajasc
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2010</strong>
+
+            <p>
+              1º lugar Parajasc
+            </p>
+
+            <p>
+              1º lugar Campeonato Catarinense
+            </p>
+
+            <p>
+              1º lugar Taça Santa Catarina
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2014</strong>
+
+            <p>
+              Campeão Brasileiro – Manaus
+            </p>
+
+            <p>
+              1º lugar Copa Sesc
+            </p>
+
+            <p>
+              2º lugar Copa Sul
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2017</strong>
+
+            <p>
+              2º lugar Parajasc
+            </p>
+
+            <p>
+              Manutenção na 2ª Divisão do Campeonato Brasileiro
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2019</strong>
+
+            <p>
+              2º lugar Parajasc
+            </p>
+
+            <p>
+              2º lugar Campeonato Catarinense
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2022</strong>
+
+            <p>
+              2º lugar Campeonato Catarinense
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2023</strong>
+
+            <p>
+              2º lugar Campeonato Catarinense
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica">
+
+            <strong>2024</strong>
+
+            <p>
+              2º lugar Campeonato Catarinense
+            </p>
+
+            <p>
+              2º lugar Parajasc
+            </p>
+
+          </article>
+
+
+          <article class="conquista-historica conquista-historica--destaque">
+
+            <strong>2025</strong>
+
+            <p>
+              3º lugar Campeonato Catarinense
+            </p>
+
+            <p>
+              3º lugar Parajasc
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         9. ATLETA EM DESTAQUE
+    ================================================== -->
+
+    <section class="secao atleta-historico" aria-labelledby="titulo-atleta-historico">
+
+      <div class="container atleta-historico__grid">
+
+        <div class="atleta-historico__imagem imagem-destaque">
+
+          <img src="assets/49.jpg" alt="Henrique Heydt, atleta dos Águias de Concórdia">
+
+        </div>
+
+
+        <div class="atleta-historico__texto">
+
+          <p class="eyebrow">
+            Atleta em destaque
+          </p>
+
+          <h2 id="titulo-atleta-historico">
+            Henrique Heydt
+          </h2>
+
+          <p>
+            O atleta Henrique Heydt teve destaque no
+            Campeonato Brasileiro Sub-23 e participou
+            de treinamentos da Seleção Brasileira Sub-21.
+          </p>
+
+          <p>
+            Em 2024, foi convidado para integrar a equipe
+            da Andef, do Rio de Janeiro, para a disputa
+            do Campeonato Brasileiro Sub-23.
+          </p>
+
+          <p>
+            Posteriormente, participou da primeira divisão
+            nacional, sendo escolhido como atleta revelação
+            e ajudando sua equipe na competição.
+          </p>
+
+          <p>
+            Em 2025, representou a Seleção Brasileira
+            de Basquetebol em Cadeira de Rodas Sub-23
+            no Torneio Internacional Américas Championships,
+            em Bogotá, na Colômbia, e no Campeonato Mundial
+            Sub-23, realizado em São Paulo.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         10. RECONHECIMENTO
+    ================================================== -->
+
+    <section class="secao reconhecimento" aria-labelledby="titulo-reconhecimento">
+
+      <div class="container">
+
+        <div class="secao-cabecalho secao-cabecalho--centralizado">
+
+          <p class="eyebrow">
+            Reconhecimento
+          </p>
+
+          <h2 id="titulo-reconhecimento">
+            Uma trajetória reconhecida
+          </h2>
+
+          <p class="secao-introducao">
+            O trabalho desenvolvido pela equipe também
+            recebeu reconhecimento público.
+          </p>
+
+        </div>
+
+
+        <div class="reconhecimento__grid">
+
+          <article class="reconhecimento-card">
+
+            <div class="reconhecimento-card__icone" aria-hidden="true">
+              <i class="fa-solid fa-award"></i>
+            </div>
+
+            <h3>
+              Câmara de Vereadores
+            </h3>
+
+            <p>
+              Recebimento de moção de aplausos pela
+              conquista do terceiro lugar no Parajasc
+              Lages 2025 e pelo esforço e dedicação
+              da equipe ao longo de sua trajetória.
+            </p>
+
+          </article>
+
+
+          <article class="reconhecimento-card">
+
+            <div class="reconhecimento-card__icone" aria-hidden="true">
+              <i class="fa-solid fa-globe-americas"></i>
+            </div>
+
+            <h3>
+              Cenário internacional
+            </h3>
+
+            <p>
+              Henrique Heydt recebeu reconhecimento
+              pela participação no Torneio Internacional
+              Américas Championships, realizado em
+              Bogotá, na Colômbia.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         11. CHAMADA PARA PROJETOS
+    ================================================== -->
+
     <section class="secao chamada" aria-labelledby="titulo-chamada">
 
       <div class="container chamada__conteudo">
 
         <p class="eyebrow">
-          Próximo passo
+          Continue conhecendo
         </p>
 
         <h2 id="titulo-chamada">
@@ -634,12 +1188,13 @@
         </h2>
 
         <p>
-          Descubra as ações desenvolvidas pelos Águias de Concórdia
-          através do esporte e do paradesporto.
+          Descubra as ações e iniciativas desenvolvidas
+          pelos Águias de Concórdia através do esporte,
+          do paradesporto e da inclusão.
         </p>
 
         <a href="projetos.html" class="botao">
-          Conhecer projetos
+          Conheça nos projetos
         </a>
 
       </div>
@@ -649,7 +1204,10 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
   <footer class="rodape">
 
     <div class="container">
@@ -672,16 +1230,54 @@
 
         <div class="footer-col">
 
-          <h2>Navegação</h2>
+          <h2>
+            Navegação
+          </h2>
 
           <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="quem-somos.html">Quem Somos</a></li>
-            <li><a href="projetos.html">Projetos</a></li>
-            <li><a href="noticias.html">Notícias</a></li>
-            <li><a href="transparencia.html">Transparência</a></li>
-            <li><a href="parceiros.html">Parceiros</a></li>
-            <li><a href="contato.html">Contato</a></li>
+
+            <li>
+              <a href="index.html">
+                Início
+              </a>
+            </li>
+
+            <li>
+              <a href="quem-somos.html">
+                Quem Somos
+              </a>
+            </li>
+
+            <li>
+              <a href="projetos.html">
+                Projetos
+              </a>
+            </li>
+
+            <li>
+              <a href="noticias.html">
+                Notícias
+              </a>
+            </li>
+
+            <li>
+              <a href="transparencia.html">
+                Transparência
+              </a>
+            </li>
+
+            <li>
+              <a href="parceiros.html">
+                Parceiros
+              </a>
+            </li>
+
+            <li>
+              <a href="contato.html">
+                Contato
+              </a>
+            </li>
+
           </ul>
 
         </div>
@@ -689,16 +1285,36 @@
 
         <div class="footer-col">
 
-          <h2>Transparência</h2>
+          <h2>
+            Transparência
+          </h2>
 
           <ul>
-            <li><a href="transparencia.html">Portal da Transparência</a></li>
-            <li><a href="transparencia.html">Atas</a></li>
-            <li><a href="transparencia.html">Financeiro</a></li>
-            <!--Opcional 
-            <li><a href="transparencia.html">Convênios</a></li>
-            <li><a href="transparencia.html">Contratos</a></li>-->
-            <li><a href="transparencia.html">Prestação de Contas</a></li>
+
+            <li>
+              <a href="transparencia.html">
+                Portal da Transparência
+              </a>
+            </li>
+
+            <li>
+              <a href="transparencia.html">
+                Atas
+              </a>
+            </li>
+
+            <li>
+              <a href="transparencia.html">
+                Financeiro
+              </a>
+            </li>
+
+            <li>
+              <a href="transparencia.html">
+                Prestação de Contas
+              </a>
+            </li>
+
           </ul>
 
         </div>
@@ -706,23 +1322,39 @@
 
         <div class="footer-col">
 
-          <h2>Redes sociais</h2>
+          <h2>
+            Redes sociais
+          </h2>
 
           <ul class="redes-sociais">
+
             <li>
 
               <a href="https://wa.me/5554981192879?text=Olá!%20Vim%20pelo%20site%20dos%20Águias%20de%20Concórdia%20e%20gostaria%20de%20obter%20mais%20informações.%20Poderiam%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp dos Águias de Concórdia">
 
                 <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-                <span>WhatsApp</span>
+
+                <span>
+                  WhatsApp
+                </span>
+
               </a>
+
             </li>
 
+
             <li>
+
               <a href="https://www.instagram.com/aguiasconcordia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram dos Águias de Concórdia">
+
                 <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-                <span>Instagram</span>
+
+                <span>
+                  Instagram
+                </span>
+
               </a>
+
             </li>
 
           </ul>
@@ -731,23 +1363,37 @@
 
       </div>
 
+
       <div class="footer-bottom">
+
         <p>
           &copy; 2026 Águias de Concórdia.
           Todos os direitos reservados.
         </p>
+
         <p class="desenvolvido-por">
+
           Desenvolvido por:
+
           <a href="https://rafaeldataanalytics.github.io/visible-site/" target="_blank" rel="noopener noreferrer">
             Visible
           </a>
+
         </p>
+
       </div>
 
     </div>
+
   </footer>
 
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+
   <script src="js/script.js"></script>
+
 </body>
 
 </html>
