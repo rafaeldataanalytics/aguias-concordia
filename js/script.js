@@ -36,7 +36,6 @@ function mostrarSlideParceiro(numero) {
   slideParceiroAtual = numero;
 
   //const larguraLogo = primeiroLogo.offsetWidth;
-
   const larguraLogo = primeiroLogo.getBoundingClientRect().width;
 
   const estilos = getComputedStyle(listaParceiros);
