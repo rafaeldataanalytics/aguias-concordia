@@ -676,19 +676,7 @@ p {
 }
 
 .hero-imagem::before {
-  content: "";
-  position: absolute;
-  inset: -25px;
-
-  background-image: inherit;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  filter: blur(18px);
-  transform: scale(1.08);
-
-  z-index: 0;
+  display: none;
 }
 
 .hero-slide.ativo {
@@ -1894,15 +1882,12 @@ body.alto-contraste-ativo .chamada a:focus-visible {
   /* Hero */
 
   .hero {
-    min-height: 600px;
+    min-height: 0;
+    height: auto;
   }
 
   .hero-conteudo {
-    min-height: 600px;
-
-    padding-block: 40px;
-
-    justify-content: flex-end;
+    min-height: 0;
   }
 
   .hero h1 {
@@ -1911,6 +1896,10 @@ body.alto-contraste-ativo .chamada a:focus-visible {
 
   .hero-texto {
     font-size: 18px;
+  }
+
+  .hero-imagem::before {
+    display: none;
   }
 
   /* Quem somos */
@@ -2336,40 +2325,67 @@ button.metrica {
 /* =========================================================
    HERO — MOBILE
 ========================================================= */
+
 @media (max-width: 768px) {
   .hero {
+    position: relative;
     min-height: 0;
     height: auto;
     margin: 0;
     padding: 0;
     background: var(--azul);
+    overflow: hidden;
   }
 
   .hero-imagem {
     position: relative;
-    inset: auto;
-
     width: 100%;
-    height: 240px;
-
+    height: auto;
     margin: 0;
     padding: 0;
-
     overflow: hidden;
+    background: transparent;
   }
 
-  .hero-conteudo {
+  .hero-slide {
     position: relative;
-
+    width: 100%;
+    height: auto;
     min-height: 0;
-    margin: 0;
+    object-fit: contain;
+    display: none;
+  }
 
-    padding: 30px 20px 35px;
-
-    background: var(--azul);
+  .hero-slide.ativo {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
   }
 
   .hero-overlay {
     display: none;
+  }
+
+  .hero-conteudo {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 3;
+
+    min-height: 0;
+
+    margin: 0;
+    padding: 30px 20px 35px;
+
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(7, 27, 73, 0.2) 25%,
+      rgba(7, 27, 73, 0.9) 100%
+    );
   }
 }

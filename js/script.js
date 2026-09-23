@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     botoesIndicadores[index].setAttribute("aria-pressed", "true");
 
-    /* Atualiza o fundo */
+    /* Atualiza o fundo 
 
     const imagemAtual = slideAtualElemento.getAttribute("src");
 
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (areaImagem) {
         areaImagem.style.backgroundImage = `url("${imagemAtual}")`;
       }
-    }
+    }*/
 
     slideAtual = index;
   }
