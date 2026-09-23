@@ -20,7 +20,7 @@ if (botaoMenu && menuPrincipal) {
 
 /* =========================================================
    CARROSSEL — EMPRESAS PARCEIRAS
-========================================================= 
+========================================================= */
 
 const listaParceiros = document.querySelector(".parceiros__lista");
 const indicadoresParceiros = document.querySelectorAll(".indicador");
@@ -37,57 +37,6 @@ function mostrarSlideParceiro(numero) {
 
   const larguraLogo = primeiroLogo.offsetWidth;
   //const larguraLogo = primeiroLogo.getBoundingClientRect().width;
-
-  const estilos = getComputedStyle(listaParceiros);
-
-  const gap = parseFloat(estilos.gap) || 0;
-
-  const deslocamento = slideParceiroAtual * (larguraLogo + gap);
-
-  listaParceiros.style.transform = `translateX(-${deslocamento}px)`;
-
-  indicadoresParceiros.forEach((indicador, indice) => {
-    indicador.classList.toggle("ativo", indice === slideParceiroAtual);
-  });
-}
-
-indicadoresParceiros.forEach((indicador) => {
-  indicador.addEventListener("click", () => {
-    const slide = Number(indicador.dataset.slide);
-
-    mostrarSlideParceiro(slide);
-  });
-});
-
-if (indicadoresParceiros.length > 1) {
-  setInterval(() => {
-    slideParceiroAtual++;
-
-    if (slideParceiroAtual >= indicadoresParceiros.length) {
-      slideParceiroAtual = 0;
-    }
-
-    mostrarSlideParceiro(slideParceiroAtual);
-  }, 5000);
-}
-*/
-
-const listaParceiros = document.querySelector(".parceiros__lista");
-
-const indicadoresParceiros = document.querySelectorAll(".indicador");
-
-let slideParceiroAtual = 0;
-
-function mostrarSlideParceiro(numero) {
-  const primeiroLogo = document.querySelector(".parceiro-logo");
-
-  if (!listaParceiros || !primeiroLogo || indicadoresParceiros.length === 0) {
-    return;
-  }
-
-  slideParceiroAtual = numero;
-
-  const larguraLogo = primeiroLogo.getBoundingClientRect().width;
 
   const estilos = getComputedStyle(listaParceiros);
 

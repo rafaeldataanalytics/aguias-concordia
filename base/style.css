@@ -2300,12 +2300,12 @@ button.metrica {
   border-radius: 10px;
   background: var(--vermelho);
 }
-
+/*
 @media (prefers-reduced-motion: reduce) {
   .parceiros__lista {
     transform: none !important;
   }
-}
+}*/
 
 /* =========================================================
    PARCEIROS — CELULAR
