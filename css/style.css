@@ -5285,3 +5285,27 @@ body {
     font-size: 16px;
   }
 }
+/* =========================================================
+   ALTO CONTRASTE — MENU PRINCIPAL MOBILE
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  body.alto-contraste-ativo .menu-principal a {
+    color: #071b49 !important;
+  }
+
+  body.alto-contraste-ativo .menu-principal a:hover,
+  body.alto-contraste-ativo .menu-principal a:focus {
+    color: #ffffff !important;
+  }
+}
+
+/* =========================================================
+   ALTO CONTRASTE — ÍCONE HAMBÚRGUER
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  body.alto-contraste-ativo .botao-menu span {
+    background-color: #071b49 !important;
+  }
+}
