@@ -2207,12 +2207,20 @@ button.metrica {
   border-top: 1px solid var(--borda);
 }
 
-.parceiros__carrossel {
+/*alteracoes para teste carrossel mobile*/
+
+.parceiros-carrossel {
+  width: 100%;
+  margin-top: 35px;
+}
+
+.parceiros-carrossel__viewport {
   width: 100%;
 
   overflow: hidden;
 
-  margin-top: 35px;
+  /*alteracoes para teste carrossel mobile*/
+  /*margin-top: 35px;*/
 }
 
 .parceiros__lista {
