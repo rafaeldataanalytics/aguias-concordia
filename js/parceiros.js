@@ -206,7 +206,7 @@ function inicializarCarrosselParceiros() {
 
     intervaloCarrossel = setInterval(() => {
       proximoSlide();
-    }, 500);
+    }, 1500);
   }
 
   // Posição inicial
