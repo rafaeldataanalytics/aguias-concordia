@@ -134,6 +134,102 @@ function criarCardParceiro(parceiro) {
 }
 
 // ===============================
+// CARROSSEL — HOME
+// ===============================
+
+function inicializarCarrosselParceiros() {
+  const lista = document.getElementById("lista-parceiros-home");
+
+  if (!lista) {
+    return;
+  }
+
+  const logos = lista.querySelectorAll(".parceiro-logo");
+
+  if (logos.length === 0) {
+    return;
+  }
+
+  // Como a lista foi duplicada,
+  // metade representa a sequência original.
+  const quantidadeOriginal = logos.length / 2;
+
+  let slideAtual = 0;
+  let intervaloCarrossel;
+
+  function moverCarrossel() {
+    const primeiroLogo = lista.querySelector(".parceiro-logo");
+
+    if (!primeiroLogo) {
+      return;
+    }
+
+    const estilos = getComputedStyle(lista);
+    const gap = parseFloat(estilos.gap) || 0;
+
+    const larguraLogo = primeiroLogo.getBoundingClientRect().width;
+
+    const deslocamento = slideAtual * (larguraLogo + gap);
+
+    lista.style.transform = `translateX(-${deslocamento}px)`;
+  }
+
+  function proximoSlide() {
+    slideAtual++;
+
+    // Chegou ao final da primeira sequência.
+    // Como a sequência foi duplicada, voltamos
+    // para o início sem perder os logos.
+    if (slideAtual >= quantidadeOriginal) {
+      lista.style.transition = "none";
+
+      slideAtual = 0;
+
+      moverCarrossel();
+
+      // Força o navegador a aplicar o reset
+      // antes de reativar a transição.
+      lista.offsetWidth;
+
+      lista.style.transition = "transform 0.6s ease";
+
+      return;
+    }
+
+    lista.style.transition = "transform 0.6s ease";
+
+    moverCarrossel();
+  }
+
+  function iniciarCarrossel() {
+    clearInterval(intervaloCarrossel);
+
+    intervaloCarrossel = setInterval(() => {
+      proximoSlide();
+    }, 5000);
+  }
+
+  // Posição inicial
+  lista.style.transition = "none";
+  slideAtual = 0;
+  moverCarrossel();
+
+  // Inicia somente depois que os logos
+  // já foram criados pelo Google Sheets.
+  iniciarCarrossel();
+
+  // Recalcula a posição quando a tela muda
+  window.addEventListener("resize", () => {
+    lista.style.transition = "none";
+    moverCarrossel();
+
+    requestAnimationFrame(() => {
+      lista.style.transition = "transform 0.6s ease";
+    });
+  });
+}
+
+// ===============================
 // RENDERIZAÇÃO
 // ===============================
 
@@ -186,8 +282,13 @@ function renderizarParceiros() {
       .join("");
 
     // Duplica a sequência para permitir
-    // movimento contínuo do carrossel
+    // o movimento contínuo do carrossel.
     listaParceirosHome.innerHTML = htmlParceiros + htmlParceiros;
+
+    // IMPORTANTE:
+    // O carrossel só é iniciado depois
+    // que os logos foram criados.
+    inicializarCarrosselParceiros();
   }
 }
 
