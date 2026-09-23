@@ -5015,3 +5015,273 @@ body {
     margin-top: 68px;
   }
 }
+
+/* =========================================================
+   CONQUISTAS 2025
+========================================================= */
+
+.conquistas {
+  background: var(--cinza-claro);
+}
+
+.conquistas__cabecalho {
+  margin-bottom: 35px;
+}
+
+.conquistas__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.conquista-card {
+  min-height: 230px;
+  padding: 32px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-top: 4px solid var(--vermelho);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-suave);
+  text-decoration: none;
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+.conquista-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-card);
+}
+
+.conquista-card__icone {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--azul-suave);
+  color: var(--azul);
+  font-size: 24px;
+}
+
+.conquista-card strong {
+  margin-bottom: 7px;
+  color: var(--azul);
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.conquista-card > span:not(.conquista-card__link) {
+  color: var(--cinza-escuro);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.conquista-card__link {
+  margin-top: 18px;
+  color: var(--vermelho);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* =========================================================
+   IMPACTO SOCIAL
+========================================================= */
+
+.impacto-social {
+  background: var(--branco);
+}
+
+.impacto-social__cabecalho {
+  margin-bottom: 45px;
+}
+
+.impacto-social__conteudo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.impacto-social__imagem {
+  overflow: hidden;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-card);
+}
+
+.impacto-social__imagem img {
+  width: 100%;
+  height: 430px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transicao);
+}
+
+.impacto-social__imagem:hover img {
+  transform: scale(1.03);
+}
+
+.impacto-social__texto {
+  max-width: 620px;
+}
+
+.impacto-social__texto h3 {
+  margin-bottom: 22px;
+  color: var(--azul);
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.impacto-social__texto p {
+  margin-bottom: 18px;
+  color: var(--cinza-escuro);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.impacto-social__texto .botao {
+  margin-top: 10px;
+}
+
+/* =========================================================
+   DESTAQUE DO ATLETA
+========================================================= */
+
+.destaque-atleta {
+  background: var(--cinza-claro);
+}
+
+.destaque-atleta__cabecalho {
+  margin-bottom: 45px;
+}
+
+.destaque-atleta__conteudo {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+.destaque-atleta__imagem {
+  overflow: hidden;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-card);
+}
+
+.destaque-atleta__imagem img {
+  width: 100%;
+  height: 500px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform var(--transicao);
+}
+
+.destaque-atleta__imagem:hover img {
+  transform: scale(1.03);
+}
+
+.destaque-atleta__texto {
+  max-width: 650px;
+}
+
+.destaque-atleta__rotulo {
+  margin-bottom: 10px;
+  color: var(--vermelho);
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.destaque-atleta__texto h3 {
+  margin-bottom: 22px;
+  color: var(--azul);
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.destaque-atleta__texto p:not(.destaque-atleta__rotulo) {
+  margin-bottom: 18px;
+  color: var(--cinza);
+  font-size: 17px;
+  line-height: 1.8;
+  font-weight: bolder;
+}
+
+.destaque-atleta__texto .botao {
+  margin-top: 8px;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  /* CONQUISTAS */
+
+  .conquistas__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .conquista-card {
+    min-height: 210px;
+    padding: 28px 24px;
+  }
+
+  .conquista-card strong {
+    font-size: 1.8rem;
+  }
+
+  /* IMPACTO SOCIAL */
+
+  .impacto-social__conteudo {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .impacto-social__imagem img {
+    height: 300px;
+  }
+
+  .impacto-social__texto {
+    max-width: none;
+  }
+
+  .impacto-social__texto p {
+    font-size: 16px;
+  }
+
+  /* DESTAQUE DO ATLETA */
+
+  .destaque-atleta__conteudo {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .destaque-atleta__imagem img {
+    height: 360px;
+  }
+
+  .destaque-atleta__texto {
+    max-width: none;
+  }
+
+  .destaque-atleta__texto p:not(.destaque-atleta__rotulo) {
+    font-size: 16px;
+  }
+}
