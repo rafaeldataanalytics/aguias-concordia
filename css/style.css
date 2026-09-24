@@ -33,13 +33,13 @@
   --azul-claro: #163b78;
   --azul-suave: #eef3fa;
 
-  --vermelho: #e52420;
+  --vermelho: #f8250a;
   --vermelho-escuro: #b91c1c;
   --vermelho-suave: #fff1f1;
   --verde-suave: #d2f7d4;
   --verde-suave-mais: #a2f8a7;
   --borda-verde: #1f5022;
-  --amarelo-destaque: #ffff00;
+  --amarelo-destaque: #f6561d;
 
   --branco: #ffffff;
 
@@ -630,13 +630,9 @@ p {
   );
 }
 
-/* Fundo ampliado das fotos - somente desktop 
-*/
-@media screen and (min-width: 769px) {
-  /* =========================================
-     BOLA DE BASQUETE — DIREITA
-     ========================================= */
+/* Fundo ampliado das fotos - somente desktop */
 
+@media screen and (min-width: 769px) {
   .hero-imagem::before {
     content: "";
     position: absolute;
@@ -658,10 +654,6 @@ p {
     z-index: 0;
     pointer-events: none;
   }
-
-  /* =========================================
-     BOLA DE BASQUETE — ESQUERDA
-     ========================================= */
 
   .hero-imagem::after {
     content: "";
@@ -685,6 +677,7 @@ p {
     pointer-events: none;
   }
 }
+
 /* Conteúdo */
 
 .hero-conteudo {
@@ -2146,7 +2139,7 @@ body.alto-contraste-ativo .footer-bottom {
 /* Foco */
 
 body.alto-contraste-ativo :focus-visible {
-  outline: 3px solid #ffff00;
+  outline: 3px solid var(--amarelo-destaque);
   outline-offset: 4px;
 }
 /* =========================================================
@@ -2171,9 +2164,9 @@ body.alto-contraste-ativo .barra-acessibilidade button {
 
 body.alto-contraste-ativo .barra-acessibilidade button:hover,
 body.alto-contraste-ativo .barra-acessibilidade button:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* =========================================================
@@ -2431,9 +2424,9 @@ body.alto-contraste-ativo .chamada .botao {
 
 body.alto-contraste-ativo .chamada .botao:hover,
 body.alto-contraste-ativo .chamada .botao:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* =========================================================
@@ -2497,9 +2490,9 @@ body.alto-contraste-ativo .formulario-contato .botao {
 
 body.alto-contraste-ativo .formulario-contato .botao:hover,
 body.alto-contraste-ativo .formulario-contato .botao:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* =========================================================
@@ -2592,7 +2585,7 @@ body.links-destacados .projeto-card a {
 /* Links do rodapé */
 
 body.links-destacados .rodape a {
-  color: #ffff00 !important;
+  color: var(--amarelo-destaque) !important;
   text-decoration: underline !important;
   text-decoration-thickness: 3px;
 }
@@ -2755,7 +2748,7 @@ body.alto-contraste-ativo .projeto-documentos a {
 body.alto-contraste-ativo .projeto-documentos a:hover,
 body.alto-contraste-ativo .projeto-documentos a:focus-visible {
   color: #000;
-  background: #ffff00;
+  background: var(--amarelo-destaque);
 }
 
 /* ---------------------------------------------------------
@@ -2782,9 +2775,9 @@ body.alto-contraste-ativo .paginacao-projetos button {
 
 body.alto-contraste-ativo .paginacao-projetos button:hover,
 body.alto-contraste-ativo .paginacao-projetos button:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* ---------------------------------------------------------
@@ -2885,9 +2878,9 @@ body.alto-contraste-ativo .projetos-chamada .botao {
 
 body.alto-contraste-ativo .projetos-chamada .botao:hover,
 body.alto-contraste-ativo .projetos-chamada .botao:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* =========================================================
@@ -2947,26 +2940,26 @@ body.alto-contraste-ativo .destaque-card__imagem img {
 /* Conteúdo */
 
 body.alto-contraste-ativo .destaque-card__conteudo {
-  background: #fff;
-  color: #000;
+  background: #000;
+  color: #fff;
 }
 
 /* Categoria */
 
 body.alto-contraste-ativo .destaque-card .noticia-card__categoria {
-  color: #000;
+  color: var(--amarelo-destaque);
 }
 
 /* Data */
 
 body.alto-contraste-ativo .destaque-card .noticia-data {
-  color: #000;
+  color: #fff;
 }
 
 /* Título */
 
 body.alto-contraste-ativo .destaque-card h3 {
-  color: #000;
+  color: #fff;
 }
 
 /* Resumo */
@@ -3001,9 +2994,9 @@ body.alto-contraste-ativo .destaque-card .botao {
 
 body.alto-contraste-ativo .destaque-card .botao:hover,
 body.alto-contraste-ativo .destaque-card .botao:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* ---------------------------------------------------------
@@ -3034,15 +3027,15 @@ body.alto-contraste-ativo .filtro {
 
 body.alto-contraste-ativo .filtro:hover,
 body.alto-contraste-ativo .filtro:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 body.alto-contraste-ativo .filtro.ativo {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* ---------------------------------------------------------
@@ -3115,7 +3108,7 @@ body.alto-contraste-ativo .noticia-card__link {
 body.alto-contraste-ativo .noticia-card__link:hover,
 body.alto-contraste-ativo .noticia-card__link:focus-visible {
   color: #000;
-  background: #ffff00;
+  background: var(--amarelo-destaque);
 }
 
 /* ---------------------------------------------------------
@@ -3153,15 +3146,15 @@ body.alto-contraste-ativo .paginacao__pagina:hover,
 body.alto-contraste-ativo .paginacao__botao:hover:not(:disabled),
 body.alto-contraste-ativo .paginacao__pagina:focus-visible,
 body.alto-contraste-ativo .paginacao__botao:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 body.alto-contraste-ativo .paginacao__pagina.ativa {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* ---------------------------------------------------------
@@ -3191,9 +3184,9 @@ body.alto-contraste-ativo .noticias-chamada .botao {
 
 body.alto-contraste-ativo .noticias-chamada .botao:hover,
 body.alto-contraste-ativo .noticias-chamada .botao:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* ---------------------------------------------------------
@@ -3203,7 +3196,7 @@ body.alto-contraste-ativo .noticias-chamada .botao:focus-visible {
 body.alto-contraste-ativo .noticias-chamada :focus-visible,
 body.alto-contraste-ativo .arquivo-noticias :focus-visible,
 body.alto-contraste-ativo .noticia-destaque :focus-visible {
-  outline: 3px solid #ffff00;
+  outline: 3px solid var(--amarelo-destaque);
   outline-offset: 4px;
 }
 
@@ -3390,9 +3383,9 @@ body.alto-contraste-ativo .transparencia-chamada .botao {
 
 body.alto-contraste-ativo .transparencia-chamada .botao:hover,
 body.alto-contraste-ativo .transparencia-chamada .botao:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* =========================================================
@@ -3523,9 +3516,9 @@ body.alto-contraste-ativo .parceiros-cta .botao {
 
 body.alto-contraste-ativo .parceiros-cta .botao:hover,
 body.alto-contraste-ativo .parceiros-cta .botao:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 }
 
 /* ---------------------------------------------------------
@@ -3534,7 +3527,7 @@ body.alto-contraste-ativo .parceiros-cta .botao:focus-visible {
 
 body.alto-contraste-ativo .parceiros-listagem .parceiro-card:focus-visible,
 body.alto-contraste-ativo .parceiros-cta :focus-visible {
-  outline: 3px solid #ffff00;
+  outline: 3px solid var(--amarelo-destaque);
   outline-offset: 4px;
 }
 
@@ -3545,7 +3538,7 @@ body.alto-contraste-ativo .parceiros-cta :focus-visible {
 body.alto-contraste-ativo .projetos-lista :focus-visible,
 body.alto-contraste-ativo .como-funciona :focus-visible,
 body.alto-contraste-ativo .projetos-chamada :focus-visible {
-  outline: 3px solid #ffff00;
+  outline: 3px solid var(--amarelo-destaque);
   outline-offset: 4px;
 }
 
@@ -3556,7 +3549,7 @@ body.alto-contraste-ativo .projetos-chamada :focus-visible {
 body.links-destacados .menu-principal a::after {
   height: 3px;
   bottom: 0;
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   transform: scaleX(1);
 }
 /* =========================================================
@@ -3647,9 +3640,9 @@ body.reduzir-animacoes .hero-indicador {
 
 body.alto-contraste-ativo .painel-acessibilidade button:hover,
 body.alto-contraste-ativo .painel-acessibilidade button:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000000;
-  border-color: #ffff00;
+  border-color: var(--amarelo-destaque);
 
   transform: translateY(-2px);
 
@@ -3727,7 +3720,7 @@ body.cursor-maior select {
 
 body.alto-contraste-ativo .rodape a:hover,
 body.alto-contraste-ativo .rodape a:focus-visible {
-  background: #ffff00;
+  background: var(--amarelo-destaque);
   color: #000000 !important;
   font-weight: 700;
 
@@ -3764,9 +3757,9 @@ body.alto-contraste-ativo .rodape a:focus-visible {
 
 /* BOTÃO EM ESTADO NORMAL */
 body.alto-contraste-ativo .botao {
-  background: #ffff00 !important;
+  background: var(--amarelo-destaque) !important;
   color: #000 !important;
-  border-color: #ffff00 !important;
+  border-color: var(--amarelo-destaque) !important;
 }
 
 /* BOTÃO EM HOVER / FOCO */
@@ -3784,9 +3777,9 @@ body.alto-contraste-ativo .botao:focus-visible {
 
 /* CONTATO */
 body.alto-contraste-ativo .formulario-contato .botao {
-  background: #ffff00 !important;
+  background: var(--amarelo-destaque) !important;
   color: #000 !important;
-  border-color: #ffff00 !important;
+  border-color: var(--amarelo-destaque) !important;
 }
 
 body.alto-contraste-ativo .formulario-contato .botao:hover,
@@ -3798,9 +3791,9 @@ body.alto-contraste-ativo .formulario-contato .botao:focus-visible {
 
 /* PROJETOS */
 body.alto-contraste-ativo .projetos-chamada .botao {
-  background: #ffff00 !important;
+  background: var(--amarelo-destaque) !important;
   color: #000 !important;
-  border-color: #ffff00 !important;
+  border-color: var(--amarelo-destaque) !important;
 }
 
 body.alto-contraste-ativo .projetos-chamada .botao:hover,
@@ -3813,9 +3806,9 @@ body.alto-contraste-ativo .projetos-chamada .botao:focus-visible {
 /* NOTÍCIAS */
 body.alto-contraste-ativo .destaque-card .botao,
 body.alto-contraste-ativo .noticias-chamada .botao {
-  background: #ffff00 !important;
+  background: var(--amarelo-destaque) !important;
   color: #000 !important;
-  border-color: #ffff00 !important;
+  border-color: var(--amarelo-destaque) !important;
 }
 
 body.alto-contraste-ativo .destaque-card .botao:hover,
@@ -3829,9 +3822,9 @@ body.alto-contraste-ativo .noticias-chamada .botao:focus-visible {
 
 /* TRANSPARÊNCIA */
 body.alto-contraste-ativo .transparencia-chamada .botao {
-  background: #ffff00 !important;
+  background: var(--amarelo-destaque) !important;
   color: #000 !important;
-  border-color: #ffff00 !important;
+  border-color: var(--amarelo-destaque) !important;
 }
 
 body.alto-contraste-ativo .transparencia-chamada .botao:hover,
@@ -3843,9 +3836,9 @@ body.alto-contraste-ativo .transparencia-chamada .botao:focus-visible {
 
 /* PARCEIROS */
 body.alto-contraste-ativo .parceiros-cta .botao {
-  background: #ffff00 !important;
+  background: var(--amarelo-destaque) !important;
   color: #000 !important;
-  border-color: #ffff00 !important;
+  border-color: var(--amarelo-destaque) !important;
 }
 
 body.alto-contraste-ativo .parceiros-cta .botao:hover,
@@ -3857,9 +3850,9 @@ body.alto-contraste-ativo .parceiros-cta .botao:focus-visible {
 
 /* QUEM SOMOS */
 body.alto-contraste-ativo .chamada .botao {
-  background: #ffff00 !important;
+  background: var(--amarelo-destaque) !important;
   color: #000 !important;
-  border-color: #ffff00 !important;
+  border-color: var(--amarelo-destaque) !important;
 }
 
 body.alto-contraste-ativo .chamada .botao:hover,
@@ -5306,6 +5299,6 @@ body {
 
 @media screen and (max-width: 768px) {
   body.alto-contraste-ativo .botao-menu span {
-    background-color: #5f86f0 !important;
+    background-color: var(--vermelho) !important;
   }
 }

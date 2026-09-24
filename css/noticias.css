@@ -131,10 +131,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
+  align-items: start;
 }
 
 .noticia-card {
-  height: 100%;
+  height: auto;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -476,4 +477,39 @@
   .noticia-jogo__confronto {
     font-size: 14px;
   }
+}
+
+/* =========================================================
+   ALTO CONTRASTE — RESUMO DA NOTÍCIA EM DESTAQUE
+========================================================= 
+*/
+
+@media screen and (min-width: 769px) {
+  .destaque-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+  }
+
+  .destaque-card__imagem {
+    align-self: start;
+    min-height: 0;
+    height: auto;
+    background: transparent;
+    overflow: hidden;
+    padding: 48px;
+    box-sizing: border-box;
+  }
+
+  .destaque-card__imagem img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+body.alto-contraste-ativo .destaque-card {
+  background: #000;
+  border-color: #fff;
+  box-shadow: none;
 }

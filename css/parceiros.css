@@ -1,3 +1,6 @@
+:root {
+  --amarelo-destaque: #f6561d;
+}
 /* =========================================================
    ÁGUIAS DE CONCÓRDIA
    PÁGINA — PARCEIROS E PATROCINADORES
@@ -271,4 +274,389 @@
   .parceiro-card {
     transition: none;
   }
+}
+
+/* =========================================================
+   COMO APOIAR OS ÁGUIAS
+========================================================= */
+
+.apoio-parceiros {
+  background: var(--cinza-claro);
+}
+
+.planos-contribuicao {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.plano-contribuicao {
+  padding: 28px 24px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-suave);
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+.plano-contribuicao:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-card);
+}
+
+.plano-contribuicao__numero {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--vermelho);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.plano-contribuicao h3 {
+  margin-bottom: 12px;
+  color: var(--azul);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.plano-contribuicao p {
+  margin: 0;
+  color: var(--cinza-escuro);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.plano-contribuicao--livre {
+  grid-column: span 4;
+  text-align: center;
+}
+
+/* =========================================================
+   DESTAQUE DO APOIO
+========================================================= */
+
+.apoio-parceiros__destaque {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 30px;
+  padding: 28px;
+  background: var(--azul);
+  color: var(--branco);
+  border-radius: var(--raio);
+}
+
+.apoio-parceiros__icone {
+  flex: 0 0 58px;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--vermelho);
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+.apoio-parceiros__destaque h3 {
+  margin-bottom: 8px;
+  color: var(--branco);
+  font-size: 21px;
+}
+
+.apoio-parceiros__destaque p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+}
+
+/* =========================================================
+   RETORNO DO INVESTIMENTO
+========================================================= */
+
+.retorno-parceiros {
+  background: var(--branco);
+}
+
+.retorno-parceiros__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.retorno-parceiros__texto h2 {
+  margin-bottom: 20px;
+  color: var(--azul);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+}
+
+.retorno-parceiros__texto > p:last-child {
+  color: var(--cinza-escuro);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.retorno-parceiros__lista {
+  display: grid;
+  gap: 18px;
+}
+
+.retorno-item {
+  display: flex;
+  gap: 18px;
+  padding: 22px;
+  background: var(--cinza-claro);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+
+.retorno-item > i {
+  flex: 0 0 24px;
+  margin-top: 4px;
+  color: var(--vermelho);
+  font-size: 22px;
+}
+
+.retorno-item h3 {
+  margin-bottom: 6px;
+  color: var(--azul);
+  font-size: 18px;
+}
+
+.retorno-item p {
+  margin: 0;
+  color: var(--cinza-escuro);
+  line-height: 1.7;
+}
+
+.planos-contribuicao {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plano-contribuicao--livre {
+  grid-column: span 2;
+}
+
+.apoio-parceiros__destaque {
+  align-items: flex-start;
+}
+
+.retorno-parceiros__grid {
+  grid-template-columns: 1fr;
+  gap: 35px;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — PARCEIROS
+========================================================= */
+
+body.alto-contraste-ativo .parceiros-hero {
+  background: #000;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+body.alto-contraste-ativo .parceiros-hero h1,
+body.alto-contraste-ativo .parceiros-hero p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-hero .eyebrow {
+  color: var(--amarelo-destaque);
+}
+
+/* =========================================================
+   INTRODUÇÃO
+========================================================= */
+
+body.alto-contraste-ativo .parceiros-introducao {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-introducao h2,
+body.alto-contraste-ativo .parceiros-introducao p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-introducao .eyebrow {
+  color: var(--amarelo-destaque);
+}
+
+/* =========================================================
+   COMO APOIAR
+========================================================= */
+
+body.alto-contraste-ativo .apoio-parceiros {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .apoio-parceiros h2,
+body.alto-contraste-ativo .apoio-parceiros p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .apoio-parceiros .eyebrow {
+  color: var(--amarelo-destaque);
+}
+
+/* =========================================================
+   PLANOS
+========================================================= */
+
+body.alto-contraste-ativo .plano-contribuicao {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .plano-contribuicao:hover {
+  transform: none;
+  background: #000;
+  border-color: var(--amarelo-destaque);
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .plano-contribuicao__numero {
+  color: var(--amarelo-destaque);
+}
+
+body.alto-contraste-ativo .plano-contribuicao h3,
+body.alto-contraste-ativo .plano-contribuicao p {
+  color: #fff;
+}
+
+/* =========================================================
+   DESTAQUE DO APOIO
+========================================================= */
+
+body.alto-contraste-ativo .apoio-parceiros__destaque {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+body.alto-contraste-ativo .apoio-parceiros__icone {
+  background: #000;
+  color: var(--amarelo-destaque);
+  border: 2px solid var(--amarelo-destaque);
+}
+
+body.alto-contraste-ativo .apoio-parceiros__destaque h3,
+body.alto-contraste-ativo .apoio-parceiros__destaque p {
+  color: #fff;
+}
+
+/* =========================================================
+   RETORNO DO INVESTIMENTO
+========================================================= */
+
+body.alto-contraste-ativo .retorno-parceiros {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .retorno-parceiros__texto h2,
+body.alto-contraste-ativo .retorno-parceiros__texto p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .retorno-parceiros__texto .eyebrow {
+  color: var(--amarelo-destaque);
+}
+
+/* =========================================================
+   ITENS DE RETORNO
+========================================================= */
+
+body.alto-contraste-ativo .retorno-item {
+  background: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+body.alto-contraste-ativo .retorno-item > i {
+  color: var(--amarelo-destaque);
+}
+
+body.alto-contraste-ativo .retorno-item h3,
+body.alto-contraste-ativo .retorno-item p {
+  color: #fff;
+}
+
+/* =========================================================
+   PATROCINADORES / PARCEIROS
+========================================================= */
+
+body.alto-contraste-ativo .parceiros-listagem,
+body.alto-contraste-ativo .parceiros-listagem--parceiros {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-listagem h2,
+body.alto-contraste-ativo .parceiros-listagem p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-listagem .eyebrow {
+  color: var(--amarelo-destaque);
+}
+
+body.alto-contraste-ativo .parceiro-card {
+  background: #f5f5f5;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .parceiros-listagem--parceiros .parceiro-card {
+  background: #f5f5f5;
+}
+
+body.alto-contraste-ativo .parceiro-card:hover,
+body.alto-contraste-ativo .parceiro-card:focus-visible {
+  background: #f5f5f5;
+  border-color: var(--amarelo-destaque);
+  box-shadow: none;
+  transform: none;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+body.alto-contraste-ativo .parceiros-cta {
+  background: #000;
+  color: #fff;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+body.alto-contraste-ativo .parceiros-cta h2,
+body.alto-contraste-ativo .parceiros-cta p {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .parceiros-cta .eyebrow {
+  color: var(--amarelo-destaque);
+}
+
+body.alto-contraste-ativo .parceiros-cta .botao {
+  background: #000;
+  color: var(--amarelo-destaque);
+  border: 2px solid var(--amarelo-destaque);
+}
+
+body.alto-contraste-ativo .parceiros-cta .botao:hover,
+body.alto-contraste-ativo .parceiros-cta .botao:focus-visible {
+  background: var(--amarelo-destaque);
+  color: #000;
+  border-color: var(--amarelo-destaque);
 }

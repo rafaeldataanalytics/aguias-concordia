@@ -1,3 +1,7 @@
+:root {
+  --amarelo-destaque: #f6561d;
+}
+
 /* =========================================================
    PROJETO — ÁGUIAS DE CONCÓRDIA
    CSS — QUEM SOMOS
@@ -761,10 +765,13 @@
 }
 
 .chamada .botao:hover {
-  background: var(--azul-suave);
-  border-color: var(--azul-suave);
-  color: var(--azul);
+  background: var(--amarelo-destaque);
+  border-color: var(--amarelo-destaque);
+  color: var(--branco);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(7, 27, 73, 0.25);
 }
+
 /* =========================================================
    13. RESPONSIVIDADE
 ========================================================= */
