@@ -39,7 +39,7 @@
 .projetos-introducao p:not(.eyebrow):not(.texto-observacao) {
   max-width: 760px;
   margin-bottom: 18px;
-  color: var(--amarelo-destaque);
+  color: #000;
   font-size: 17px;
   line-height: 1.8;
 }
@@ -97,6 +97,11 @@
     transform var(--transicao),
     box-shadow var(--transicao),
     border-color var(--transicao);
+}
+
+.projetos-hero .eyebrow {
+  background: transparent;
+  color: var(--vermelho);
 }
 
 .projeto-detalhe:hover {
@@ -477,7 +482,7 @@
 .projetos-chamada p:not(.eyebrow) {
   margin-bottom: 28px;
 
-  color: var(--amarelo-destaque);
+  color: #000;
 
   font-size: 17px;
   line-height: 1.7;

@@ -1125,7 +1125,7 @@ p {
 .apoie p:not(.eyebrow) {
   margin-bottom: 28px;
 
-  color: var(--amarelo-destaque);
+  color: var(--azul-suave);
 
   font-size: 18px;
 }
@@ -5361,4 +5361,35 @@ body.alto-contraste-ativo a.conquista-card__link:focus-visible {
 
 body.alto-contraste-ativo .documento-descricao {
   color: #000 !important;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — CHAMADA FINAL DA PÁGINA CONTATO
+========================================================= */
+
+body.alto-contraste-ativo .contato-chamada {
+  background: #000;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .contato-chamada h2,
+body.alto-contraste-ativo .contato-chamada p:not(.eyebrow) {
+  color: #fff !important;
+}
+
+body.alto-contraste-ativo .contato-chamada .eyebrow {
+  color: var(--amarelo-destaque) !important;
+}
+
+body.alto-contraste-ativo .contato-chamada .botao {
+  background: var(--amarelo-destaque) !important;
+  color: #000 !important;
+  border-color: var(--amarelo-destaque) !important;
+}
+
+body.alto-contraste-ativo .contato-chamada .botao:hover,
+body.alto-contraste-ativo .contato-chamada .botao:focus-visible {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
 }
