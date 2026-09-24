@@ -306,7 +306,7 @@
 
 .desenvolvimento__texto p:not(.eyebrow) {
   margin-bottom: 18px;
-  color: var(--cinza);
+  color: var(--amarelo-destaque);
   font-size: 17px;
   line-height: 1.8;
   font-style: oblique;
@@ -471,7 +471,7 @@
 
 .oportunidades__texto p:not(.eyebrow) {
   margin-bottom: 18px;
-  color: var(--cinza);
+  color: var(--amarelo-destaque);
   font-size: 17px;
   line-height: 1.8;
   font-style: oblique;
@@ -633,7 +633,7 @@
 
 .atleta-historico__texto p:not(.eyebrow) {
   margin-bottom: 17px;
-  color: var(--cinza);
+  color: var(--amarelo-destaque);
   font-size: 17px;
   line-height: 1.8;
   font-style: oblique;

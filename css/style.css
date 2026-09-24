@@ -1125,7 +1125,7 @@ p {
 .apoie p:not(.eyebrow) {
   margin-bottom: 28px;
 
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--amarelo-destaque);
 
   font-size: 18px;
 }
@@ -2531,12 +2531,12 @@ body.alto-contraste-ativo .mapa-placeholder span {
 
 body.alto-contraste-ativo .contato-chamada {
   background: #000;
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 body.alto-contraste-ativo .contato-chamada h2,
 body.alto-contraste-ativo .contato-chamada p:not(.eyebrow) {
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 /* =========================================================
@@ -2633,7 +2633,7 @@ body.alto-contraste-ativo .projetos-introducao h2 {
 body.alto-contraste-ativo
   .projetos-introducao
   p:not(.eyebrow):not(.texto-observacao) {
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 /* Caixa de observação */
@@ -3171,7 +3171,7 @@ body.alto-contraste-ativo .noticias-chamada h2 {
 }
 
 body.alto-contraste-ativo .noticias-chamada p:not(.eyebrow) {
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 /* Botão */
@@ -3216,7 +3216,7 @@ body.alto-contraste-ativo .transparencia-introducao h2 {
 }
 
 body.alto-contraste-ativo .transparencia-introducao p:not(.eyebrow) {
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 /* CATEGORIAS
@@ -3364,15 +3364,15 @@ body.alto-contraste-ativo .botao-documento:focus-visible {
 
 body.alto-contraste-ativo .transparencia-chamada {
   background: #000;
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 body.alto-contraste-ativo .transparencia-chamada h2 {
-  color: #fff;
+  ccolor: var(--amarelo-destaque);
 }
 
 body.alto-contraste-ativo .transparencia-chamada p:not(.eyebrow) {
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 body.alto-contraste-ativo .transparencia-chamada .botao {
@@ -3495,15 +3495,15 @@ body.alto-contraste-ativo .parceiro-card img {
 
 body.alto-contraste-ativo .parceiros-cta {
   background: #000;
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 body.alto-contraste-ativo .parceiros-cta h2 {
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 body.alto-contraste-ativo .parceiros-cta__conteudo p:not(.eyebrow) {
-  color: #fff;
+  color: var(--amarelo-destaque);
 }
 
 /* Botão */
@@ -4032,7 +4032,7 @@ body {
 
 .conteudo-metricas .metrica:not(.metrica--curtida) {
   background: #e2eaf3;
-  color: #1473d4;
+  color: var(--amarelo-destaque);
   border: solid 1px rgb(211, 177, 245);
 }
 
@@ -4626,7 +4626,7 @@ body {
 
   .destaque-atleta__texto p:not(.destaque-atleta__rotulo) {
     margin-bottom: 18px;
-    color: var(--texto);
+    color: var(--amarelo-destaque);
     line-height: 1.8;
   }
 
@@ -5074,14 +5074,15 @@ body {
 }
 
 .conquista-card > span:not(.conquista-card__link) {
-  color: var(--cinza-escuro);
+  color: var(--azul);
   font-size: 16px;
   line-height: 1.5;
+  font-weight: bold;
 }
 
 .conquista-card__link {
   margin-top: 18px;
-  color: var(--vermelho);
+  color: var(--amarelo-destaque);
   font-weight: 700;
   font-size: 14px;
 }
@@ -5209,7 +5210,7 @@ body {
 
 .destaque-atleta__texto p:not(.destaque-atleta__rotulo) {
   margin-bottom: 18px;
-  color: var(--cinza);
+  color: var(--amarelo-destaque);
   font-size: 17px;
   line-height: 1.8;
   font-weight: bolder;
@@ -5301,4 +5302,63 @@ body {
   body.alto-contraste-ativo .botao-menu span {
     background-color: var(--vermelho) !important;
   }
+}
+
+/* =========================================================
+   ALTO CONTRASTE — CONQUISTAS 2025
+========================================================= */
+
+body.alto-contraste-ativo .conquista-card {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .conquista-card strong {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .conquista-card > span:not(.conquista-card__link) {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .conquista-card__link {
+  color: var(--amarelo-destaque) !important;
+  text-decoration: underline;
+}
+
+body.alto-contraste-ativo .conquista-card__link:hover,
+body.alto-contraste-ativo .conquista-card__link:focus-visible {
+  color: #000 !important;
+  background: var(--amarelo-destaque);
+}
+
+body.alto-contraste-ativo .conquista-card__icone {
+  background: #000;
+  color: var(--amarelo-destaque);
+  border: 2px solid #fff;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — LINK DAS CONQUISTAS
+========================================================= */
+
+body.alto-contraste-ativo a.conquista-card__link {
+  color: #ffff00 !important;
+  text-decoration: underline !important;
+}
+
+body.alto-contraste-ativo a.conquista-card__link:hover,
+body.alto-contraste-ativo a.conquista-card__link:focus-visible {
+  color: #000000 !important;
+  background: #ffff00 !important;
+}
+
+/* =========================================================
+   ALTO CONTRASTE — DESCRIÇÃO DOS DOCUMENTOS
+========================================================= */
+
+body.alto-contraste-ativo .documento-descricao {
+  color: #000 !important;
 }

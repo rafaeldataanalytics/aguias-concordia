@@ -39,7 +39,7 @@
 .projetos-introducao p:not(.eyebrow):not(.texto-observacao) {
   max-width: 760px;
   margin-bottom: 18px;
-  color: var(--cinza-escuro);
+  color: var(--amarelo-destaque);
   font-size: 17px;
   line-height: 1.8;
 }
@@ -477,7 +477,7 @@
 .projetos-chamada p:not(.eyebrow) {
   margin-bottom: 28px;
 
-  color: var(--cinza);
+  color: var(--amarelo-destaque);
 
   font-size: 17px;
   line-height: 1.7;
