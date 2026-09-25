@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form");
 
   if (!form) return;
@@ -39,10 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-/* ==========================
-   FEEDBACK VISUAL
-========================== */
 function mostrarMensagem(texto, tipo) {
   let msg = document.querySelector(".msg-form");
 
@@ -60,3 +56,19 @@ function mostrarMensagem(texto, tipo) {
     msg.remove();
   }, 4000);
 }
+*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("form");
+
+  if (!form) return;
+
+  form.addEventListener("submit", () => {
+    const botao = form.querySelector('button[type="submit"]');
+
+    if (!botao) return;
+
+    botao.disabled = true;
+    botao.innerText = "Enviando...";
+  });
+});
