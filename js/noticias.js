@@ -2,6 +2,7 @@
    ÁGUIAS DE CONCÓRDIA
    NOTÍCIAS — GOOGLE SHEETS + DESTAQUE + FILTROS
    + PAGINAÇÃO + HOME + GOOGLE DRIVE
+   + INTERAÇÕES GOOGLE SHEETS
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -100,17 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     FORMATAR RESUMO DAS NOTÍCIAS - 10-09-2026
-
-     - Notícia comum: mantém parágrafos
-     - Notícia com "JOGOS:": cria destaque automático
-  ========================================================= */
-
-  /* =========================================================
      FORMATAR RESUMO DAS NOTÍCIAS
-
-     - Notícia comum: mantém o comportamento atual
-     - Notícia com "JOGOS:": cria destaque automático
   ========================================================= */
 
   function formatarResumo(texto) {
@@ -127,26 +118,26 @@ document.addEventListener("DOMContentLoaded", () => {
       (linha) => normalizar(linha) === "jogos:",
     );
 
-    // =========================================================
-    // NOTÍCIA NORMAL
-    // =========================================================
+    /* =========================================================
+       NOTÍCIA NORMAL
+    ========================================================= */
 
     if (indiceJogos === -1) {
       return linhas.map((linha) => `<p>${escaparHTML(linha)}</p>`).join("");
     }
 
-    // =========================================================
-    // INTRODUÇÃO
-    // =========================================================
+    /* =========================================================
+       INTRODUÇÃO
+    ========================================================= */
 
     const introducao = linhas
       .slice(0, indiceJogos)
       .map((linha) => `<p>${escaparHTML(linha)}</p>`)
       .join("");
 
-    // =========================================================
-    // JOGOS
-    // =========================================================
+    /* =========================================================
+       JOGOS
+    ========================================================= */
 
     const linhasJogos = linhas.slice(indiceJogos + 1);
 
@@ -155,40 +146,31 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < linhasJogos.length; i++) {
       const linha = linhasJogos[i];
 
-      /*
-      Formato ideal:
-
-      12/09/2026 | 15:00 | Joinville - SC
-      CEPE Raposas do Sul Joinville × Águias Sesport Concórdia
-    */
-
       const partes = linha.split("|").map((parte) => parte.trim());
 
       if (partes.length === 3) {
         const data = partes[0];
+
         const hora = partes[1];
+
         let local = partes[2];
+
         let confronto = "";
 
         const proximaLinha = linhasJogos[i + 1];
 
-        /*
-        Caso o confronto esteja na próxima linha.
-      */
         if (proximaLinha && !proximaLinha.includes("|")) {
           confronto = proximaLinha;
+
           i++;
         }
 
-        /*
-        Caso o Google Sheets tenha juntado
-        local + confronto na mesma linha.
-      */
         if (!confronto) {
           const matchLocal = local.match(/^(.+?\s-\s[A-Z]{2})\s+(.+)$/);
 
           if (matchLocal) {
             local = matchLocal[1].trim();
+
             confronto = matchLocal[2].trim();
           }
         }
@@ -204,17 +186,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // =========================================================
-    // SEGURANÇA
-    // =========================================================
+    /* =========================================================
+       SEGURANÇA
+    ========================================================= */
 
     if (jogos.length === 0) {
       return linhas.map((linha) => `<p>${escaparHTML(linha)}</p>`).join("");
     }
 
-    // =========================================================
-    // MONTAR BLOCOS
-    // =========================================================
+    /* =========================================================
+       MONTAR BLOCOS
+    ========================================================= */
 
     const blocosJogos = jogos
       .map(
@@ -268,8 +250,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================================================
      LER CSV
-
-     Suporta vírgulas dentro de textos entre aspas.
   ========================================================= */
 
   function lerCSV(texto) {
@@ -286,8 +266,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const proximo = texto[i + 1];
 
-      /* Aspas duplas dentro de campo */
-
       if (caractere === '"' && dentroDeAspas && proximo === '"') {
         valor += '"';
 
@@ -296,15 +274,11 @@ document.addEventListener("DOMContentLoaded", () => {
         continue;
       }
 
-      /* Abre ou fecha campo entre aspas */
-
       if (caractere === '"') {
         dentroDeAspas = !dentroDeAspas;
 
         continue;
       }
-
-      /* Separador de coluna */
 
       if (caractere === "," && !dentroDeAspas) {
         linha.push(valor);
@@ -313,8 +287,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         continue;
       }
-
-      /* Quebra de linha */
 
       if ((caractere === "\n" || caractere === "\r") && !dentroDeAspas) {
         if (caractere === "\r" && proximo === "\n") {
@@ -337,8 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
       valor += caractere;
     }
 
-    /* Último registro */
-
     if (valor !== "" || linha.length > 0) {
       linha.push(valor);
 
@@ -351,11 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return [];
     }
 
-    /* Cabeçalhos */
-
     const cabecalhos = linhas[0].map((coluna) => normalizar(coluna));
-
-    /* Registros */
 
     return linhas.slice(1).map((valores) => {
       const registro = {};
@@ -370,10 +336,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================================================
      NORMALIZAR DATA
-
-     Aceita:
-     2026-08-27
-     27/08/2026
   ========================================================= */
 
   function normalizarData(data) {
@@ -383,13 +345,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return "";
     }
 
-    /* Formato ISO */
-
     if (/^\d{4}-\d{2}-\d{2}$/.test(valor)) {
       return valor;
     }
-
-    /* Formato brasileiro */
 
     if (/^\d{2}\/\d{2}\/\d{4}$/.test(valor)) {
       const [dia, mes, ano] = valor.split("/");
@@ -429,8 +387,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return {
       curtidas: interacao?.curtidas ?? 0,
+
       visualizacoes: interacao?.visualizacoes ?? 0,
     };
+  }
+
+  /* =========================================================
+     API — REGISTRAR INTERAÇÃO
+  ========================================================= */
+
+  const API_INTERACOES =
+    "https://script.google.com/macros/s/AKfycbx8NEsynuzAjwGf9lmW2j4ZmCjSdLg1E7Z2NeU5VqHhFTDgLe3xwBTz6at4Hl_GhhNu/exec";
+
+  async function enviarInteracao(acao, idNoticia) {
+    try {
+      const resposta = await fetch(API_INTERACOES, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify({
+          acao: acao,
+          id_noticia: idNoticia,
+        }),
+      });
+
+      const dados = await resposta.json();
+
+      if (!dados.sucesso) {
+        throw new Error(dados.erro || "Erro ao registrar interação.");
+      }
+
+      console.log(`Interação registrada: ${acao} — ${idNoticia}`);
+
+      console.log("Totais oficiais:", {
+        curtidas: dados.curtidas,
+        visualizacoes: dados.visualizacoes,
+      });
+
+      return dados;
+    } catch (erro) {
+      console.error(`Erro ao registrar ${acao}:`, erro);
+
+      return null;
+    }
   }
 
   /* =========================================================
@@ -452,22 +452,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const titulo = escaparHTML(noticia.titulo);
 
-    /* const resumo = escaparHTML(noticia.resumo);*/
-    /*const resumo = formatarResumo(noticia.resumo);*/
     const resumo = usarFormatoJogos
       ? formatarResumo(noticia.resumo)
       : `<p>${escaparHTML(noticia.resumo.split(/\r?\n/)[0])}</p>`;
 
     const imagem = escaparHTML(converterImagemDrive(noticia.imagem));
 
-    /*const link = escaparHTML(noticia.link);*/
     const linkBase = noticia.link || "noticias.html";
+
     const separador = linkBase.includes("?") ? "&" : "?";
+
     const link = escaparHTML(
       `${linkBase}${separador}id=${encodeURIComponent(noticia.id)}`,
     );
 
     artigo.innerHTML = `
+
       <div class="noticia-card__imagem">
 
         <img
@@ -478,11 +478,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       </div>
 
+
       <div class="noticia-card__conteudo">
 
         <span class="noticia-card__categoria">
           ${categoria}
         </span>
+
 
         <time
           class="noticia-data"
@@ -491,13 +493,16 @@ document.addEventListener("DOMContentLoaded", () => {
           ${formatarData(noticia.data)}
         </time>
 
+
         <h3>
           ${titulo}
         </h3>
 
-      <div class="noticia-resumo">
-        ${resumo}
-      </div>
+
+        <div class="noticia-resumo">
+          ${resumo}
+        </div>
+
 
         <div
           class="conteudo-metricas"
@@ -520,6 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           </button>
 
+
           <span
             class="metrica"
             aria-label="${interacoes.visualizacoes} visualizações"
@@ -537,6 +543,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         </div>
 
+
         <a
           href="${link}"
           class="noticia-card__link"
@@ -545,14 +552,15 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
 
       </div>
+
     `;
 
     return artigo;
   }
 
   /* =========================================================
-   CURTIDAS — PERSISTÊNCIA LOCAL
-========================================================= */
+     CURTIDAS — GOOGLE SHEETS + CONTROLE LOCAL
+  ========================================================= */
 
   function ativarCurtidas() {
     const CHAVE_CURTIDAS = "aguiasCurtidas";
@@ -561,9 +569,6 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.getItem(CHAVE_CURTIDAS) || "[]",
     );
 
-    /*
-    Aplica as curtidas já registradas no navegador
-  */
     document.querySelectorAll(".metrica--curtida").forEach((botao) => {
       const elemento = botao.closest("[data-noticia-id]");
 
@@ -578,32 +583,37 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (curtidasSalvas.includes(idNoticia)) {
-        const valor = botao.querySelector(".metrica__valor");
-
-        if (valor) {
-          const interacao = window.interacoesPorNoticia?.[idNoticia];
-
-          const curtidasBase = interacao?.curtidas ?? 0;
-
-          valor.textContent = curtidasBase + 1;
-        }
-
         botao.classList.add("curtida-ativa");
 
         botao.setAttribute("aria-label", "Notícia curtida");
       }
 
-      /*
-      Evita adicionar o evento duas vezes
-    */
       if (botao.dataset.curtidaAtivada === "true") {
         return;
       }
 
       botao.dataset.curtidaAtivada = "true";
 
-      botao.addEventListener("click", () => {
+      botao.addEventListener("click", async () => {
         if (curtidasSalvas.includes(idNoticia)) {
+          return;
+        }
+
+        if (botao.dataset.curtidaEnviando === "true") {
+          return;
+        }
+
+        botao.dataset.curtidaEnviando = "true";
+
+        botao.disabled = true;
+
+        const dados = await enviarInteracao("curtir", idNoticia);
+
+        if (!dados) {
+          botao.dataset.curtidaEnviando = "false";
+
+          botao.disabled = false;
+
           return;
         }
 
@@ -611,9 +621,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem(CHAVE_CURTIDAS, JSON.stringify(curtidasSalvas));
 
-        /*
-        Atualiza todos os elementos dessa mesma notícia
-      */
+        if (!window.interacoesPorNoticia) {
+          window.interacoesPorNoticia = {};
+        }
+
+        if (!window.interacoesPorNoticia[idNoticia]) {
+          window.interacoesPorNoticia[idNoticia] = {
+            curtidas: 0,
+
+            visualizacoes: 0,
+          };
+        }
+
+        window.interacoesPorNoticia[idNoticia].curtidas = dados.curtidas;
+
+        const novoTotal = dados.curtidas;
+
         document
           .querySelectorAll(
             `[data-noticia-id="${idNoticia}"] .metrica--curtida`,
@@ -621,138 +644,140 @@ document.addEventListener("DOMContentLoaded", () => {
           .forEach((outroBotao) => {
             const valor = outroBotao.querySelector(".metrica__valor");
 
-            if (!valor) {
-              return;
+            if (valor) {
+              valor.textContent = novoTotal;
             }
-
-            const interacao = window.interacoesPorNoticia?.[idNoticia];
-
-            const curtidasBase = interacao?.curtidas ?? 0;
-
-            valor.textContent = curtidasBase + 1;
 
             outroBotao.classList.add("curtida-ativa");
 
             outroBotao.setAttribute("aria-label", "Notícia curtida");
+
+            outroBotao.disabled = true;
           });
+
+        botao.dataset.curtidaEnviando = "false";
       });
     });
   }
 
   /* =========================================================
-   VISUALIZAÇÕES — PERSISTÊNCIA LOCAL
-========================================================= */
+     VISUALIZAÇÕES — GOOGLE SHEETS
+     
+     A visualização é registrada quando a notícia
+     é efetivamente aberta.
+  ========================================================= */
 
-  function ativarVisualizacoes() {
-    const CHAVE_VISUALIZACOES = "aguiasVisualizacoes";
+  async function registrarVisualizacaoAtual() {
+    /*
+      Descobrir se existe uma notícia
+      específica na URL.
+    */
 
-    let visualizacoesSalvas = JSON.parse(
-      localStorage.getItem(CHAVE_VISUALIZACOES) || "{}",
-    );
+    const parametros = new URLSearchParams(window.location.search);
+
+    const idNoticia = parametros.get("id");
 
     /*
-    RESTAURAR VISUALIZAÇÕES
-  */
+      Se não existe ?id=...
+      estamos na listagem/Home.
+    */
 
-    document.querySelectorAll("[data-noticia-id]").forEach((elemento) => {
-      const idNoticia = elemento.dataset.noticiaId;
-
-      if (!idNoticia) {
-        return;
-      }
-
-      const interacao = window.interacoesPorNoticia?.[idNoticia];
-
-      const visualizacoesBase = interacao?.visualizacoes ?? 0;
-
-      const visualizacoesLocais = visualizacoesSalvas[idNoticia] ?? 0;
-
-      const valor = elemento.querySelector(
-        ".metrica:not(.metrica--curtida) .metrica__valor",
-      );
-
-      if (valor) {
-        valor.textContent = visualizacoesBase + visualizacoesLocais;
-      }
-    });
-
-    /*
-    EVITAR DUPLICAR O EVENTO
-  */
-
-    if (document.body.dataset.visualizacoesAtivadas === "true") {
+    if (!idNoticia) {
       return;
     }
 
-    document.body.dataset.visualizacoesAtivadas = "true";
-
     /*
-    REGISTRAR VISUALIZAÇÃO
-  */
-
-    document.addEventListener("click", (evento) => {
-      const link = evento.target.closest("[data-noticia-id] a");
-
-      if (!link) {
-        return;
-      }
-
-      const elemento = link.closest("[data-noticia-id]");
-
-      if (!elemento) {
-        return;
-      }
-
-      const idNoticia = elemento.dataset.noticiaId;
-
-      if (!idNoticia) {
-        return;
-      }
-
-      const interacao = window.interacoesPorNoticia?.[idNoticia];
-
-      const visualizacoesBase = interacao?.visualizacoes ?? 0;
-
-      const visualizacoesLocais = visualizacoesSalvas[idNoticia] ?? 0;
-
-      const novasVisualizacoes = visualizacoesLocais + 1;
-
-      visualizacoesSalvas[idNoticia] = novasVisualizacoes;
-
-      localStorage.setItem(
-        CHAVE_VISUALIZACOES,
-        JSON.stringify(visualizacoesSalvas),
-      );
-
-      /*
-      ATUALIZAR TODOS OS CARDS DA MESMA NOTÍCIA
+      Evita registrar duas vezes
+      durante a mesma execução da página.
     */
 
-      document
-        .querySelectorAll(`[data-noticia-id="${idNoticia}"]`)
-        .forEach((outroElemento) => {
-          const outroValor = outroElemento.querySelector(
-            ".metrica:not(.metrica--curtida) .metrica__valor",
-          );
+    if (document.body.dataset.visualizacaoRegistrada === "true") {
+      return;
+    }
 
-          if (outroValor) {
-            outroValor.textContent = visualizacoesBase + novasVisualizacoes;
-          }
-        });
-    });
+    /*
+      Verificar se a notícia existe
+      entre as notícias ativas.
+    */
+
+    const noticia = noticias.find((item) => item.id === idNoticia);
+
+    if (!noticia) {
+      console.warn("Notícia não encontrada para visualização:", idNoticia);
+
+      return;
+    }
+
+    document.body.dataset.visualizacaoRegistrada = "true";
+
+    console.log(`Registrando visualização: ${idNoticia}`);
+
+    const dados = await enviarInteracao("visualizar", idNoticia);
+
+    if (!dados) {
+      /*
+        Se falhar, libera para uma
+        nova tentativa.
+      */
+
+      document.body.dataset.visualizacaoRegistrada = "false";
+
+      return;
+    }
+
+    /*
+      Atualizar contador em memória.
+    */
+
+    if (!window.interacoesPorNoticia) {
+      window.interacoesPorNoticia = {};
+    }
+
+    if (!window.interacoesPorNoticia[idNoticia]) {
+      window.interacoesPorNoticia[idNoticia] = {
+        curtidas: 0,
+
+        visualizacoes: 0,
+      };
+    }
+
+    window.interacoesPorNoticia[idNoticia].visualizacoes = dados.visualizacoes;
+
+    const novoTotal = dados.visualizacoes;
+
+    /*
+      Atualizar todos os elementos
+      da notícia na página.
+    */
+
+    document
+      .querySelectorAll(`[data-noticia-id="${idNoticia}"]`)
+      .forEach((elemento) => {
+        const valor = elemento.querySelector(
+          ".metrica:not(.metrica--curtida) .metrica__valor",
+        );
+
+        if (valor) {
+          valor.textContent = novoTotal;
+        }
+      });
+
+    console.log(
+      `Visualização registrada: ${idNoticia} — total local: ${novoTotal}`,
+    );
   }
 
   /* =========================================================
-     DESTAQUE — NOTÍCIA MAIS RECENTE
-  ========================================================= */
+   DESTAQUE — NOTÍCIA MAIS RECENTE
+========================================================= */
+
   function mostrarDestaque() {
     if (!destaqueCard || noticias.length === 0) {
       return;
     }
 
-    /*const noticiaDestaque = noticias[0];*/
-
     const parametros = new URLSearchParams(window.location.search);
+
     const idSelecionado = parametros.get("id");
 
     const noticiaDestaque =
@@ -766,15 +791,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const titulo = escaparHTML(noticiaDestaque.titulo);
 
-    /*const resumo = escaparHTML(noticiaDestaque.resumo);*/
-    /*const resumo = formatarResumo(noticia.resumo);*/
     const resumo = formatarResumo(noticiaDestaque.resumo);
 
     const imagem = escaparHTML(converterImagemDrive(noticiaDestaque.imagem));
 
-    /*const link = escaparHTML(noticiaDestaque.link);*/
     const linkBase = noticiaDestaque.link || "noticias.html";
+
     const separador = linkBase.includes("?") ? "&" : "?";
+
     const link = escaparHTML(
       `${linkBase}${separador}id=${encodeURIComponent(noticiaDestaque.id)}`,
     );
@@ -782,6 +806,7 @@ document.addEventListener("DOMContentLoaded", () => {
     destaqueCard.dataset.noticiaId = id;
 
     destaqueCard.innerHTML = `
+
     <div class="destaque-card__imagem">
 
       <img
@@ -791,11 +816,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     </div>
 
+
     <div class="destaque-card__conteudo">
 
       <span class="noticia-card__categoria">
         ${categoria}
       </span>
+
 
       <time
         class="noticia-data"
@@ -804,13 +831,16 @@ document.addEventListener("DOMContentLoaded", () => {
         ${formatarData(noticiaDestaque.data)}
       </time>
 
+
       <h3>
         ${titulo}
       </h3>
 
-     <div class="noticia-resumo">
-      ${resumo}
+
+      <div class="noticia-resumo">
+        ${resumo}
       </div>
+
 
       <div
         class="conteudo-metricas"
@@ -833,6 +863,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         </button>
 
+
         <span
           class="metrica"
           aria-label="${interacoes.visualizacoes} visualizações"
@@ -850,6 +881,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       </div>
 
+
       <a
         href="${link}"
         class="botao botao--secundario"
@@ -858,6 +890,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </a>
 
     </div>
+
   `;
   }
 
@@ -871,9 +904,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const noticiasRecentes = [...noticias]
-      .sort((a, b) => {
-        return new Date(b.data) - new Date(a.data);
-      })
+      .sort((a, b) => new Date(b.data) - new Date(a.data))
       .slice(0, 3);
 
     listaNoticiasHome.innerHTML = "";
@@ -904,14 +935,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    return resultado.sort((a, b) => {
-      return new Date(b.data) - new Date(a.data);
-    });
+    return resultado.sort((a, b) => new Date(b.data) - new Date(a.data));
   }
 
   /* =========================================================
-   MOSTRAR NOTÍCIAS
-========================================================= */
+     MOSTRAR NOTÍCIAS
+  ========================================================= */
 
   function mostrarNoticias() {
     if (!listaNoticias) {
@@ -934,10 +963,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ativarCurtidas();
 
-    ativarVisualizacoes();
-
     atualizarPaginacao(filtradas.length);
   }
+
   /* =========================================================
      PAGINAÇÃO
   ========================================================= */
@@ -1102,9 +1130,7 @@ document.addEventListener("DOMContentLoaded", () => {
          ORDENAR — MAIS RECENTE PRIMEIRO
       ===================================================== */
 
-      noticias.sort((a, b) => {
-        return new Date(b.data) - new Date(a.data);
-      });
+      noticias.sort((a, b) => new Date(b.data) - new Date(a.data));
 
       console.log("Notícias ativas:", noticias);
 
@@ -1120,7 +1146,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       ativarCurtidas();
 
-      ativarVisualizacoes();
+      /*
+        Registrar visualização somente
+        quando houver ?id=...
+      */
+
+      await registrarVisualizacaoAtual();
     } catch (erro) {
       console.error("Erro ao carregar notícias:", erro);
 
@@ -1135,32 +1166,44 @@ document.addEventListener("DOMContentLoaded", () => {
   function mostrarErro() {
     if (listaNoticias) {
       listaNoticias.innerHTML = `
+
         <div class="documentos-vazio">
+
           <p>
             Não foi possível carregar as notícias.
           </p>
+
         </div>
+
       `;
     }
 
     if (listaNoticiasHome) {
       listaNoticiasHome.innerHTML = `
+
         <div class="documentos-vazio">
+
           <p>
             Não foi possível carregar as notícias.
           </p>
+
         </div>
+
       `;
     }
 
     if (destaqueCard) {
       destaqueCard.innerHTML = `
+
         <div class="destaque-card__conteudo">
+
           <p>
             Não foi possível carregar
             a notícia em destaque.
           </p>
+
         </div>
+
       `;
     }
   }
@@ -1171,17 +1214,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("interacoesCarregadas", () => {
     mostrarDestaque();
+
     mostrarNoticias();
+
     mostrarNoticiasHome();
 
-    if (window.interacoesPorNoticia) {
-      mostrarDestaque();
-      mostrarNoticias();
-      mostrarNoticiasHome();
-      ativarCurtidas();
-
-      ativarVisualizacoes();
-    }
+    ativarCurtidas();
   });
 
   /* =========================================================
@@ -1189,6 +1227,4 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================================================= */
 
   carregarNoticias();
-
-  ativarVisualizacoes();
 });

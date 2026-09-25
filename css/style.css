@@ -1131,7 +1131,7 @@ p {
 }
 
 /* =========================================================
-   13. PARCEIROS
+   13. PARCEIROS — HOME
 ========================================================= */
 
 .parceiros {
@@ -1140,16 +1140,8 @@ p {
   border-top: 1px solid var(--borda);
 }
 
-.parceiros__lista {
-  display: flex;
-  gap: 25px;
-  width: max-content;
-  margin-top: 0;
-  animation: parceiros-rodando 120s linear infinite;
-}
-/* =========================================================
-   PARCEIROS — CARROSSEL
-========================================================= */
+/* Área do carrossel */
+
 .parceiros-carrossel {
   width: 100%;
   overflow: hidden;
@@ -1161,18 +1153,112 @@ p {
   overflow: hidden;
 }
 
-.parceiros-carrossel__botao {
-  flex: 0 0 auto;
-  width: 42px;
-  height: 42px;
+/* Lista */
+
+.parceiros__lista {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+
+  width: max-content !important;
+
+  gap: 25px;
+  margin-top: 0;
+
+  animation: parceiros-rodando 120s linear infinite;
+}
+
+/* =========================================================
+   CARD DO PARCEIRO
+========================================================= */
+
+.parceiro-logo {
+  flex: 0 0 240px !important;
+
+  width: 240px;
+  min-width: 240px;
+
+  height: 135px;
+  min-height: 135px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  padding: 10px;
+
+  box-sizing: border-box;
+
+  background: var(--branco);
+
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+
+  box-shadow: 0 4px 15px rgba(7, 27, 73, 0.06);
+
+  transition:
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.parceiro-logo img {
+  display: block;
+
+  width: 100%;
+  height: 115px;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.parceiro-logo:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 22px rgba(7, 27, 73, 0.12);
+}
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes parceiros-rodando {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   BOTÕES DO CARROSSEL
+========================================================= */
+
+.parceiros-carrossel__botao {
+  flex: 0 0 auto;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: 1px solid var(--borda);
   border-radius: 50%;
+
   background: var(--branco);
   color: var(--azul);
+
   cursor: pointer;
+
   transition:
     background-color var(--transicao),
     color var(--transicao),
@@ -1199,42 +1285,8 @@ p {
   transform: none;
 }
 
-.parceiro-logo {
-  flex: 0 0 220px;
-  min-height: 105px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  background: var(--branco);
-  border: 1px solid var(--borda);
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(7, 27, 73, 0.06);
-}
-
-.parceiro-logo:hover {
-  transform: translateY(-3px);
-
-  box-shadow: 0 8px 22px rgba(7, 27, 73, 0.12);
-}
-
-.parceiro-logo img {
-  width: 100%;
-  height: 80px;
-  object-fit: contain;
-}
-
-@keyframes parceiros-rodando {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* =========================================================
-   PARCEIROS — CARROSSEL MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 800px) {
@@ -1249,37 +1301,54 @@ p {
   }
 
   .parceiros__lista {
-    display: flex;
-    width: max-content;
     gap: 20px;
-    margin-top: 0;
 
-    animation: parceiros-rodando 60s linear infinite;
+    animation: parceiros-rodando 120s linear infinite;
   }
 
   .parceiro-logo {
-    flex: 0 0 180px;
-    width: 180px;
-    min-height: 105px;
+    flex: 0 0 200px !important;
+
+    width: 200px;
+    min-width: 200px;
+
+    height: 125px;
+    min-height: 125px;
+
+    padding: 8px;
   }
 
   .parceiro-logo img {
     width: 100%;
-    height: 75px;
-    object-fit: contain;
-  }
-}
-
-@media (max-width: 480px) {
-  .parceiro-logo {
-    flex: 0 0 160px;
-    width: 160px;
+    height: 108px;
   }
 }
 
 /* =========================================================
-   PARCEIROS — CORREÇÃO NO ALTO CONTRASTE
-   Somente na Home
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 480px) {
+  .parceiro-logo {
+    flex: 0 0 180px !important;
+
+    width: 180px;
+    min-width: 180px;
+
+    height: 115px;
+    min-height: 115px;
+
+    padding: 7px;
+  }
+
+  .parceiro-logo img {
+    width: 100%;
+    height: 100px;
+  }
+}
+
+/* =========================================================
+   ALTO CONTRASTE
 ========================================================= */
 
 body.alto-contraste-ativo .parceiro-logo {
