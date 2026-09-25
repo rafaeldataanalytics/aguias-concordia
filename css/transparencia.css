@@ -577,3 +577,79 @@
     transform: rotate(360deg);
   }
 }
+
+/* =========================================
+   SUB-ABAS — PROJETOS
+========================================= */
+
+.projetos-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.projetos-status__botao {
+  min-height: 44px;
+  padding: 10px 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-pequeno);
+
+  background: var(--branco);
+  color: var(--azul);
+
+  font-family: var(--fonte-corpo);
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transicao),
+    color var(--transicao),
+    border-color var(--transicao),
+    transform var(--transicao),
+    box-shadow var(--transicao);
+}
+
+.projetos-status__botao:hover {
+  border-color: var(--azul);
+  background: #f4f8fc;
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-suave);
+}
+
+.projetos-status__botao:focus-visible {
+  outline: 3px solid var(--vermelho);
+  outline-offset: 2px;
+}
+
+.projetos-status__botao.ativo {
+  background: var(--azul);
+  border-color: var(--azul);
+  color: var(--branco);
+}
+
+/* =========================================
+   RESPONSIVIDADE — SUB-ABAS
+========================================= */
+
+@media (max-width: 600px) {
+  .projetos-status {
+    flex-direction: column;
+  }
+
+  .projetos-status__botao {
+    width: 100%;
+  }
+}
+
+.projetos-status[hidden] {
+  display: none;
+}

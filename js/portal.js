@@ -8,6 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     "2PACX-1vTmOu4NYHC7VKHJHCcnyoLmPywh4v2q31C6JP8KmV10yjL8ZLKBzmzck-DJNcUot5wzAAYKxoTsnP9C" +
     "/pub?gid=0&single=true&output=csv";
 
+  const CSV_URL_PROJETOS =
+    "https://docs.google.com/spreadsheets/d/e/" +
+    "2PACX-1vTmOu4NYHC7VKHJHCcnyoLmPywh4v2q31C6JP8KmV10yjL8ZLKBzmzck-DJNcUot5wzAAYKxoTsnP9C" +
+    "/pub?gid=1124721691&single=true&output=csv";
+
   /* =========================================
      ELEMENTOS
   ========================================= */
@@ -26,6 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const grupoDocumentos = document.getElementById("grupo-documentos");
 
+  const projetosStatus = document.getElementById("projetos-status");
+  const botoesStatusProjeto = document.querySelectorAll(
+    ".projetos-status__botao",
+  );
+
   /* =========================================
      ESTADO INICIAL
   ========================================= */
@@ -33,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let categoriaAtual = null;
 
   let documentosCarregados = [];
+
+  let statusProjetoAtual = null;
 
   /* =========================================
    ATUALIZAR FILTRO DE ANO
@@ -252,6 +264,10 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================================= */
 
   function mostrarEstadoInicial() {
+    if (projetosStatus) {
+      projetosStatus.hidden = true;
+    }
+
     if (tituloCategoria) {
       tituloCategoria.textContent = "Documentos disponíveis";
     }
@@ -523,9 +539,52 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderizar(documentos) {
     if (!categoriaAtual) {
       mostrarEstadoInicial();
+      return;
+    }
+
+    /* =========================================
+     PROJETOS
+     ========================================= */
+
+    if (categoriaAtual === "Projetos") {
+      if (!statusProjetoAtual) {
+        if (tituloCategoria) {
+          tituloCategoria.textContent = "Projetos";
+        }
+
+        if (anoDocumentos) {
+          anoDocumentos.textContent = "";
+        }
+
+        mostrarDocumentos([]);
+
+        return;
+      }
+      const projetosFiltrados = documentos.filter((documento) => {
+        const ativo = documentoAtivo(documento);
+
+        const mesmaSituacao =
+          normalizar(documento.situacao) === normalizar(statusProjetoAtual);
+
+        return ativo && mesmaSituacao;
+      });
+
+      if (tituloCategoria) {
+        tituloCategoria.textContent = "Projetos";
+      }
+
+      if (anoDocumentos) {
+        anoDocumentos.textContent = "";
+      }
+
+      mostrarDocumentos(projetosFiltrados);
 
       return;
     }
+
+    /* =========================================
+     DEMAIS CATEGORIAS
+     ========================================= */
 
     atualizarFiltroAnos(documentos);
 
@@ -571,7 +630,9 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       console.log("Consultando Google Sheets...");
 
-      const resposta = await fetch(CSV_URL, {
+      const urlCSV = categoriaAtual === "Projetos" ? CSV_URL_PROJETOS : CSV_URL;
+
+      const resposta = await fetch(urlCSV, {
         cache: "no-store",
       });
 
@@ -613,6 +674,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       categoriaAtual = categorias[id] || null;
 
+      if (projetosStatus) {
+        projetosStatus.hidden = categoriaAtual !== "Projetos";
+      }
+
       /* =================================
              REMOVER SELEÇÃO ANTERIOR
           ================================= */
@@ -647,6 +712,24 @@ document.addEventListener("DOMContentLoaded", () => {
           block: "start",
         });
       }
+    });
+  });
+
+  /* =========================================
+     SUB-ABAS — PROJETOS
+  ========================================= */
+
+  botoesStatusProjeto.forEach((botao) => {
+    botao.addEventListener("click", () => {
+      statusProjetoAtual = botao.dataset.status;
+
+      botoesStatusProjeto.forEach((item) => {
+        item.classList.remove("ativo");
+      });
+
+      botao.classList.add("ativo");
+
+      renderizar(documentosCarregados);
     });
   });
 
