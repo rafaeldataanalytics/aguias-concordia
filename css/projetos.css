@@ -202,15 +202,18 @@
 }
 
 /* =========================================================
-   STATUS
+   STATUS DO PROJETO
 ========================================================= */
 
 .projeto-status {
-  margin-bottom: 15px;
-
-  color: var(--texto);
-
-  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0 18px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .projeto-status strong {
@@ -218,7 +221,34 @@
 }
 
 .projeto-status__valor {
-  margin-left: 4px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   EM EXECUÇÃO
+========================================================= */
+
+.projeto-status--em-execucao {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* =========================================================
+   CAPTANDO RECURSOS
+========================================================= */
+
+.projeto-status--captando-recursos {
+  background: #ffedd5;
+  color: #9a3412;
+}
+
+/* =========================================================
+   FINALIZADO
+========================================================= */
+
+.projeto-status--finalizado {
+  background: #dbeafe;
+  color: #1d4ed8;
 }
 
 /* =========================================================

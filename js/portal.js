@@ -148,6 +148,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .toLowerCase();
   }
 
+  /* =========================================================
+     STATUS DO PROJETO VINDO DA PÁGINA PROJETOS
+  ========================================================= */
+
+  const parametrosURL = new URLSearchParams(window.location.search);
+
+  const statusURL = parametrosURL.get("status") || "";
+
+  const statusProjetoURL = {
+    "em-execucao": "Em execução",
+    finalizados: "Finalizado",
+    "captando-recursos": "Captando recursos",
+  };
+
+  const statusInicialURL = statusProjetoURL[statusURL] || null;
+
   /* =========================================
      ESCAPAR HTML
   ========================================= */
@@ -752,4 +768,36 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================================= */
 
   mostrarEstadoInicial();
+
+  /* =========================================
+     ABRIR PROJETOS AUTOMATICAMENTE
+     QUANDO VIER DA PÁGINA PROJETOS
+  ========================================= */
+  if (window.location.hash === "#projetos") {
+    const itemProjetos = document.querySelector(
+      '.transparencia-item[href="#projetos"]',
+    );
+
+    if (itemProjetos) {
+      categoriaAtual = "Projetos";
+
+      if (statusInicialURL) {
+        statusProjetoAtual = statusInicialURL;
+      }
+
+      projetosStatus.hidden = false;
+
+      botoesStatusProjeto.forEach((botao) => {
+        botao.classList.toggle(
+          "ativo",
+          botao.dataset.status === statusProjetoAtual,
+        );
+      });
+
+      itemProjetos.classList.add("selecionado");
+      itemProjetos.setAttribute("aria-current", "true");
+
+      carregarPlanilha();
+    }
+  }
 });

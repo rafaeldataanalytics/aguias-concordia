@@ -290,7 +290,13 @@ document.addEventListener("DOMContentLoaded", () => {
       converterImagemDrive(projeto.imagem || "assets/atletas.jpg"),
     );
 
-    const link = escaparHTML(projeto.link || "transparencia.html#projetos");
+    //const link = escaparHTML(projeto.link || "transparencia.html#projetos");
+
+    //const link = "transparencia.html#projetos";
+
+    const statusProjeto = normalizar(projeto.situacao).replace(/\s+/g, "-");
+
+    const link = `transparencia.html?status=${statusProjeto}#projetos`;
 
     /* =====================================================
        HTML
@@ -326,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </p>
 
 
-        <div class="projeto-status">
+        <div class="projeto-status projeto-status--${statusProjeto}">
 
           <strong>
             Situação
@@ -434,8 +440,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       projetos = registros
         .filter((projeto) => {
-          return normalizar(projeto.ativo) === "sim";
+          const ativo = normalizar(projeto.ativo);
+          const situacao = normalizar(projeto.situacao);
+
+          return (
+            ativo === "sim" &&
+            (situacao === "em execucao" || situacao === "captando recursos")
+          );
         })
+
         .map((projeto) => {
           return {
             titulo: projeto.titulo || "",
@@ -458,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             imagem: projeto.imagem || "assets/atletas.jpg",
 
-            link: projeto.link || "transparencia.html#projetos",
+            //link: projeto.link || "transparencia.html#projetos",
 
             valor_recurso:
               projeto["valor recurso"] ||
@@ -470,9 +483,11 @@ document.addEventListener("DOMContentLoaded", () => {
               projeto["fonte de recurso"] || projeto["fonte_recurso"] || "",
           };
         })
+
         .filter((projeto) => {
           return projeto.titulo;
-        });
+        })
+        .slice(-3);
 
       console.log("Projetos ativos:", projetos);
 
