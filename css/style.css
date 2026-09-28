@@ -84,16 +84,12 @@ html {
 
 body {
   min-height: 100vh;
-
   font-family: var(--fonte-texto);
   color: var(--texto);
-
   background: var(--branco);
-
   /* 1rem acompanha a escala global de acessibilidade */
   font-size: 1rem;
   line-height: 1.6;
-
   -webkit-font-smoothing: antialiased;
 }
 
@@ -154,6 +150,9 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  margin-right: 8px;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .skip-link {
@@ -204,13 +203,6 @@ p {
   justify-content: flex-end;
 
   gap: 7px;
-}
-
-.acessibilidade-titulo {
-  margin-right: 8px;
-
-  font-size: 15px;
-  font-weight: 700;
 }
 
 .barra-acessibilidade button {
@@ -482,7 +474,7 @@ p {
 }
 
 .eyebrow--claro {
-  color: var(--branco);
+  color: var(--amarelo-destaque);
 }
 
 .secao-cabecalho h2 {
@@ -865,6 +857,10 @@ p {
   border-radius: var(--raio);
 
   box-shadow: var(--sombra-card);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .imagem-destaque img {
@@ -1290,16 +1286,6 @@ p {
 ========================================================= */
 
 @media (max-width: 800px) {
-  .parceiros-carrossel {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .parceiros-carrossel__viewport {
-    width: 100%;
-    overflow: hidden;
-  }
-
   .parceiros__lista {
     gap: 20px;
 
@@ -1512,6 +1498,16 @@ body.alto-contraste-ativo .parceiro-logo img {
   font-size: 13px;
 }
 
+.footer-bottom a {
+  color: var(--branco);
+  font-size: 16px;
+}
+
+.footer-bottom a:hover {
+  font-size: 16px;
+  font-weight: 900;
+}
+
 /* =========================================================
    15. TABLET
 ========================================================= */
@@ -1525,10 +1521,6 @@ body.alto-contraste-ativo .parceiro-logo img {
     padding-inline: 8px;
 
     font-size: 14px;
-  }
-
-  .parceiros__lista {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .footer-grid {
@@ -1620,14 +1612,6 @@ body.alto-contraste-ativo .parceiro-logo img {
     display: none;
   }
 
-  @keyframes parceiros-rodando {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
   /* =======================================================
      HERO MOBILE
   ======================================================= */
@@ -1763,7 +1747,8 @@ body.alto-contraste-ativo .parceiro-logo img {
   }
 
   .imagem-destaque img {
-    height: 280px;
+    height: 230px;
+    object-fit: cover;
   }
 
   /* Projetos e notícias */
@@ -1771,14 +1756,6 @@ body.alto-contraste-ativo .parceiro-logo img {
   .projetos__grid,
   .noticias__grid {
     grid-template-columns: 1fr;
-  }
-
-  /* Parceiros */
-
-  .parceiros__lista {
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 15px;
   }
 
   /* Footer */
@@ -1833,14 +1810,39 @@ body.alto-contraste-ativo .parceiro-logo img {
     bottom: 16px;
   }
 
+  .hero-controles {
+    gap: 3px;
+    max-width: calc(100% - 16px);
+  }
+
+  .hero-controles button {
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+
+  .hero-indicadores {
+    gap: 3px;
+  }
+
+  .hero-indicador {
+    flex: 0 0 5px;
+    width: 5px;
+    height: 5px;
+  }
+
+  .hero-indicador.ativo {
+    flex-basis: 10px;
+    width: 10px;
+  }
+
   /* Parceiros */
 
   .parceiros__lista {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
     gap: 12px;
 
-    margin-top: 25px;
+    margin-top: 16px;
   }
 
   .parceiro-logo {
@@ -1907,13 +1909,9 @@ body.alto-contraste-ativo .parceiro-logo img {
 
   .acessibilidade-titulo {
     grid-column: 1 / -1;
-
     width: auto;
-
     margin: 0;
-
     text-align: center;
-
     font-size: 14px;
     line-height: 1.2;
   }
@@ -4020,12 +4018,6 @@ body {
   padding-top: 46px;
 }
 
-@media (max-width: 800px) {
-  body {
-    padding-top: 0;
-  }
-}
-
 /* =========================================================
    MÉTRICAS DAS NOTÍCIAS
    Curtidas + Visualizações
@@ -4158,20 +4150,11 @@ body {
    ÍCONE DE ACESSIBILIDADE
 ========================================================= */
 
-.acessibilidade-titulo {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .acessibilidade-titulo::before {
   content: "";
-
   width: 42px;
   height: 42px;
-
   display: inline-block;
-
   background-image: url("../assets/icone_acssbldd.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -4200,119 +4183,8 @@ body {
 
       height: 38px;
     }
-
-    .parceiro-logo {
-      flex: 0 0 calc((100% - 25px) / 2);
-    }
   }
 
-  @media (max-width: 480px) {
-    .parceiro-logo {
-      flex: 0 0 100%;
-    }
-  }
-  /* =========================================================
-   PARCEIROS — CARROSSEL RESPONSIVO
-========================================================= */
-
-  .parceiros-carrossel {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .parceiros-carrossel__viewport {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .parceiros__lista {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    width: max-content !important;
-    gap: 25px;
-    margin-top: 0;
-
-    animation: parceiros-rodando 120s linear infinite;
-  }
-
-  .parceiro-logo {
-    flex: 0 0 220px !important;
-    width: 220px;
-    min-width: 220px;
-    min-height: 105px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-
-    padding: 18px;
-
-    background: var(--branco);
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-
-    box-shadow: 0 4px 15px rgba(7, 27, 73, 0.06);
-  }
-
-  .parceiro-logo img {
-    display: block;
-    width: 100%;
-    height: 80px;
-    object-fit: contain;
-  }
-
-  /* =========================================================
-   MOBILE
-========================================================= */
-
-  @media (max-width: 800px) {
-    .parceiros-carrossel {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .parceiros-carrossel__viewport {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .parceiros__lista {
-      display: flex !important;
-      flex-wrap: nowrap !important;
-      width: max-content !important;
-
-      gap: 20px;
-
-      animation: parceiros-rodando 120s linear infinite;
-    }
-
-    .parceiro-logo {
-      flex: 0 0 180px !important;
-      width: 180px;
-      min-width: 180px;
-      min-height: 105px;
-    }
-
-    .parceiro-logo img {
-      width: 100%;
-      height: 75px;
-      object-fit: contain;
-    }
-  }
-
-  /* =========================================================
-   CELULAR PEQUENO
-========================================================= */
-
-  @media (max-width: 480px) {
-    .parceiro-logo {
-      flex: 0 0 170px !important;
-      width: 170px;
-      min-width: 170px;
-    }
-  }
   /* =========================================================
    HEADER FIXO — ABAIXO DA BARRA DE ACESSIBILIDADE
 ========================================================= */
@@ -4323,8 +4195,8 @@ body {
   }
 
   .desenvolvido-por a {
-    color: #2563eb;
-    font-weight: 700;
+    color: var(--amarelo-destaque);
+    font-weight: bold;
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -4820,9 +4692,7 @@ body {
       > .acessibilidade-titulo {
       grid-column: 1;
       grid-row: 1;
-
       margin: 0;
-
       display: flex;
       align-items: center;
     }
