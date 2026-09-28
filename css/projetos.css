@@ -252,6 +252,25 @@
 }
 
 /* =========================================================
+   ALTO CONTRASTE — STATUS DOS PROJETOS
+========================================================= */
+
+body.alto-contraste-ativo .projeto-status--em-execucao {
+  background: #14532d;
+  color: #ffffff;
+}
+
+body.alto-contraste-ativo .projeto-status--captando-recursos {
+  background: #7c2d12;
+  color: #ffffff;
+}
+
+body.alto-contraste-ativo .projeto-status--finalizado {
+  background: #1e3a8a;
+  color: #ffffff;
+}
+
+/* =========================================================
    INFORMAÇÕES DO PROJETO
 ========================================================= */
 

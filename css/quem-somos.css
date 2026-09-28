@@ -110,6 +110,7 @@
 
 .entidade .imagem-destaque img {
   height: 430px;
+  gap: 64px;
 }
 
 /* =========================================================
@@ -828,6 +829,10 @@
     height: 380px;
   }
 
+  .entidade .imagem-destaque {
+    gap: 16px;
+  }
+
   .escolas__texto {
     min-height: auto;
   }
@@ -895,6 +900,9 @@
   .desenvolvimento__imagem img,
   .atleta-historico__imagem img {
     height: 300px;
+  }
+  .entidade .imagem-destaque {
+    gap: 16px;
   }
 
   .escolas__texto,
