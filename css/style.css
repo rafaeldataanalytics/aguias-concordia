@@ -29,12 +29,12 @@
 ========================================================= */
 
 :root {
-  --azul: #071b49;
-  --azul-claro: #163b78;
-  --azul-suave: #eef3fa;
+  --azul: #071b49; /*#071b49*/
+  --azul-claro: #163b78; /*#163b78*/
+  --azul-suave: #eef3f0d7; /*#eef3fa*/
 
-  --vermelho: #f8250a;
-  --vermelho-escuro: #b91c1c;
+  --vermelho: #f6561d; /*#f8250a*/
+  --vermelho-escuro: #f6561d; /*#b91c1c*/
   --vermelho-suave: #fff1f1;
   --verde-suave: #d2f7d4;
   --verde-suave-mais: #a2f8a7;
@@ -4155,7 +4155,7 @@ body {
   width: 42px;
   height: 42px;
   display: inline-block;
-  background-image: url("../assets/icone_acssbldd.png");
+  background-image: url("../assets/acessibilidade.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -4660,10 +4660,10 @@ body {
 
       display: block;
 
-      width: 28px;
-      height: 28px;
+      width: 24px;
+      height: 24px;
 
-      background-image: url("../assets/acessibilidade.png");
+      background-image: url("../assets/icone_acessibilidade_compacta.webp");
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
