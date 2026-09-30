@@ -6,19 +6,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <!-- Compatibilidade -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <!-- iOS / Safari -->
+  <!-- ==================================================
+       iOS / Safari
+  ================================================== -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Águias de Concórdia">
 
-  <!-- Navegadores / PWA -->
+  <!-- ==================================================
+       Navegadores / PWA
+  ================================================== -->
   <meta name="theme-color" content="#0b2a4a">
 
-  <!-- SEO -->
-  <title>Águias de Concórdia | Paradesporto, Inclusão e Esporte</title>
+  <!-- ==================================================
+       SEO
+  ================================================== -->
+  <title>
+    Águias de Concórdia | Paradesporto, Inclusão e Esporte
+  </title>
 
   <meta name="description" content="Águias de Concórdia: esporte, inclusão e transformação através do paradesporto. Conheça nossos atletas, projetos, notícias, parceiros e ações.">
 
@@ -26,13 +31,19 @@
 
   <meta name="author" content="Águias de Concórdia">
 
-  <!-- Canonical -->
+  <!-- ==================================================
+       URL CANÔNICA
+  ================================================== -->
   <link rel="canonical" href="https://www.aguiasdeconcordia.org/">
 
-  <!-- Favicon -->
+  <!-- ==================================================
+       FAVICON
+  ================================================== -->
   <link rel="icon" type="image/png" href="assets/logo_aguias_concordia.png">
 
-  <!-- Open Graph -->
+  <!-- ==================================================
+       OPEN GRAPH
+  ================================================== -->
   <meta property="og:type" content="website">
 
   <meta property="og:title" content="Águias de Concórdia | Paradesporto, Inclusão e Esporte">
@@ -41,49 +52,59 @@
 
   <meta property="og:url" content="https://www.aguiasdeconcordia.org/">
 
-  <meta property="og:image" content="https://www.aguiasdeconcordia.org/assets/logo_aguias.jpg">
+  <meta property="og:image" content="https://www.aguiasdeconcordia.org/assets/logo_aguias_concordia.webp">
 
   <meta property="og:locale" content="pt_BR">
 
-  <!-- Twitter / X -->
+  <!-- ==================================================
+       TWITTER / X
+  ================================================== -->
   <meta name="twitter:card" content="summary_large_image">
 
   <meta name="twitter:title" content="Águias de Concórdia | Paradesporto, Inclusão e Esporte">
 
   <meta name="twitter:description" content="Esporte, inclusão e transformação através do paradesporto.">
 
-  <meta name="twitter:image" content="https://www.aguiasdeconcordia.org/assets/logo_aguias.jpg">
+  <meta name="twitter:image" content="https://www.aguiasdeconcordia.org/assets/logo_aguias_concordia.webp">
 
-  <!-- Fontes -->
+  <!-- ==================================================
+       FONTES
+  ================================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap">
 
-  <!-- Font Awesome -->
+  <!-- ==================================================
+       FONT AWESOME
+  ================================================== -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-  <!-- CSS -->
+  <!-- ==================================================
+       CSS PRINCIPAL
+  ================================================== -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Dados estruturados -->
+  <!-- ==================================================
+       DADOS ESTRUTURADOS — ORGANIZAÇÃO
+  ================================================== -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Águias de Concórdia",
-  "url": "https://www.aguiasdeconcordia.org/",
-  "logo": "https://www.aguiasdeconcordia.org/assets/logo_aguias.jpg",
-  "description": "Esporte, inclusão e transformação através do paradesporto.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Concórdia",
-    "addressRegion": "SC",
-    "addressCountry": "BR"
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Águias de Concórdia",
+    "url": "https://www.aguiasdeconcordia.org/",
+    "logo": "https://www.aguiasdeconcordia.org/assets/logo_aguias_concordia.webp",
+    "description": "Esporte, inclusão e transformação através do paradesporto.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Concórdia",
+      "addressRegion": "SC",
+      "addressCountry": "BR"
+    }
   }
-}
-</script>
+  </script>
 
 </head>
 
@@ -150,48 +171,53 @@
     <div class="container cabecalho__conteudo">
 
       <a href="index.html" class="logo-link" aria-label="Águias de Concórdia - Página inicial">
-        <img src="assets/logo_aguias_concordia.png" alt="Águias de Concórdia" class="logo">
+
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/logo_aguias_concordia.webp">
+
+          <img src="assets/logo_aguias_concordia.png" alt="Águias de Concórdia" class="logo" loading="lazy" decoding="async>
+        </picture>
       </a>
 
-      <button type="button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <button type=" button" class="botao-menu" id="botao-menu" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menu-principal">
+          <span></span>
+          <span></span>
+          <span></span>
+          </button>
 
-      <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
-        <ul>
+          <nav class="menu-principal" id="menu-principal" aria-label="Menu principal">
+            <ul>
 
-          <li>
-            <a href="index.html" aria-current="page">Início</a>
-          </li>
+              <li>
+                <a href="index.html" aria-current="page">Início</a>
+              </li>
 
-          <li>
-            <a href="quem-somos.html">Quem Somos</a>
-          </li>
+              <li>
+                <a href="quem-somos.html">Quem Somos</a>
+              </li>
 
-          <li>
-            <a href="projetos.html">Projetos</a>
-          </li>
+              <li>
+                <a href="projetos.html">Projetos</a>
+              </li>
 
-          <li>
-            <a href="noticias.html">Notícias</a>
-          </li>
+              <li>
+                <a href="noticias.html">Notícias</a>
+              </li>
 
-          <li>
-            <a href="transparencia.html">Transparência</a>
-          </li>
+              <li>
+                <a href="transparencia.html">Transparência</a>
+              </li>
 
-          <li>
-            <a href="parceiros.html">Parceiros</a>
-          </li>
+              <li>
+                <a href="parceiros.html">Parceiros</a>
+              </li>
 
-          <li>
-            <a href="contato.html">Contato</a>
-          </li>
+              <li>
+                <a href="contato.html">Contato</a>
+              </li>
 
-        </ul>
-      </nav>
+            </ul>
+          </nav>
 
     </div>
   </header>
@@ -207,55 +233,77 @@
 
 
         <picture>
-          <source media="(max-width: 800px)" srcset="assets/vice_campeaonato_chapeco_mobile_412x495.webp" type="image/webp">
+          <source media="(max-width: 800px)" srcset="assets/vice_campeaonato_chapeco_mobile_412x495.webp">
 
-          <img class="hero-slide ativo" src="assets/vice_campeaonato_chapeco_menor.webp" alt="Equipe Águias de Concórdia de basquetebol em cadeira de rodas Vice Campeão 2026" loading="eager" fetchpriority="high" width="1388" height="960" decoding="async">
+          <img class="hero-slide ativo" src="assets/vice_campeaonato_chapeco_menor.webp" alt="Equipe Águias de Concórdia de basquetebol em cadeira de rodas Vice Campeão 2026" fetchpriority="high" decoding="async">
+        </picture>
+
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/5.webp">
+
+          <img class="hero-slide" src="assets/5.jpg" alt="Atleta dos Águias de Concórdia durante partida" loading="lazy" decoding="async">
         </picture>
 
 
-        <img class="hero-slide" src="assets/5.jpg" alt="Atleta dos Águias de Concórdia durante partida">
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/7.webp">
+
+          <img class="hero-slide" src="assets/7.jpg" alt="Atleta dos Águias de Concórdia em atividade esportiva" loading="lazy" decoding="async">
+        </picture>
 
 
-        <img class="hero-slide" src="assets/7.jpg" alt="Atleta dos Águias de Concórdia em atividade esportiva">
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/6.webp">
 
-
-        <img class="hero-slide" src="assets/6.jpg" alt="Atletas dos Águias de Concórdia durante partida">
+          <img class="hero-slide" src="assets/6.jpg" alt="Atletas dos Águias de Concórdia durante partida" loading="lazy" decoding="async">
+        </picture>
 
 
         <picture>
           <source media="(max-width: 800px)" srcset="assets/carro_onibus_mobile.webp">
 
-          <img class="hero-slide" src="assets/carro_onibus_menor.webp" alt="Veiculos da Entidade Carro, Van e Onibus">
+          <img class="hero-slide" src="assets/carro_onibus_menor.webp" alt="Veiculos da Entidade Carro, Van e Onibus" loading="lazy" decoding="async">
         </picture>
 
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/42.webp">
 
-        <img class="hero-slide" src="assets/42.jpg" alt="Equipe Águias de Concórdia durante competição">
+          <img class="hero-slide" src="assets/42.jpg" alt="Equipe Águias de Concórdia durante competição" loading="lazy" decoding="async">
+        </picture>
 
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/10.webp">
 
-        <img class="hero-slide" src="assets/10.jpg" alt="Atletas treinando">
+          <img class="hero-slide" src="assets/10.jpg" alt="Atletas treinando" loading="lazy" decoding="async">
+        </picture>
 
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/40.webp">
 
-        <img class="hero-slide" src="assets/40.jpg" alt="Atleta tirando foto com fã">
+          <img class="hero-slide" src="assets/40.jpg" alt="Atleta tirando foto com fã" loading="lazy" decoding="async">
+        </picture>
 
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/41.webp">
 
-        <img class="hero-slide" src="assets/41.jpg" alt="Atleta com sua medalha">
+          <img class="hero-slide" src="assets/41.jpg" alt="Atleta com sua medalha" loading="lazy" decoding="async">
+        </picture>
 
 
         <picture>
           <source media="(max-width: 800px)" srcset="assets/carro_onibus_van_mobile.webp">
 
-          <img class="hero-slide" src="assets/carro_onibus_van_menor.webp" alt="Veiculos da Entidade Carro, Van e Onibus">
+          <img class="hero-slide" src="assets/carro_onibus_van_menor.webp" alt="Veiculos da Entidade Carro, Van e Onibus" loading="lazy" decoding="async">
         </picture>
 
 
         <picture>
           <source media="(max-width: 800px)" srcset="assets/carro_van_mobile.webp">
 
-          <img class="hero-slide" src="assets/carro_van_menor.webp" alt="Veiculos da Entidade Carro, Van e Onibus">
+          <img class="hero-slide" src="assets/carro_van_menor.webp" alt="Veiculos da Entidade Carro, Van e Onibus" loading="lazy" decoding="async">
         </picture>
 
       </div>
-
 
 
       <div class=" hero-overlay">
@@ -329,7 +377,7 @@
             <picture>
               <source media="(max-width: 800px)" srcset="assets/quem_somos_mobile.webp">
 
-              <img src="assets/quem_somos.jpg" alt="Equipe dos Águias de Concórdia">s
+              <img src="assets/quem_somos.jpg" alt="Equipe dos Águias de Concórdia" loading="lazy" decoding="async>s
             </picture>
 
           </div>
@@ -342,61 +390,61 @@
      CONQUISTAS 2025
 ====================================================== -->
 
-    <section class="secao conquistas" aria-labelledby="titulo-conquistas">
+    <section class=" secao conquistas" aria-labelledby="titulo-conquistas">
 
-      <div class="container">
+              <div class="container">
 
-        <div class="secao-cabecalho conquistas__cabecalho">
+                <div class="secao-cabecalho conquistas__cabecalho">
 
-          <p class="eyebrow">Resultados recentes</p>
+                  <p class="eyebrow">Resultados recentes</p>
 
-          <h2 id="titulo-conquistas">
-            Conquistas em 2025
-          </h2>
+                  <h2 id="titulo-conquistas">
+                    Conquistas em 2025
+                  </h2>
 
-        </div>
-
-
-        <div class="conquistas__grid">
-
-          <!-- PARAjasc -->
-          <a href="quem-somos.html" class="conquista-card">
-
-            <div class="conquista-card__icone" aria-hidden="true">
-              <i class="fa-solid fa-medal"></i>
-            </div>
-
-            <strong>3º lugar</strong>
-
-            <span>Parajasc 2025</span>
-
-            <span class="conquista-card__link">
-              Conheça mais →
-            </span>
-
-          </a>
+                </div>
 
 
-          <!-- CAMPEONATO CATARINENSE -->
-          <a href="quem-somos.html" class="conquista-card">
+                <div class="conquistas__grid">
 
-            <div class="conquista-card__icone" aria-hidden="true">
-              <i class="fa-solid fa-trophy"></i>
-            </div>
+                  <!-- PARAjasc -->
+                  <a href="quem-somos.html" class="conquista-card">
 
-            <strong>3º lugar</strong>
+                    <div class="conquista-card__icone" aria-hidden="true">
+                      <i class="fa-solid fa-medal"></i>
+                    </div>
 
-            <span>Campeonato Catarinense 2025</span>
+                    <strong>3º lugar</strong>
 
-            <span class="conquista-card__link">
-              Conheça mais →
-            </span>
+                    <span>Parajasc 2025</span>
 
-          </a>
+                    <span class="conquista-card__link">
+                      Conheça mais →
+                    </span>
 
-        </div>
+                  </a>
 
-      </div>
+
+                  <!-- CAMPEONATO CATARINENSE -->
+                  <a href="quem-somos.html" class="conquista-card">
+
+                    <div class="conquista-card__icone" aria-hidden="true">
+                      <i class="fa-solid fa-trophy"></i>
+                    </div>
+
+                    <strong>3º lugar</strong>
+
+                    <span>Campeonato Catarinense 2025</span>
+
+                    <span class="conquista-card__link">
+                      Conheça mais →
+                    </span>
+
+                  </a>
+
+                </div>
+
+              </div>
 
     </section>
 
@@ -437,7 +485,12 @@
           <!-- IMAGEM -->
           <div class="impacto-social__imagem">
 
-            <img src="assets/17.jpg" alt="Equipe Águias de Concórdia em atividade">
+
+            <picture>
+              <source media="(max-width: 800px)" srcset="assets/17.webp">
+
+              <img src="assets/17.jpg" alt="Equipe Águias de Concórdia em atividade loading=" lazy" decoding="async">
+            </picture>
 
           </div>
 
@@ -503,7 +556,12 @@
           <!-- FOTO -->
           <div class="destaque-atleta__imagem">
 
-            <img src="assets/46.jpg" alt="Henrique Heydt, atleta do Águias de Concórdia">
+
+            <picture>
+              <source media="(max-width: 800px)" srcset="assets/46.webp">
+
+              <img src="assets/46.jpg" alt="Henrique Heydt, atleta do Águias de Concórdia loading=" lazy" decoding="async">
+            </picture>
 
           </div>
 
@@ -636,7 +694,12 @@
         <div class="footer-col footer-col--marca">
 
           <a href="index.html" aria-label="Voltar para o início">
-            <img src="assets/logo_aguias_concordia.png" alt="Águias de Concórdia" class="logo-footer">
+
+            <picture>
+              <source media="(max-width: 800px)" srcset="assets/logo_aguias_concordia.webp">
+
+              <img src="assets/logo_aguias_concordia.png" alt="Águias de Concórdia" class="logo-footer loading=" lazy" decoding="async">
+            </picture>
           </a>
 
           <p>

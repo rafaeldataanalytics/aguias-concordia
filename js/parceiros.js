@@ -35,7 +35,7 @@ function converterImagemDrive(url) {
   const match = url.match(/\/d\/([^/]+)/);
 
   if (match) {
-    return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w375`;
+    return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w250`;
   }
 
   return url;
