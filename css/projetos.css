@@ -142,6 +142,18 @@
   transform: scale(1.03);
 }
 
+/* IMAGENS HORIZONTAIS — MOSTRAR SEM CORTAR */
+
+.projeto-detalhe__imagem img.projeto-imagem--horizontal {
+  object-fit: contain;
+  object-position: center;
+  background: var(--cinza-claro);
+}
+
+.projeto-detalhe:hover .projeto-detalhe__imagem img {
+  transform: scale(1.03);
+}
+
 /* =========================================================
    CONTEÚDO DO PROJETO
 ========================================================= */

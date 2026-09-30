@@ -330,7 +330,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     linha.className = "documento-linha";
 
-    const nome = escaparHTML(documento.documento || "Documento");
+    /* const nome = escaparHTML(documento.documento || "Documento");*/
+
+    const nome = escaparHTML(
+      documento.titulo || documento.documento || "Documento",
+    );
 
     const descricao = escaparHTML(
       documento.descricao || documento["descrição"] || "",
@@ -365,7 +369,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div>
 
-          <strong>
+          <span class="documento-projeto-label">
+            PROJETO
+          </span>
+
+          <strong class="documento-projeto-titulo">
             ${nome}
           </strong>
 
@@ -375,7 +383,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${mes}${mes && ano ? " — " : ""}${ano}
           </small>
 
-        </div>
+      </div>
 
       </div>
 

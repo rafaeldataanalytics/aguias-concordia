@@ -306,11 +306,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="projeto-detalhe__imagem">
 
-        <img
+       <img
           src="${imagem}"
           alt="${titulo}"
           loading="lazy"
-        >
+          onload="this.classList.toggle('projeto-imagem--horizontal', this.naturalWidth > this.naturalHeight)"
+      >
 
       </div>
 
