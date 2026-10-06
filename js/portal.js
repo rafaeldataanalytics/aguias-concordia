@@ -322,15 +322,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-     CRIAR DOCUMENTO
-  ========================================= */
+   CRIAR DOCUMENTO
+========================================= */
 
   function criarDocumento(documento) {
     const linha = document.createElement("div");
 
     linha.className = "documento-linha";
-
-    /* const nome = escaparHTML(documento.documento || "Documento");*/
 
     const nome = escaparHTML(
       documento.titulo || documento.documento || "Documento",
@@ -347,62 +345,72 @@ document.addEventListener("DOMContentLoaded", () => {
     const link = String(documento.link || "#").trim();
 
     /*
+     * Define o rótulo conforme a categoria.
+     *
+     * Projetos → PROJETO
+     * Demais categorias → DOCUMENTO
+     */
+
+    const rotulo =
+      normalizar(categoriaAtual) === "projetos" ? "PROJETO" : "DOCUMENTO";
+
+    /*
      * Descrição é opcional.
      * Se estiver preenchida, aparece abaixo do nome.
      */
 
     const descricaoHTML = descricao
       ? `
-          <span class="documento-descricao">
-            ${descricao}
-          </span>
-        `
+        <span class="documento-descricao">
+          ${descricao}
+        </span>
+      `
       : "";
 
     linha.innerHTML = `
-      <div class="documento-linha__info">
+    <div class="documento-linha__info">
 
-        <i
-          class="fa-solid fa-file-pdf"
-          aria-hidden="true">
-        </i>
+      <i
+        class="fa-solid fa-file-pdf"
+        aria-hidden="true">
+      </i>
 
-        <div>
+      <div>
 
-          <span class="documento-projeto-label">
-            PROJETO
-          </span>
+        <span class="documento-projeto-label">
+          ${rotulo}
+        </span>
 
-          <strong class="documento-projeto-titulo">
-            ${nome}
-          </strong>
+        <strong class="documento-projeto-titulo">
+          ${nome}
+        </strong>
 
-          ${descricaoHTML}
+        ${descricaoHTML}
 
-          <small>
-            ${mes}${mes && ano ? " — " : ""}${ano}
-          </small>
-
-      </div>
+        <small>
+          ${mes}${mes && ano ? " — " : ""}${ano}
+        </small>
 
       </div>
 
-      <a
-        class="botao-documento"
-        href="${escaparHTML(link)}"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Abrir ${nome}">
+    </div>
 
-        <i
-          class="fa-solid fa-arrow-up-right-from-square"
-          aria-hidden="true">
-        </i>
+    <a
+      class="botao-documento"
+      href="${escaparHTML(link)}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir ${nome}">
 
-        Abrir documento
+      <i
+        class="fa-solid fa-arrow-up-right-from-square"
+        aria-hidden="true">
+      </i>
 
-      </a>
-    `;
+      Abrir documento
+
+    </a>
+  `;
 
     return linha;
   }
