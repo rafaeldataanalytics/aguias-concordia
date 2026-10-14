@@ -1694,8 +1694,6 @@ body.alto-contraste-ativo .parceiro-logo img {
     max-width: calc(100% - 24px);
   }
 
-  /* SETAS */
-
   .hero-controles button {
     flex: 0 0 28px;
 
@@ -1706,8 +1704,6 @@ body.alto-contraste-ativo .parceiro-logo img {
 
     font-size: 12px;
   }
-
-  /* INDICADORES */
 
   .hero-indicadores {
     display: flex;

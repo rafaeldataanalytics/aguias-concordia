@@ -152,7 +152,7 @@
   transform: translateY(-6px);
   box-shadow: var(--sombra-card);
 }
-
+/* ajuste de noticias todas padrao 14-10-2026
 .noticia-card__imagem {
   height: 225px;
   overflow: hidden;
@@ -168,6 +168,30 @@
 
 .noticia-card:hover .noticia-card__imagem img {
   transform: scale(1.04);
+}
+*/
+
+.noticia-card__imagem {
+  height: 225px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--cinza-claro);
+}
+
+.noticia-card__imagem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: none;
+}
+
+/* Mantém cartazes, documentos e fotos estáveis */
+.noticia-card:hover .noticia-card__imagem img {
+  transform: none;
 }
 
 .noticia-card__conteudo {
@@ -349,6 +373,21 @@
 
   .filtro {
     flex: 0 0 auto;
+  }
+  /*14-10-2026 para juste noticias mobile*/
+  /* IMAGEM DO DESTAQUE — MOBILE */
+  .destaque-card__imagem {
+    min-height: 0;
+    max-height: none;
+    height: auto;
+    overflow: visible;
+  }
+
+  .destaque-card__imagem img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 
