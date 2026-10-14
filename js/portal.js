@@ -27,6 +27,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const seletorAno = document.getElementById("ano-transparencia");
 
+  // Filtro mensal criado dinamicamente
+  const filtroMes = document.createElement("label");
+  filtroMes.className = "seletor-ano";
+  filtroMes.style.display = "none";
+
+  filtroMes.innerHTML = `
+  <span>Mês</span>
+  <select id="mes-transparencia" name="mes-transparencia">
+    <option value="">Todos os meses</option>
+  </select>
+`;
+
+  const seletorMes = filtroMes.querySelector("select");
+
+  if (seletorAno) {
+    const campoAno = seletorAno.closest(".seletor-ano");
+
+    if (campoAno) {
+      campoAno.insertAdjacentElement("afterend", filtroMes);
+    }
+  }
+
   const statusDocumentos = document.getElementById("status-documentos");
 
   const grupoDocumentos = document.getElementById("grupo-documentos");
@@ -102,6 +124,81 @@ document.addEventListener("DOMContentLoaded", () => {
       seletorAno.value = anos[0];
     }
   }
+
+  // =========================================
+  // ATUALIZAR FILTRO DE MÊS
+  // SOMENTE NOTAS FISCAIS E RELATÓRIOS FINANCEIROS
+  // =========================================
+
+  function atualizarFiltroMes(documentos, anoSelecionado) {
+    const categoriasComMes = ["notas fiscais", "relatorios financeiros"];
+
+    const categoriaNormalizada = normalizar(categoriaAtual);
+
+    const usarFiltroMes = categoriasComMes.includes(categoriaNormalizada);
+
+    filtroMes.style.display = usarFiltroMes ? "" : "none";
+
+    if (!usarFiltroMes) {
+      seletorMes.value = "";
+      return;
+    }
+
+    const ordemMeses = [
+      "janeiro",
+      "fevereiro",
+      "marco",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro",
+    ];
+
+    const nomesMeses = new Map();
+
+    documentos.forEach((documento) => {
+      const mesmaCategoria =
+        normalizar(documento.categoria) === categoriaNormalizada;
+
+      const mesmoAno =
+        String(documento.ano || "").trim() === String(anoSelecionado).trim();
+
+      if (mesmaCategoria && mesmoAno && documentoAtivo(documento)) {
+        const mes = String(documento.mes || "").trim();
+
+        if (mes) {
+          nomesMeses.set(normalizar(mes), mes);
+        }
+      }
+    });
+
+    const mesAnterior = seletorMes.value;
+
+    seletorMes.innerHTML = '<option value="">Todos os meses</option>';
+
+    ordemMeses.forEach((mesNormalizado) => {
+      const nomeOriginal = nomesMeses.get(mesNormalizado);
+
+      if (nomeOriginal) {
+        const opcao = document.createElement("option");
+        opcao.value = mesNormalizado;
+        opcao.textContent = nomeOriginal;
+        seletorMes.appendChild(opcao);
+      }
+    });
+
+    if ([...seletorMes.options].some((opcao) => opcao.value === mesAnterior)) {
+      seletorMes.value = mesAnterior;
+    } else {
+      seletorMes.value = "";
+    }
+  }
+
   /* =========================================
      CATEGORIAS
   ========================================= */
@@ -579,6 +676,9 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================= */
 
     if (categoriaAtual === "Projetos") {
+      filtroMes.style.display = "none";
+      seletorMes.value = "";
+
       if (!statusProjetoAtual) {
         if (tituloCategoria) {
           tituloCategoria.textContent = "Projetos";
@@ -622,6 +722,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const anoSelecionado = seletorAno ? seletorAno.value : "";
 
+    atualizarFiltroMes(documentos, anoSelecionado);
+
+    const mesSelecionado = seletorMes.value;
+
     const documentosFiltrados = documentos.filter((documento) => {
       const categoria = normalizar(documento.categoria);
 
@@ -630,9 +734,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const mesmoAno =
         String(documento.ano || "").trim() === String(anoSelecionado).trim();
 
+      const mesDocumento = normalizar(documento.mes || documento["mês"] || "");
+
+      const mesmoMes = !mesSelecionado || mesDocumento === mesSelecionado;
+
       const ativo = documentoAtivo(documento);
 
-      return mesmaCategoria && mesmoAno && ativo;
+      return mesmaCategoria && mesmoAno && mesmoMes && ativo;
     });
 
     if (tituloCategoria) {
@@ -775,6 +883,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      renderizar(documentosCarregados);
+    });
+  }
+
+  /* =========================================
+     FILTRO DE MES
+  ========================================= */
+  if (seletorMes) {
+    seletorMes.addEventListener("change", () => {
+      if (!categoriaAtual) return;
       renderizar(documentosCarregados);
     });
   }
