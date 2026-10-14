@@ -2986,6 +2986,63 @@ body.alto-contraste-ativo .destaque-card {
   box-shadow: none;
 }
 
+/* =========================================================
+   ALTO CONTRASTE — NOTÍCIAS E JOGOS
+========================================================= */
+
+body.alto-contraste-ativo .noticia-card,
+body.alto-contraste-ativo .destaque-card {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: none;
+}
+
+body.alto-contraste-ativo .noticia-card h3,
+body.alto-contraste-ativo .noticia-card p,
+body.alto-contraste-ativo .noticia-card .noticia-data,
+body.alto-contraste-ativo .destaque-card h3,
+body.alto-contraste-ativo .destaque-card p,
+body.alto-contraste-ativo .destaque-card .noticia-data {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .noticia-jogo {
+  background: #000;
+  border-color: #fff;
+  border-left-color: #ff4b0b;
+  color: #fff;
+}
+
+body.alto-contraste-ativo .noticia-jogo__informacoes,
+body.alto-contraste-ativo .noticia-jogo__informacoes strong,
+body.alto-contraste-ativo .noticia-jogo__confronto {
+  color: #fff;
+}
+
+body.alto-contraste-ativo .noticia-card__link {
+  color: #ff6b35;
+}
+
+body.alto-contraste-ativo .metrica {
+  color: #000;
+}
+
+body.alto-contraste-ativo .paginacao__pagina,
+body.alto-contraste-ativo .paginacao__botao,
+body.alto-contraste-ativo .filtro {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.alto-contraste-ativo .paginacao__pagina.ativa,
+body.alto-contraste-ativo .filtro.ativo {
+  background: #ff4b0b;
+  color: #fff;
+  border-color: #ff4b0b;
+}
+
 /* Imagem */
 
 body.alto-contraste-ativo .destaque-card__imagem {
