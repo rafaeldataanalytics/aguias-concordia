@@ -873,6 +873,63 @@ p {
 }
 
 /* =========================================================
+   QUEM SOMOS — MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .quem-somos__conteudo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .quem-somos__texto {
+    max-width: none;
+  }
+
+  .quem-somos__texto p {
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .imagem-destaque img {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+}
+
+/* =========================================================
+   QUEM SOMOS — CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 480px) {
+  .quem-somos__conteudo {
+    gap: 24px;
+  }
+
+  .quem-somos__texto p {
+    font-size: 16px;
+  }
+
+  .imagem-destaque {
+    border-radius: 10px;
+  }
+}
+
+/* =========================================================
+   QUEM SOMOS — REDUÇÃO DE MOVIMENTO
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .imagem-destaque img {
+    transition: none;
+  }
+
+  .imagem-destaque:hover img {
+    transform: none;
+  }
+}
+
+/* =========================================================
    10. PROJETOS
 ========================================================= */
 
@@ -1052,7 +1109,7 @@ p {
 }
 
 .noticia-card a {
-  color: var(--vermelho);
+  color: var(--azul);
 
   font-size: 14px;
   font-weight: 800;
@@ -2239,7 +2296,10 @@ body.alto-contraste-ativo .noticia-card a {
 
 body.alto-contraste-ativo .noticia-card a:hover,
 body.alto-contraste-ativo .noticia-card a:focus-visible {
-  color: #e52420;
+  color: var(--cinza-claro);
+  background-color: var(--azul-claro);
+  padding: 2px 6px;
+  border-radius: 6px;
 }
 /* =========================================================
    ALTO CONTRASTE — CONTATO
@@ -5380,4 +5440,87 @@ body.alto-contraste-ativo .contato-chamada .botao:focus-visible {
   background: #fff !important;
   color: #000 !important;
   border-color: #fff !important;
+}
+
+/* 19-10-2026*/
+/* =========================================================
+   HOME — QUEM SOMOS + CONQUISTAS SEPARADAS
+========================================================= */
+
+.quem-somos__conteudo {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+/* Imagem independente */
+.imagem-destaque {
+  width: 100%;
+  max-width: none;
+}
+
+.imagem-destaque img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+/* Conquistas em bloco separado */
+.conquistas {
+  margin-top: 40px;
+}
+
+.conquistas__grid {
+  max-width: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .quem-somos__conteudo {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .imagem-destaque img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .conquistas {
+    margin-top: 30px;
+  }
+
+  .conquistas__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reduzir o espaço entre Quem Somos e Conquistas */
+.quem-somos {
+  padding-bottom: 35px;
+}
+
+.conquistas {
+  margin-top: 0;
+  padding-top: 35px;
+}
+
+/* Reduzir espaço entre Conquistas e Impacto Social */
+.conquistas {
+  padding-bottom: 20px;
+}
+
+.impacto-social {
+  padding-top: 35px;
+}
+
+/* Reduzir espaço entre Impacto Social e Destaque do Atleta */
+.impacto-social {
+  padding-bottom: 25px;
+}
+
+.destaque-atleta {
+  padding-top: 25px;
 }
