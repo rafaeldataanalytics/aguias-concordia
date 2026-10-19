@@ -5135,6 +5135,12 @@ body {
   font-size: 14px;
 }
 
+.conquista-card__link:hover {
+  margin-top: 18px;
+  color: var(--azul-claro);
+  font-weight: 700;
+  text-decoration: underline;
+}
 /* =========================================================
    IMPACTO SOCIAL
 ========================================================= */
@@ -5372,20 +5378,19 @@ body.alto-contraste-ativo .conquista-card > span:not(.conquista-card__link) {
 }
 
 body.alto-contraste-ativo .conquista-card__link {
-  color: var(--amarelo-destaque) !important;
-  text-decoration: underline;
+  color: var(--branco) !important;
 }
 
 body.alto-contraste-ativo .conquista-card__link:hover,
 body.alto-contraste-ativo .conquista-card__link:focus-visible {
-  color: #000 !important;
-  background: var(--amarelo-destaque);
+  color: var(--amarelo-destaque) !important;
+  text-decoration: underline;
 }
 
 body.alto-contraste-ativo .conquista-card__icone {
   background: #000;
   color: var(--amarelo-destaque);
-  border: 2px solid #fff;
+  border: 2px solid var(--amarelo-destaque);
 }
 
 /* =========================================================
