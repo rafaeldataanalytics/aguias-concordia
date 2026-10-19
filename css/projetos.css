@@ -706,3 +706,44 @@ body.alto-contraste-ativo .projeto-status--finalizado {
     transition: none;
   }
 }
+
+/* Reduzir o espaço  */
+
+.cabecalho {
+  padding-bottom: 5px;
+}
+.projetos-hero {
+  padding-top: 25px;
+}
+
+.projetos-hero {
+  padding-bottom: 5px;
+}
+.projetos-introducao {
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.projetos-introducao {
+  margin-bottom: 5px;
+}
+.projetos-lista {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.projetos-lista {
+  margin-bottom: 5px;
+}
+.como-funciona {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.como-funciona {
+  margin-bottom: 5px;
+}
+.projetos-chamada {
+  margin-top: 0px;
+  padding-top: 0px;
+}

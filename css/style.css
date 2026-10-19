@@ -5529,3 +5529,12 @@ body.alto-contraste-ativo .contato-chamada .botao:focus-visible {
 .destaque-atleta {
   padding-top: 25px;
 }
+
+/* Reduzir espaço entre Destaque do Atleta e Notícias*/
+
+.destaque-atleta {
+  padding-bottom: 0;
+}
+.noticias {
+  padding-top: 0;
+}

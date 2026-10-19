@@ -552,3 +552,30 @@ body.alto-contraste-ativo .destaque-card {
   border-color: #fff;
   box-shadow: none;
 }
+
+/* Reduzir o espaço  */
+
+.cabecalho {
+  padding-bottom: 15px;
+}
+.noticias-hero {
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.noticias-hero {
+  padding-bottom: 35px;
+}
+.noticia-destaque {
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.noticia-destaque {
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+}
+.arquivo-noticias {
+  margin-top: 5px;
+  padding-top: 5px;
+}

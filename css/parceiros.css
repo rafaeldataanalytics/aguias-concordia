@@ -747,3 +747,53 @@ body.alto-contraste-ativo .retorno-parceiros__foto {
 body.alto-contraste-ativo .retorno-parceiros__foto img {
   filter: none;
 }
+
+/* Reduzir o espaço  */
+
+.cabecalho {
+  padding-bottom: 5px;
+}
+.parceiros-hero {
+  margin-top: 5px;
+}
+
+.parceiros-hero {
+  margin-bottom: 5px;
+}
+.parceiros-introducao {
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.parceiros-introducao {
+  margin-bottom: 5px;
+}
+.parceiros-listagem {
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.parceiros-listagem {
+  margin-bottom: 35px;
+}
+.apoio-parceiros {
+  margin-top: 35px;
+  padding-top: 5px;
+}
+
+.apoio-parceiros {
+  margin-bottom: 5px;
+}
+.retorno-parceiros {
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.retorno-parceiros {
+  margin-bottom: 5px;
+}
+
+.parceiros-listagem {
+  margin-top: 5px;
+  padding-top: 5px;
+}

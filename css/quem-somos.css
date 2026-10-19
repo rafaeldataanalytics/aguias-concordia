@@ -942,3 +942,59 @@
     transform: none;
   }
 }
+
+/*Reduzir espacamentos*/
+.entidade {
+  margin-bottom: 5px;
+}
+.historia {
+  margin-top: 5px;
+  padding-top: 0;
+}
+
+.historia {
+  margin-bottom: 5px;
+}
+.atuacao {
+  margin-top: 5px;
+  padding-top: 0;
+}
+
+.atuacao {
+  margin-bottom: 5px;
+}
+.desenvolvimento {
+  margin-top: 5px;
+  padding-top: 0;
+}
+
+.desenvolvimento {
+  margin-bottom: 5px;
+}
+.escolas {
+  margin-top: 5px;
+  padding-top: 0;
+}
+.escolas {
+  margin-bottom: 0px;
+}
+.inclusao {
+  margin-top: 0px;
+  padding-top: 0;
+}
+
+.inclusao {
+  margin-bottom: 5px;
+}
+.oportunidades {
+  margin-top: 0px;
+  padding-top: 0;
+}
+
+.atleta-historico {
+  margin-bottom: 5px;
+}
+.reconhecimento {
+  margin-top: 0px;
+  padding-top: 0;
+}
