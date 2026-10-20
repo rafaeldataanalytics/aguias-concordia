@@ -954,6 +954,12 @@
     rgba(22, 59, 120, 0.92)
   ) !important;
   color: #fff;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+.entidade {
+  padding-top: 5px;
+  margin-top: 5px;
 }
 .entidade {
   margin-bottom: 5px;

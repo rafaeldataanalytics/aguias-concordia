@@ -348,12 +348,11 @@
 /* Reduzir o espaço  */
 
 .cabecalho {
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   border: none;
 }
 .pagina-hero {
-  margin-top: 5px;
-  padding-top: 55px;
+  padding: 75px 0px;
   background: linear-gradient(
     135deg,
     rgba(7, 27, 73, 0.98),
@@ -362,9 +361,6 @@
   color: #fff;
 }
 
-.pagina-hero {
-  padding-bottom: 55px;
-}
 .contato-principal {
   margin-top: 15px;
   padding-top: 15px;

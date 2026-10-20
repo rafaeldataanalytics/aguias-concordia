@@ -967,6 +967,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
+   POSICIONAR TELA NO INÍCIO DAS NOTÍCIAS  20-10-2026
+========================================================= */
+
+  function irParaNoticias() {
+    if (!listaNoticias) {
+      return;
+    }
+
+    // Prioriza a seção que contém a lista de notícias.
+    const secaoNoticias = listaNoticias.closest("section") || listaNoticias;
+
+    secaoNoticias.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  /* =========================================================
      PAGINAÇÃO
   ========================================================= */
 
@@ -1037,6 +1055,8 @@ document.addEventListener("DOMContentLoaded", () => {
         paginaAtual = numero;
 
         mostrarNoticias();
+
+        irParaNoticias();
       }
     });
   });
@@ -1051,6 +1071,8 @@ document.addEventListener("DOMContentLoaded", () => {
         paginaAtual--;
 
         mostrarNoticias();
+
+        irParaNoticias();
       }
     });
   }
@@ -1069,6 +1091,8 @@ document.addEventListener("DOMContentLoaded", () => {
         paginaAtual++;
 
         mostrarNoticias();
+
+        irParaNoticias();
       }
     });
   }

@@ -710,22 +710,19 @@ body.alto-contraste-ativo .projeto-status--finalizado {
 /* Reduzir o espaço  */
 
 .cabecalho {
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   border: none !important;
 }
 .projetos-hero {
-  padding-top: 25px;
   background: linear-gradient(
     135deg,
     rgba(7, 27, 73, 0.98),
     rgba(22, 59, 120, 0.92)
   ) !important;
   color: #fff;
+  padding: 75px 0px;
 }
 
-.projetos-hero {
-  padding-bottom: 75px;
-}
 .projetos-introducao {
   margin-top: 15px;
   padding-top: 15px;

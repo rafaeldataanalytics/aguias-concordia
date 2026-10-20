@@ -751,11 +751,11 @@ body.alto-contraste-ativo .retorno-parceiros__foto img {
 /* Reduzir o espaço  */
 
 .cabecalho {
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   border: none;
 }
 .parceiros-hero {
-  margin-top: 5px;
+  margin-top: 0px;
   background: linear-gradient(
     135deg,
     rgba(7, 27, 73, 0.98),

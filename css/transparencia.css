@@ -688,12 +688,11 @@
 /* Reduzir o espaço  */
 
 .cabecalho {
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   border: none;
 }
 .transparencia-hero {
-  margin-top: 5px;
-  padding-top: 25px;
+  padding: 75px 0px;
   background: linear-gradient(
     135deg,
     rgba(7, 27, 73, 0.98),
@@ -702,12 +701,8 @@
   color: #fff;
 }
 
-.transparencia-hero {
-  padding-bottom: 75px;
-}
 .transparencia-principal {
-  margin-top: 35px;
-  padding-top: 15px;
+  padding-top: 25px;
 }
 
 @media (max-width: 800px) {
