@@ -569,12 +569,9 @@ body.alto-contraste-ativo .destaque-card {
   color: #fff;
 }
 
-.noticias-hero {
-  padding-bottom: 75px;
-}
 .noticia-destaque {
   margin-top: 5px;
-  padding-top: 5px;
+  padding-top: 15px;
 }
 
 .noticia-destaque {
