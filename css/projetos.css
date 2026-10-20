@@ -711,13 +711,20 @@ body.alto-contraste-ativo .projeto-status--finalizado {
 
 .cabecalho {
   padding-bottom: 5px;
+  border: none !important;
 }
 .projetos-hero {
   padding-top: 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 27, 73, 0.98),
+    rgba(22, 59, 120, 0.92)
+  ) !important;
+  color: #fff;
 }
 
 .projetos-hero {
-  padding-bottom: 5px;
+  padding-bottom: 75px;
 }
 .projetos-introducao {
   margin-top: 15px;
@@ -746,4 +753,32 @@ body.alto-contraste-ativo .projeto-status--finalizado {
 .projetos-chamada {
   margin-top: 0px;
   padding-top: 0px;
+}
+
+@media (max-width: 800px) {
+  .cabecalho {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border: none;
+  }
+  .projetos-hero {
+    margin-top: 25px;
+    padding-top: 15px;
+    background: linear-gradient(
+      135deg,
+      rgba(7, 27, 73, 0.98),
+      rgba(22, 59, 120, 0.92)
+    ) !important;
+    border: none !important;
+  }
+}
+@media (max-width: 480px) {
+  .cabecalho {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+  .projetos-hero {
+    margin-top: 25px;
+    padding-top: 15px;
+  }
 }

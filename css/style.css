@@ -5503,6 +5503,9 @@ body.alto-contraste-ativo .contato-chamada .botao:focus-visible {
 }
 
 /* Reduzir o espaço entre Quem Somos e Conquistas */
+.cabecalho {
+  border: none;
+}
 .quem-somos {
   padding-bottom: 35px;
 }
@@ -5537,4 +5540,31 @@ body.alto-contraste-ativo .contato-chamada .botao:focus-visible {
 }
 .noticias {
   padding-top: 0;
+}
+
+@media (max-width: 800px) {
+  .cabecalho {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border: none;
+  }
+  .hero {
+    margin-top: 5px;
+    padding-top: 5px;
+    background: linear-gradient(
+      135deg,
+      rgba(7, 27, 73, 0.98),
+      rgba(22, 59, 120, 0.92)
+    ) !important;
+  }
+}
+@media (max-width: 480px) {
+  .cabecalho {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+  .hero {
+    margin-top: 5px;
+    padding-top: 5px;
+  }
 }
