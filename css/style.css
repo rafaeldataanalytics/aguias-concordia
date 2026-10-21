@@ -1692,7 +1692,7 @@ body.alto-contraste-ativo .parceiro-logo img {
   }
 
   .hero-imagem img {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .hero-imagem::before {

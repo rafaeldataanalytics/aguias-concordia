@@ -724,7 +724,7 @@ body.alto-contraste-ativo .projeto-status--finalizado {
 }
 
 .projetos-introducao {
-  margin-top: 15px;
+  margin-top: 0px;
   padding-top: 15px;
 }
 
@@ -754,7 +754,7 @@ body.alto-contraste-ativo .projeto-status--finalizado {
 
 @media (max-width: 800px) {
   .logo-link {
-    margin-top: 5px;
+    margin-top: 0px;
     padding: 5px;
   }
   .cabecalho {
@@ -763,8 +763,8 @@ body.alto-contraste-ativo .projeto-status--finalizado {
     border: none;
   }
   .projetos-hero {
-    margin-top: 25px;
-    padding-top: 15px;
+    margin-top: 5px;
+    padding-top: 5px;
     background: linear-gradient(
       135deg,
       rgba(7, 27, 73, 0.98),
@@ -782,7 +782,7 @@ body.alto-contraste-ativo .projeto-status--finalizado {
     margin-bottom: 5px;
   }
   .projetos-hero {
-    margin-top: 25px;
+    margin-top: 20px;
     padding-top: 15px;
   }
 }

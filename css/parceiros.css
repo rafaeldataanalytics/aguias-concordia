@@ -762,26 +762,22 @@ body.alto-contraste-ativo .retorno-parceiros__foto img {
     rgba(22, 59, 120, 0.92)
   ) !important;
   border: none !important;
-}
-
-.parceiros-hero {
-  margin-bottom: 5px;
+  margin-bottom: 0px;
+  padding: 55px;
 }
 .parceiros-introducao {
-  margin-top: 15px;
-  padding-top: 15px;
-}
-
-.parceiros-introducao {
-  margin-bottom: 5px;
+  margin-top: 0px;
+  padding: 55px;
+  margin-bottom: 0px;
 }
 .parceiros-listagem {
-  margin-top: 5px;
-  padding-top: 5px;
+  margin-top: 0px;
+  padding: 10px;
 }
 
 .parceiros-listagem {
-  margin-bottom: 35px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
 }
 .apoio-parceiros {
   margin-top: 35px;
@@ -806,7 +802,7 @@ body.alto-contraste-ativo .retorno-parceiros__foto img {
 }
 @media (max-width: 800px) {
   .logo-link {
-    margin-top: 5px;
+    margin-top: 0px;
     padding: 5px;
   }
   .cabecalho {
@@ -833,7 +829,7 @@ body.alto-contraste-ativo .retorno-parceiros__foto img {
     margin-bottom: 5px;
   }
   .parceiros-hero {
-    margin-top: 25px;
+    margin-top: 20px;
     padding-top: 15px;
   }
 }
