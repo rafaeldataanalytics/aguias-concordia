@@ -584,6 +584,10 @@ body.alto-contraste-ativo .destaque-card {
 }
 
 @media (max-width: 800px) {
+  .logo-link {
+    padding: 5px;
+    margin-top: 5px;
+  }
   .cabecalho {
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -601,6 +605,9 @@ body.alto-contraste-ativo .destaque-card {
   }
 }
 @media (max-width: 480px) {
+  .logo-link {
+    padding: 5px;
+  }
   .cabecalho {
     padding-bottom: 5px;
     margin-bottom: 5px;

@@ -805,6 +805,10 @@ body.alto-contraste-ativo .retorno-parceiros__foto img {
   padding-top: 5px;
 }
 @media (max-width: 800px) {
+  .logo-link {
+    margin-top: 5px;
+    padding: 5px;
+  }
   .cabecalho {
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -821,6 +825,9 @@ body.alto-contraste-ativo .retorno-parceiros__foto img {
   }
 }
 @media (max-width: 480px) {
+  .logo-link {
+    padding: 5px;
+  }
   .cabecalho {
     padding-bottom: 5px;
     margin-bottom: 5px;

@@ -753,6 +753,10 @@ body.alto-contraste-ativo .projeto-status--finalizado {
 }
 
 @media (max-width: 800px) {
+  .logo-link {
+    margin-top: 5px;
+    padding: 5px;
+  }
   .cabecalho {
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -770,6 +774,9 @@ body.alto-contraste-ativo .projeto-status--finalizado {
   }
 }
 @media (max-width: 480px) {
+  .logo-link {
+    padding: 5px;
+  }
   .cabecalho {
     padding-bottom: 5px;
     margin-bottom: 5px;

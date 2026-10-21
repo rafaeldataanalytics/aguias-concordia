@@ -345,7 +345,7 @@
   border: 0;
 }
 
-/* Reduzir o espaço  */
+/* 20-10-2026 */
 
 .cabecalho {
   padding-bottom: 0px;
@@ -367,6 +367,10 @@
 }
 
 @media (max-width: 800px) {
+  .logo-link {
+    margin-top: 5px;
+    padding: 5px;
+  }
   .cabecalho {
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -384,6 +388,9 @@
   }
 }
 @media (max-width: 480px) {
+  .logo-link {
+    padding: 5px;
+  }
   .cabecalho {
     padding-bottom: 5px;
     margin-bottom: 5px;
