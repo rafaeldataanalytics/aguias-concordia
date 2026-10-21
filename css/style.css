@@ -2128,7 +2128,7 @@ body.alto-contraste-ativo a:focus-visible {
 /* Header */
 
 body.alto-contraste-ativo .cabecalho {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: linear-gradient(5deg, #363636, #080808) !important;
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -2151,7 +2151,7 @@ body.alto-contraste-ativo .menu-principal a:focus-visible {
 /* Botão menu mobile */
 
 body.alto-contraste-ativo .botao-menu {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   border-color: #ffffff;
 }
 
@@ -2161,8 +2161,12 @@ body.alto-contraste-ativo .botao-menu span {
 
 /* Seções */
 
-body.alto-contraste-ativo .secao,
-body.alto-contraste-ativo .quem-somos,
+body.alto-contraste-ativo .secao {
+  background: linear-gradient(135deg, #363636, #080808) !important;
+}
+body.alto-contraste-ativo .quem-somos {
+  background: linear-gradient(135deg, #080808, #363636) !important;
+}
 body.alto-contraste-ativo .noticias {
   background: linear-gradient(135deg, #363636, #080808) !important;
 }
@@ -2195,7 +2199,7 @@ body.alto-contraste-ativo .eyebrow {
 
 body.alto-contraste-ativo .projeto-card,
 body.alto-contraste-ativo .noticia-card {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   border-color: #ffffff;
   box-shadow: none;
 }
@@ -2210,7 +2214,7 @@ body.alto-contraste-ativo .noticia-card a {
 /* Parceiros */
 
 body.alto-contraste-ativo .parceiros {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   border-color: #ffffff;
 }
 
@@ -2227,7 +2231,7 @@ body.alto-contraste-ativo .parceiros .parceiro-logo img {
 /* Painel de acessibilidade */
 
 body.alto-contraste-ativo .painel-acessibilidade {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   border-color: #ffffff;
 }
 
@@ -2236,7 +2240,7 @@ body.alto-contraste-ativo .painel-acessibilidade h2 {
 }
 
 body.alto-contraste-ativo .painel-acessibilidade button {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -2282,7 +2286,7 @@ body.alto-contraste-ativo .acessibilidade-titulo {
 }
 
 body.alto-contraste-ativo .barra-acessibilidade button {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -2316,7 +2320,7 @@ body.alto-contraste-ativo .noticia-card a:focus-visible {
 
 /* Área principal */
 body.alto-contraste-ativo .contato-principal {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 /* Cabeçalho da seção */
@@ -2340,7 +2344,7 @@ body.alto-contraste-ativo
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .entidade {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .entidade__texto h2,
@@ -2360,7 +2364,7 @@ body.alto-contraste-ativo .entidade__texto .texto-observacao {
 ========================================================= */
 
 body.alto-contraste-ativo .pagina-hero {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
 }
 
@@ -2381,7 +2385,7 @@ body.alto-contraste-ativo .pagina-hero::after {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .historia {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .historia .secao-cabecalho h2,
@@ -2419,7 +2423,7 @@ body.alto-contraste-ativo .historia-item__marcador {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .principios {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .principios .secao-cabecalho h2 {
@@ -2438,7 +2442,7 @@ body.alto-contraste-ativo .principio-card p {
 }
 
 body.alto-contraste-ativo .principio-card__icone {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 /* ---------------------------------------------------------
@@ -2446,7 +2450,7 @@ body.alto-contraste-ativo .principio-card__icone {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .paradesporto {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .paradesporto__texto h2,
@@ -2465,7 +2469,7 @@ body.alto-contraste-ativo .paradesporto__texto .texto-observacao {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .diretoria {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .diretoria .secao-cabecalho h2,
@@ -2478,7 +2482,7 @@ body.alto-contraste-ativo .diretoria .secao-introducao {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .equipe {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .equipe .secao-cabecalho h2,
@@ -2505,7 +2509,7 @@ body.alto-contraste-ativo .pessoa-card__cargo {
 }
 
 body.alto-contraste-ativo .pessoa-card__avatar {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 /* ---------------------------------------------------------
@@ -2513,7 +2517,7 @@ body.alto-contraste-ativo .pessoa-card__avatar {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .numeros {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .numeros .secao-cabecalho h2,
@@ -2522,7 +2526,7 @@ body.alto-contraste-ativo .numeros .secao-introducao {
 }
 
 body.alto-contraste-ativo .numero {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   border-color: #fff;
 }
 
@@ -2536,7 +2540,7 @@ body.alto-contraste-ativo .numero span {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .chamada {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .chamada h2,
@@ -2573,7 +2577,7 @@ body.alto-contraste-ativo .contato-info-card p {
 }
 
 body.alto-contraste-ativo .contato-info-card__icone {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
 }
 
@@ -2611,7 +2615,7 @@ body.alto-contraste-ativo .formulario-aviso {
 
 /* Botão */
 body.alto-contraste-ativo .formulario-contato .botao {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #000;
 }
@@ -2628,7 +2632,7 @@ body.alto-contraste-ativo .formulario-contato .botao:focus-visible {
 ========================================================= */
 
 body.alto-contraste-ativo .localizacao {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .localizacao h2 {
@@ -2658,7 +2662,7 @@ body.alto-contraste-ativo .mapa-placeholder span {
 ========================================================= */
 
 body.alto-contraste-ativo .contato-chamada {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: var(--amarelo-destaque);
 }
 
@@ -2735,7 +2739,7 @@ body.links-destacados .botao {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .projetos-hero {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .projetos-hero h1 {
@@ -2751,7 +2755,7 @@ body.alto-contraste-ativo .projetos-hero .secao-cabecalho > p:not(.eyebrow) {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .projetos-introducao {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .projetos-introducao h2 {
@@ -2777,7 +2781,7 @@ body.alto-contraste-ativo .projetos-introducao .texto-observacao {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .projetos-lista {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .projetos-lista .secao-cabecalho h2 {
@@ -2804,7 +2808,7 @@ body.alto-contraste-ativo .projeto-detalhe {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .projeto-detalhe__imagem {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .projeto-detalhe__imagem img {
@@ -2896,7 +2900,7 @@ body.alto-contraste-ativo .paginacao-projetos {
 }
 
 body.alto-contraste-ativo .paginacao-projetos button {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #fff;
 }
@@ -2913,7 +2917,7 @@ body.alto-contraste-ativo .paginacao-projetos button:focus-visible {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .como-funciona {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .como-funciona .secao-cabecalho h2 {
@@ -2952,7 +2956,7 @@ body.alto-contraste-ativo .etapa-card__numero {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .resultados {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .resultados .secao-cabecalho h2 {
@@ -2968,7 +2972,7 @@ body.alto-contraste-ativo .resultados .secao-introducao {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .resultado {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #fff;
   box-shadow: none;
@@ -2987,7 +2991,7 @@ body.alto-contraste-ativo .resultado span {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .projetos-chamada {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .projetos-chamada h2 {
@@ -3021,7 +3025,7 @@ body.alto-contraste-ativo .projetos-chamada .botao:focus-visible {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .noticias-hero {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .noticias-hero h1 {
@@ -3037,7 +3041,7 @@ body.alto-contraste-ativo .noticias-hero p:not(.eyebrow) {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .noticia-destaque {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .noticia-destaque .secao-cabecalho h2 {
@@ -3061,7 +3065,7 @@ body.alto-contraste-ativo .destaque-card {
 
 body.alto-contraste-ativo .noticia-card,
 body.alto-contraste-ativo .destaque-card {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #fff;
   box-shadow: none;
@@ -3077,7 +3081,7 @@ body.alto-contraste-ativo .destaque-card .noticia-data {
 }
 
 body.alto-contraste-ativo .noticia-jogo {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   border-color: #fff;
   border-left-color: #ff4b0b;
   color: #fff;
@@ -3100,7 +3104,7 @@ body.alto-contraste-ativo .metrica {
 body.alto-contraste-ativo .paginacao__pagina,
 body.alto-contraste-ativo .paginacao__botao,
 body.alto-contraste-ativo .filtro {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #fff;
 }
@@ -3115,7 +3119,7 @@ body.alto-contraste-ativo .filtro.ativo {
 /* Imagem */
 
 body.alto-contraste-ativo .destaque-card__imagem {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .destaque-card__imagem img {
@@ -3125,7 +3129,7 @@ body.alto-contraste-ativo .destaque-card__imagem img {
 /* Conteúdo */
 
 body.alto-contraste-ativo .destaque-card__conteudo {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
 }
 
@@ -3163,6 +3167,7 @@ body.alto-contraste-ativo .destaque-card .conteudo-metricas {
 
 body.alto-contraste-ativo .destaque-card .metrica {
   color: #000;
+  background-color: var(--branco);
 }
 
 body.alto-contraste-ativo .destaque-card .metrica__valor {
@@ -3172,7 +3177,7 @@ body.alto-contraste-ativo .destaque-card .metrica__valor {
 /* Botão do destaque */
 
 body.alto-contraste-ativo .destaque-card .botao {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #000;
 }
@@ -3189,7 +3194,7 @@ body.alto-contraste-ativo .destaque-card .botao:focus-visible {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .arquivo-noticias {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .arquivo-noticias .secao-cabecalho h2 {
@@ -3205,7 +3210,7 @@ body.alto-contraste-ativo .arquivo-noticias .secao-introducao {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .filtro {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #fff;
 }
@@ -3245,7 +3250,7 @@ body.alto-contraste-ativo .noticia-card {
 /* Imagem */
 
 body.alto-contraste-ativo .noticia-card__imagem {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .noticia-card__imagem img {
@@ -3322,7 +3327,7 @@ body.alto-contraste-ativo .paginacao {
 
 body.alto-contraste-ativo .paginacao__pagina,
 body.alto-contraste-ativo .paginacao__botao {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #fff;
 }
@@ -3347,7 +3352,7 @@ body.alto-contraste-ativo .paginacao__pagina.ativa {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .noticias-chamada {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
 }
 
@@ -3392,7 +3397,7 @@ body.alto-contraste-ativo .noticia-destaque :focus-visible {
 
 /* ÁREA PRINCIPAL */
 body.alto-contraste-ativo .transparencia-principal {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 /* INTRODUÇÃO */
@@ -3427,7 +3432,7 @@ body.alto-contraste-ativo .transparencia-item__texto small {
 }
 
 body.alto-contraste-ativo .transparencia-item__icone {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
 }
 
@@ -3538,7 +3543,7 @@ body.alto-contraste-ativo .botao-documento {
 
 body.alto-contraste-ativo .botao-documento:hover,
 body.alto-contraste-ativo .botao-documento:focus-visible {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #000;
 }
@@ -3548,7 +3553,7 @@ body.alto-contraste-ativo .botao-documento:focus-visible {
 ========================================================= */
 
 body.alto-contraste-ativo .transparencia-chamada {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: var(--amarelo-destaque);
 }
 
@@ -3583,7 +3588,7 @@ body.alto-contraste-ativo .transparencia-chamada .botao:focus-visible {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .parceiros-hero {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
 }
 
@@ -3600,7 +3605,7 @@ body.alto-contraste-ativo .parceiros-hero p:last-child {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .parceiros-introducao {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
 }
 
@@ -3617,7 +3622,7 @@ body.alto-contraste-ativo .parceiros-introducao__conteudo p:last-child {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .parceiros-listagem--patrocinadores {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo
@@ -3638,7 +3643,7 @@ body.alto-contraste-ativo
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .parceiros-listagem--parceiros {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
 }
 
 body.alto-contraste-ativo .parceiros-listagem--parceiros .secao-cabecalho h2 {
@@ -3679,7 +3684,7 @@ body.alto-contraste-ativo .parceiro-card img {
 --------------------------------------------------------- */
 
 body.alto-contraste-ativo .parceiros-cta {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: var(--amarelo-destaque);
 }
 
@@ -4182,7 +4187,7 @@ body {
 ========================================================= */
 
 .metrica--curtida {
-  background: #ffe4ea;
+  background: #ffd1dc;
   color: #e52420;
   border: solid 1px rgb(211, 177, 245);
 }
@@ -5376,7 +5381,7 @@ body {
 ========================================================= */
 
 body.alto-contraste-ativo .conquista-card {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
   border-color: #fff;
   box-shadow: none;
@@ -5401,7 +5406,7 @@ body.alto-contraste-ativo .conquista-card__link:focus-visible {
 }
 
 body.alto-contraste-ativo .conquista-card__icone {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: var(--amarelo-destaque);
   border: 2px solid var(--amarelo-destaque);
 }
@@ -5434,7 +5439,7 @@ body.alto-contraste-ativo .documento-descricao {
 ========================================================= */
 
 body.alto-contraste-ativo .contato-chamada {
-  background: linear-gradient(135deg, #363636, #080808) !important;
+  background: #000;
   color: #fff;
 }
 
@@ -5590,4 +5595,31 @@ body.alto-contraste-ativo .contato-chamada .botao:focus-visible {
     margin-top: 5px;
     padding-top: 5px;
   }
+}
+
+/* =========================================================
+   ALTO CONTRASTE — MÉTRICAS DAS NOTÍCIAS
+========================================================= */
+
+body.alto-contraste-ativo .conteudo-metricas .metrica--curtida {
+  background: #e1a8b4 !important;
+  color: #b00020 !important;
+  border: 2px solid #f6d0d7 !important;
+}
+
+body.alto-contraste-ativo .conteudo-metricas .metrica--curtida .metrica__valor {
+  color: #b00020 !important;
+}
+
+body.alto-contraste-ativo .conteudo-metricas .metrica:not(.metrica--curtida) {
+  background: var(--azul-claro) !important;
+  color: #003366 !important;
+  border: 2px solid #d0e2f3 !important;
+}
+
+body.alto-contraste-ativo
+  .conteudo-metricas
+  .metrica:not(.metrica--curtida)
+  .metrica__valor {
+  color: var(--azul-suave) !important;
 }
