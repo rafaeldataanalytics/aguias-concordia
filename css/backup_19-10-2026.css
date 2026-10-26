@@ -187,7 +187,12 @@ p {
 
   z-index: 2000;
 
-  background: var(--azul);
+  background: linear-gradient(
+    135deg,
+    rgba(22, 59, 120, 0.92),
+    rgba(7, 27, 73, 0.98)
+  );
+
   color: var(--branco);
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.16);
@@ -293,7 +298,7 @@ p {
   position: sticky;
   top: 46px;
   z-index: 1000;
-  background: var(--branco);
+  background: #e4e4e7;
   border-bottom: 1px solid var(--borda);
 }
 
@@ -1109,7 +1114,7 @@ p {
 }
 
 .noticia-card a {
-  color: var(--vermelho);
+  color: var(--azul);
 
   font-size: 14px;
   font-weight: 800;
@@ -1406,7 +1411,11 @@ body.alto-contraste-ativo .parceiro-logo img {
 .rodape {
   padding: 60px 0 0;
 
-  background: var(--azul);
+  background: linear-gradient(
+    5deg,
+    rgba(22, 59, 120, 0.92),
+    rgba(7, 27, 73, 0.98)
+  );
 
   color: var(--branco);
 }
@@ -1533,6 +1542,9 @@ body.alto-contraste-ativo .parceiro-logo img {
 
 .redes-sociais li:last-child a:hover {
   color: #e1306c;
+}
+.desenvolvido-por a:hover {
+  color: var(--amarelo-destaque);
 }
 
 /* Rodapé inferior */
@@ -1683,7 +1695,7 @@ body.alto-contraste-ativo .parceiro-logo img {
   }
 
   .hero-imagem img {
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .hero-imagem::before {
@@ -2113,13 +2125,13 @@ body.alto-contraste-ativo a {
 
 body.alto-contraste-ativo a:hover,
 body.alto-contraste-ativo a:focus-visible {
-  color: #00ffff;
+  color: var(--amarelo-destaque);
 }
 
 /* Header */
 
 body.alto-contraste-ativo .cabecalho {
-  background: #000000;
+  background: linear-gradient(5deg, #363636, #080808) !important;
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -2142,7 +2154,7 @@ body.alto-contraste-ativo .menu-principal a:focus-visible {
 /* Botão menu mobile */
 
 body.alto-contraste-ativo .botao-menu {
-  background: #000000;
+  background: #000;
   border-color: #ffffff;
 }
 
@@ -2152,10 +2164,14 @@ body.alto-contraste-ativo .botao-menu span {
 
 /* Seções */
 
-body.alto-contraste-ativo .secao,
-body.alto-contraste-ativo .quem-somos,
+body.alto-contraste-ativo .secao {
+  background: linear-gradient(135deg, #363636, #080808) !important;
+}
+body.alto-contraste-ativo .quem-somos {
+  background: linear-gradient(135deg, #080808, #363636) !important;
+}
 body.alto-contraste-ativo .noticias {
-  background: #000000;
+  background: linear-gradient(135deg, #363636, #080808) !important;
 }
 
 /* Títulos */
@@ -2186,7 +2202,7 @@ body.alto-contraste-ativo .eyebrow {
 
 body.alto-contraste-ativo .projeto-card,
 body.alto-contraste-ativo .noticia-card {
-  background: #000000;
+  background: #000;
   border-color: #ffffff;
   box-shadow: none;
 }
@@ -2201,7 +2217,7 @@ body.alto-contraste-ativo .noticia-card a {
 /* Parceiros */
 
 body.alto-contraste-ativo .parceiros {
-  background: #000000;
+  background: #000;
   border-color: #ffffff;
 }
 
@@ -2218,7 +2234,7 @@ body.alto-contraste-ativo .parceiros .parceiro-logo img {
 /* Painel de acessibilidade */
 
 body.alto-contraste-ativo .painel-acessibilidade {
-  background: #000000;
+  background: #000;
   border-color: #ffffff;
 }
 
@@ -2227,7 +2243,7 @@ body.alto-contraste-ativo .painel-acessibilidade h2 {
 }
 
 body.alto-contraste-ativo .painel-acessibilidade button {
-  background: #000000;
+  background: #000;
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -2235,7 +2251,7 @@ body.alto-contraste-ativo .painel-acessibilidade button {
 /* Footer */
 
 body.alto-contraste-ativo .rodape {
-  background: #000000;
+  background: linear-gradient(335deg, #363636, #080808) !important;
   color: #ffffff;
 }
 
@@ -2263,7 +2279,7 @@ body.alto-contraste-ativo :focus-visible {
 ========================================================= */
 
 body.alto-contraste-ativo .barra-acessibilidade {
-  background: #000000;
+  background: linear-gradient(335deg, #4d4d4d, #080808) !important;
   color: #ffffff;
   border-bottom-color: #ffffff;
 }
@@ -2273,7 +2289,7 @@ body.alto-contraste-ativo .acessibilidade-titulo {
 }
 
 body.alto-contraste-ativo .barra-acessibilidade button {
-  background: #000000;
+  background: #000;
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -2296,7 +2312,10 @@ body.alto-contraste-ativo .noticia-card a {
 
 body.alto-contraste-ativo .noticia-card a:hover,
 body.alto-contraste-ativo .noticia-card a:focus-visible {
-  color: #e52420;
+  color: var(--cinza-claro);
+  background-color: var(--azul-claro);
+  padding: 2px 6px;
+  border-radius: 6px;
 }
 /* =========================================================
    ALTO CONTRASTE — CONTATO
@@ -2450,7 +2469,7 @@ body.alto-contraste-ativo .paradesporto__texto .texto-observacao {
 
 /* ---------------------------------------------------------
    DIRETORIA
---------------------------------------------------------- */
+--------------------------------------------------------- 
 
 body.alto-contraste-ativo .diretoria {
   background: #000;
@@ -2459,7 +2478,7 @@ body.alto-contraste-ativo .diretoria {
 body.alto-contraste-ativo .diretoria .secao-cabecalho h2,
 body.alto-contraste-ativo .diretoria .secao-introducao {
   color: #fff;
-}
+}*/
 
 /* ---------------------------------------------------------
    EQUIPE
@@ -3151,6 +3170,7 @@ body.alto-contraste-ativo .destaque-card .conteudo-metricas {
 
 body.alto-contraste-ativo .destaque-card .metrica {
   color: #000;
+  background-color: var(--branco);
 }
 
 body.alto-contraste-ativo .destaque-card .metrica__valor {
@@ -3403,7 +3423,7 @@ body.alto-contraste-ativo .transparencia-item {
 body.alto-contraste-ativo .transparencia-item:hover,
 body.alto-contraste-ativo .transparencia-item:focus-visible {
   background: #163b78;
-  color: #fff;
+  color: #ffffff;
 }
 
 body.alto-contraste-ativo .transparencia-item__texto strong {
@@ -3723,7 +3743,10 @@ body.links-destacados .menu-principal a::after {
   height: 3px;
   bottom: 0;
   background: var(--amarelo-destaque);
-  transform: scaleX(1);
+}
+
+body.links-destacados .menu-principal a:hover {
+  color: var(--amarelo-destaque);
 }
 /* =========================================================
    REDUZIR ANIMAÇÕES — ACESSIBILIDADE
@@ -4118,6 +4141,10 @@ body.alto-contraste-ativo .chamada .botao:focus-visible {
     width: 100%;
     z-index: 2000;
   }
+
+  body {
+    padding-top: 0px;
+  }
 }
 
 body {
@@ -4166,7 +4193,7 @@ body {
 ========================================================= */
 
 .metrica--curtida {
-  background: #ffe4ea;
+  background: #ffd1dc;
   color: #e52420;
   border: solid 1px rgb(211, 177, 245);
 }
@@ -4293,7 +4320,7 @@ body {
 
   /* =========================================================
    HEADER FIXO — ABAIXO DA BARRA DE ACESSIBILIDADE
-========================================================= */
+========================================================= 
   .desenvolvido-por {
     margin-top: 10px;
     font-size: 0.8rem;
@@ -4309,7 +4336,7 @@ body {
 
   .desenvolvido-por a:hover {
     color: #f4c430;
-  }
+  }*/
 
   /* =====================================================
    CONQUISTAS 2025
@@ -4586,7 +4613,7 @@ body {
 ===================================================== */
 
   .destaque-atleta {
-    background: var(--branco);
+    background: #e4e4e7;
   }
 
   .destaque-atleta__cabecalho {
@@ -5132,6 +5159,12 @@ body {
   font-size: 14px;
 }
 
+.conquista-card__link:hover {
+  margin-top: 18px;
+  color: var(--azul-claro);
+  font-weight: 700;
+  text-decoration: underline;
+}
 /* =========================================================
    IMPACTO SOCIAL
 ========================================================= */
@@ -5198,7 +5231,7 @@ body {
 ========================================================= */
 
 .destaque-atleta {
-  background: var(--cinza-claro);
+  background: #e4e4e7;
 }
 
 .destaque-atleta__cabecalho {
@@ -5255,7 +5288,7 @@ body {
 
 .destaque-atleta__texto p:not(.destaque-atleta__rotulo) {
   margin-bottom: 18px;
-  color: var(--amarelo-destaque);
+  color: var(--azul);
   font-size: 17px;
   line-height: 1.8;
   font-weight: bolder;
@@ -5263,6 +5296,11 @@ body {
 
 .destaque-atleta__texto .botao {
   margin-top: 8px;
+}
+body.alto-contraste-ativo
+  .destaque-atleta__texto
+  p:not(.destaque-atleta__rotulo) {
+  color: var(--cinza-claro);
 }
 
 /* =========================================================
@@ -5369,25 +5407,24 @@ body.alto-contraste-ativo .conquista-card > span:not(.conquista-card__link) {
 }
 
 body.alto-contraste-ativo .conquista-card__link {
-  color: var(--amarelo-destaque) !important;
-  text-decoration: underline;
+  color: var(--branco) !important;
 }
 
 body.alto-contraste-ativo .conquista-card__link:hover,
 body.alto-contraste-ativo .conquista-card__link:focus-visible {
-  color: #000 !important;
-  background: var(--amarelo-destaque);
+  color: var(--amarelo-destaque) !important;
+  text-decoration: underline;
 }
 
 body.alto-contraste-ativo .conquista-card__icone {
   background: #000;
   color: var(--amarelo-destaque);
-  border: 2px solid #fff;
+  border: 2px solid var(--amarelo-destaque);
 }
 
 /* =========================================================
    ALTO CONTRASTE — LINK DAS CONQUISTAS
-========================================================= */
+========================================================= 
 
 body.alto-contraste-ativo a.conquista-card__link {
   color: #ffff00 !important;
@@ -5398,7 +5435,7 @@ body.alto-contraste-ativo a.conquista-card__link:hover,
 body.alto-contraste-ativo a.conquista-card__link:focus-visible {
   color: #000000 !important;
   background: #ffff00 !important;
-}
+}*/
 
 /* =========================================================
    ALTO CONTRASTE — DESCRIÇÃO DOS DOCUMENTOS
@@ -5495,6 +5532,9 @@ body.alto-contraste-ativo .contato-chamada .botao:focus-visible {
 }
 
 /* Reduzir o espaço entre Quem Somos e Conquistas */
+.cabecalho {
+  border: none;
+}
 .quem-somos {
   padding-bottom: 35px;
 }
@@ -5520,4 +5560,129 @@ body.alto-contraste-ativo .contato-chamada .botao:focus-visible {
 
 .destaque-atleta {
   padding-top: 25px;
+}
+
+/* Reduzir espaço entre Destaque do Atleta e Notícias*/
+
+.destaque-atleta {
+  padding-bottom: 25px;
+}
+.noticias {
+  padding-top: 25px;
+}
+
+@media (max-width: 800px) {
+  .logo-link {
+    padding: 5px;
+  }
+  .barra-acessibilidade {
+    padding-bottom: 10px;
+    border: solid 0.5px var(--azul-claro);
+  }
+  .cabecalho {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border: none;
+  }
+  .hero {
+    margin-top: 5px;
+    padding-top: 5px;
+    background: linear-gradient(
+      135deg,
+      rgba(7, 27, 73, 0.98),
+      rgba(22, 59, 120, 0.92)
+    ) !important;
+  }
+}
+@media (max-width: 480px) {
+  .logo-link {
+    padding: 5px;
+  }
+  .cabecalho {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+  .hero {
+    margin-top: 5px;
+    padding-top: 5px;
+  }
+}
+
+/* =========================================================
+   ALTO CONTRASTE — MÉTRICAS DAS NOTÍCIAS
+========================================================= */
+
+body.alto-contraste-ativo .conteudo-metricas .metrica--curtida {
+  background: #e1a8b4 !important;
+  color: #b00020 !important;
+  border: 2px solid #f6d0d7 !important;
+}
+
+body.alto-contraste-ativo .conteudo-metricas .metrica--curtida .metrica__valor {
+  color: #b00020 !important;
+}
+
+body.alto-contraste-ativo .conteudo-metricas .metrica:not(.metrica--curtida) {
+  background: var(--azul-claro) !important;
+  color: #003366 !important;
+  border: 2px solid #d0e2f3 !important;
+}
+
+body.alto-contraste-ativo
+  .conteudo-metricas
+  .metrica:not(.metrica--curtida)
+  .metrica__valor {
+  color: var(--azul-suave) !important;
+}
+
+/* =====================================================
+   ANIMAÇÃO DE ENTRADA DAS IMAGENS
+===================================================== */
+
+.animar-entrada {
+  opacity: 0;
+  transition:
+    opacity 1.25s linear,
+    transform 1.25s linear;
+}
+
+/* Movimento da esquerda para a posição original */
+.animar-entrada.entrada-esquerda {
+  transform: translateX(-60px);
+}
+
+/* Movimento da direita para a posição original */
+.animar-entrada.entrada-direita {
+  transform: translateX(60px);
+}
+
+/* Movimento de baixo para a posição original */
+.animar-entrada.entrada-baixo {
+  transform: translateY(60px);
+}
+
+/* Movimento de cima para a posição original */
+.animar-entrada.entrada-cima {
+  transform: translateY(-60px);
+}
+
+/* Estado final: imagem visível e na posição original */
+.animar-entrada.imagem-visivel {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Respeita a preferência por menos animações */
+.reduzir-animacoes .animar-entrada {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animar-entrada {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

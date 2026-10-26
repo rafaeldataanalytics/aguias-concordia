@@ -498,3 +498,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   aplicarPreferencias();
 });
+
+/* =====================================================
+   ANIMAÇÃO DE ENTRADA DAS IMAGENS
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const imagens = document.querySelectorAll(".animar-entrada");
+
+  // Se não houver imagens marcadas, não faz nada.
+  if (imagens.length === 0) return;
+
+  // Mantém as imagens visíveis se o navegador não
+  // suportar IntersectionObserver.
+  if (!("IntersectionObserver" in window)) {
+    imagens.forEach((imagem) => {
+      imagem.classList.add("imagem-visivel");
+    });
+    return;
+  }
+
+  const observador = new IntersectionObserver(
+    (entradas, observador) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add("imagem-visivel");
+          observador.unobserve(entrada.target);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+    },
+  );
+
+  imagens.forEach((imagem) => {
+    observador.observe(imagem);
+  });
+});
