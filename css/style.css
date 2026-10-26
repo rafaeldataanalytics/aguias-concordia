@@ -5579,3 +5579,10 @@ body.alto-contraste-ativo
     transition: none;
   }
 }
+/* MOBILE — garantir posição original das imagens */
+@media (max-width: 768px) {
+  .animar-entrada.imagem-visivel {
+    opacity: 1;
+    transform: none;
+  }
+}
