@@ -307,11 +307,15 @@
 
 .desenvolvimento__texto p:not(.eyebrow) {
   margin-bottom: 18px;
-  color: var(--amarelo-destaque);
+  color: var(--azul);
   font-size: 17px;
   line-height: 1.8;
   font-style: oblique;
   font-weight: bold;
+}
+
+body.alto-contraste-ativo .desenvolvimento__texto p:not(.eyebrow) {
+  color: var(--branco);
 }
 
 /* =========================================================
@@ -472,7 +476,7 @@
 
 .oportunidades__texto p:not(.eyebrow) {
   margin-bottom: 18px;
-  color: var(--amarelo-destaque);
+  color: var(--azul);
   font-size: 17px;
   line-height: 1.8;
   font-style: oblique;
@@ -516,6 +520,9 @@
   width: 100%;
 }
 
+body.alto-contraste-ativo .oportunidades__texto p:not(.eyebrow) {
+  color: var(--branco);
+}
 /* =========================================================
    9. TRAJETÓRIA ESPORTIVA / CONQUISTAS
 ========================================================= */
@@ -634,11 +641,15 @@
 
 .atleta-historico__texto p:not(.eyebrow) {
   margin-bottom: 17px;
-  color: var(--amarelo-destaque);
+  color: var(--azul);
   font-size: 17px;
   line-height: 1.8;
   font-style: oblique;
   font-weight: bold;
+}
+
+body.alto-contraste-ativo .atleta-historico__texto p:not(.eyebrow) {
+  color: var(--branco);
 }
 
 /* =========================================================
