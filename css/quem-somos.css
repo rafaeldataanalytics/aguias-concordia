@@ -1,5 +1,44 @@
+/* =========================================================
+   1. VARIÁVEIS
+========================================================= */
+
 :root {
+  --azul: #071b49; /*#071b49*/
+  --azul-claro: #163b78; /*#163b78*/
+  --azul-suave: #eef3f0d7; /*#eef3fa*/
+
+  --vermelho: #f6561d; /*#f8250a*/
+  --vermelho-escuro: #f6561d; /*#b91c1c*/
+  --vermelho-suave: #fff1f1;
+  --verde-suave: #d2f7d4;
+  --verde-suave-mais: #a2f8a7;
+  --borda-verde: #1f5022;
   --amarelo-destaque: #f6561d;
+
+  --branco: #ffffff;
+
+  --cinza-claro: #f5f7fa;
+  --cinza: #6b7280;
+  --cinza-escuro: #374151;
+
+  --texto: #17213d;
+  --borda: #e5e7eb;
+
+  --fonte-titulo: "Montserrat", Arial, sans-serif;
+  --fonte-texto: "Inter", Arial, sans-serif;
+
+  --largura-container: 1200px;
+
+  --raio: 12px;
+  --raio-pequeno: 7px;
+
+  --sombra-suave: 0 8px 25px rgba(7, 27, 73, 0.08);
+  --sombra-card: 0 14px 35px rgba(7, 27, 73, 0.12);
+
+  --transicao: 1.5s ease;
+
+  /* Escala global usada pela acessibilidade */
+  --escala-fonte: 1;
 }
 
 /* =========================================================

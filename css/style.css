@@ -5535,8 +5535,8 @@ body.alto-contraste-ativo
 .animar-entrada {
   opacity: 0;
   transition:
-    opacity 1.25s linear,
-    transform 1.25s linear;
+    opacity 2s ease,
+    transform 2s ease;
 }
 
 /* Movimento da esquerda para a posição original */
@@ -5579,10 +5579,15 @@ body.alto-contraste-ativo
     transition: none;
   }
 }
-/* MOBILE — garantir posição original das imagens */
-@media (max-width: 768px) {
-  .animar-entrada.imagem-visivel {
+
+/* =========================================================
+   MOBILE — IMAGENS SEM ANIMAÇÃO DE ENTRADA
+   ========================================================= 
+
+@media (max-width: 800px) {
+  .animar-entrada {
     opacity: 1;
     transform: none;
+    transition: none;
   }
-}
+}*/
