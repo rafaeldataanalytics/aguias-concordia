@@ -103,6 +103,28 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================================================
      FORMATAR RESUMO DAS NOTÍCIAS
   ========================================================= */
+  function formatarLinha(linha) {
+    const matchLink = linha.match(/^Link:\s*(https?:\/\/\S+)$/i);
+
+    if (matchLink) {
+      const url = matchLink[1];
+
+      return `
+      <p>
+        <a
+          href="${escaparHTML(url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="noticia-link-externo"
+        >
+          Acessar link →
+        </a>
+      </p>
+    `;
+    }
+
+    return `<p>${escaparHTML(linha)}</p>`;
+  }
 
   function formatarResumo(texto) {
     const conteudo = String(texto || "")
@@ -122,8 +144,35 @@ document.addEventListener("DOMContentLoaded", () => {
        NOTÍCIA NORMAL
     ========================================================= */
 
-    if (indiceJogos === -1) {
+    /* if (indiceJogos === -1) {
       return linhas.map((linha) => `<p>${escaparHTML(linha)}</p>`).join("");
+    }*/
+
+    if (indiceJogos === -1) {
+      return linhas
+        .map((linha) => {
+          const matchLink = linha.match(/^Link:\s*(https?:\/\/\S+)$/i);
+
+          if (matchLink) {
+            const url = matchLink[1];
+
+            return `
+        <p>
+          <a
+            href="${escaparHTML(url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="noticia-link-externo"
+          >
+            Acessar link →
+          </a>
+        </p>
+      `;
+          }
+
+          return `<p>${escaparHTML(linha)}</p>`;
+        })
+        .join("");
     }
 
     /* =========================================================

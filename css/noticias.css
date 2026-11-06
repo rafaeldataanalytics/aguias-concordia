@@ -600,3 +600,15 @@ body.alto-contraste-ativo .destaque-card {
     padding-top: 15px;
   }
 }
+.noticia-link-externo {
+  display: inline-block;
+  color: var(--azul-claro);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.noticia-link-externo:hover {
+  color: var(--vermelho);
+}
